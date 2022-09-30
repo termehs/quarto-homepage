@@ -1,0 +1,101 @@
+---
+pagetitle: "Termeh Shafie"
+page-layout: custom
+toc: false
+css: index.css
+socials:
+  twitter: termehshafie
+shortcodes:
+  - socials.lua
+listing: 
+  - id: projects
+    max-description-length: 500
+    fields: [image,title,description]
+    contents: 
+      - project/rmm
+      - project/seand
+      - project/nexus
+      - project/movienetworks
+    type: grid
+    image-align: left
+    sort: "priority asc"
+---
+
+
+
+:::: {.columns}
+
+
+::: {.column .col-v-center width="10%"}
+:::
+
+::: {.column .col-v-center width="25%"}
+::: {.portrait}
+![](static/img/avatar.png)
+:::
+
+
+:::{.socials}
+{{< twitter termehshafie >}}
+{{< github termehs >}}
+{{< scholar Si-WbhAAAAAJ >}}
+{{< orcid 0000-0002-8419-8477 >}}
+{{< researchgate Termeh-Shafie/ >}}
+:::
+
+:::
+
+
+
+
+
+
+::: {.column .col-h-center width="5%"}
+:::
+
+
+::: {.column .col-v-center width="50%"}
+
+
+
+# Termeh Shafie
+::: {.termeh-intro}
+
+
+I’m a statistician working as a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science).
+
+
+
+:::{.about-link}
+[ABOUT ME](about/)
+:::
+
+:::
+:::
+
+
+::: {.column .col-v-center width="15%"}
+:::
+
+
+
+::::
+
+::::{.columns}
+
+::: {.column .col-v-center width="20%"}
+:::
+
+::: {.column .col-v-center width="60%"}
+
+## Projects
+:::{#projects}
+:::
+
+::: {.all-link}
+[all projects](project/)
+:::
+
+:::
+
+::::

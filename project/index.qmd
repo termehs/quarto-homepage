@@ -1,0 +1,23 @@
+---
+title: "Projects"
+page-layout: full
+listing:
+  - id: proj
+    max-description-length: 500
+    image-height: "250px"	
+    fields: [image,title,description]
+    contents: 
+      - movienetworks
+      - nexus
+      - rmm
+      - seand
+    type: grid
+    image-align: left
+    sort: "priority asc"
+    grid-item-border: false
+---
+
+:::{.center}
+<img src="https://ghchart.rshah.org/137752/termehs">
+:::
+

@@ -1,0 +1,18 @@
+---
+author: Termeh Shafie
+date: "2022-10-01"
+title: multigraph representation of network data
+image: featured.png
+title-block-style: none
+toc: true
+priority: 2
+---
+
+
+## project summary
+
+
+
+### r package
+
+#### test

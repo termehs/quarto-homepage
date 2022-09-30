@@ -1,0 +1,14 @@
+{
+  "hash": "1a84ecd6520825786813440fa50cd346",
+  "result": {
+    "markdown": "---\npagetitle: \"Termeh Shafie\"\npage-layout: custom\ntoc: false\ncss: index.css\nsocials:\n  twitter: termehshafie\nshortcodes:\n  - socials.lua\n---\n\n\n\n\n::: {.column  width=\"50%\"}\n::: {.column .col-v-center width=\"10%\"}\n:::\n\n::: {.column .col-v-center width=\"40%\"}\n![](static/img/avatar.png)\n:::\n:::\n\n::: {.column .col-v-center width=\"35%\"}\n# Termeh Shafie\n\n:::\n\n:::{.socials}\n\n{{< twitter termehshafie >}}\n\n\n{{< github termehs >}}\n\n\n{{< scholar Si-WbhAAAAAJ >}}\n\n\n{{< orcid 0000-0002-8419-8477 >}}\n\n\n:::\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

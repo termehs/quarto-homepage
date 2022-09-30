@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-website",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "quarto-website",
+    "section": "Projects",
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nstatistical entropy analysis of network data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmultigraph representation of network data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnexus 1492 - reconstructing networks of the past\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork analysis to unpack the gender bias in popular cinema\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\nall projects"
+  },
+  {
+    "objectID": "project/index.html",
+    "href": "project/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "statistical entropy analysis of network data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmultigraph representation of network data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnexus 1492 - reconstructing networks of the past\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork analysis to unpack the gender bias in popular cinema\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "project/rmm/index.html",
+    "href": "project/rmm/index.html",
+    "title": "random multigraphs",
+    "section": "",
+    "text": "Please report any missing sources/references for datasets.\nMany datasets were automatically assembled and may thus contain errors (not all were manually checked). If you spot any, please report them. Check the original sources for any inconsistencies if you want to use the data in an academic paper."
+  }
+]
