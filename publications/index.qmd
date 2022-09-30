@@ -1,0 +1,11 @@
+---
+title: "Publications"
+listing:
+  contents: 
+    - aggregated_triads
+    - complexity_multigraphs
+    - data_protection
+  type: default
+  image-align: left
+  sort: "date desc"
+---

@@ -19,6 +19,17 @@ listing:
     type: grid
     image-align: left
     sort: "priority asc"
+  - id: publication
+    max-description-length: 500
+    fields: [image,title,description,date]
+    contents:
+    - publications/aggregated_triads
+    - publications/complexity_multigraphs
+    - publications/data_protection
+    type: default
+    image-align: left
+    max-items: 3
+    sort: "date desc"
 ---
 
 
