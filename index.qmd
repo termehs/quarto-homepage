@@ -24,16 +24,11 @@ listing:
 
 
 :::: {.columns}
-
-
-::: {.column .col-v-center width="10%"}
+::: {.column .col-v-center width="15%"}
 :::
-
-::: {.column .col-v-center width="25%"}
+::: {.column .col-v-center width="30%"}
 ::: {.portrait}
 ![](static/img/avatar.png)
-:::
-
 
 :::{.socials}
 {{< twitter termehshafie >}}
@@ -42,29 +37,15 @@ listing:
 {{< orcid 0000-0002-8419-8477 >}}
 {{< researchgate Termeh-Shafie/ >}}
 :::
-
+:::
 :::
 
-
-
-
-
-
-::: {.column .col-h-center width="5%"}
-:::
-
-
-::: {.column .col-v-center width="50%"}
-
-
+::: {.column .col-v-center width="35%"}
 
 # Termeh Shafie
 ::: {.termeh-intro}
 
-
 I’m a statistician working as a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science).
-
-
 
 :::{.about-link}
 [ABOUT ME](about/)

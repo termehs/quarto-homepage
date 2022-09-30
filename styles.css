@@ -227,9 +227,9 @@ div.column.col-v-center{
 .socials {
     padding-top: 0.5em;
     padding-bottom: 1em;
+    padding-left: 5%;
+    font-size: 1.3em;
 }
-
-
 
 .socials a{
   color: #8f8187;
