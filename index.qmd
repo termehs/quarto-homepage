@@ -19,13 +19,24 @@ listing:
     type: grid
     image-align: left
     sort: "priority asc"
+  - id: publication
+    max-description-length: 500
+    fields: [image,title,description,date]
+    contents: 
+    - publication/aggregated_triads
+    type: default
+    image-align: left
+    max-items: 3
+    sort: "date desc"
 ---
 
 
 
 :::: {.columns}
+
 ::: {.column .col-v-center width="15%"}
 :::
+
 ::: {.column .col-v-center width="30%"}
 ::: {.portrait}
 ![](static/img/avatar.png)
@@ -38,6 +49,7 @@ listing:
 {{< researchgate Termeh-Shafie/ >}}
 :::
 :::
+
 :::
 
 ::: {.column .col-v-center width="35%"}
@@ -77,6 +89,18 @@ I’m a statistician working as a Senior Researcher for the “Digital Society O
 [all projects](project/)
 :::
 
+
+## Latest Publications
+:::{#publication}
+:::
+
+::: {.all-link}
+[all publications](publications/)
+:::
+
+:::
+
+::: {.column .col-v-center width="20%"}
 :::
 
 ::::

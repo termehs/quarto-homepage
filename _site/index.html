@@ -83,6 +83,34 @@ ul.task-list{list-style: none;}
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-publication .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-publication'] = new List('listing-publication', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -239,6 +267,46 @@ No matching items
 <p><a href="project/">all projects</a></p>
 </div>
 </section>
+<section id="latest-publications" class="level2">
+<h2 data-anchor-id="latest-publications">Latest Publications</h2>
+<div id="listing-publication" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-left" data-index="0" data-listing-date-sort="1516834800000" data-listing-file-modified-sort="1664631255599" data-listing-reading-time-sort="0.51">
+<div class="thumbnail">
+<p><a href="./publication/aggregated_triads/index.html"> <img src="./publication/aggregated_triads/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./publication/aggregated_triads/index.html">
+<h3 class="no-anchor listing-title">
+Random Multigraphs and Aggregated Triads with Fixed Degrees
+</h3>
+<div class="listing-subtitle">
+Ove Frank, Termeh Shafie
+</div>
+<div class="listing-description">
+<p>New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publication/aggregated_triads/index.html">
+<div class="listing-date">
+Jan 25, 2018
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<div class="all-link">
+<p><a href="publications/">all publications</a></p>
+</div>
+</section>
+</div><div class="column col-v-center" style="width:20%;">
+
 </div>
 </div>
 

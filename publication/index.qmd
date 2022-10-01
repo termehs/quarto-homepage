@@ -1,0 +1,9 @@
+---
+title: "Publications"
+listing:
+  contents: 
+    - aggregated triads
+  type: default
+  image-align: left
+  sort: "date desc"
+---

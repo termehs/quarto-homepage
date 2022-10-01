@@ -11,7 +11,11 @@
       "project/seand",
       "project/movieproject",
       "project/nexus",
-      "project/movienetworks"
+      "project/movienetworks",
+      "publications/aggregated_traids",
+      "publications/aggregated_trdds",
+      "publications/aggregated_triads",
+      "publication/aggregated_triads"
     ]
   }
 }
