@@ -15,7 +15,14 @@
       "publications/aggregated_traids",
       "publications/aggregated_trdds",
       "publications/aggregated_triads",
-      "publication/aggregated_triads"
+      "publication/aggregated_triads",
+      "publication/data_protection",
+      "publication/ergm_framework_arch"
+    ],
+    "publication/index.qmd": [
+      "aggregated_triads",
+      "data_protection",
+      "ergm_framework_arch"
     ]
   }
 }

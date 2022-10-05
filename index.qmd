@@ -24,6 +24,8 @@ listing:
     fields: [image,title,description,date]
     contents: 
     - publication/aggregated_triads
+    - publication/data_protection
+    - publication/ergm_framework_arch
     type: default
     image-align: left
     max-items: 3

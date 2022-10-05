@@ -2,7 +2,9 @@
 title: "Publications"
 listing:
   contents: 
-    - aggregated triads
+    - aggregated_triads
+    - data_protection
+    - ergm_framework_arch
   type: default
   image-align: left
   sort: "date desc"

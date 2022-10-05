@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2016-01-01">
-<meta name="description" content="We consider different approaches for data privacy in online social networks and for developing graph protection.">
 
-<title>quarto-website - Data Protection for Online Social Networks and P-Stability for Graphs</title>
+<title>quarto-website - Publications</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,22 +18,24 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -55,19 +55,49 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="../../academicons.css">
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../academicons.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">quarto-website</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -76,10 +106,10 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">Home</a>
+    <a class="nav-link" href="../index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../about.html">About</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -91,30 +121,114 @@ ul.task-list{list-style: none;}
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
-<h1 class="title display-7">Data Protection for Online Social Networks and P-Stability for Graphs</h1>
-<p class="subtitle lead">Vicenç Torra, Termeh Shafie, Julián Salas</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Publications</h1>
+</div>
 
 
-<p class="date">2016-01-01</p>
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
 </header>
 
-<button type="button" class="btn btn-outline-success">
-<a href="https://doi.org/10.1109/TETC.2015.2433923[Opens in a new window]">journal</a>
-</button>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Graphs can be used as a model for online social networks. In this framework, vertices represent individuals and edges relationships between individuals. In recent years, different approaches have been considered to offer data privacy to online social networks and for developing graph protection. Perturbative approaches are formally defined in terms of perturbation and modification of graphs. In this paper, we discuss the concept of P -stability on graphs and its relation to data privacy. The concept of P -stability is rooted in the number of graphs given a fixed degree sequence. In this paper, we show that for any graph there exists a class of P -stable graphs. This result implies that there is a fully polynomial randomized approximation for graph masking for the graphs in the class. In order to further refine the classification of a given graph, we introduce the concept of natural class of a graph. It is based on a class of scale-free networks.</p>
-<p><em>IEEE Transactions on Emerging Topics in Computing</em> <strong>4</strong>(3), 374-381</p>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-left" data-index="0" data-listing-date-sort="1566684000000" data-listing-file-modified-sort="1664957544447" data-listing-reading-time-sort="0.66">
+<div class="thumbnail">
+<p><a href="../publication/ergm_framework_arch/index.html"> <img src="../publication/ergm_framework_arch/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../publication/ergm_framework_arch/index.html">
+<h3 class="no-anchor listing-title">
+A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models
+</h3>
+<div class="listing-subtitle">
+Viviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes
+</div>
+<div class="listing-description">
+<p>We present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../publication/ergm_framework_arch/index.html">
+<div class="listing-date">
+Aug 25, 2019
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-left" data-index="1" data-listing-date-sort="1516834800000" data-listing-file-modified-sort="1664631255599" data-listing-reading-time-sort="0.51">
+<div class="thumbnail">
+<p><a href="../publication/aggregated_triads/index.html"> <img src="../publication/aggregated_triads/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../publication/aggregated_triads/index.html">
+<h3 class="no-anchor listing-title">
+Random Multigraphs and Aggregated Triads with Fixed Degrees
+</h3>
+<div class="listing-subtitle">
+Ove Frank, Termeh Shafie
+</div>
+<div class="listing-description">
+<p>New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../publication/aggregated_triads/index.html">
+<div class="listing-date">
+Jan 25, 2018
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-left" data-index="2" data-listing-date-sort="1451602800000" data-listing-file-modified-sort="1664957166322" data-listing-reading-time-sort="0.87">
+<div class="thumbnail">
+<p><a href="../publication/data_protection/index.html"> <img src="../publication/data_protection/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../publication/data_protection/index.html">
+<h3 class="no-anchor listing-title">
+Data Protection for Online Social Networks and P-Stability for Graphs
+</h3>
+<div class="listing-subtitle">
+Vicenç Torra, Termeh Shafie, Julián Salas
+</div>
+<div class="listing-description">
+<p>We consider different approaches for data privacy in online social networks and for developing graph protection.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../publication/data_protection/index.html">
+<div class="listing-date">
+Jan 1, 2016
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

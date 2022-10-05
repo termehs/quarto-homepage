@@ -39,7 +39,7 @@
     "href": "index.html#latest-publications",
     "title": "quarto-website",
     "section": "Latest Publications",
-    "text": "Latest Publications\n\n\n\n\n  \n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
+    "text": "Latest Publications\n\n\n\n\n  \n\n\n\n\nA Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models\n\n\nViviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.\n\n\n\n\n\n\nAug 25, 2019\n\n\n\n\n\n\n  \n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\n  \n\n\n\n\nData Protection for Online Social Networks and P-Stability for Graphs\n\n\nVicenç Torra, Termeh Shafie, Julián Salas\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\nJan 1, 2016\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
   },
   {
     "objectID": "publication/aggregated_triads/index.html",
@@ -61,5 +61,40 @@
     "title": "quarto-website",
     "section": "Last Publications",
     "text": "Last Publications\n\n\n\n\n  \n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
+  },
+  {
+    "objectID": "publication/index.html",
+    "href": "publication/index.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Viviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.\n\n\n\n\n\n\nAug 25, 2019\n\n\n\n\n\n\n  \n\n\n\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\n  \n\n\n\n\n\nVicenç Torra, Termeh Shafie, Julián Salas\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\nJan 1, 2016\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publication/data_protection/index.html",
+    "href": "publication/data_protection/index.html",
+    "title": "Data Protection for Online Social Networks and P-Stability for Graphs",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publication/data_protection/index.html#abstract",
+    "href": "publication/data_protection/index.html#abstract",
+    "title": "Data Protection for Online Social Networks and P-Stability for Graphs",
+    "section": "Abstract",
+    "text": "Abstract\nGraphs can be used as a model for online social networks. In this framework, vertices represent individuals and edges relationships between individuals. In recent years, different approaches have been considered to offer data privacy to online social networks and for developing graph protection. Perturbative approaches are formally defined in terms of perturbation and modification of graphs. In this paper, we discuss the concept of P -stability on graphs and its relation to data privacy. The concept of P -stability is rooted in the number of graphs given a fixed degree sequence. In this paper, we show that for any graph there exists a class of P -stable graphs. This result implies that there is a fully polynomial randomized approximation for graph masking for the graphs in the class. In order to further refine the classification of a given graph, we introduce the concept of natural class of a graph. It is based on a class of scale-free networks.\nIEEE Transactions on Emerging Topics in Computing 4(3), 374-381"
+  },
+  {
+    "objectID": "publication/ergm_framework_arch/index.html",
+    "href": "publication/ergm_framework_arch/index.html",
+    "title": "A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publication/ergm_framework_arch/index.html#abstract",
+    "href": "publication/ergm_framework_arch/index.html#abstract",
+    "title": "A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models",
+    "section": "Abstract",
+    "text": "Abstract\nReconstructing ties between archaeological contexts may contribute to explain and describe a variety of past social phenomena. Several models have been formulated to infer the structure of such archaeological networks. The underlying propositions about mechanisms regulating the formation of ties in the past are often articulated on a dyadic basis and therefore rarely account for dependencies among ties. Here, we present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence. We use data collected over a set of sites in the Caribbean during the period AD 100 - 400 to illustrate the steps to obtain a network reconstruction.\nJournal of Archaeological Method and Theory 27, 192-219"
   }
 ]
