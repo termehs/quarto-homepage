@@ -19,13 +19,24 @@
       "publication/data_protection",
       "publication/ergm_framework_arch",
       "publications/global_local_multigraphs",
-      "publication/global_local_multigraphs"
+      "publication/global_local_multigraphs",
+      "publication/gof_multigraph",
+      "publication/hypergraph",
+      "publication/isotopes",
+      "publications/data_protection",
+      "publications/ergm_framework_arch",
+      "publications/gof_multigraph",
+      "publications/hypergraph",
+      "publications/isotopes"
     ],
     "publication/index.qmd": [
       "aggregated_triads",
       "data_protection",
       "ergm_framework_arch",
-      "global_local_multigraphs"
+      "global_local_multigraphs",
+      "gof_multigraph",
+      "hypergraph",
+      "isotopes"
     ]
   }
 }

@@ -6,6 +6,9 @@ listing:
     - data_protection
     - ergm_framework_arch
     - global_local_multigraphs
+    - gof_multigraph
+    - hypergraph
+    - isotopes
   type: default
   image-align: left
   sort: "date desc"

@@ -131,13 +131,18 @@ h1.f3{
 /*buttons*/
 
 .btn-outline-success{
-  border-color: #9EEBCF;
+  border-color: #8f8187;
   background-color: transparent;
+  border-radius: 10px;
+  padding: 1px;
+  width: 80px;
+  height: 30px;
+  font-size: 0.77em;
 }
 
 .btn-outline-success:hover{
-  border-color: white;
-  background-color: #666666;
+  border-color: #8f8187;
+  background-color: #abada1;
 }
 
 .btn-outline-success a{

@@ -27,9 +27,12 @@ listing:
     - publication/data_protection
     - publication/ergm_framework_arch
     - publication/global_local_multigraphs
+    - publication/gof_multigraph
+    - publication/hypergraph
+    - publication/isotopes
     type: default
     image-align: left
-    max-items: 3
+    max-items: 10
     sort: "date desc"
 ---
 
