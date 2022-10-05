@@ -8,7 +8,7 @@ title-block-style: none
 toc: false
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1017/nws.2017.31[Opens in a new window]">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1017/nws.2017.31">journal</a></button>
 
 
 ## Abstract 

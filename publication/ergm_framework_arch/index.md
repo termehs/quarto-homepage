@@ -8,7 +8,7 @@ title-block-style: none
 toc: false
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://link.springer.com/article/10.1007/s10816-019-09423-z[Opens in a new window]">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10816-019-09423-z">journal</a></button>
 
 
 ## Abstract 
