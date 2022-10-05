@@ -229,6 +229,14 @@ div.column.col-v-center{
    vertical-align: middle;
 }
 
+div.quarto-post {
+    display: flex;
+    gap: 2em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #dee2e6;
+    align-content: center;
+}
+
 .home-title{
   font-size: 2em;
 }

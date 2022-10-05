@@ -9,6 +9,7 @@ listing:
     - gof_multigraph
     - hypergraph
     - isotopes
+    - multigraph_approach
   type: default
   image-align: left
   sort: "date desc"

@@ -27,7 +27,8 @@
       "publications/ergm_framework_arch",
       "publications/gof_multigraph",
       "publications/hypergraph",
-      "publications/isotopes"
+      "publications/isotopes",
+      "publication/multigraph_approach"
     ],
     "publication/index.qmd": [
       "aggregated_triads",
@@ -36,7 +37,8 @@
       "global_local_multigraphs",
       "gof_multigraph",
       "hypergraph",
-      "isotopes"
+      "isotopes",
+      "multigraph_approach"
     ]
   }
 }

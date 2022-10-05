@@ -30,6 +30,7 @@ listing:
     - publication/gof_multigraph
     - publication/hypergraph
     - publication/isotopes
+    - publication/multigraph_approach
     type: default
     image-align: left
     max-items: 10
