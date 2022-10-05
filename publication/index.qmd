@@ -5,6 +5,7 @@ listing:
     - aggregated_triads
     - data_protection
     - ergm_framework_arch
+    - global_local_multigraphs
   type: default
   image-align: left
   sort: "date desc"

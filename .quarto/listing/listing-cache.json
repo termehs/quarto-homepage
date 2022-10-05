@@ -17,12 +17,15 @@
       "publications/aggregated_triads",
       "publication/aggregated_triads",
       "publication/data_protection",
-      "publication/ergm_framework_arch"
+      "publication/ergm_framework_arch",
+      "publications/global_local_multigraphs",
+      "publication/global_local_multigraphs"
     ],
     "publication/index.qmd": [
       "aggregated_triads",
       "data_protection",
-      "ergm_framework_arch"
+      "ergm_framework_arch",
+      "global_local_multigraphs"
     ]
   }
 }

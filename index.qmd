@@ -26,6 +26,7 @@ listing:
     - publication/aggregated_triads
     - publication/data_protection
     - publication/ergm_framework_arch
+    - publication/global_local_multigraphs
     type: default
     image-align: left
     max-items: 3

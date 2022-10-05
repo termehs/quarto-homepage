@@ -39,7 +39,7 @@
     "href": "index.html#latest-publications",
     "title": "quarto-website",
     "section": "Latest Publications",
-    "text": "Latest Publications\n\n\n\n\n  \n\n\n\n\nA Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models\n\n\nViviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.\n\n\n\n\n\n\nAug 25, 2019\n\n\n\n\n\n\n  \n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\n  \n\n\n\n\nData Protection for Online Social Networks and P-Stability for Graphs\n\n\nVicenç Torra, Termeh Shafie, Julián Salas\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\nJan 1, 2016\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
+    "text": "Latest Publications\n\n\n\n\n  \n\n\n\n\nA Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models\n\n\nViviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.\n\n\n\n\n\n\nAug 25, 2019\n\n\n\n\n\n\n  \n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\n  \n\n\n\n\nAnalyzing Local and Global Properties of Multigraphs\n\n\nTermeh Shafie\n\n\nThe local and global structures of undirected multigraphs under two random multigraph models are analyzed and compared.\n\n\n\n\n\n\nSep 25, 2016\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
   },
   {
     "objectID": "publication/aggregated_triads/index.html",
@@ -67,7 +67,7 @@
     "href": "publication/index.html",
     "title": "Publications",
     "section": "",
-    "text": "Viviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.\n\n\n\n\n\n\nAug 25, 2019\n\n\n\n\n\n\n  \n\n\n\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\n  \n\n\n\n\n\nVicenç Torra, Termeh Shafie, Julián Salas\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\nJan 1, 2016\n\n\n\n\n\n\nNo matching items"
+    "text": "Viviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.\n\n\n\n\n\n\nAug 25, 2019\n\n\n\n\n\n\n  \n\n\n\n\n\nOve Frank, Termeh Shafie\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.\n\n\n\n\n\n\nJan 25, 2018\n\n\n\n\n\n\n  \n\n\n\n\n\nTermeh Shafie\n\n\nThe local structure of undirected multigraphs under two random multigraph models is analyzed and compared.\n\n\n\n\n\n\nSep 25, 2016\n\n\n\n\n\n\n  \n\n\n\n\n\nVicenç Torra, Termeh Shafie, Julián Salas\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\nJan 1, 2016\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "publication/data_protection/index.html",
@@ -96,5 +96,19 @@
     "title": "A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models",
     "section": "Abstract",
     "text": "Abstract\nReconstructing ties between archaeological contexts may contribute to explain and describe a variety of past social phenomena. Several models have been formulated to infer the structure of such archaeological networks. The underlying propositions about mechanisms regulating the formation of ties in the past are often articulated on a dyadic basis and therefore rarely account for dependencies among ties. Here, we present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence. We use data collected over a set of sites in the Caribbean during the period AD 100 - 400 to illustrate the steps to obtain a network reconstruction.\nJournal of Archaeological Method and Theory 27, 192-219"
+  },
+  {
+    "objectID": "publication/global_local_multigraphs/index.html",
+    "href": "publication/global_local_multigraphs/index.html",
+    "title": "Analyzing Local and Global Properties of Multigraphs",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publication/global_local_multigraphs/index.html#abstract",
+    "href": "publication/global_local_multigraphs/index.html#abstract",
+    "title": "Analyzing Local and Global Properties of Multigraphs",
+    "section": "Abstract",
+    "text": "Abstract\nThe local structure of undirected multigraphs under two random multigraph models is analyzed and compared. The first model generates multigraphs by randomly coupling pairs of stubs according to a fixed degree sequence so that edge assignments to vertex pair sites are dependent. The second model is a simplification that ignores the dependency between the edge assignments. It is investigated when this ignorance is justified so that the simplified model can be used as an approximation, thus facilitating the structural analysis of network data with multiple relations and loops. The comparison is based on the local properties of multigraphs given by marginal distribution of edge multiplicities and some local properties that are aggregations of global properties.\nJournal of Mathematical Sociology 40(4), 239-264"
   }
 ]
