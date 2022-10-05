@@ -23,14 +23,15 @@ listing:
     max-description-length: 500
     fields: [image,title,description,date]
     contents: 
-    - publication/aggregated_triads
-    - publication/data_protection
-    - publication/ergm_framework_arch
-    - publication/global_local_multigraphs
-    - publication/gof_multigraph
-    - publication/hypergraph
-    - publication/isotopes
-    - publication/multigraph_approach
+    - publications/aggregated_triads
+    - publications/data_protection
+    - publications/ergm_framework_arch
+    - publications/global_local_multigraphs
+    - publications/gof_multigraph
+    - publications/hypergraph
+    - publications/isotopes
+    - publications/multigraph_approach
+    - publications/multiplexity
     type: default
     image-align: left
     max-items: 10
