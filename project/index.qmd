@@ -2,7 +2,7 @@
 title: "Projects"
 page-layout: full
 listing:
-  - id: proj
+  - id: projects
     max-description-length: 500
     image-height: "250px"	
     fields: [image,title,description]

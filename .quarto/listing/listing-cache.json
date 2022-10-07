@@ -30,7 +30,15 @@
       "publications/isotopes",
       "publication/multigraph_approach",
       "publications/multiplexity",
-      "publications/multigraph_approach"
+      "publications/multigraph_approach",
+      "publications/multivariate_entropy_analysis",
+      "publications/ontario_sna",
+      "publications/reconstructing_arch_nets",
+      "publications/sna_chapter",
+      "publications/complexity_multigraphs",
+      "netropy",
+      "multigraphr",
+      "project/convoys"
     ],
     "publication/index.qmd": [
       "aggregated_triads",
@@ -52,7 +60,12 @@
       "hypergraph",
       "isotopes",
       "multigraph_approach",
-      "multiplexity"
+      "multiplexity",
+      "multivariate_entropy_analysis",
+      "ontario_sna",
+      "reconstructing_arch_nets",
+      "sna_chapter",
+      "complexity_multigraphs"
     ]
   }
 }

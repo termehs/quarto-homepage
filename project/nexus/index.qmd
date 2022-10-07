@@ -5,7 +5,7 @@ title: nexus 1492 - reconstructing networks of the past
 image: featured.png
 title-block-style: none
 toc: true
-priority: 3
+priority: 5
 ---
 
 

@@ -16,6 +16,7 @@ listing:
       - project/seand
       - project/nexus
       - project/movienetworks
+      - project/convoys
     type: grid
     image-align: left
     sort: "priority asc"
@@ -32,14 +33,19 @@ listing:
     - publications/isotopes
     - publications/multigraph_approach
     - publications/multiplexity
+    - publications/multivariate_entropy_analysis
+    - publications/ontario_sna
+    - publications/reconstructing_arch_nets
+    - publications/sna_chapter
+    - publications/complexity_multigraphs
     type: default
     image-align: left
-    max-items: 10
+    max-items: 7
     sort: "date desc"
 ---
 
 
-
+::: {.home-section}
 :::: {.columns}
 
 ::: {.column .col-v-center width="15%"}
@@ -74,11 +80,7 @@ I’m a statistician working as a Senior Researcher for the “Digital Society O
 :::
 :::
 
-
-::: {.column .col-v-center width="15%"}
 :::
-
-
 
 ::::
 
@@ -97,6 +99,21 @@ I’m a statistician working as a Senior Researcher for the “Digital Society O
 [all projects](project/)
 :::
 
+:::
+
+::::
+
+
+::::{.columns}
+
+
+::: {.home-section}
+
+
+::: {.column .col-v-center width="20%"}
+:::
+
+::: {.column .col-v-center width="60%"}
 
 ## Latest Publications
 :::{#publication}
@@ -106,9 +123,9 @@ I’m a statistician working as a Senior Researcher for the “Digital Society O
 [all publications](publications/)
 :::
 
-:::
 
-::: {.column .col-v-center width="20%"}
+
+:::
 :::
 
 ::::

@@ -11,6 +11,11 @@ listing:
     - isotopes
     - multigraph_approach
     - multiplexity
+    - multivariate_entropy_analysis
+    - ontario_sna
+    - reconstructing_arch_nets
+    - sna_chapter
+    - complexity_multigraphs
   type: default
   image-align: left
   sort: "date desc"

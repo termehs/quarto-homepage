@@ -4,8 +4,8 @@
     "items": [
       "/project/seand/index.html",
       "/project/rmm/index.html",
-      "/project/nexus/index.html",
-      "/project/movienetworks/index.html"
+      "/project/movienetworks/index.html",
+      "/project/nexus/index.html"
     ]
   },
   {
@@ -13,17 +13,23 @@
     "items": [
       "/project/seand/index.html",
       "/project/rmm/index.html",
-      "/project/nexus/index.html",
+      "/project/convoys/index.html",
       "/project/movienetworks/index.html",
+      "/project/nexus/index.html",
       "/publications/gof_multigraph/index.html",
       "/publications/multiplexity/index.html",
+      "/publications/sna_chapter/index.html",
       "/publications/ergm_framework_arch/index.html",
+      "/publications/reconstructing_arch_nets/index.html",
       "/publications/aggregated_triads/index.html",
       "/publications/hypergraph/index.html",
       "/publications/isotopes/index.html",
       "/publications/global_local_multigraphs/index.html",
+      "/publications/ontario_sna/index.html",
+      "/publications/multivariate_entropy_analysis/index.html",
       "/publications/data_protection/index.html",
-      "/publications/multigraph_approach/index.html"
+      "/publications/multigraph_approach/index.html",
+      "/publications/complexity_multigraphs/index.html"
     ]
   },
   {
@@ -45,13 +51,18 @@
     "items": [
       "/publications/gof_multigraph/index.html",
       "/publications/multiplexity/index.html",
+      "/publications/sna_chapter/index.html",
       "/publications/ergm_framework_arch/index.html",
+      "/publications/reconstructing_arch_nets/index.html",
       "/publications/aggregated_triads/index.html",
       "/publications/hypergraph/index.html",
       "/publications/isotopes/index.html",
       "/publications/global_local_multigraphs/index.html",
+      "/publications/ontario_sna/index.html",
+      "/publications/multivariate_entropy_analysis/index.html",
       "/publications/data_protection/index.html",
-      "/publications/multigraph_approach/index.html"
+      "/publications/multigraph_approach/index.html",
+      "/publications/complexity_multigraphs/index.html"
     ]
   }
 ]

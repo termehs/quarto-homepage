@@ -4,11 +4,15 @@ div.sourceCode{
 }
 
 
-
+body {
+    background-color: #ebe9e1;
+}
+    
 h1,h2,h3,h4{
   font-family: 'Teko';
   
 }
+
 
 
 .portrait {
@@ -22,6 +26,7 @@ h1,h2,h3,h4{
 .listing-title{
   color: #63615a;
   font-weight: 300;
+  font-size: 1.5em;
 }
 
 .listing-title:hover {
@@ -48,23 +53,23 @@ a.btn-links:hover{
 }
 
 .habout{
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: 'Teko';
   font-weight: 700;
 }
 
 h1{
   font-weight: 200;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 h2,h3{
   font-weight: 200;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 h4.f4{
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 h1.f3{
@@ -135,7 +140,7 @@ h1.f3{
   background-color: transparent;
   border-radius: 10px;
   padding: 1px;
-  width: 80px;
+  min-width: 80px;
   height: 30px;
   font-size: 0.77em;
 }
@@ -152,16 +157,10 @@ h1.f3{
 
 /* grid cards */
 h5, .h5{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
-  grid-column-gap: 10px;
-  grid-row-gap: 15px;
-}
 
 .card {
   overflow: hidden;
@@ -170,7 +169,8 @@ h5, .h5{
   padding: 5px;
   margin: 10px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    transition: all .2s ease-out;
 }
 
 
@@ -183,6 +183,12 @@ h5, .h5{
   margin: 50px;
 }
 
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+ 
 .card-body{
   background-color: white;
   font-family: 'Teko';
@@ -192,10 +198,11 @@ h5, .h5{
 
 .card-img-top{
   background-color: white;
-  width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 
 .borderless{
@@ -203,10 +210,10 @@ h5, .h5{
 }
 
 .quarto-grid-item img.thumbnail-image {
-    object-fit: contain;
+   object-fit: scale-down;
     padding-top: 0.7em;
     padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-right: 0.5em
 }
 
 .quarto-grid-link:hover {
@@ -253,3 +260,9 @@ div.quarto-post {
   margin-left: 0.3em;
   size: 50%;
 }
+
+
+.socials a:hover {
+opacity: 50%;
+}
+

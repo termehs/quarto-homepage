@@ -5,16 +5,16 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 2.5em;
   color: #63615a;
 }
 
 .termeh-intro{
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 div.quarto-post .thumbnail {
-  flex-basis: 30%;
+  flex-basis: 20%;
 }
 
 div.quarto-post .thumbnail img {
@@ -56,4 +56,11 @@ div.quarto-post .thumbnail img {
   content: "→";
   position: relative;
   margin-left: 2px;
+}
+
+.home-section {
+    background-color: #fff;
+    padding: 110px 0;
+    animation: intro .3s both;
+    animation-delay: .15s;
 }
