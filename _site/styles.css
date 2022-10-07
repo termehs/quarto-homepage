@@ -114,7 +114,7 @@ h1.f3{
 }
 
 .nav-footer a{
-  color: #8f8187;
+  color: #99978d;
 }
 
 .active {
@@ -131,6 +131,7 @@ h1.f3{
 /*footer*/
 .nav-footer{
   border-top: 0px !important;
+  background-color: #ebe9e1;
 }
 
 /*buttons*/
@@ -256,7 +257,7 @@ div.quarto-post {
 }
 
 .socials a{
-  color: #8f8187;
+  color: #99978d;
   margin-left: 0.3em;
   size: 50%;
 }
