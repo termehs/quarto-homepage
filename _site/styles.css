@@ -76,9 +76,15 @@ h1.f3{
   font-weight: 200;
 }
 
-.navbar{
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
   background-color:#383732;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
+
 
 /* navbar kink */
 @media screen and (min-width: 999px) {
@@ -88,7 +94,7 @@ h1.f3{
     text-transform: uppercase;
   }
   .navbar .navbar-nav .nav-link:hover {
-    color: #99978d;
+    color: white;
   }
   .navbar .navbar-nav .nav-item {
     position: relative;
@@ -99,7 +105,7 @@ h1.f3{
     left: 0;
     right: 0;
     margin: auto;
-    background-color: #63615a;
+    background-color: white;
     width: 0%;
     content: "";
     height: 1px;
@@ -110,6 +116,7 @@ h1.f3{
     width: 100%;
   }
 }
+
 
 .navbar-brand>img {
     max-height: 48px;
@@ -271,3 +278,6 @@ div.quarto-post {
 opacity: 50%;
 }
 
+.hspace {
+     margin-bottom: 3cm;
+  }

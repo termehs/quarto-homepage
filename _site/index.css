@@ -60,8 +60,10 @@ div.quarto-post .thumbnail img {
 
 .home-section {
     background-color: #fff;
-    padding: 110px 0;
+    padding: 20px 0;
     animation: intro .3s both;
     animation-delay: .15s;
 }
+
+
 

@@ -44,8 +44,15 @@ listing:
     sort: "date desc"
 ---
 
-
 ::: {.home-section}
+
+
+
+<p class="hspace">
+</p>
+
+
+
 :::: {.columns}
 
 ::: {.column .col-v-center width="15%"}
@@ -62,10 +69,10 @@ listing:
 {{< orcid 0000-0002-8419-8477 >}}
 {{< researchgate Termeh-Shafie/ >}}
 :::
-:::
+
 
 :::
-
+:::
 ::: {.column .col-v-center width="35%"}
 
 # Termeh Shafie
