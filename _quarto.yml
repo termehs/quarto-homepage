@@ -4,10 +4,16 @@ project:
 website:
   title: "quarto-website"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+    logo: "static/logo.png"
+    title: false
+    background: primary
+    right:
+      - href: publications/index.qmd
+        text: Publications
+      - href: project/index.qmd
+        text: Projects
+      - href: about/index.qmd
+        text: About me
   page-footer:
     left: "© 2022 Termeh Shafie"
     center: "powered by [quarto](https://quarto.org)"

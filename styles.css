@@ -76,15 +76,19 @@ h1.f3{
   font-weight: 200;
 }
 
+.navbar{
+  background-color:#383732;
+}
+
 /* navbar kink */
 @media screen and (min-width: 999px) {
   .navbar .navbar-nav .nav-link {
-    color: #9f77a8;
+    color:  #99978d;
     font-size: 1rem;
     text-transform: uppercase;
   }
   .navbar .navbar-nav .nav-link:hover {
-    color: #9f77a8;
+    color: #99978d;
   }
   .navbar .navbar-nav .nav-item {
     position: relative;
@@ -95,7 +99,7 @@ h1.f3{
     left: 0;
     right: 0;
     margin: auto;
-    background-color: #ffd700;
+    background-color: #63615a;
     width: 0%;
     content: "";
     height: 1px;
