@@ -1,0 +1,23 @@
+---
+title: "the network statistician will occupy this space soon"
+page-layout: full
+listing:
+  categories: true
+  id: material
+  max-description-length: 500
+  image-height: "250px"	
+  fields: [image,title,description]
+  type: default
+  image-align: right
+  sort: "priority asc"
+  grid-item-border: false
+---
+
+
+[![](https://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en)  
+All material listed here is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License](https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en).
+
+:::{.center}
+Blog on statistical network analysis coming soon...
+:::
+

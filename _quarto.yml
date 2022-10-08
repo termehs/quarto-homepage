@@ -10,6 +10,8 @@ website:
     right:
       - href: publications/index.qmd
         text: Publications
+      - href: blog/index.qmd
+        text: Blog
       - href: project/index.qmd
         text: Projects
       - href: about/index.qmd

@@ -64,5 +64,9 @@
       "/publications/multigraph_approach/index.html",
       "/publications/complexity_multigraphs/index.html"
     ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": []
   }
 ]

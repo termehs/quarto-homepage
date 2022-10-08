@@ -397,5 +397,47 @@
     "title": "quarto-website",
     "section": "Selected Projects",
     "text": "Selected Projects"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "the network statistician will occupy this space soon",
+    "section": "",
+    "text": "Blog on statistical network analysis coming soon…\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "quarto-website",
+    "section": "",
+    "text": "👋 Hi, I’m Termeh Shafie"
+  },
+  {
+    "objectID": "about/index.html#more-about-me",
+    "href": "about/index.html#more-about-me",
+    "title": "quarto-website",
+    "section": "more about me",
+    "text": "more about me\nBefore joining GESIS, I was a Presidential Fellow at the University of Manchester in the Department of Sociology, affiliated with the The Mitchell Centre for Social Network Analysis.\nI received my PhD in Computer Science at the University of Konstanz as a fellow of the Graduate School of Decision Sciences. I also have a diploma in business mathematics from Karlsruhe Institute of Technology."
+  },
+  {
+    "objectID": "about/index.html#research-interests",
+    "href": "about/index.html#research-interests",
+    "title": "quarto-website",
+    "section": "research interests",
+    "text": "research interests\nMy main research interests lie in the field of (social) network analysis. I have made technical and methodological contributions to topics such as network centrality, signed networks, and two-mode networks.\nI am also actively involved in research around political astroturfing on social media.\nSee my publications for all my scientific output."
+  },
+  {
+    "objectID": "about/index.html#soccerverse",
+    "href": "about/index.html#soccerverse",
+    "title": "quarto-website",
+    "section": "soccerverse",
+    "text": "soccerverse\nIn an effort to combine a hobby with work, I created the football analytics website soccerverse together with some former colleagues. The project includes a world ranking of football clubs, close to the one FIFA uses for national teams. I developed most of my data science and R skills with this project, including scraping and cleaning data (i.e. collecting football results from various sources) and using the tidyverse to analyse the data.\nPart of the data is available on github."
+  },
+  {
+    "objectID": "about/index.html#science-slam",
+    "href": "about/index.html#science-slam",
+    "title": "quarto-website",
+    "section": "science slam",
+    "text": "science slam\nI am a semi-active Science slammer, mostly slamming about networks and disinformation on social media. Some of my slams can be found on youtube (all in german)."
   }
 ]

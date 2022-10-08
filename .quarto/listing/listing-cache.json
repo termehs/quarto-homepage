@@ -66,6 +66,9 @@
       "reconstructing_arch_nets",
       "sna_chapter",
       "complexity_multigraphs"
+    ],
+    "blog/index.qmd": [
+      "B3049D40"
     ]
   }
 }
