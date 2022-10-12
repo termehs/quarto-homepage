@@ -17,7 +17,7 @@ In multivariate statistics, there is an abundance of different measures of centr
 Multivariate entropy analysis can be used as a general statistical method for finding, analyzing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies.  For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf.  graphical models).  By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit. 
 
 The proposed framework is implemented in the R package 'netropy' and a description of various functions implemented in the package are given in the following. More details are provided in the package
-[vignettes](https://cran.r-project.org/web/packages/multigraphr/vignettes/multigraphr.html)  and the references listed.
+[vignette](https://cran.r-project.org/web/packages/multigraphr/vignettes/multigraphr.html)  and the references listed.
 
 ## r package `netropy` 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -181,7 +181,7 @@ prediction_power('status', dyad.var)
 ```
 For better readability, the powers of different predictors can be conveniently compared by using prediction plots that display a color matrix with rows for $X$ and columns for $Y$ with darker colors in the cells when we have higher prediction power for $Z$. 
 
-More details and examples of expected conditional entropies and prediction power  are given in the vignette "prediction power based on expected conditional entropies". 
+More details and examples of expected conditional entropies and prediction power  are given in the package [vignette](https://cran.r-project.org/web/packages/multigraphr/vignettes/multigraphr.html)  "prediction power based on expected conditional entropies". 
 
 ## references
 

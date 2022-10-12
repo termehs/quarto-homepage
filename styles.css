@@ -43,7 +43,6 @@ h1,h2,h3,h4{
 }
 
 pre{
-  border: 1px solid black;
   color: var(--navbar-fg);
   background-color: #ebe9e1;
   padding: 5px 5px 5px 5px;
