@@ -6,6 +6,9 @@ title: "Random Multigraphs and Aggregated Triads with Fixed Degrees"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multigraphs
+  - entropy
 ---
 
 <button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1017/nws.2017.31">journal</a></button>

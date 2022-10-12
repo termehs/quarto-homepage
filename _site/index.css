@@ -10,8 +10,11 @@ h2 {
 }
 
 .termeh-intro{
-  font-size: 1em;
+  font-size: 1em;  
+  margin-top: -30px;
 }
+
+
 
 div.quarto-post .thumbnail {
   flex-basis: 20%;
@@ -42,7 +45,7 @@ div.quarto-post .thumbnail img {
 
 .about-link{
   font-size: 1em;
-  text-align: left;
+  float: right;
 }
 
 .about-link a{
@@ -59,11 +62,9 @@ div.quarto-post .thumbnail img {
 }
 
 .home-section {
-    background-color: #fff;
+    background-color: #ebe9e1;
     padding: 20px 0;
     animation: intro .3s both;
     animation-delay: .15s;
 }
-
-
 

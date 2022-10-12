@@ -58,7 +58,7 @@ ul.task-list{list-style: none;}
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-projects .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -67,11 +67,11 @@ ul.task-list{list-style: none;}
     const options = {
       valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-projects'] = new List('listing-projects', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -98,18 +98,24 @@ ul.task-list{list-style: none;}
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">quarto-website</span>
+    <img src="../static/logo.png" alt="">
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="../publications/index.html">Publications</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">About</a>
+    <a class="nav-link" href="../blog/index.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../project/index.html" aria-current="page">Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about/index.html">About me</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -118,14 +124,14 @@ ul.task-list{list-style: none;}
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="entropy">entropy <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -143,27 +149,24 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<div class="center">
-<p><img src="https://ghchart.rshah.org/137752/termehs"></p>
-</div>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-projects">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1664478077104" data-listing-reading-time-sort="0.02">
+<div class="g-col-1" data-index="0" data-categories="entropy" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1665567029863" data-listing-reading-time-sort="23.41">
 <a href="../project/seand/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left borderless">
+<div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../project/seand/featured.png" class="thumbnail-image card-img" style="height: 250px;">
+<img src="../project/seand/featured.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 statistical entropy analysis of network data
 </h5>
 <div class="card-text listing-description">
-
+A novel way to analyse multivariate network data. R package.
 </div>
 </div>
 </div>
@@ -171,9 +174,9 @@ statistical entropy analysis of network data
 </div>
 <div class="g-col-1" data-index="1" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1664478088184" data-listing-reading-time-sort="0.02">
 <a href="../project/rmm/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left borderless">
+<div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../project/rmm/featured.png" class="thumbnail-image card-img" style="height: 250px;">
+<img src="../project/rmm/featured.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -186,11 +189,28 @@ multigraph representation of network data
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1665131525470" data-listing-reading-time-sort="0.02">
-<a href="../project/movienetworks/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left borderless">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1665131649395" data-listing-reading-time-sort="0.02">
+<a href="../project/convoys/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../project/movienetworks/featured.png" class="thumbnail-image card-img" style="height: 250px;">
+<img src="../project/convoys/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+network of interconnected convoys
+</h5>
+<div class="card-text listing-description">
+
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1665131525470" data-listing-reading-time-sort="0.02">
+<a href="../project/movienetworks/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../project/movienetworks/featured.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -203,11 +223,11 @@ network analysis to unpack the gender bias in popular cinema
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1665131528063" data-listing-reading-time-sort="0.02">
+<div class="g-col-1" data-index="4" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1665131528063" data-listing-reading-time-sort="0.02">
 <a href="../project/nexus/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left borderless">
+<div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../project/nexus/featured.png" class="thumbnail-image card-img" style="height: 250px;">
+<img src="../project/nexus/featured.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">

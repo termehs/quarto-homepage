@@ -3,6 +3,8 @@ pagetitle: "Termeh Shafie"
 page-layout: custom
 toc: false
 css: index.css
+link-external-newwindow: true
+embed-resources: true
 socials:
   twitter: termehshafie
 shortcodes:
@@ -10,7 +12,7 @@ shortcodes:
 listing: 
   - id: projects
     max-description-length: 500
-    fields: [image,title,description]
+    fields: [image,title]
     contents: 
       - project/rmm
       - project/seand
@@ -21,8 +23,7 @@ listing:
     image-align: left
     sort: "priority asc"
   - id: publication
-    max-description-length: 500
-    fields: [image,title,description,date]
+    fields: [title,date]
     contents: 
     - publications/aggregated_triads
     - publications/data_protection
@@ -38,18 +39,18 @@ listing:
     - publications/reconstructing_arch_nets
     - publications/sna_chapter
     - publications/complexity_multigraphs
-    type: default
+    type: table
+    date-format: short
     image-align: left
-    max-items: 7
+    max-items: 10
     sort: "date desc"
 ---
 
-::: {.home-section}
 
 
+::: {.vspace}
+:::
 
-<p class="hspace">
-</p>
 
 
 
@@ -58,7 +59,11 @@ listing:
 ::: {.column .col-v-center width="15%"}
 :::
 
-::: {.column .col-v-center width="30%"}
+
+
+::: {.column .col-v-center width="70%"}
+
+
 ::: {.portrait}
 ![](static/img/avatar.png)
 
@@ -72,13 +77,10 @@ listing:
 
 
 :::
-:::
-::: {.column .col-v-center width="35%"}
 
 # Termeh Shafie
 ::: {.termeh-intro}
-
-I’m a statistician working as a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science).
+I’m  a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science).
 
 :::{.about-link}
 [ABOUT ME](about/)
@@ -87,40 +89,40 @@ I’m a statistician working as a Senior Researcher for the “Digital Society O
 :::
 :::
 
+
+::: {.vspace}
 :::
 
 ::::
 
-::::{.columns}
 
-::: {.column .col-v-center width="20%"}
+
+
+
+::::{.columns}
+::: {.home-section}
+::: {.column .col-v-center width="15%"}
 :::
 
-::: {.column .col-v-center width="60%"}
+::: {.column .col-v-center width="70%"}
 
 ## Projects
 :::{#projects}
 :::
 
-::: {.all-link}
-[all projects](project/)
-:::
 
 :::
-
+:::
 ::::
 
 
 ::::{.columns}
 
 
-::: {.home-section}
-
-
-::: {.column .col-v-center width="20%"}
+::: {.column .col-v-center width="15%"}
 :::
 
-::: {.column .col-v-center width="60%"}
+::: {.column .col-v-center width="70%"}
 
 ## Latest Publications
 :::{#publication}
@@ -130,9 +132,59 @@ I’m a statistician working as a Senior Researcher for the “Digital Society O
 [all publications](publications/)
 :::
 
+:::
+::::
 
+::::{.columns}
+::: {.home-section}
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center width="70%"}
+
+
+
+
+## Recent Talks
+
+### “Statistical Analysis of Multivariate Egocentric Networks”
+Sunbelt 2022, the XLII Social Networks Conference of INSNA (15 July 2022)
+
+<button type="button" class="btn btn-outline-success">
+<a href="talks/SUNBELT2022/index.html" target="_blank">Slides</a></button>
+
+### “Statistical Entropy Analysis of Network Data”
+The Women in Network Science (WiNS) seminar (5 May 2022)
+
+<button type="button" class="btn btn-outline-success">
+<a href="wins_may2022/index.html" target="_blank">Slides</a></button>
+<button type="button" class="btn btn-outline-success">
+<a href="https://www.youtube.com/watch?v=uJMQKREntfE&feature=youtu.be" target="_blank">Video</a></button>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/wins_may2022/wins_examples.html" target="_blank">Examples</a></button>
+
+
+### “Multiplexity Analysis of Networks using Multigraph Representations”
+The 5th European Conference on Social Networks (7 Sep 2021)
+
+<button type="button" class="btn btn-outline-success">
+<a href="talks/EUSN2021/EUSN2021_talk.pdf" target="_blank">Slides</a></button>
+
+### “Goodness of Fit Tests for Random Multigraph Models”
+Networks 2021: A Joint Sunbelt and NetSci Conference (6 July 2021)
+
+<button type="button" class="btn btn-outline-success">
+<a href="talks/NETWORKS2021/networks2021.pdf" target="_blank">Slides</a></button>
+
+<button type="button" class="btn btn-outline-success">
+<a href="talks/NETWORKS2021/10338_shafie.mp4" target="_blank">Video</a></button>
+
+### “Gender Dependent Structures of Dialogue Networks in Films”
+The 4th European Conference on Social Networks (9 Sep 2019)
+
+<button type="button" class="btn btn-outline-success">
+<a href="talks/EUSN2019/EUSN2019.html" target="_blank">Slides</a></button>
 
 :::
 :::
-
 ::::

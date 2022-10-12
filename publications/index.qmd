@@ -16,7 +16,9 @@ listing:
     - reconstructing_arch_nets
     - sna_chapter
     - complexity_multigraphs
-  type: default
+  type: grid
+  categories: true
   image-align: left
   sort: "date desc"
 ---
+

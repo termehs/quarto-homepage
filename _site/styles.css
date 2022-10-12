@@ -5,32 +5,40 @@ div.sourceCode{
 
 
 body {
-    background-color: #ebe9e1;
+    background-color: white;
 }
     
 h1,h2,h3,h4{
   font-family: 'Teko';
-  
 }
 
 
 
 .portrait {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 50px;
+    margin-right: 50px;
     border-radius: 50%;
     object-fit: none;
+    position: relative;
+    float: left;
 }
 
 .listing-title{
   color: #63615a;
-  font-weight: 300;
-  font-size: 1.5em;
+  font-weight: 400;
+  font-size: 1.3em;
+  font-family: 'Teko';
 }
 
 .listing-title:hover {
   text-decoration:underline;
+}
+
+.listing-date {
+  font-size: 1rem;
+
 }
 
 pre{
@@ -60,7 +68,7 @@ a.btn-links:hover{
 
 h1{
   font-weight: 200;
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h2,h3{
@@ -119,7 +127,7 @@ h1.f3{
 
 
 .navbar-brand>img {
-    max-height: 48px;
+    max-height: 34px;
     width: auto;
     padding-right: 6px;
 }
@@ -129,7 +137,7 @@ h1.f3{
 }
 
 .active {
-  border-bottom: 1px solid #ffd700;
+  border-bottom: 1px solid white;
 }
 
 .navbar-brand {
@@ -169,7 +177,7 @@ h1.f3{
 
 /* grid cards */
 h5, .h5{
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   
 }
 
@@ -203,7 +211,6 @@ h5, .h5{
  
 .card-body{
   background-color: white;
-  font-family: 'Teko';
   padding-top: 0.9em;
 }
 
@@ -231,6 +238,8 @@ h5, .h5{
 .quarto-grid-link:hover {
   text-decoration: underline;
 }
+
+
 
 
 .thumbnail-image:hover{
@@ -261,10 +270,9 @@ div.quarto-post {
 }
 
 .socials {
-    padding-top: 0.5em;
     padding-bottom: 1em;
-    padding-left: 5%;
-    font-size: 1.3em;
+    padding-left: 0%;
+    font-size: 1.25em;
 }
 
 .socials a{
@@ -274,10 +282,59 @@ div.quarto-post {
 }
 
 
+
 .socials a:hover {
 opacity: 50%;
 }
 
-.hspace {
-     margin-bottom: 3cm;
+.vspace {
+     margin-bottom: 2cm;
+     padding: 1%;
   }
+
+.hspace {
+     margin-left: 3cm;
+     padding: 1%;
+  }
+
+.main {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+div.quarto-about-jolla .about-image {
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5em;
+    margin-top: 2em;
+}
+
+.form-select {
+    background-color: white; 
+}
+
+.form-control {
+    background-color: white;
+}
+
+
+.input-group-text {
+    background-color: #ebe9e1;
+}
+
+    
+#title-block-header {
+    margin-block-end: 1rem;
+    position: relative;
+    margin-top: 70px;
+}
+
+#quarto-margin-sidebar .quarto-listing-category {
+    padding-top: 70px;
+    font-size: 1rem;
+}
+
+#profile .network-icon {
+    margin-top: 30px;
+}

@@ -4,7 +4,22 @@
       "movienetworks",
       "nexus",
       "rmm",
-      "seand"
+      "seand",
+      "aggregated_triads",
+      "data_protection",
+      "ergm_framework_arch",
+      "global_local_multigraphs",
+      "gof_multigraph",
+      "hypergraph",
+      "isotopes",
+      "multigraph_approach",
+      "multiplexity",
+      "multivariate_entropy_analysis",
+      "ontario_sna",
+      "reconstructing_arch_nets",
+      "sna_chapter",
+      "complexity_multigraphs",
+      "convoys"
     ],
     "index.qmd": [
       "project/rmm",
@@ -38,7 +53,9 @@
       "publications/complexity_multigraphs",
       "netropy",
       "multigraphr",
-      "project/convoys"
+      "project/convoys",
+      "B3049D40",
+      "about"
     ],
     "publication/index.qmd": [
       "aggregated_triads",

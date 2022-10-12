@@ -1,9 +1,24 @@
 ---
-pagetitle: "About me"
-toc: false
+title: Termeh Shafie
+image: avatar.png
+id: about
+about:
+  template: jolla
+  image-width: 10em
+  image-shape: round
 ---
 
-<div class="habout">👋 Hi, I&rsquo;m  Termeh Shafie</div>
+<div class="socials">
+<a href="https://twitter.com/termehshafie"><i class="bi bi-twitter"></i></a>
+<a href="https://github.com/termehs"><i class="bi bi-github"></i></a>
+<a href="https://scholar.google.de/citations?user=Si-WbhAAAAAJ&amp;hl=en"><i class="ai ai-google-scholar"></i></a>
+<a href="https://orcid.org/0000-0002-8419-8477"><i class="ai ai-orcid"></i></a>
+<a href="https://researchgate.net/profile/Termeh-Shafie/"><i class="ai ai-researchgate"></i></a>
+</div>
+
+
+I’m  a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science).
+
 
 <div class="lead">
 
@@ -37,5 +52,7 @@ The project includes a world ranking of football clubs, close to the one FIFA us
 with this project, including scraping and cleaning data (i.e. collecting football results from various sources) and using the tidyverse to analyse the data. 
 
 Part of the data is available on [github](https://github.com/schochastics/football-data).
+
+
 
 
