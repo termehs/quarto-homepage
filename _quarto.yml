@@ -39,7 +39,7 @@ format:
       - styles.css
       - academicons.css
     toc: true
+    highlight-style: zenburn
 execute: 
   freeze: auto
-
 

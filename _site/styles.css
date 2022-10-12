@@ -6,6 +6,7 @@ div.sourceCode{
 
 body {
     background-color: white;
+    font-size: 0.875em;
 }
     
 h1,h2,h3,h4{
@@ -28,7 +29,7 @@ h1,h2,h3,h4{
 .listing-title{
   color: #63615a;
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1.25em;
   font-family: 'Teko';
 }
 
@@ -42,14 +43,18 @@ h1,h2,h3,h4{
 }
 
 pre{
-  border: 1px solid white;
+  border: 1px solid black;
   color: var(--navbar-fg);
+  background-color: #ebe9e1;
   padding: 5px 5px 5px 5px;
+  border-radius: 0.25rem;
 }
 
 code{
   color: var(--navbar-fg);
 }
+
+
 
 /* inline code */
 .post-body>p>code{
@@ -71,7 +76,12 @@ h1{
   font-size: 3em;
 }
 
-h2,h3{
+h2{
+  font-weight: 200;
+  font-size: 2em;
+}
+
+h3{
   font-weight: 200;
   font-size: 1.5em;
 }
@@ -269,6 +279,7 @@ div.quarto-post {
   font-size: 2em;
 }
 
+/* icons */
 .socials {
     padding-bottom: 1em;
     padding-left: 0%;
@@ -330,11 +341,30 @@ div.quarto-about-jolla .about-image {
     margin-top: 70px;
 }
 
+
+
+#profile .network-icon {
+    margin-top: 30px;
+}
+
+/*table*/
+table.quarto-listing-table a {
+    text-decoration: none;
+}
+.table a {
+    word-break: break-word;
+}
+a {
+    color: #63615a;
+}
+
+/*references side bar adjusted to nav bar*/
+.sidebar.toc-left>*, .sidebar.margin-sidebar>* {
+    padding-top: 5.5em;
+}
+
 #quarto-margin-sidebar .quarto-listing-category {
     padding-top: 70px;
     font-size: 1rem;
 }
 
-#profile .network-icon {
-    margin-top: 30px;
-}
