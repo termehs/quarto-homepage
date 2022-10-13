@@ -22,6 +22,15 @@ listing:
     type: grid
     image-align: left
     sort: "priority asc"
+  - id: rpckg
+    max-description-length: 500
+    fields: [image]
+    contents: 
+      - rpackage/netropy
+      - rpackage/multigraphr
+    type: grid
+    image-align: left
+    sort: "priority asc"
   - id: publication
     fields: [title,date]
     contents: 
@@ -110,6 +119,9 @@ I’m  a Senior Researcher for the “Digital Society Observatory” team in the
 :::{#projects}
 :::
 
+:::{.all-link}
+[ALL PROJECTS](project/)
+:::
 
 :::
 :::
@@ -117,23 +129,22 @@ I’m  a Senior Researcher for the “Digital Society Observatory” team in the
 
 
 ::::{.columns}
-
-
 ::: {.column .col-v-center width="15%"}
 :::
 
 ::: {.column .col-v-center width="70%"}
 
-## Latest Publications
-:::{#publication}
+## R packages
+:::{#rpckg}
 :::
 
-::: {.all-link}
-[all publications](publications/)
-:::
+
 
 :::
+
 ::::
+
+
 
 ::::{.columns}
 ::: {.home-section}
@@ -186,5 +197,25 @@ The 4th European Conference on Social Networks (9 Sep 2019)
 <a href="talks/EUSN2019/EUSN2019.html" target="_blank">Slides</a></button>
 
 :::
+:::
+::::
+
+
+::::{.columns}
+
+
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center width="70%"}
+
+## Latest Publications
+:::{#publication}
+:::
+
+::: {.all-link}
+[all publications](publications/)
+:::
+
 :::
 ::::

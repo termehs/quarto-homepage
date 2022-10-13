@@ -1,0 +1,14 @@
+---
+title: "R packages"
+listing:
+  id: rpckg
+  fields: [image]
+  contents: 
+    - netropy
+    - multigraphr
+  type: grid
+  categories: true
+  image-align: left
+  sort: "date desc"
+---
+

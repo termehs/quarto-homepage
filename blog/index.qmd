@@ -3,7 +3,7 @@ title: "the network statistician will occupy this space soon"
 page-layout: full
 listing:
   categories: true
-  id: material
+  id: blog
   max-description-length: 500
   image-height: "250px"	
   fields: [image,title,description]
@@ -18,6 +18,6 @@ listing:
 All material listed here is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License](https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en).
 
 :::{.center}
-Blog on statistical network analysis coming soon...
+**Blog on statistical network analysis coming soon...**
 :::
 

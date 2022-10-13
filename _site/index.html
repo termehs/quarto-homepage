@@ -86,6 +86,34 @@ ul.task-list{list-style: none;}
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-rpckg .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-rpckg'] = new List('listing-rpckg', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-publication .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -146,6 +174,9 @@ ul.task-list{list-style: none;}
   <li class="nav-item">
     <a class="nav-link" href="./about/index.html">About me</a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./talks/index.qmd">Talks</a>
+  </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
@@ -200,7 +231,7 @@ ul.task-list{list-style: none;}
 <h2 data-anchor-id="projects">Projects</h2>
 <div id="listing-projects" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665685436403" data-listing-reading-time-sort="10.46">
+<div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665686070053" data-listing-reading-time-sort="10.46">
 <a href="./project/seand/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -275,6 +306,99 @@ nexus 1492 - reconstructing networks of the past
 No matching items
 </div>
 </div>
+<div class="all-link">
+<p><a href="project/">ALL PROJECTS</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column col-v-center" style="width:15%;">
+
+</div><div class="column col-v-center" style="width:70%;">
+<section id="r-packages" class="level2">
+<h2 data-anchor-id="r-packages">R packages</h2>
+<div id="listing-rpckg" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665686493490" data-listing-reading-time-sort="0.005">
+<a href="./rpackage/netropy/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="entropy" data-listing-file-modified-sort="1665686604701" data-listing-reading-time-sort="0.005">
+<a href="./rpackage/multigraphr/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+</div>
+</div>
+<div class="columns">
+<div class="home-section">
+<div class="column col-v-center" style="width:15%;">
+
+</div>
+<div class="column col-v-center" style="width:70%;">
+<section id="recent-talks" class="level2">
+<h2 data-anchor-id="recent-talks">Recent Talks</h2>
+<section id="statistical-analysis-of-multivariate-egocentric-networks" class="level3">
+<h3 data-anchor-id="statistical-analysis-of-multivariate-egocentric-networks">“Statistical Analysis of Multivariate Egocentric Networks”</h3>
+<p>Sunbelt 2022, the XLII Social Networks Conference of INSNA (15 July 2022)</p>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/SUNBELT2022/index.html" target="_blank">Slides</a>
+</button>
+</section>
+<section id="statistical-entropy-analysis-of-network-data" class="level3">
+<h3 data-anchor-id="statistical-entropy-analysis-of-network-data">“Statistical Entropy Analysis of Network Data”</h3>
+<p>The Women in Network Science (WiNS) seminar (5 May 2022)</p>
+<button type="button" class="btn btn-outline-success">
+<a href="wins_may2022/index.html" target="_blank">Slides</a>
+</button>
+<button type="button" class="btn btn-outline-success">
+<a href="https://www.youtube.com/watch?v=uJMQKREntfE&amp;feature=youtu.be" target="_blank">Video</a>
+</button>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/wins_may2022/wins_examples.html" target="_blank">Examples</a>
+</button>
+</section>
+<section id="multiplexity-analysis-of-networks-using-multigraph-representations" class="level3">
+<h3 data-anchor-id="multiplexity-analysis-of-networks-using-multigraph-representations">“Multiplexity Analysis of Networks using Multigraph Representations”</h3>
+<p>The 5th European Conference on Social Networks (7 Sep 2021)</p>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/EUSN2021/EUSN2021_talk.pdf" target="_blank">Slides</a>
+</button>
+</section>
+<section id="goodness-of-fit-tests-for-random-multigraph-models" class="level3">
+<h3 data-anchor-id="goodness-of-fit-tests-for-random-multigraph-models">“Goodness of Fit Tests for Random Multigraph Models”</h3>
+<p>Networks 2021: A Joint Sunbelt and NetSci Conference (6 July 2021)</p>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/NETWORKS2021/networks2021.pdf" target="_blank">Slides</a>
+</button>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/NETWORKS2021/10338_shafie.mp4" target="_blank">Video</a>
+</button>
+</section>
+<section id="gender-dependent-structures-of-dialogue-networks-in-films" class="level3">
+<h3 data-anchor-id="gender-dependent-structures-of-dialogue-networks-in-films">“Gender Dependent Structures of Dialogue Networks in Films”</h3>
+<p>The 4th European Conference on Social Networks (9 Sep 2019)</p>
+<button type="button" class="btn btn-outline-success">
+<a href="talks/EUSN2019/EUSN2019.html" target="_blank">Slides</a>
+</button>
+</section>
 </section>
 </div>
 </div>
@@ -412,62 +536,6 @@ No matching items
 <p><a href="publications/">all publications</a></p>
 </div>
 </section>
-</div>
-</div>
-<div class="columns">
-<div class="home-section">
-<div class="column col-v-center" style="width:15%;">
-
-</div>
-<div class="column col-v-center" style="width:70%;">
-<section id="recent-talks" class="level2">
-<h2 data-anchor-id="recent-talks">Recent Talks</h2>
-<section id="statistical-analysis-of-multivariate-egocentric-networks" class="level3">
-<h3 data-anchor-id="statistical-analysis-of-multivariate-egocentric-networks">“Statistical Analysis of Multivariate Egocentric Networks”</h3>
-<p>Sunbelt 2022, the XLII Social Networks Conference of INSNA (15 July 2022)</p>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/SUNBELT2022/index.html" target="_blank">Slides</a>
-</button>
-</section>
-<section id="statistical-entropy-analysis-of-network-data" class="level3">
-<h3 data-anchor-id="statistical-entropy-analysis-of-network-data">“Statistical Entropy Analysis of Network Data”</h3>
-<p>The Women in Network Science (WiNS) seminar (5 May 2022)</p>
-<button type="button" class="btn btn-outline-success">
-<a href="wins_may2022/index.html" target="_blank">Slides</a>
-</button>
-<button type="button" class="btn btn-outline-success">
-<a href="https://www.youtube.com/watch?v=uJMQKREntfE&amp;feature=youtu.be" target="_blank">Video</a>
-</button>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/wins_may2022/wins_examples.html" target="_blank">Examples</a>
-</button>
-</section>
-<section id="multiplexity-analysis-of-networks-using-multigraph-representations" class="level3">
-<h3 data-anchor-id="multiplexity-analysis-of-networks-using-multigraph-representations">“Multiplexity Analysis of Networks using Multigraph Representations”</h3>
-<p>The 5th European Conference on Social Networks (7 Sep 2021)</p>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/EUSN2021/EUSN2021_talk.pdf" target="_blank">Slides</a>
-</button>
-</section>
-<section id="goodness-of-fit-tests-for-random-multigraph-models" class="level3">
-<h3 data-anchor-id="goodness-of-fit-tests-for-random-multigraph-models">“Goodness of Fit Tests for Random Multigraph Models”</h3>
-<p>Networks 2021: A Joint Sunbelt and NetSci Conference (6 July 2021)</p>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/NETWORKS2021/networks2021.pdf" target="_blank">Slides</a>
-</button>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/NETWORKS2021/10338_shafie.mp4" target="_blank">Video</a>
-</button>
-</section>
-<section id="gender-dependent-structures-of-dialogue-networks-in-films" class="level3">
-<h3 data-anchor-id="gender-dependent-structures-of-dialogue-networks-in-films">“Gender Dependent Structures of Dialogue Networks in Films”</h3>
-<p>The 4th European Conference on Social Networks (9 Sep 2019)</p>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/EUSN2019/EUSN2019.html" target="_blank">Slides</a>
-</button>
-</section>
-</section>
-</div>
 </div>
 </div>
 

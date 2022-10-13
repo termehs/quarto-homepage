@@ -1,0 +1,10 @@
+---
+author: Termeh Shafie
+title: multigraphr
+image: featured.png
+title-block-style: none
+toc: false
+priority: 2
+categories:
+  - entropy
+---

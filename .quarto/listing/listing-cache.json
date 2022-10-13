@@ -55,7 +55,9 @@
       "multigraphr",
       "project/convoys",
       "B3049D40",
-      "about"
+      "about",
+      "rpackage/netropy",
+      "rpackage/multigraphr"
     ],
     "publication/index.qmd": [
       "aggregated_triads",
@@ -86,6 +88,15 @@
     ],
     "blog/index.qmd": [
       "B3049D40"
+    ],
+    "rpackage/index.qmd": [
+      "seand",
+      "rmm",
+      "convoys",
+      "movienetworks",
+      "nexus",
+      "netropy",
+      "multigraphr"
     ]
   }
 }

@@ -17,6 +17,8 @@
       "/project/convoys/index.html",
       "/project/movienetworks/index.html",
       "/project/nexus/index.html",
+      "/rpackage/netropy/index.html",
+      "/rpackage/multigraphr/index.html",
       "/publications/gof_multigraph/index.html",
       "/publications/multiplexity/index.html",
       "/publications/sna_chapter/index.html",
@@ -69,5 +71,12 @@
   {
     "listing": "/blog/index.html",
     "items": []
+  },
+  {
+    "listing": "/rpackage/index.html",
+    "items": [
+      "/rpackage/netropy/index.html",
+      "/rpackage/multigraphr/index.html"
+    ]
   }
 ]

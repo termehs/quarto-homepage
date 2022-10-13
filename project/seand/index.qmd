@@ -10,7 +10,6 @@ categories:
   - entropy
 ---
 
-
 ## Project summary
 In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analyzing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks. 
 

@@ -18,7 +18,7 @@
     "href": "index.html#projects",
     "title": "quarto-website",
     "section": "Projects",
-    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork of interconnected convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork analysis to unpack the gender bias in popular cinema\n\n\n\n\n\n\n\n\n\n\n\n\n\nnexus 1492 - reconstructing networks of the past\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork of interconnected convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork analysis to unpack the gender bias in popular cinema\n\n\n\n\n\n\n\n\n\n\n\n\n\nnexus 1492 - reconstructing networks of the past\n\n\n\n\n\n\n\nNo matching items\n\n\n\nALL PROJECTS"
   },
   {
     "objectID": "project/index.html",
@@ -389,7 +389,7 @@
     "href": "index.html#r-packages",
     "title": "quarto-website",
     "section": "R packages",
-    "text": "R packages"
+    "text": "R packages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#selected-projects",
@@ -628,5 +628,19 @@
     "title": "Multigraph Representation of Network Data",
     "section": "Theoretical background",
     "text": "Theoretical background\nFor more details regarding the theoretical background of the package, consult the following literature which the package is based on:\n\nShafie, T. (2015). A multigraph approach to social network analysis. Journal of Social Structure, 16. Link\nShafie, T. (2016). Analyzing local and global properties of multigraphs. The Journal of Mathematical Sociology, 40(4), 239-264. Link\nShafie, T., Schoch, D. (2021) Multiplexity analysis of networks using multigraph representations. Statistical Methods & Applications 30, 1425–1444. Link\nShafie, T. (2022). Goodness of fit tests for random multigraph models, Journal of Applied Statistics. Link"
+  },
+  {
+    "objectID": "project/seand/index.html#project-summary",
+    "href": "project/seand/index.html#project-summary",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "Project summary",
+    "text": "Project summary\nIn multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analyzing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks.\nMultivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable’s range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.\nSince 2015, I am working with Ove Frank and Krzysztof Nowicki on a project in which we build a systematic framework for using statistical entropy tools to analyze network data. A forthcoming monograph on the topic is expected in the coming year.\nThe proposed framework is implemented in the R package ‘netropy’ and a description of various functions implemented in the package are given in the following. More details are provided in the package vignettes and the references listed."
+  },
+  {
+    "objectID": "rpackage/index.html",
+    "href": "rpackage/index.html",
+    "title": "R packages",
+    "section": "",
+    "text": "No matching items"
   }
 ]
