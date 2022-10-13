@@ -1,30 +1,27 @@
 ---
 author: Termeh Shafie
-date: "2022-10-01"
-title: multigraph representation of network data
+title: Multigraph Representation of Network Data
 image: featured.png
 title-block-style: none
 toc: true
 priority: 2
-description: Multivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable's range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.
+description: This project focuses on exploratory and confirmatory statistical analysis of multivariate social networks represented as multigraphs.
 categories:
   - multigraphs
 ---
 
 
-## project summary
-Multivariate networks consist of a vertex set with at least one type of edge between pairs of vertices and with numerical and/or qualitative attributes on the vertices and the edges. These networks provide a more accurate representation of social structure than univariate networks, but analyzing them introduce technical and computational complexity. 
+## Project summary
+Multigraphs are network representations in which multiple edges and edge loops (self edges) are permitted. Multigraph data structure can be observed directly but the possibility to obtain multigraphs using blocking, aggregation and scaling makes them widely applicable. 
 
-This project focuses on exploratory and confirmatory analysis of multivariate networks represented as multigraphs. Multigraph data structure is described with examples of their natural appearance, together with a description of the possibility to obtain multigraphs using blocking, aggregation and scaling. 
+For the past decade, I've been working on a statistical framework for analyzing network data using this representation.  I have developed different multigraph multigraph models and derived several statistics under these models that can be used to analyse local and global network properties in order to convey important social phenomena and processes. The latest contribution in this framework is formal goodness of fit tests for the developed probability models for random multigraphs. 
 
-Different multigraph multigraph models are developed and several statistics under these models are derived. It is shown how these statistics can be used to analyse local and global network properties in order to convey important social phenomena and processes. 
-
-The proposed framework is implemented in the R package 'multigraphr' and a description of various functions implemented in the package are given in the following. More details are provided in the package
+The proposed framework is  in full implemented in the R package 'multigraphr' and a description of various functions implemented in the package are given in the following. More details are provided in the package
 [vignette](https://cran.r-project.org/web/packages/multigraphr/vignettes/multigraphr.html)and the references listed.
 
 
 
-## r package `multigraphr` 
+## R package `multigraphr` 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
@@ -57,7 +54,8 @@ devtools::install_github("termehs/multigraphr")
 ```
 
 ## Multigraphs and applicability
-Multigraphs are network representations in which multiple edges and edge loops (self edges) are permitted. These data structures can be either directly observed or aggregated by classifying or cross-classifying node attributes into meta nodes. For the latter case, within group edges correspond to self-edges. See example below where the original graph with 15 nodes and 12 edges (left) is aggregated based on node categories into a small multigraph with 4 nodes (right).
+
+Multigraphs are network representations in which multiple edges and edge loops (self edges) are permitted.  These data structures can be either directly observed or aggregated by classifying or cross-classifying node attributes into meta nodes. For the latter case, within group edges correspond to self-edges. See example below where the original graph with 15 nodes and 12 edges (left) is aggregated based on node categories into a small multigraph with 4 nodes (right).
 
 <img src="mg_ex1.png" align="center" width="750px"/>
 
@@ -81,9 +79,11 @@ Two probability models for generating undirected random multigraphs are implemen
 Note that some of the functions are only practical for small scale multigraphs.
 
 The first model is obtained by random stub matching (RSM) given observed degree sequence of a multigraphs, so that edge assignments to vertex pair sites are dependent. The second is obtained by independent edge assignments (IEA) according to a common probability distribution. There are two ways in which an approximate IEA model can be obtained from an RSM model, thus facilitating the structural analysis. These two ways are 
+
  * independent stub assignment (ISA) 
  
  * independent edge assignment of stubs (IEAS) 
+ 
 (Shafie, 2016).
 
 ### Example
@@ -221,7 +221,7 @@ Non-rejection of the null implies that the approximations fit the data, thus imp
 Consider the following multigraph from the well known Florentine family network with  marital. This multigraphs is aggregated based on the three actor attributes wealth (W), number of priorates (P) and total number of ties (T) which are all dichotomized to reflect high or low  economic, political and social influence (details on the aggregation can be found in Shafie, 2015):
 
 
-<img src="mg_flor.png" align="center" width="400px"/>
+<img src="mg_flor.png" align="right" width="350px"/>
 
 
 The multiplicity sequence represented as an upper triangular matrix for this mutigrpah is given by
@@ -260,18 +260,18 @@ flor_isa_test
 ```
 The results show that we have strong evidence for the null such that we fail to reject it. Thus, there is not a significant difference between the observed and the expected edge multiplicity sequence according on the two IEA models. Statistics derived under these models presented above can thus be used to analyze the structure of these multigraphs. 
 
-## Theoretical Background
+## Theoretical background
 For more details regarding the
 theoretical background of the package, consult the following literature which the package is based on:
 
-* Shafie, T. (2015). A multigraph approach to social network analysis. *Journal of Social Structure*, 16. [Link](https://www.exeley.com/journal_of_social_structure/doi/10.21307/joss-2019-011)
+* Shafie, T. (2015). A multigraph approach to social network analysis. *Journal of Social Structure*, 16. [Link](/publications/multigraph_approach/index.html)
 
-*  Shafie, T. (2016). Analyzing local and global properties of multigraphs. *The Journal of Mathematical Sociology*, 40(4), 239-264.  [Link](https://www.tandfonline.com/doi/abs/10.1080/0022250X.2016.1219732?journalCode=gmas20)
+*  Shafie, T. (2016). Analyzing local and global properties of multigraphs. *The Journal of Mathematical Sociology*, 40(4), 239-264.  [Link](/publications/global_local_multigraphs/index.html)
 
 *  Shafie, T., Schoch, D. (2021) Multiplexity analysis of networks using multigraph representations. *Statistical Methods & Applications* 30, 1425–1444.
-[Link](https://doi.org/10.1007/s10260-021-00596-0)
+[Link](/publications/multiplexity/index.html)
 
-* Shafie, T. (2022). Goodness of fit tests for random multigraph models, *Journal of Applied Statistics*. [Link](https://doi.org/10.1080/02664763.2022.2099816)
+* Shafie, T. (2022). Goodness of fit tests for random multigraph models, *Journal of Applied Statistics*. [Link](/publications/gof_multigraph/index.html)
 
 
 

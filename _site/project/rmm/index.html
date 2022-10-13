@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Termeh Shafie">
-<meta name="dcterms.date" content="2022-10-01">
-<meta name="description" content="Multivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable’s range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.">
+<meta name="description" content="This project focuses on exploratory and confirmatory statistical analysis of multivariate social networks represented as multigraphs.">
 
-<title>quarto-website - multigraph representation of network data</title>
+<title>quarto-website - Multigraph Representation of Network Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -167,8 +166,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-summary" id="toc-project-summary" class="nav-link active" data-scroll-target="#project-summary">project summary</a></li>
-  <li><a href="#r-package-multigraphr" id="toc-r-package-multigraphr" class="nav-link" data-scroll-target="#r-package-multigraphr">r package <code>multigraphr</code></a>
+  <li><a href="#project-summary" id="toc-project-summary" class="nav-link active" data-scroll-target="#project-summary">Project summary</a></li>
+  <li><a href="#r-package-multigraphr" id="toc-r-package-multigraphr" class="nav-link" data-scroll-target="#r-package-multigraphr">R package <code>multigraphr</code></a>
   <ul class="collapse">
   <li><a href="#package-overview" id="toc-package-overview" class="nav-link" data-scroll-target="#package-overview">Package overview</a></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
@@ -189,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
   </ul></li>
   <li><a href="#performing-the-goodness-of-fit-test-on-your-data" id="toc-performing-the-goodness-of-fit-test-on-your-data" class="nav-link" data-scroll-target="#performing-the-goodness-of-fit-test-on-your-data">Performing the goodness of fit test on your data</a></li>
-  <li><a href="#theoretical-background" id="toc-theoretical-background" class="nav-link" data-scroll-target="#theoretical-background">Theoretical Background</a></li>
+  <li><a href="#theoretical-background" id="toc-theoretical-background" class="nav-link" data-scroll-target="#theoretical-background">Theoretical background</a></li>
   </ul>
 </nav>
     </div>
@@ -197,21 +196,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title display-7">multigraph representation of network data</h1>
+<h1 class="title display-7">Multigraph Representation of Network Data</h1>
 <p class="author">Termeh Shafie</p>
 
-<p class="date">2022-10-01</p>
 </header>
 
 <section id="project-summary" class="level2">
-<h2 class="anchored" data-anchor-id="project-summary">project summary</h2>
-<p>Multivariate networks consist of a vertex set with at least one type of edge between pairs of vertices and with numerical and/or qualitative attributes on the vertices and the edges. These networks provide a more accurate representation of social structure than univariate networks, but analyzing them introduce technical and computational complexity.</p>
-<p>This project focuses on exploratory and confirmatory analysis of multivariate networks represented as multigraphs. Multigraph data structure is described with examples of their natural appearance, together with a description of the possibility to obtain multigraphs using blocking, aggregation and scaling.</p>
-<p>Different multigraph multigraph models are developed and several statistics under these models are derived. It is shown how these statistics can be used to analyse local and global network properties in order to convey important social phenomena and processes.</p>
-<p>The proposed framework is implemented in the R package ‘multigraphr’ and a description of various functions implemented in the package are given in the following. More details are provided in the package <a href="https://cran.r-project.org/web/packages/multigraphr/vignettes/multigraphr.html">vignette</a>and the references listed.</p>
+<h2 class="anchored" data-anchor-id="project-summary">Project summary</h2>
+<p>Multigraphs are network representations in which multiple edges and edge loops (self edges) are permitted. Multigraph data structure can be observed directly but the possibility to obtain multigraphs using blocking, aggregation and scaling makes them widely applicable.</p>
+<p>For the past decade, I’ve been working on a statistical framework for analyzing network data using this representation. I have developed different multigraph multigraph models and derived several statistics under these models that can be used to analyse local and global network properties in order to convey important social phenomena and processes. The latest contribution in this framework is formal goodness of fit tests for the developed probability models for random multigraphs.</p>
+<p>The proposed framework is in full implemented in the R package ‘multigraphr’ and a description of various functions implemented in the package are given in the following. More details are provided in the package <a href="https://cran.r-project.org/web/packages/multigraphr/vignettes/multigraphr.html">vignette</a>and the references listed.</p>
 </section>
 <section id="r-package-multigraphr" class="level2">
-<h2 class="anchored" data-anchor-id="r-package-multigraphr">r package <code>multigraphr</code></h2>
+<h2 class="anchored" data-anchor-id="r-package-multigraphr">R package <code>multigraphr</code></h2>
 <section id="package-overview" class="level3">
 <h3 class="anchored" data-anchor-id="package-overview">Package overview</h3>
 <p><img src="hex_multigraphr.png" align="right" width="190px"> <a href="https://cran.r-project.org/package=multigraphr"><img src="https://www.r-pkg.org/badges/version/multigraphr.png" class="img-fluid" alt="CRAN status"></a> <a href="https://CRAN.R-project.org/package=multigraphr"><img src="http://cranlogs.r-pkg.org/badges/multigraphr.png" class="img-fluid" alt="CRAN Downloads"></a></p>
@@ -242,10 +239,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="random-multigraph-models">Random multigraph models</h3>
 <p>Two probability models for generating undirected random multigraphs are implemented in the package together with several statistics under these two models. Moreover, functions for goodness of fit tests are available for the presented models.</p>
 <p>Note that some of the functions are only practical for small scale multigraphs.</p>
-<p>The first model is obtained by random stub matching (RSM) given observed degree sequence of a multigraphs, so that edge assignments to vertex pair sites are dependent. The second is obtained by independent edge assignments (IEA) according to a common probability distribution. There are two ways in which an approximate IEA model can be obtained from an RSM model, thus facilitating the structural analysis. These two ways are * independent stub assignment (ISA)</p>
+<p>The first model is obtained by random stub matching (RSM) given observed degree sequence of a multigraphs, so that edge assignments to vertex pair sites are dependent. The second is obtained by independent edge assignments (IEA) according to a common probability distribution. There are two ways in which an approximate IEA model can be obtained from an RSM model, thus facilitating the structural analysis. These two ways are</p>
 <ul>
-<li>independent edge assignment of stubs (IEAS) (Shafie, 2016).</li>
+<li><p>independent stub assignment (ISA)</p></li>
+<li><p>independent edge assignment of stubs (IEAS)</p></li>
 </ul>
+<p>(Shafie, 2016).</p>
 </section>
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
@@ -463,7 +462,7 @@ Lower 95% 0.554 -0.190 -0.525</code></pre>
 <h2 class="anchored" data-anchor-id="performing-the-goodness-of-fit-test-on-your-data">Performing the goodness of fit test on your data</h2>
 <p>Use function <code>gof_test</code> to test whether the observed data follows IEA approximations of the RSM model. The null hypotheses can be simple or composite, although the latter is not recommended for small multigraphs as it is difficult to detect a false composite hypothesis under an RSM model and under IEA models (this can be checked and verified using <code>gof_sim</code> to simulate these cases).</p>
 <p>Non-rejection of the null implies that the approximations fit the data, thus implying that above statistics under the IEA models can be used to further analyze the observed network. Consider the following multigraph from the well known Florentine family network with marital. This multigraphs is aggregated based on the three actor attributes wealth (W), number of priorates (P) and total number of ties (T) which are all dichotomized to reflect high or low economic, political and social influence (details on the aggregation can be found in Shafie, 2015):</p>
-<p><img src="mg_flor.png" align="center" width="400px"></p>
+<p><img src="mg_flor.png" align="right" width="350px"></p>
 <p>The multiplicity sequence represented as an upper triangular matrix for this mutigrpah is given by</p>
 <div class="cell" data-hash="index_cache/html/flor1_0317d85f1d3ba3fc91256757f1177a5f">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>flor_m <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">matrix</span>(<span class="fu">c</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
@@ -521,13 +520,13 @@ Lower 95% 0.554 -0.190 -0.525</code></pre>
 <p>The results show that we have strong evidence for the null such that we fail to reject it. Thus, there is not a significant difference between the observed and the expected edge multiplicity sequence according on the two IEA models. Statistics derived under these models presented above can thus be used to analyze the structure of these multigraphs.</p>
 </section>
 <section id="theoretical-background" class="level2">
-<h2 class="anchored" data-anchor-id="theoretical-background">Theoretical Background</h2>
+<h2 class="anchored" data-anchor-id="theoretical-background">Theoretical background</h2>
 <p>For more details regarding the theoretical background of the package, consult the following literature which the package is based on:</p>
 <ul>
-<li><p>Shafie, T. (2015). A multigraph approach to social network analysis. <em>Journal of Social Structure</em>, 16. <a href="https://www.exeley.com/journal_of_social_structure/doi/10.21307/joss-2019-011">Link</a></p></li>
-<li><p>Shafie, T. (2016). Analyzing local and global properties of multigraphs. <em>The Journal of Mathematical Sociology</em>, 40(4), 239-264. <a href="https://www.tandfonline.com/doi/abs/10.1080/0022250X.2016.1219732?journalCode=gmas20">Link</a></p></li>
-<li><p>Shafie, T., Schoch, D. (2021) Multiplexity analysis of networks using multigraph representations. <em>Statistical Methods &amp; Applications</em> 30, 1425–1444. <a href="https://doi.org/10.1007/s10260-021-00596-0">Link</a></p></li>
-<li><p>Shafie, T. (2022). Goodness of fit tests for random multigraph models, <em>Journal of Applied Statistics</em>. <a href="https://doi.org/10.1080/02664763.2022.2099816">Link</a></p></li>
+<li><p>Shafie, T. (2015). A multigraph approach to social network analysis. <em>Journal of Social Structure</em>, 16. <a href="../../publications/multigraph_approach/index.html">Link</a></p></li>
+<li><p>Shafie, T. (2016). Analyzing local and global properties of multigraphs. <em>The Journal of Mathematical Sociology</em>, 40(4), 239-264. <a href="../../publications/global_local_multigraphs/index.html">Link</a></p></li>
+<li><p>Shafie, T., Schoch, D. (2021) Multiplexity analysis of networks using multigraph representations. <em>Statistical Methods &amp; Applications</em> 30, 1425–1444. <a href="../../publications/multiplexity/index.html">Link</a></p></li>
+<li><p>Shafie, T. (2022). Goodness of fit tests for random multigraph models, <em>Journal of Applied Statistics</em>. <a href="../../publications/gof_multigraph/index.html">Link</a></p></li>
 </ul>
 
 

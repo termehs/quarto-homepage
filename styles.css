@@ -97,7 +97,7 @@ h1.f3{
 .navbar {
   overflow: hidden;
   background-color:#383732;
-  position: fixed; /* Set the navbar to fixed position */
+*/*  position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
 }
@@ -337,7 +337,7 @@ div.quarto-about-jolla .about-image {
 #title-block-header {
     margin-block-end: 1rem;
     position: relative;
-    margin-top: 70px;
+*/*    margin-top: 70px; uncomment if fixed navbar
 }
 
 
@@ -357,13 +357,13 @@ a {
     color: #63615a;
 }
 
-/*references side bar adjusted to nav bar*/
-.sidebar.toc-left>*, .sidebar.margin-sidebar>* {
-    padding-top: 5.5em;
+/*references side bar adjusted when fixed navbar*/
+*/*.sidebar.toc-left>*, .sidebar.margin-sidebar>* {
+  padding-top: 5.5em;
 }
 
 #quarto-margin-sidebar .quarto-listing-category {
     padding-top: 70px;
     font-size: 1rem;
 }
-
+/*/

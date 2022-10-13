@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Termeh Shafie">
-<meta name="description" content="Multivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable’s range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.">
+<meta name="description" content="In this project, a general framework for using statistical entropies to capture interdependencies among node and tie variables in multivariate networks is developed.">
 
-<title>quarto-website - statistical entropy analysis of network data</title>
+<title>quarto-website - Statistical Entropy Analysis of Network Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,18 +166,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-summary" id="toc-project-summary" class="nav-link active" data-scroll-target="#project-summary">project summary</a></li>
-  <li><a href="#r-package-netropy" id="toc-r-package-netropy" class="nav-link" data-scroll-target="#r-package-netropy">r package <code>netropy</code></a>
+  <li><a href="#project-summary" id="toc-project-summary" class="nav-link active" data-scroll-target="#project-summary">Project summary</a></li>
+  <li><a href="#r-package-netropy" id="toc-r-package-netropy" class="nav-link" data-scroll-target="#r-package-netropy">R package <code>netropy</code></a>
   <ul class="collapse">
-  <li><a href="#package-overview" id="toc-package-overview" class="nav-link" data-scroll-target="#package-overview">package overview</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">installation</a></li>
-  <li><a href="#loading-internal-data" id="toc-loading-internal-data" class="nav-link" data-scroll-target="#loading-internal-data">loading internal data</a></li>
+  <li><a href="#package-overview" id="toc-package-overview" class="nav-link" data-scroll-target="#package-overview">Package overview</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#loading-internal-data" id="toc-loading-internal-data" class="nav-link" data-scroll-target="#loading-internal-data">Loading internal data</a></li>
   </ul></li>
-  <li><a href="#variable-domains-and-data-editing" id="toc-variable-domains-and-data-editing" class="nav-link" data-scroll-target="#variable-domains-and-data-editing">variable domains and data editing</a></li>
-  <li><a href="#univariate-bivariate-and-trivariate-entropies" id="toc-univariate-bivariate-and-trivariate-entropies" class="nav-link" data-scroll-target="#univariate-bivariate-and-trivariate-entropies">univariate, bivariate and trivariate entropies</a></li>
-  <li><a href="#joint-entropy-and-association-graphs" id="toc-joint-entropy-and-association-graphs" class="nav-link" data-scroll-target="#joint-entropy-and-association-graphs">joint entropy and association graphs</a></li>
-  <li><a href="#prediction-power-based-on-expected-conditional-entropies" id="toc-prediction-power-based-on-expected-conditional-entropies" class="nav-link" data-scroll-target="#prediction-power-based-on-expected-conditional-entropies">prediction power based on expected conditional entropies</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">references</a></li>
+  <li><a href="#variable-domains-and-data-editing" id="toc-variable-domains-and-data-editing" class="nav-link" data-scroll-target="#variable-domains-and-data-editing">Variable domains and data editing</a></li>
+  <li><a href="#univariate-bivariate-and-trivariate-entropies" id="toc-univariate-bivariate-and-trivariate-entropies" class="nav-link" data-scroll-target="#univariate-bivariate-and-trivariate-entropies">Univariate, bivariate and trivariate entropies</a></li>
+  <li><a href="#joint-entropy-and-association-graphs" id="toc-joint-entropy-and-association-graphs" class="nav-link" data-scroll-target="#joint-entropy-and-association-graphs">Joint entropy and association graphs</a></li>
+  <li><a href="#prediction-power-based-on-expected-conditional-entropies" id="toc-prediction-power-based-on-expected-conditional-entropies" class="nav-link" data-scroll-target="#prediction-power-based-on-expected-conditional-entropies">Prediction power based on expected conditional entropies</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -185,27 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title display-7">statistical entropy analysis of network data</h1>
+<h1 class="title display-7">Statistical Entropy Analysis of Network Data</h1>
 <p class="author">Termeh Shafie</p>
 
 </header>
 
 <section id="project-summary" class="level2">
-<h2 class="anchored" data-anchor-id="project-summary">project summary</h2>
-<p>In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analysing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks.</p>
-<p>Multivariate entropy analysis can be used as a general statistical method for finding, analyzing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies. For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf.&nbsp;graphical models). By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit.</p>
+<h2 class="anchored" data-anchor-id="project-summary">Project summary</h2>
+<p>In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analyzing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks.</p>
+<p>Multivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable’s range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.</p>
+<p>Since 2015, I am working with <a href="https://scholar.google.com/citations?user=9hTp2rsAAAAJ&amp;hl=en">Ove Frank</a> and <a href="https://portal.research.lu.se/en/persons/krzysztof-nowicki">Krzysztof Nowicki</a> on a project in which we build a systematic framework for using statistical entropy tools to analyze network data. A forthcoming monograph on the topic is expected in the coming year.</p>
 <p>The proposed framework is implemented in the R package ‘netropy’ and a description of various functions implemented in the package are given in the following. More details are provided in the package <a href="https://cran.r-project.org/web/packages/netropy/">vignettes</a> and the references listed.</p>
 </section>
 <section id="r-package-netropy" class="level2">
-<h2 class="anchored" data-anchor-id="r-package-netropy">r package <code>netropy</code></h2>
+<h2 class="anchored" data-anchor-id="r-package-netropy">R package <code>netropy</code></h2>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <section id="package-overview" class="level3">
-<h3 class="anchored" data-anchor-id="package-overview">package overview</h3>
+<h3 class="anchored" data-anchor-id="package-overview">Package overview</h3>
 <p><img src="hex_netropy.png" align="right" width="200px"> <a href="https://cran.r-project.org/package=netropy"><img src="https://www.r-pkg.org/badges/version/netropy.png" class="img-fluid" alt="CRAN status"></a> <a href="https://CRAN.R-project.org/package=netropy"><img src="http://cranlogs.r-pkg.org/badges/netropy.png" class="img-fluid" alt="CRAN Downloads"></a></p>
 <p>This package introduces these entropy tools in the context of network data. Brief description of various functions implemented in the package are given in the following but more details are provided in the package vignettes and the references listed.</p>
 </section>
 <section id="installation" class="level3">
-<h3 class="anchored" data-anchor-id="installation">installation</h3>
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
 <p>You can install the released version of netropy from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"netropy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The development version from <a href="https://github.com/">GitHub</a> with:</p>
@@ -217,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 <section id="loading-internal-data" class="level3">
-<h3 class="anchored" data-anchor-id="loading-internal-data">loading internal data</h3>
+<h3 class="anchored" data-anchor-id="loading-internal-data">Loading internal data</h3>
 <p>The different entropy tools are explained and illustrated by exploring data from a network study of a corporate law firm, which has previously been analysed by several authors (<a href="https://www.stats.ox.ac.uk/~snijders/siena/Lazega_lawyers_data.htm">link</a>). The data set is included in the package as a list with objects representing adjacency matrices for each of the three networks advice (directed), friendship (directed) and co-work (undirected), together with a data frame comprising 8 attributes on each of the 71 lawyers.</p>
 <p>To load the data, extract each object and assign the correct names to them:</p>
 <div class="cell" data-hash="index_cache/html/load_data_59acacf05c0f58a265d3a32c33c82b0e">
@@ -230,7 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 </section>
 <section id="variable-domains-and-data-editing" class="level2">
-<h2 class="anchored" data-anchor-id="variable-domains-and-data-editing">variable domains and data editing</h2>
+<h2 class="anchored" data-anchor-id="variable-domains-and-data-editing">Variable domains and data editing</h2>
 <p>A requirement for the applicability of these entropy tools is the specification of discrete variables with finite range spaces on the same domain: either node attributes/vertex variables, edges/dyad variables or triad variables. These can be either observed or transformed as shown in the following using the above example data set.</p>
 <p>We have 8 vertex variables with 71 observations, two of which (<code>years</code> and <code>age</code>) are numerical and needs categorization based on their cumulative distributions. This categorization is in details described in the vignette “variable domains and data editing”. Here we just show the new dataframe created (note that variable <code>senior</code> is omitted as it only comprises unique values and that we edit all variable to start from 0):</p>
 <div class="cell" data-hash="index_cache/html/edit_data1_a712233476f20860bf310ec71ddfd233">
@@ -301,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A similar function <code>get_triad_var()</code> is implemented for transforming vertex variables and different relation types into triad variables. This is described in more detail in the vignette “variable domains and data editing”.</p>
 </section>
 <section id="univariate-bivariate-and-trivariate-entropies" class="level2">
-<h2 class="anchored" data-anchor-id="univariate-bivariate-and-trivariate-entropies">univariate, bivariate and trivariate entropies</h2>
+<h2 class="anchored" data-anchor-id="univariate-bivariate-and-trivariate-entropies">Univariate, bivariate and trivariate entropies</h2>
 <p>The function <code>entropy_bivar()</code> computes the bivariate entropies of all pairs of variables in the dataframe. The output is given as an upper triangular matrix with cells giving the bivariate entropies of row and column variables. The diagonal thus gives the univariate entropies for each variable in the dataframe:</p>
 <div class="cell" data-hash="index_cache/html/biv_ent_1ea1819bf26dd8a7bb858dfd071b6b2f">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>H2 <span class="ot">&lt;-</span> <span class="fu">entropy_bivar</span>(dyad.var)</span>
@@ -359,7 +360,7 @@ friend     0.881</code></pre>
 </div>
 </section>
 <section id="joint-entropy-and-association-graphs" class="level2">
-<h2 class="anchored" data-anchor-id="joint-entropy-and-association-graphs">joint entropy and association graphs</h2>
+<h2 class="anchored" data-anchor-id="joint-entropy-and-association-graphs">Joint entropy and association graphs</h2>
 <p>Joint entropies is a non-negative measure of association among pairs of variables. It is equal to 0 if and only if two variables are completely independent of each other.</p>
 <p>The function <code>joint_entropy()</code> computes the joint entropies between all pairs of variables in a given dataframe and returns a list consisting of the upper triangular joint entropy matrix (univariate entropies in the diagonal) and a dataframe giving the frequency distributions of unique joint entropy values. A function argument specifies the precision given in number of decimals for which the frequency distribution of unique entropy values is created (default is 3). Applying the function on the dataframe <code>dyad.var</code> with two decimals:</p>
 <div class="cell" data-hash="index_cache/html/joint_ent_6ce019e1ed18abe6274f40e9522c984f">
@@ -433,7 +434,7 @@ friend      0.88</code></pre>
 <p>More details and examples of joint entropies and association graphs are given in the vignette “joint entropies and association graphs”.</p>
 </section>
 <section id="prediction-power-based-on-expected-conditional-entropies" class="level2">
-<h2 class="anchored" data-anchor-id="prediction-power-based-on-expected-conditional-entropies">prediction power based on expected conditional entropies</h2>
+<h2 class="anchored" data-anchor-id="prediction-power-based-on-expected-conditional-entropies">Prediction power based on expected conditional entropies</h2>
 <p>The function <code>prediction_power()</code> computes prediction power when pairs of variables in a given dataframe are used to predict a third variable from the same dataframe. The variable to be predicted and the dataframe in which this variable also is part of is given as input arguments, and the output is an upper triangular matrix giving the expected conditional entropies of pairs of row and column variables (denoted <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>) of the matrix, i.e.&nbsp;<em>EH(Z|X,Y)</em> where <span class="math inline">\(Z\)</span> is the variable to be predicted. The diagonal gives <em>EH(Z|X)</em> , that is when only one variable as a predictor. Note that <code>NA</code>’s are in the row and column representing the variable being predicted.</p>
 <p>Assume we are interested in predicting variable <code>status</code> (that is whether a lawyer in the data set is an associate or partner). This is done by running the following syntax</p>
 <div class="cell" data-hash="index_cache/html/predpow1_6e20fe5880f52bcc44c9e9f51730c197">
@@ -467,7 +468,7 @@ friend     3.408</code></pre>
 <p>More details and examples of expected conditional entropies and prediction power are given in the package <a href="https://cran.r-project.org/web/packages/netropy/vignettes/prediction_power.html">vignette</a>.</p>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">references</h2>
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <p>Parts of the theoretical background is provided in the package vignettes, but for more details, consult the following literature:</p>
 <ul>
 <li><p>Frank, O., &amp; Shafie, T. (2016). Multivariate entropy analysis of network data. <em>Bulletin of Sociological Methodology/Bulletin de Méthodologie Sociologique</em>, 129(1), 45-63. <a href="../../publications/multivariate_entropy_analysis/index.html">link</a></p></li>
