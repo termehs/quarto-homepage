@@ -1,6 +1,5 @@
 ---
 author: Termeh Shafie
-date: "2022-10-01"
 title: network of interconnected convoys
 image: featured.png
 title-block-style: none
@@ -9,10 +8,4 @@ priority: 3
 ---
 
 
-## project summary
-
-
-
-### r package
-
-#### test
+## More info coming soon

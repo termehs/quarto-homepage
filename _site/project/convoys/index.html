@@ -2,21 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Termeh Shafie">
-<meta name="dcterms.date" content="2022-10-01">
 
 <title>quarto-website - network of interconnected convoys</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -67,19 +71,30 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">quarto-website</span>
-  </a>
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../static/logo.png" alt="" class="navbar-logo">
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">Home</a>
+    <a class="nav-link" href="../../publications/index.html">Publications</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../../blog/index.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project/index.html">Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about/index.html">About me</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html">Talks</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -92,14 +107,11 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-summary" id="toc-project-summary" class="nav-link active" data-scroll-target="#project-summary">project summary</a>
-  <ul class="collapse">
-  <li><a href="#r-package" id="toc-r-package" class="nav-link" data-scroll-target="#r-package">r package</a></li>
-  </ul></li>
+  <li><a href="#more-info-coming-soon" id="toc-more-info-coming-soon" class="nav-link active" data-scroll-target="#more-info-coming-soon">More info coming soon</a></li>
   </ul>
 </nav>
     </div>
@@ -110,19 +122,12 @@ ul.task-list{list-style: none;}
 <h1 class="title display-7">network of interconnected convoys</h1>
 <p class="author">Termeh Shafie</p>
 
-<p class="date">2022-10-01</p>
 </header>
 
-<section id="project-summary" class="level2">
-<h2 class="anchored" data-anchor-id="project-summary">project summary</h2>
-<section id="r-package" class="level3">
-<h3 class="anchored" data-anchor-id="r-package">r package</h3>
-<section id="test" class="level4">
-<h4 class="anchored" data-anchor-id="test">test</h4>
+<section id="more-info-coming-soon" class="level2">
+<h2 class="anchored" data-anchor-id="more-info-coming-soon">More info coming soon</h2>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -195,7 +200,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

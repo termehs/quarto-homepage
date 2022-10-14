@@ -33,7 +33,7 @@ h1,h2,h3,h4{
   font-family: 'Teko';
 }
 
-.listing-title:hovefr {
+.listing-title:hover {
   text-decoration:underline;
 }
 
