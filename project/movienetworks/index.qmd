@@ -13,7 +13,9 @@ categories:
 
 
 ## project summary
+This interdisciplinary research aims to apply novel quantitative methods, (e.g. entropy based natural language processing and signed network approaches) to study the gendered inequalities in popular cinema.
 
+This projects addresses questions as follows: In what ways can a systematic framework based on multivariate statistical entropies be developed to analyse monadic and dyadic data from the digital humanities? How can network methods illuminate the patterns of gendered homosocial- ity that circulate through popular cultural texts? To what extent, and in what ways, are female characters’ narrative interactions patterns biased or stereotypical?
 
 
 ### r package
