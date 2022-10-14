@@ -57,7 +57,12 @@
       "B3049D40",
       "about",
       "rpackage/netropy",
-      "rpackage/multigraphr"
+      "rpackage/multigraphr",
+      "talks/EUSN2019",
+      "talks/EUSN2022",
+      "talks/NETWORKS2021",
+      "talks/SUNBELT2022",
+      "talks/wins_may2022"
     ],
     "publication/index.qmd": [
       "aggregated_triads",
@@ -97,6 +102,13 @@
       "nexus",
       "netropy",
       "multigraphr"
+    ],
+    "talks/index.qmd": [
+      "EUSN2019",
+      "EUSN2021",
+      "NETWORKS2021",
+      "SUNBELT2022",
+      "wins_may2022"
     ]
   }
 }

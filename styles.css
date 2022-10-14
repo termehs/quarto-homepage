@@ -29,16 +29,16 @@ h1,h2,h3,h4{
 .listing-title{
   color: #63615a;
   font-weight: 400;
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-family: 'Teko';
 }
 
-.listing-title:hover {
+.listing-title:hovefr {
   text-decoration:underline;
 }
 
 .listing-date {
-  font-size: 1rem;
+  font-size: 0.875rem;
 
 }
 
@@ -136,7 +136,7 @@ h1.f3{
 
 
 .navbar-brand>img {
-    max-height: 34px;
+    max-height: 43px;
     width: auto;
     padding-right: 6px;
 }
@@ -146,7 +146,7 @@ h1.f3{
 }
 
 .active {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a198a6;
 }
 
 .navbar-brand {
@@ -281,8 +281,8 @@ div.quarto-post {
 /* icons */
 .socials {
     padding-bottom: 1em;
-    padding-left: 0%;
-    font-size: 1.25em;
+    padding-left: 2%;
+    font-size: 1.5em;
 }
 
 .socials a{
@@ -298,7 +298,7 @@ opacity: 50%;
 }
 
 .vspace {
-     margin-bottom: 2cm;
+     margin-bottom: 1cm;
      padding: 1%;
   }
 
@@ -358,6 +358,11 @@ a {
 }
 
 /*references side bar adjusted when fixed navbar*/
+#quarto-margin-sidebar .quarto-listing-category {
+    padding-top: 0;
+    font-size: 0.875rem;
+}
+
 */*.sidebar.toc-left>*, .sidebar.margin-sidebar>* {
   padding-top: 5.5em;
 }
@@ -367,3 +372,11 @@ a {
     font-size: 1rem;
 }
 /*/
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}

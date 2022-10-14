@@ -1,0 +1,15 @@
+---
+author: Termeh Shafie
+date: "2019-09-09"
+title: “Gender Dependent Structures of Dialogue Networks in Films”
+subtitle: The IV European Conference on Social Networks
+title-block-style: none
+toc: false
+date-format: medium
+categories:
+  - entropy
+  - multigraphs
+---
+
+<button type="button" class="btn btn-outline-success">
+<a href="/talks/EUSN2019/EUSN2019.html" target="_blank">Slides</a></button>

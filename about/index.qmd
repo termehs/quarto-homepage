@@ -3,55 +3,43 @@ title: Termeh Shafie
 image: avatar.png
 id: about
 about:
-  template: jolla
+  template: trestles
   image-width: 10em
   image-shape: round
 ---
 
-<div class="socials">
-<a href="https://twitter.com/termehshafie"><i class="bi bi-twitter"></i></a>
-<a href="https://github.com/termehs"><i class="bi bi-github"></i></a>
-<a href="https://scholar.google.de/citations?user=Si-WbhAAAAAJ&amp;hl=en"><i class="ai ai-google-scholar"></i></a>
-<a href="https://orcid.org/0000-0002-8419-8477"><i class="ai ai-orcid"></i></a>
-<a href="https://researchgate.net/profile/Termeh-Shafie/"><i class="ai ai-researchgate"></i></a>
-</div>
+
+<div class="habout">👋 Hi, I&rsquo;m  Termeh</div>
+I'm a statistician with more than a decade of experience in the field of social network analysis. I have primarily made contributions on developing novel methods and models for analyzing multivariate networks. I'm also the developer and maintainer of two R packages on the topic. 
+
+Interdisciplinary applications are close to heart and I have had many such collaborations in different branches of computational social science and digital humanities. 
+
+You can find information on some of the methodological and empirical projects [here](/project/).
 
 
-I’m  a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science).
+## Education
+
+* **PhD in Statistics** | 2013 | Stockholm University | Stockholm, Sweden 
+
+* **Licentiate of Philosophy in Statistic** | 2008 | Umeå University | Umeå Sweden 
+
+* **Master of Social Science (major in Statistics)**  | 2006  |  Umeå University | Umeå Sweden
+
+* **Master of Science in Public Administration and Economics** | 2006
+| Umeå University | Umeå Sweden 
 
 
-<div class="lead">
 
-I'm the **team lead** for "Transparent Social Analytics" in the Department for Computational Social Science at [GESIS](https://www.gesis.org/en/institute/departments/computational-social-science) and 
-  I develop tools in [R](https://r-project.org/).
+## Experience
 
-</div>
+* **Senior Researcher** | Jul 2022 – Present  |  Department of Computational Social Science GESIS – Leibniz Institute for the Social Sciences 
 
-<img src="logo.svg" width=50% style="margin-left:25%">
+* **Lecturer in Social Statistics** | Jul 2018 – Apr 2022 |  Department of Social Statistics | The University of Manchester
 
-## more about me
+* **Postdoctoral Researcher** | Nov 2017 – Jun 2018 |  Department of Humanities, Social and Political Sciences | ETH Zürich
 
-Before joining GESIS, I was a Presidential Fellow at the [University of Manchester](https://www.manchester.ac.uk/) in the [Department of Sociology](https://www.socialsciences.manchester.ac.uk/sociology/), affiliated with the [The Mitchell Centre for Social Network Analysis](https://www.socialsciences.manchester.ac.uk/mitchell-centre/). 
+* **Postdoctoral Researcher** | Sep 2013 – Oct 2017 |  Department of Computer and Information Science | University of Konstanz
 
-I received my PhD in Computer Science at the [University of Konstanz](https://www.uni-konstanz.de/en/) as a fellow of the [Graduate School of Decision Sciences](https://www.gsds.uni-konstanz.de/). I also have a diploma in business mathematics from 
-[Karlsruhe Institute of Technology](https://www.kit.edu/english/).
-
-## research interests
-
-My main research interests lie in the field of (social) network analysis. I have made technical and methodological 
-contributions to topics such as network centrality, signed networks, and two-mode networks.
-
-I am also actively involved in research around political astroturfing on social media. 
-
-See [my publications](/publications/) for all my scientific output.
-
-## soccerverse
-
-In an effort to combine a hobby with work, I created the football analytics website [soccerverse](http://soccerverse.com/) together with some former colleagues.
-The project includes a world ranking of football clubs, close to the one FIFA uses for [national teams](https://www.fifa.com/fifa-world-ranking/men?dateId=id13505). I developed most of my data science and R skills
-with this project, including scraping and cleaning data (i.e. collecting football results from various sources) and using the tidyverse to analyse the data. 
-
-Part of the data is available on [github](https://github.com/schochastics/football-data).
 
 
 

@@ -1,0 +1,17 @@
+---
+title: "Talks"
+listing:
+  id: talks
+  fields: [title,date]
+  contents: 
+    - EUSN2019
+    - EUSN2021
+    - NETWORKS2021
+    - SUNBELT2022
+    - wins_may2022
+  type: default
+  categories: true
+  image-align: left
+  sort: "date desc"
+---
+

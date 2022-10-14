@@ -1,0 +1,15 @@
+---
+author: Termeh Shafie
+date: "2022-07-15"
+title: “Statistical Analysis of Multivariate Egocentric Networks”
+subtitle: The XLII Social Networks Conference of INSNA (15 July 2022)
+title-block-style: none
+toc: false
+date-format: medium
+categories:
+  - multigraphs
+---
+
+
+<button type="button" class="btn btn-outline-success">
+<a href="talks/SUNBELT2022/index.html" target="_blank">Slides</a></button>

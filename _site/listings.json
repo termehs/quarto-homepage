@@ -75,8 +75,18 @@
   {
     "listing": "/rpackage/index.html",
     "items": [
-      "/rpackage/netropy/index.html",
-      "/rpackage/multigraphr/index.html"
+      "/rpackage/multigraphr/index.html",
+      "/rpackage/netropy/index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/SUNBELT2022/index.html",
+      "/talks/wins_may2022/index.html",
+      "/talks/EUSN2021/index.html",
+      "/talks/NETWORKS2021/index.html",
+      "/talks/EUSN2019/index.html"
     ]
   }
 ]

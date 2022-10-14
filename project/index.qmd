@@ -1,6 +1,7 @@
 ---
 title: "Projects"
 listing:
+  id: projects
   fields: [image,title, description]
   contents: 
     - seand

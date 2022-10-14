@@ -410,14 +410,14 @@
     "href": "about/index.html",
     "title": "Termeh Shafie",
     "section": "",
-    "text": "I’m a Senior Researcher for the “Digital Society Observatory” team in the Department for Computational Social Science at GESIS."
+    "text": "👋 Hi, I’m Termeh Shafie\nI’m a statistician with more than a decade of experience in the field of social network analysis. I have primarily made contributions on developing novel methods and models for analyzing multivariate networks. I’m also the developer and maintainer of two R packages on the topic.\nInterdisciplinary applications are close to heart and I have had many such collaborations in different branches of computational social science and digital humanities.\nYou can find information on some of the methodological and empirical projects here."
   },
   {
     "objectID": "about/index.html#more-about-me",
     "href": "about/index.html#more-about-me",
     "title": "Termeh Shafie",
-    "section": "more about me",
-    "text": "more about me\nBefore joining GESIS, I was a Presidential Fellow at the University of Manchester in the Department of Sociology, affiliated with the The Mitchell Centre for Social Network Analysis.\nI received my PhD in Computer Science at the University of Konstanz as a fellow of the Graduate School of Decision Sciences. I also have a diploma in business mathematics from Karlsruhe Institute of Technology."
+    "section": "More about me",
+    "text": "More about me\nI have more than a decade of experience in the field of statistical network analysis, and primarily made contributions in model and method development for analyzing multivariate networks. I’m also the developer and maintainer of two R packages in this field.\nInterdisciplinary applications are close to hear and I have had many such collaborations in different branches of computational social science and digital humanities.\nYou can find information on some of the projects that I have worked on in the past and those that I currently work on under projects."
   },
   {
     "objectID": "about/index.html#research-interests",
@@ -466,14 +466,14 @@
     "href": "about/index.html#education",
     "title": "Termeh Shafie",
     "section": "Education",
-    "text": "Education\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011"
+    "text": "Education\n\nPhD in Statistics | 2013 | Stockholm University | Stockholm, Sweden\nLicentiate of Philosophy in Statistic | 2008 | Umeå University | Umeå Sweden\nMaster of Social Science (major in Statistics) | 2006 | Umeå University | Umeå Sweden\nMaster of Science in Public Administration and Economics | 2006 | Umeå University | Umeå Sweden"
   },
   {
     "objectID": "about/index.html#experience",
     "href": "about/index.html#experience",
     "title": "Termeh Shafie",
     "section": "Experience",
-    "text": "Experience\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Sept 2012 - April 2018"
+    "text": "Experience\n\nSenior Researcher | Jul 2022 – Present | Department of Computational Social Science GESIS – Leibniz Institute for the Social Sciences\nLecturer in Social Statistics | Jul 2018 – Apr 2022 | Department of Social Statistics | The University of Manchester\nPostdoctoral Researcher | Nov 2017 – Jun 2018 | Department of Humanities, Social and Political Sciences | ETH Zürich\nPostdoctoral Researcher | Sep 2013 – Oct 2017 | Department of Computer and Information Science | University of Konstanz"
   },
   {
     "objectID": "index.html#recent-talks",
@@ -642,5 +642,61 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "talks/EUSN2021/index.html",
+    "href": "talks/EUSN2021/index.html",
+    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
+    "section": "",
+    "text": "The XLII Social Networks Conference of INSNA (15 July 2022)\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n\n\n\nThe 5th European Conference on Social Networks (7 Sep 2021)\n\n\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n\n\n\nA Joint Sunbelt and NetSci Conference\n\n\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n\n\n\nThe IV European Conference on Social Networks\n\n\n\n\n\n\nSep 9, 2019\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "talks/wins_may2022/index.html",
+    "href": "talks/wins_may2022/index.html",
+    "title": "“Statistical Entropy Analysis of Network Data”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/wins_may2022/index.html#video",
+    "href": "talks/wins_may2022/index.html#video",
+    "title": "“Statistical Entropy Analysis of Network Data”",
+    "section": "Video",
+    "text": "Video"
+  },
+  {
+    "objectID": "talks/NETWORKS2021/index.html",
+    "href": "talks/NETWORKS2021/index.html",
+    "title": "“Goodness of Fit Tests for Random Multigraph Models”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/NETWORKS2021/index.html#video",
+    "href": "talks/NETWORKS2021/index.html#video",
+    "title": "“Goodness of Fit Tests for Random Multigraph Models”",
+    "section": "Video",
+    "text": "Video"
+  },
+  {
+    "objectID": "talks/EUSN2019/index.html",
+    "href": "talks/EUSN2019/index.html",
+    "title": "“Gender Dependent Structures of Dialogue Networks in Films”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/SUNBELT2022/index.html",
+    "href": "talks/SUNBELT2022/index.html",
+    "title": "“Statistical Analysis of Multivariate Egocentric Networks”",
+    "section": "",
+    "text": "Slides"
   }
 ]
