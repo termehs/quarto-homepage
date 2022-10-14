@@ -1,11 +1,14 @@
 ---
 author: Termeh Shafie
-date: "2022-10-01"
-title: network analysis to unpack the gender bias in popular cinema
+title: Gender Dependent Structures in Charachter Networks
 image: featured.png
 title-block-style: none
 toc: true
 priority: 4
+description: Using network analysis to analyze gender representation in popular cinema.
+categories:
+  - multigraph
+  - entropy
 ---
 
 
