@@ -1,18 +1,29 @@
 ---
 author: Termeh Shafie
-date: "2022-10-01"
-title: nexus 1492 - reconstructing networks of the past
+title: NEXUS1492
 image: featured.png
 title-block-style: none
 toc: true
 priority: 5
+description: Reconstructing Archaeological Networks And Their Transformations Across The Historical Divide.
+categories:
+  - archaeology
 ---
 
+## Project Summary
+Between 2013-2018, I worked in  international ERC-Synergy research project NEXUS1492 investigates the impacts of colonial encounters in the Caribbean through the reconstruction and modelling of archaeological networks.
 
-## project summary
+You can read more about the project and its output [here](https://www.universiteitleiden.nl/nexus1492).
+
+## References
+
+* Shafie T., Schoch D., Mans J., Hofman C., Brandes U. (2017). Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700. *Journal of Historical Network Research*,**1**(1), 52-70. [Link](/publications/hypergraph/index.html)
+
+*  Amati, V., Shafie, T., Brandes U.(2018) Reconstructing Archaeological Networks with Structural Holes. *Journal of Archaeological Method and Theory volume* **25**, 226–253.
+[Link](/publications/reconstructing_arch_nets/index.html)
+
+* Amati, V., Mol, A., Shafie, T., Hofman, C., Brandes U. (2020). A Framework for Reconstructing Archaeological Networks Using Exponential Random Graph Models. *Journal of Archaeological Method and Theory volume* **27**, 192–219. 
+[Link](/publications/ergm_framework_arch/index.html)
 
 
 
-### r package
-
-#### test

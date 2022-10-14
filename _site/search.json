@@ -18,14 +18,14 @@
     "href": "index.html#projects",
     "title": "quarto-website",
     "section": "Projects",
-    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork of interconnected convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork analysis to unpack the gender bias in popular cinema\n\n\n\n\n\n\n\n\n\n\n\n\n\nnexus 1492 - reconstructing networks of the past\n\n\n\n\n\n\n\nNo matching items\n\n\n\nALL PROJECTS"
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork of interconnected convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork analysis to unpack the gender bias in popular cinema\n\n\n\n\n\n\n\n\n\n\n\n\n\nNEXUS1492\n\n\n\n\n\n\n\nNo matching items\n\n\n\nALL PROJECTS"
   },
   {
     "objectID": "project/index.html",
     "href": "project/index.html",
     "title": "Projects",
     "section": "",
-    "text": "In this project, a general framework for using statistical entropies to capture interdependencies among node and tie variables in multivariate networks is developed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis project focuses on exploratory and confirmatory statistical analysis of multivariate social networks represented as multigraphs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "In this project, a general framework for using statistical entropies to capture interdependencies among node and tie variables in multivariate networks is developed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe exploratory and confirmatory statistical analysis of multivariate social networks represented as multigraphs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReconstructing Archaeological Networks And Their Transformations Across The Historical Divide.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "project/rmm/index.html",
@@ -410,7 +410,7 @@
     "href": "about/index.html",
     "title": "Termeh Shafie",
     "section": "",
-    "text": "👋 Hi, I’m Termeh Shafie\nI’m a statistician with more than a decade of experience in the field of social network analysis. I have primarily made contributions on developing novel methods and models for analyzing multivariate networks. I’m also the developer and maintainer of two R packages on the topic.\nInterdisciplinary applications are close to heart and I have had many such collaborations in different branches of computational social science and digital humanities.\nYou can find information on some of the methodological and empirical projects here."
+    "text": "👋 Hi, I’m Termeh\nI’m a statistician with more than a decade of experience in the field of social network analysis. I have primarily made contributions on developing novel methods and models for analyzing multivariate networks. I’m also the developer and maintainer of two R packages on the topic.\nInterdisciplinary applications are close to heart and I have had many such collaborations in different branches of computational social science and digital humanities.\nYou can find information on some of the methodological and empirical projects here."
   },
   {
     "objectID": "about/index.html#more-about-me",
@@ -698,5 +698,26 @@
     "title": "“Statistical Analysis of Multivariate Egocentric Networks”",
     "section": "",
     "text": "Slides"
+  },
+  {
+    "objectID": "project/nexus/index.html",
+    "href": "project/nexus/index.html",
+    "title": "NEXUS1492",
+    "section": "",
+    "text": "Between 2013-2018, I worked in international ERC-Synergy research project NEXUS1492 investigates the impacts of colonial encounters in the Caribbean through the reconstruction and modelling of archaeological networks.\nYou can read more about the project and its output here."
+  },
+  {
+    "objectID": "project/nexus/index.html#references",
+    "href": "project/nexus/index.html#references",
+    "title": "NEXUS1492",
+    "section": "References",
+    "text": "References\n\nShafie T., Schoch D., Mans J., Hofman C., Brandes U. (2017). Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700. Journal of Historical Network Research,1(1), 52-70. Link\nAmati, V., Shafie, T., Brandes U.(2018) Reconstructing Archaeological Networks with Structural Holes. Journal of Archaeological Method and Theory volume 25, 226–253. Link\nAmati, V., Mol, A., Shafie, T., Hofman, C., Brandes U. (2020). A Framework for Reconstructing Archaeological Networks Using Exponential Random Graph Models. Journal of Archaeological Method and Theory volume 27, 192–219. Link"
+  },
+  {
+    "objectID": "project/rmm/index.html#references",
+    "href": "project/rmm/index.html#references",
+    "title": "Multigraph Representation of Network Data",
+    "section": "References",
+    "text": "References\n\nShafie, T. (2015). A multigraph approach to social network analysis. Journal of Social Structure, 16. Link\nShafie, T. (2016). Analyzing local and global properties of multigraphs. The Journal of Mathematical Sociology, 40(4), 239-264. Link\nFrank, O., Shafie, T., (2018). Random Multigraphs and Aggregated Triads with Fixed Degrees. Network Science, 6(2), 232-250. Link\nShafie, T., Schoch, D. (2021) Multiplexity analysis of networks using multigraph representations. Statistical Methods & Applications 30, 1425–1444. Link\nShafie, T. (2022). Goodness of fit tests for random multigraph models, Journal of Applied Statistics. Link"
   }
 ]
