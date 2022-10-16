@@ -12,12 +12,7 @@ categories:
 ---
 
 
-## project summary
-This interdisciplinary research aims to apply novel quantitative methods, (e.g. entropy based natural language processing and signed network approaches) to study the gendered inequalities in popular cinema.
-
-This projects addresses questions as follows: In what ways can a systematic framework based on multivariate statistical entropies be developed to analyse monadic and dyadic data from the digital humanities? How can network methods illuminate the patterns of gendered homosocial- ity that circulate through popular cultural texts? To what extent, and in what ways, are female characters’ narrative interactions patterns biased or stereotypical?
+## Project Summary
+Since 2019, I'm sporadically working on a project with [Pete Jones](https://www.petejon.es/) which aims to apply existing and novel quantitative methods (e.g. relational event models, entropy based natural language processing and multigraph representations), to study the gendered inequalities in popular cinema. See Pete's website for more information and some awesome packages such as [charinet](https://github.com/pj398/charinet) which he has developed on the topic.
 
 
-### r package
-
-#### test

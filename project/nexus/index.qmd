@@ -1,6 +1,6 @@
 ---
 author: Termeh Shafie
-title: NEXUS1492
+title: NEXUS1492 - Reconstructing Archaeological Networks
 image: featured.png
 title-block-style: none
 toc: true

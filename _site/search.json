@@ -18,7 +18,7 @@
     "href": "index.html#projects",
     "title": "quarto-website",
     "section": "Projects",
-    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nnetwork of interconnected convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nGender Dependent Structures in Charachter Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nNEXUS1492\n\n\n\n\n\n\n\nNo matching items\n\n\n\nALL PROJECTS"
+    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork of Interconnected Convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nGender Dependent Structures in Charachter Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nNEXUS1492 - Reconstructing Archaeological Networks\n\n\n\n\n\n\n\nNo matching items\n\n\n\nALL PROJECTS"
   },
   {
     "objectID": "project/index.html",
@@ -702,14 +702,14 @@
   {
     "objectID": "project/nexus/index.html",
     "href": "project/nexus/index.html",
-    "title": "NEXUS1492",
+    "title": "NEXUS1492 - Reconstructing Archaeological Networks",
     "section": "",
     "text": "Between 2013-2018, I worked in international ERC-Synergy research project NEXUS1492 investigates the impacts of colonial encounters in the Caribbean through the reconstruction and modelling of archaeological networks.\nYou can read more about the project and its output here."
   },
   {
     "objectID": "project/nexus/index.html#references",
     "href": "project/nexus/index.html#references",
-    "title": "NEXUS1492",
+    "title": "NEXUS1492 - Reconstructing Archaeological Networks",
     "section": "References",
     "text": "References\n\nShafie T., Schoch D., Mans J., Hofman C., Brandes U. (2017). Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700. Journal of Historical Network Research,1(1), 52-70. Link\nAmati, V., Shafie, T., Brandes U.(2018) Reconstructing Archaeological Networks with Structural Holes. Journal of Archaeological Method and Theory volume 25, 226–253. Link\nAmati, V., Mol, A., Shafie, T., Hofman, C., Brandes U. (2020). A Framework for Reconstructing Archaeological Networks Using Exponential Random Graph Models. Journal of Archaeological Method and Theory volume 27, 192–219. Link"
   },
@@ -725,6 +725,6 @@
     "href": "project/movienetworks/index.html",
     "title": "Gender Dependent Structures in Charachter Networks",
     "section": "",
-    "text": "This interdisciplinary research aims to apply novel quantitative methods, (e.g. entropy based natural language processing and signed network approaches) to study the gendered inequalities in popular cinema.\nThis projects addresses questions as follows: In what ways can a systematic framework based on multivariate statistical entropies be developed to analyse monadic and dyadic data from the digital humanities? How can network methods illuminate the patterns of gendered homosocial- ity that circulate through popular cultural texts? To what extent, and in what ways, are female characters’ narrative interactions patterns biased or stereotypical?"
+    "text": "Since 2019, I’m sporadically working on a project with Pete Jones which aims to apply existing and novel quantitative methods (e.g. relational event models, entropy based natural language processing and multigraph representations), to study the gendered inequalities in popular cinema. See Pete’s website for more information and some awesome packages such as charinet which he has developed on the topic."
   }
 ]

@@ -1,6 +1,6 @@
 ---
 author: Termeh Shafie
-title: network of interconnected convoys
+title: Network of Interconnected Convoys
 image: featured.png
 title-block-style: none
 toc: true

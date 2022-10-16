@@ -239,9 +239,9 @@ h5, .h5{
 
 .quarto-grid-item img.thumbnail-image {
    object-fit: scale-down;
-    padding-top: 0.7em;
-    padding-left: 0.5em;
-    padding-right: 0.5em
+    padding-top: 0.2em;
+    padding-left: 0.1em;
+    padding-right: 0.1em
 }
 
 .quarto-grid-link:hover {
@@ -299,6 +299,11 @@ opacity: 50%;
 
 .vspace {
      margin-bottom: 1cm;
+     padding: 1%;
+  }
+  
+ .vspace2 {
+     margin-bottom: 0.5cm;
      padding: 1%;
   }
 
