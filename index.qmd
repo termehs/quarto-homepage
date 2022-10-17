@@ -22,6 +22,7 @@ listing:
     type: grid
     image-align: left
     sort: "priority asc"
+    grid-columns: 3
   - id: publication
     fields: [title,date]
     contents: 
@@ -40,6 +41,7 @@ listing:
     - publications/sna_chapter
     - publications/complexity_multigraphs
     type: table
+    table-hover: true
     date-format: short
     image-align: left
     max-items: 10

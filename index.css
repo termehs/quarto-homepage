@@ -75,3 +75,7 @@ div.quarto-post .thumbnail img {
     animation-delay: .15s;
 }
 
+.table {
+    --bs-table-hover-bg:   #ebe9e1;
+}
+

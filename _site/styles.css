@@ -287,7 +287,7 @@ div.quarto-post {
 
 .socials a{
   color: #99978d;
-  margin-left: 0.3em;
+  margin-left: 0.1em;
   size: 50%;
 }
 
@@ -361,6 +361,7 @@ table.quarto-listing-table a {
 a {
     color: #63615a;
 }
+
 
 /*references side bar adjusted when fixed navbar*/
 #quarto-margin-sidebar .quarto-listing-category {
