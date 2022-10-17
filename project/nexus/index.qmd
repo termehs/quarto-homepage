@@ -4,7 +4,7 @@ title: NEXUS1492 - Reconstructing Archaeological Networks
 image: featured.png
 title-block-style: none
 toc: true
-priority: 5
+priority: 6
 description: Reconstructing Archaeological Networks And Their Transformations Across The Historical Divide.
 categories:
   - archaeology
@@ -17,12 +17,17 @@ You can read more about the project and its output [here](https://www.universite
 
 ## References
 
-* Shafie T., Schoch D., Mans J., Hofman C., Brandes U. (2017). Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700. *Journal of Historical Network Research*,**1**(1), 52-70. [Link](/publications/hypergraph/index.html)
+* Shafie T., Schoch D., Mans J., Hofman C., Brandes U., (2017). Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700. *Journal of Historical Network Research*,**1**(1), 52-70. [Link](/publications/hypergraph/index.html)
 
-*  Amati, V., Shafie, T., Brandes U.(2018) Reconstructing Archaeological Networks with Structural Holes. *Journal of Archaeological Method and Theory volume* **25**, 226–253.
+
+* Laffoon, J.E., Sonnemann, T.F., Shafie, T., Hofman, C.L., Brandes, U. and Davies, G.R., (2017). Investigating human geographic origins using dual-isotope (87Sr/86Sr, δ18O) assignment approaches. *PloS one*, **12**(2), p.e0172562.
+[Link](/publications/isotopes/index.html)
+
+
+*  Amati, V., Shafie, T., Brandes U., (2018) Reconstructing Archaeological Networks with Structural Holes. *Journal of Archaeological Method and Theory volume* **25**, 226–253.
 [Link](/publications/reconstructing_arch_nets/index.html)
 
-* Amati, V., Mol, A., Shafie, T., Hofman, C., Brandes U. (2020). A Framework for Reconstructing Archaeological Networks Using Exponential Random Graph Models. *Journal of Archaeological Method and Theory volume* **27**, 192–219. 
+* Amati, V., Mol, A., Shafie, T., Hofman, C., Brandes U., (2020). A Framework for Reconstructing Archaeological Networks Using Exponential Random Graph Models. *Journal of Archaeological Method and Theory volume* **27**, 192–219. 
 [Link](/publications/ergm_framework_arch/index.html)
 
 

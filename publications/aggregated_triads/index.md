@@ -1,13 +1,13 @@
 ---
 date: "2018-01-25"
-description: New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs.
+description: New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. 
 subtitle: Ove Frank, Termeh Shafie
 title: "Random Multigraphs and Aggregated Triads with Fixed Degrees"
 image: featured.png
 title-block-style: none
 toc: false
 categories: 
-  - multigraphs
+  - multigraph
   - entropy
 ---
 

@@ -162,6 +162,12 @@ h1.f3{
   background-color: #ebe9e1;
 }
 
+footer.footer .nav-footer, #quarto-header nav {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
 /*buttons*/
 
 .btn-outline-success{
@@ -183,6 +189,8 @@ h1.f3{
   text-decoration: none;
   text-transform: uppercase;
 }
+
+
 
 /* grid cards */
 h5, .h5{

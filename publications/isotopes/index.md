@@ -1,14 +1,17 @@
 ---
 date: "2017-02-25"
-description: Develop and test more standardized and quantitative approaches to geographic assignment of individual origins using isotopic data.
+description: Develop and test more standardized and quantitative approaches to geographic assignment of individual origins using multivariate isotopic data.
 subtitle: Jason E Laffoon, Till F Sonnemann, Termeh Shafie, Corinne L Hofman, Ulrik Brandes, Gareth R Davies
 title: "Investigating Human Geographic Origins using Dual-Isotope (87Sr/86Sr, d18O) Assignment approaches"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - archaeology
+  - multivariate statistics
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0172562&type=printable">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0172562" target="_blank">journal</a></button>
 
 
 

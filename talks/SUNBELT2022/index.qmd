@@ -12,4 +12,5 @@ categories:
 
 
 <button type="button" class="btn btn-outline-success">
-<a href="talks/SUNBELT2022/index.html" target="_blank">Slides</a></button>
+<a href="sunbelt2022.pdf" target="_blank">Slides</a></button>
+

@@ -4,7 +4,7 @@ title: Gender Dependent Structures in Charachter Networks
 image: featured.png
 title-block-style: none
 toc: true
-priority: 4
+priority: 5
 description: Using network analysis to analyze gender representation in popular cinema.
 categories:
   - multigraph

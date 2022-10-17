@@ -19,6 +19,7 @@ listing:
       - project/nexus
       - project/movienetworks
       - project/convoys
+      - project/netdyn      
     type: grid
     image-align: left
     sort: "priority asc"
@@ -200,7 +201,7 @@ No matching items
 Sunbelt 2022, the XLII Social Networks Conference of INSNA (15 July 2022)
 
 <button type="button" class="btn btn-outline-success">
-<a href="talks/SUNBELT2022/index.html" target="_blank">Slides</a></button>
+<a href="talks/SUNBELT2022/sunbelt2022.pdf" target="_blank">Slides</a></button>
 
 ### “Statistical Entropy Analysis of Network Data”
 The Women in Network Science (WiNS) seminar (5 May 2022)

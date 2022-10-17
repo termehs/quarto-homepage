@@ -1,15 +1,18 @@
 ---
 date: "2016-01-02"
-description: Using multivariate entropies we show how it is possible to systematically check for tendencies in data that can be described as independencies or conditional independencies, or as dependencies allowing certain combinations of variables to predict other variables.
+description: We show how it is possible to systematically check for tendencies in data, such as independencies or conditional independencies, using multivariate entropies.
 subtitle: Over Frank, Termeh Shafie
 title: "Multivariate Entropy Analysis of Network Data"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multivariate statistics
+  - entropy
 ---
 
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1177/0759106315615511">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1177/0759106315615511" target="_blank">journal</a></button>
 
 
 ## Abstract 

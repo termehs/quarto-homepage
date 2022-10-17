@@ -6,9 +6,12 @@ title: "Hypergraph Representations: A Study of Carib Attacks on Colonial Forces,
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - hypergraph
+  - archaeology
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://jhnr.uni.lu/index.php/jhnr/article/view/6">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://jhnr.uni.lu/index.php/jhnr/article/view/6" target="_blank">journal</a></button>
 
 
 ---

@@ -7,7 +7,7 @@ toc: true
 priority: 2
 description: The exploratory and confirmatory statistical analysis of multivariate social networks represented as multigraphs.
 categories:
-  - multigraphs
+  - multigraph
 ---
 
 

@@ -6,10 +6,13 @@ title: "Reconstructing Archaeological Networks with Structural Holes"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - ergm
+  - archaeology
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10816-017-9335-1">journal</a></button>
-<button type="button" class="btn btn-outline-success"><a href="https://link.springer.com/content/pdf/10.1007%2Fs10816-017-9335-1.pdf">pdf</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10816-017-9335-1" target="_blank">journal</a></button>
+
 
 
 ## Abstract 

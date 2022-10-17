@@ -6,9 +6,11 @@ title: "Nation Building and Social Signaling in Southern Ontario AD 1350-1650"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - archaeology
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1371/journal.pone.0156178">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1371/journal.pone.0156178" target="_blank">journal</a></button>
 
 
 ## Abstract 

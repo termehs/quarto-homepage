@@ -19,7 +19,8 @@
       "reconstructing_arch_nets",
       "sna_chapter",
       "complexity_multigraphs",
-      "convoys"
+      "convoys",
+      "netdyn"
     ],
     "index.qmd": [
       "project/rmm",
@@ -62,7 +63,8 @@
       "talks/EUSN2022",
       "talks/NETWORKS2021",
       "talks/SUNBELT2022",
-      "talks/wins_may2022"
+      "talks/wins_may2022",
+      "project/netdyn"
     ],
     "publication/index.qmd": [
       "aggregated_triads",

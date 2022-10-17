@@ -1,14 +1,17 @@
 ---
 date: "2019-08-25"
-description: We present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence.
+description: We present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms for network formation.
 subtitle: Viviana Amati, Angus Mol, Termeh Shafie, Corinne Hofman, Ulrik Brandes
 title: "A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - archaeology
+  - ergm
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10816-019-09423-z">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10816-019-09423-z" target="_blank">journal</a></button>
 
 
 ## Abstract 

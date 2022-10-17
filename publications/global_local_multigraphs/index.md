@@ -6,10 +6,12 @@ title: "Analyzing Local and Global Properties of Multigraphs"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multigraph
 ---
 
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1080/0022250X.2016.1219732">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1080/0022250X.2016.1219732" target="_blank">journal</a></button>
 
 
 ## Abstract 

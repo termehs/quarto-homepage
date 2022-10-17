@@ -6,9 +6,12 @@ title: "Complexity of Families of Multigraphs"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multigraph
+  - entropy
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="">conference proceedings</a></button>
+<button type="button" class="btn btn-outline-success" target="_blank"><a href="JSM2012.pdf">pdf</a></button>
 
 
 

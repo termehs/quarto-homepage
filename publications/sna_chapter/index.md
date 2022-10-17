@@ -6,9 +6,12 @@ title: "Social Network Analysis"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - sna survey
+  - teaching
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.4135/9781526421036871242">book chapter</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.4135/9781526421036871242" target="_blank">book chapter</a></button>
 
 
 

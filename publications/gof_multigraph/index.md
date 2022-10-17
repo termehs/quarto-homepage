@@ -6,9 +6,11 @@ title: "Goodness of fit tests for random multigraph models"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multigraph
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1080/02664763.2022.2099816">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1080/02664763.2022.2099816" target="_blank">journal</a></button>
 
 
 ## Abstract 

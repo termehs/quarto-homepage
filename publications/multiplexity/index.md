@@ -1,14 +1,16 @@
 ---
 date: "2021-09-30"
-description: Method for performing multiplexity analysis in networks with multiple node covariates.
+description: A method for performing multiplexity analysis in social networks with several node covariates is presented.
 subtitle: Termeh Shafie, David Schoch
 title: "Multiplexity Analysis of Networks using Multigraph Representations"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multigraph
 ---
 
-<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10260-021-00596-0">journal</a></button>
+<button type="button" class="btn btn-outline-success"><a href="https://doi.org/10.1007/s10260-021-00596-0" target="_blank">journal</a></button>
 
 
 ## Abstract 

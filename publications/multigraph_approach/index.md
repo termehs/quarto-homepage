@@ -1,15 +1,17 @@
 ---
 date: "2015-06-01"
-description: The main purpose of this article is to show the versatility of a multigraph approach when analyzing social networks.
+description: The versatility and applicability of multigraph representations when analyzing social networks is presented.
 subtitle: Termeh Shafie
 title: "A Multigraph Approach to Social Network Analysis"
 image: featured.png
 title-block-style: none
 toc: false
+categories: 
+  - multigraph
 ---
 
 
-<button type="button" class="btn btn-outline-success"><a href="https://sciendo.com/article/10.21307/joss-2019-011>journal</a></button>
+<button type="button" class="btn btn-outline-success"><a  href="https://sciendo.com/article/10.21307/joss-2019-011" target="_blank">journal</a></button>
 
 
 
