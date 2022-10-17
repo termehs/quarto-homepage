@@ -1,0 +1,16 @@
+---
+author: Termeh Shafie
+date: "2021-09-07"
+title: Multiplexity Analysis of Networks using Multigraph Representations
+subtitle: The 5th European Conference on Social Networks
+title-block-style: none
+toc: false
+date-format: medium
+categories:
+  - multigraph
+---
+
+
+
+<button type="button" class="btn btn-outline-success">
+<a href="/talks/EUSN2021/EUSN2021_talk.pdf" target="_blank">Slides</a></button>

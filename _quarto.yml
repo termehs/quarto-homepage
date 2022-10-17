@@ -44,5 +44,4 @@ format:
     highlight-style: zenburn
 execute: 
   freeze: auto
-  self-contained: true
 

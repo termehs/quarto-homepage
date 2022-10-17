@@ -7,10 +7,8 @@ title-block-style: none
 toc: false
 date-format: medium
 categories:
-  - multigraphs
+  - multigraph
 ---
-
 
 <button type="button" class="btn btn-outline-success">
 <a href="sunbelt2022.pdf" target="_blank">Slides</a></button>
-

@@ -207,7 +207,7 @@ Sunbelt 2022, the XLII Social Networks Conference of INSNA (15 July 2022)
 The Women in Network Science (WiNS) seminar (5 May 2022)
 
 <button type="button" class="btn btn-outline-success">
-<a href="wins_may2022/index.html" target="_blank">Slides</a></button>
+<a href="talks/wins_may2022/wins_may2022.pdf" target="_blank">Slides</a></button>
 <button type="button" class="btn btn-outline-success">
 <a href="https://www.youtube.com/watch?v=uJMQKREntfE&feature=youtu.be" target="_blank">Video</a></button>
 <button type="button" class="btn btn-outline-success">
@@ -233,7 +233,7 @@ Networks 2021: A Joint Sunbelt and NetSci Conference (6 July 2021)
 The 4th European Conference on Social Networks (9 Sep 2019)
 
 <button type="button" class="btn btn-outline-success">
-<a href="talks/EUSN2019/EUSN2019.html" target="_blank">Slides</a></button>
+<a href="talks/EUSN2019/EUSN2019.pdf" target="_blank">Slides</a></button>
 
 :::
 
