@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-website - Talks</title>
+<title>mrs schochastics - Talks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,13 +25,10 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
+<link href="../static/favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-listing/list.min.js"></script>
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,12 +39,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -70,9 +61,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -94,6 +85,19 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../academicons.css">
+<meta property="og:title" content="mrs schochastics - Talks">
+<meta property="og:description" content="Senior Researcher, Department for Computational Social Science, GESIS">
+<meta property="og:image" content="https://mrs.schochastics.net/static/img/avatar.png">
+<meta property="og:site-name" content="mrs schochastics">
+<meta property="og:image:height" content="1846">
+<meta property="og:image:width" content="1817">
+<meta name="twitter:title" content="mrs schochastics - Talks">
+<meta name="twitter:description" content="Senior Researcher, Department for Computational Social Science, GESIS">
+<meta name="twitter:image" content="https://mrs.schochastics.net/static/img/avatar.png">
+<meta name="twitter:creator" content="@schochastics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="1846">
+<meta name="twitter:image-width" content="1817">
 </head>
 
 <body class="nav-fixed">
@@ -113,22 +117,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../publications/index.html">Publications</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html">Blog</a>
+    <a class="nav-link" href="../about/index.html">About me</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../project/index.html">Projects</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about/index.html">About me</a>
+    <a class="nav-link" href="../publications/index.html">Publications</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../talks/index.html" aria-current="page">Talks</a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html">Blog</a>
+  </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -165,14 +168,17 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-talks">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="multigraph" data-listing-date-sort="1657836000000" data-listing-file-modified-sort="1666036025301" data-listing-reading-time-sort="0.03">
+<div class="quarto-post image-right" data-index="0" data-categories="multigraph" data-listing-date-sort="1657836000000" data-listing-file-modified-sort="1666084298640" data-listing-reading-time-sort="0.03">
+<div class="thumbnail">
+<p><a href="../talks/SUNBELT2022/index.html"> <img src="../talks/SUNBELT2022/featured.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="../talks/SUNBELT2022/index.html">
 <h3 class="no-anchor listing-title">
 “Statistical Analysis of Multivariate Egocentric Networks”
 </h3>
 <div class="listing-subtitle">
-The XLII Social Networks Conference of INSNA (15 July 2022)
+The XLII Social Networks Conference of INSNA
 </div>
 </a>
 </div>
@@ -184,7 +190,10 @@ Jul 15, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="1" data-categories="entropy" data-listing-date-sort="1651701600000" data-listing-file-modified-sort="1666035785882" data-listing-reading-time-sort="0.18">
+<div class="quarto-post image-right" data-index="1" data-categories="entropy" data-listing-date-sort="1651701600000" data-listing-file-modified-sort="1666079100738" data-listing-reading-time-sort="0.18">
+<div class="thumbnail">
+<p><a href="../talks/wins_may2022/index.html"> <img src="../talks/wins_may2022/featured.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="../talks/wins_may2022/index.html">
 <h3 class="no-anchor listing-title">
@@ -203,7 +212,10 @@ May 5, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="2" data-categories="multigraph" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1666036130663" data-listing-reading-time-sort="0.03">
+<div class="quarto-post image-right" data-index="2" data-categories="multigraph" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1666084123452" data-listing-reading-time-sort="0.03">
+<div class="thumbnail">
+<p><a href="../talks/EUSN2021/index.html"> <img src="../talks/EUSN2021/featured.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="../talks/EUSN2021/index.html">
 <h3 class="no-anchor listing-title">
@@ -222,7 +234,10 @@ Sep 7, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="3" data-categories="multigraph" data-listing-date-sort="1625522400000" data-listing-file-modified-sort="1666036209045" data-listing-reading-time-sort="0.155">
+<div class="quarto-post image-right" data-index="3" data-categories="multigraph" data-listing-date-sort="1625522400000" data-listing-file-modified-sort="1666080050164" data-listing-reading-time-sort="0.155">
+<div class="thumbnail">
+<p><a href="../talks/NETWORKS2021/index.html"> <img src="../talks/NETWORKS2021/featured.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="../talks/NETWORKS2021/index.html">
 <h3 class="no-anchor listing-title">
@@ -241,7 +256,10 @@ Jul 6, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-left" data-index="4" data-categories="entropy,multigraph" data-listing-date-sort="1567980000000" data-listing-file-modified-sort="1666036150599" data-listing-reading-time-sort="0.03">
+<div class="quarto-post image-right" data-index="4" data-categories="entropy,multigraph" data-listing-date-sort="1567980000000" data-listing-file-modified-sort="1666084731603" data-listing-reading-time-sort="0.03">
+<div class="thumbnail">
+<p><a href="../talks/EUSN2019/index.html"> <img src="../talks/EUSN2019/featured.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="../talks/EUSN2019/index.html">
 <h3 class="no-anchor listing-title">

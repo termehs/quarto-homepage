@@ -5,6 +5,7 @@ title: “Statistical Entropy Analysis of Network Data”
 subtitle: The Women in Network Science (WiNS) seminar
 title-block-style: none
 toc: false
+image: featured.png
 date-format: medium
 categories:
   - entropy

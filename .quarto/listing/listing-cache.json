@@ -64,7 +64,8 @@
       "talks/NETWORKS2021",
       "talks/SUNBELT2022",
       "talks/wins_may2022",
-      "project/netdyn"
+      "project/netdyn",
+      "talks/EUSN2021"
     ],
     "publication/index.qmd": [
       "aggregated_triads",

@@ -37,10 +37,6 @@ h1,h2,h3,h4{
   text-decoration:underline;
 }
 
-.listing-date {
-  font-size: 0.875rem;
-
-}
 
 pre{
   color: var(--navbar-fg);
@@ -394,3 +390,4 @@ a {
     margin-right: -15px;
     margin-left: -15px;
 }
+

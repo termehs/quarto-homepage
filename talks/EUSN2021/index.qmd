@@ -1,10 +1,11 @@
 ---
-author: Termeh Shafie
+author: Termeh Shafie, David Schoch
 date: "2021-09-07"
 title: Multiplexity Analysis of Networks using Multigraph Representations
 subtitle: The 5th European Conference on Social Networks
 title-block-style: none
 toc: false
+image: featured.png
 date-format: medium
 categories:
   - multigraph

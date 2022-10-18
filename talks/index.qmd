@@ -2,16 +2,16 @@
 title: "Talks"
 listing:
   id: talks
-  fields: [title,date]
+  fields: [title,date,image]
   contents: 
-    - EUSN2019
     - EUSN2021
     - NETWORKS2021
     - SUNBELT2022
     - wins_may2022
+    - EUSN2019
   type: default
   categories: true
-  image-align: left
+  image-align: right
   sort: "date desc"
 ---
 

@@ -6,6 +6,7 @@ subtitle: Network 2021 - A Joint Sunbelt and NetSci Conference
 title-block-style: none
 toc: false
 date-format: medium
+image: featured.png
 categories:
   - multigraph
 ---

@@ -1,10 +1,11 @@
 ---
-author: Termeh Shafie
+author: Termeh Shafie, Pete Jones
 date: "2019-09-09"
 title: “Gender Dependent Structures of Dialogue Networks in Films”
 subtitle: The 4th European Conference on Social Networks
 title-block-style: none
 toc: false
+image: featured.png
 date-format: medium
 categories:
   - entropy

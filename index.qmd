@@ -47,6 +47,19 @@ listing:
     image-align: left
     max-items: 10
     sort: "date desc"
+  - id: talks
+    fields: [image,title,date]
+    contents: 
+    - talks/EUSN2019
+    - talks/EUSN2021
+    - talks/NETWORKS2021
+    - talks/SUNBELT2022
+    - talks/wins_may2022
+    type: default
+    date-format: medium
+    image-align: right
+    max-items: 5
+    sort: "date desc"
 ---
 
 
@@ -196,45 +209,12 @@ No matching items
 
 
 ## Recent Talks
+:::{#talks}
+:::
 
-### “Statistical Analysis of Multivariate Egocentric Networks”
-Sunbelt 2022, the XLII Social Networks Conference of INSNA (15 July 2022)
-
-<button type="button" class="btn btn-outline-success">
-<a href="talks/SUNBELT2022/sunbelt2022.pdf" target="_blank">Slides</a></button>
-
-### “Statistical Entropy Analysis of Network Data”
-The Women in Network Science (WiNS) seminar (5 May 2022)
-
-<button type="button" class="btn btn-outline-success">
-<a href="talks/wins_may2022/wins_may2022.pdf" target="_blank">Slides</a></button>
-<button type="button" class="btn btn-outline-success">
-<a href="https://www.youtube.com/watch?v=uJMQKREntfE&feature=youtu.be" target="_blank">Video</a></button>
-<button type="button" class="btn btn-outline-success">
-<a href="talks/wins_may2022/wins_examples.html" target="_blank">Examples</a></button>
-
-
-### “Multiplexity Analysis of Networks using Multigraph Representations”
-The 5th European Conference on Social Networks (7 Sep 2021)
-
-<button type="button" class="btn btn-outline-success">
-<a href="talks/EUSN2021/EUSN2021_talk.pdf" target="_blank">Slides</a></button>
-
-### “Goodness of Fit Tests for Random Multigraph Models”
-Networks 2021: A Joint Sunbelt and NetSci Conference (6 July 2021)
-
-<button type="button" class="btn btn-outline-success">
-<a href="talks/NETWORKS2021/networks2021.pdf" target="_blank">Slides</a></button>
-
-<button type="button" class="btn btn-outline-success">
-<a href="talks/NETWORKS2021/10338_shafie.mp4" target="_blank">Video</a></button>
-
-### “Gender Dependent Structures of Dialogue Networks in Films”
-The 4th European Conference on Social Networks (9 Sep 2019)
-
-<button type="button" class="btn btn-outline-success">
-<a href="talks/EUSN2019/EUSN2019.pdf" target="_blank">Slides</a></button>
-
+::: {.all-link}
+[more talks](talks/)
+:::
 :::
 
 ::::
