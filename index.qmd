@@ -3,8 +3,6 @@ pagetitle: "Termeh Shafie"
 page-layout: custom
 toc: false
 css: index.css
-link-external-newwindow: true
-embed-resources: true
 socials:
   twitter: termehshafie
 shortcodes:

@@ -1,83 +1,5 @@
 {
   "listingMap": {
-    "project/index.qmd": [
-      "movienetworks",
-      "nexus",
-      "rmm",
-      "seand",
-      "aggregated_triads",
-      "data_protection",
-      "ergm_framework_arch",
-      "global_local_multigraphs",
-      "gof_multigraph",
-      "hypergraph",
-      "isotopes",
-      "multigraph_approach",
-      "multiplexity",
-      "multivariate_entropy_analysis",
-      "ontario_sna",
-      "reconstructing_arch_nets",
-      "sna_chapter",
-      "complexity_multigraphs",
-      "convoys",
-      "netdyn"
-    ],
-    "index.qmd": [
-      "project/rmm",
-      "project/seand",
-      "project/movieproject",
-      "project/nexus",
-      "project/movienetworks",
-      "publications/aggregated_traids",
-      "publications/aggregated_trdds",
-      "publications/aggregated_triads",
-      "publication/aggregated_triads",
-      "publication/data_protection",
-      "publication/ergm_framework_arch",
-      "publications/global_local_multigraphs",
-      "publication/global_local_multigraphs",
-      "publication/gof_multigraph",
-      "publication/hypergraph",
-      "publication/isotopes",
-      "publications/data_protection",
-      "publications/ergm_framework_arch",
-      "publications/gof_multigraph",
-      "publications/hypergraph",
-      "publications/isotopes",
-      "publication/multigraph_approach",
-      "publications/multiplexity",
-      "publications/multigraph_approach",
-      "publications/multivariate_entropy_analysis",
-      "publications/ontario_sna",
-      "publications/reconstructing_arch_nets",
-      "publications/sna_chapter",
-      "publications/complexity_multigraphs",
-      "netropy",
-      "multigraphr",
-      "project/convoys",
-      "B3049D40",
-      "about",
-      "rpackage/netropy",
-      "rpackage/multigraphr",
-      "talks/EUSN2019",
-      "talks/EUSN2022",
-      "talks/NETWORKS2021",
-      "talks/SUNBELT2022",
-      "talks/wins_may2022",
-      "project/netdyn",
-      "talks/EUSN2021"
-    ],
-    "publication/index.qmd": [
-      "aggregated_triads",
-      "data_protection",
-      "ergm_framework_arch",
-      "global_local_multigraphs",
-      "gof_multigraph",
-      "hypergraph",
-      "isotopes",
-      "multigraph_approach",
-      "multiplexity"
-    ],
     "publications/index.qmd": [
       "aggregated_triads",
       "data_protection",
@@ -94,25 +16,54 @@
       "sna_chapter",
       "complexity_multigraphs"
     ],
-    "blog/index.qmd": [
-      "B3049D40"
-    ],
-    "rpackage/index.qmd": [
-      "seand",
-      "rmm",
-      "convoys",
-      "movienetworks",
-      "nexus",
-      "netropy",
-      "multigraphr"
-    ],
     "talks/index.qmd": [
-      "EUSN2019",
       "EUSN2021",
       "NETWORKS2021",
       "SUNBELT2022",
       "wins_may2022",
-      "EUSN2019/EUSN2019.html"
+      "EUSN2019"
+    ],
+    "index.qmd": [
+      "project/rmm",
+      "project/seand",
+      "project/nexus",
+      "project/movienetworks",
+      "project/convoys",
+      "project/netdyn",
+      "publications/aggregated_triads",
+      "publications/data_protection",
+      "publications/ergm_framework_arch",
+      "publications/global_local_multigraphs",
+      "publications/gof_multigraph",
+      "publications/hypergraph",
+      "publications/isotopes",
+      "publications/multigraph_approach",
+      "publications/multiplexity",
+      "publications/multivariate_entropy_analysis",
+      "publications/ontario_sna",
+      "publications/reconstructing_arch_nets",
+      "publications/sna_chapter",
+      "publications/complexity_multigraphs",
+      "talks/EUSN2019",
+      "talks/EUSN2021",
+      "talks/NETWORKS2021",
+      "talks/SUNBELT2022",
+      "talks/wins_may2022"
+    ],
+    "blog/index.qmd": [
+      "B3049D40"
+    ],
+    "project/index.qmd": [
+      "seand",
+      "rmm",
+      "convoys",
+      "netdyn",
+      "movienetworks",
+      "nexus"
+    ],
+    "rpackage/index.qmd": [
+      "netropy",
+      "multigraphr"
     ]
   }
 }

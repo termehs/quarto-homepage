@@ -1,43 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2022-10-18T09:19:51.780Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/reconstructing_arch_nets/index.html</loc>
+    <lastmod>2022-10-18T19:10:51.563Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/talks/index.html</loc>
-    <lastmod>2022-10-18T09:19:52.876Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/multivariate_entropy_analysis/index.html</loc>
+    <lastmod>2022-10-18T19:10:52.103Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/talks/SUNBELT2022/index.html</loc>
-    <lastmod>2022-10-18T09:11:42.061Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/multiplexity/index.html</loc>
+    <lastmod>2022-10-18T19:10:52.718Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/talks/EUSN2019/index.html</loc>
-    <lastmod>2022-10-18T09:19:45.194Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/aggregated_triads/index.html</loc>
+    <lastmod>2022-10-18T19:10:53.292Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/talks/EUSN2021/index.html</loc>
-    <lastmod>2022-10-18T09:17:13.062Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/hypergraph/index.html</loc>
+    <lastmod>2022-10-18T19:10:53.803Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/about/index.html</loc>
-    <lastmod>2022-10-18T09:20:51.313Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/index.html</loc>
+    <lastmod>2022-10-18T19:10:54.987Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/project/index.html</loc>
-    <lastmod>2022-10-18T09:20:57.260Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/gof_multigraph/index.html</loc>
+    <lastmod>2022-10-18T19:10:56.056Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/blog/index.html</loc>
-    <lastmod>2022-10-18T09:22:50.622Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/complexity_multigraphs/index.html</loc>
+    <lastmod>2022-10-18T19:10:56.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/global_local_multigraphs/index.html</loc>
+    <lastmod>2022-10-18T19:10:56.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/sna_chapter/index.html</loc>
+    <lastmod>2022-10-18T19:10:57.389Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/data_protection/index.html</loc>
+    <lastmod>2022-10-18T19:10:57.825Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/multigraph_approach/index.html</loc>
+    <lastmod>2022-10-18T19:10:58.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/isotopes/index.html</loc>
+    <lastmod>2022-10-18T19:10:58.741Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/ergm_framework_arch/index.html</loc>
+    <lastmod>2022-10-18T19:10:59.190Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/ontario_sna/index.html</loc>
+    <lastmod>2022-10-18T19:10:59.974Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/wins_may2022/index.html</loc>
-    <lastmod>2022-10-18T09:23:25.277Z</lastmod>
+    <lastmod>2022-10-18T19:11:00.526Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/index.html</loc>
+    <lastmod>2022-10-18T19:11:01.692Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/NETWORKS2021/index.html</loc>
-    <lastmod>2022-10-18T09:23:41.550Z</lastmod>
+    <lastmod>2022-10-18T19:11:02.627Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/SUNBELT2022/index.html</loc>
+    <lastmod>2022-10-18T19:11:03.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/EUSN2019/index.html</loc>
+    <lastmod>2022-10-18T19:11:03.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/EUSN2021/index.html</loc>
+    <lastmod>2022-10-18T19:11:04.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/about/index.html</loc>
+    <lastmod>2022-10-18T19:11:05.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/index.html</loc>
+    <lastmod>2022-10-18T19:11:05.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/blog/index.html</loc>
+    <lastmod>2022-10-18T19:11:06.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/convoys/index.html</loc>
+    <lastmod>2022-10-18T19:11:07.239Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/movienetworks/index.html</loc>
+    <lastmod>2022-10-18T19:11:07.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/seand/index.html</loc>
+    <lastmod>2022-10-18T19:11:08.789Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/netdyn/index.html</loc>
+    <lastmod>2022-10-18T19:11:09.248Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/rmm/index.html</loc>
+    <lastmod>2022-10-18T19:11:10.371Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/index.html</loc>
+    <lastmod>2022-10-18T19:11:11.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/nexus/index.html</loc>
+    <lastmod>2022-10-18T19:11:12.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/rpackage/index.html</loc>
+    <lastmod>2022-10-18T19:11:13.165Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/rpackage/netropy/index.html</loc>
+    <lastmod>2022-10-18T19:11:14.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
+    <lastmod>2022-10-18T19:11:14.590Z</lastmod>
   </url>
 </urlset>

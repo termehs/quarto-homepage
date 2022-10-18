@@ -1,56 +1,5 @@
 [
   {
-    "listing": "/project/index.html",
-    "items": [
-      "/project/seand/index.html",
-      "/project/rmm/index.html",
-      "/project/convoys/index.html",
-      "/project/netdyn/index.html",
-      "/project/movienetworks/index.html",
-      "/project/nexus/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/project/seand/index.html",
-      "/project/rmm/index.html",
-      "/project/convoys/index.html",
-      "/project/movienetworks/index.html",
-      "/project/nexus/index.html",
-      "/rpackage/netropy/index.html",
-      "/rpackage/multigraphr/index.html",
-      "/publications/gof_multigraph/index.html",
-      "/publications/multiplexity/index.html",
-      "/publications/sna_chapter/index.html",
-      "/publications/ergm_framework_arch/index.html",
-      "/publications/reconstructing_arch_nets/index.html",
-      "/publications/aggregated_triads/index.html",
-      "/publications/hypergraph/index.html",
-      "/publications/isotopes/index.html",
-      "/publications/global_local_multigraphs/index.html",
-      "/publications/ontario_sna/index.html",
-      "/publications/multivariate_entropy_analysis/index.html",
-      "/publications/data_protection/index.html",
-      "/publications/multigraph_approach/index.html",
-      "/publications/complexity_multigraphs/index.html"
-    ]
-  },
-  {
-    "listing": "/publication/index.html",
-    "items": [
-      "/publication/gof_multigraph/index.html",
-      "/publication/multiplexity/index.html",
-      "/publication/ergm_framework_arch/index.html",
-      "/publication/aggregated_triads/index.html",
-      "/publication/hypergraph/index.html",
-      "/publication/isotopes/index.html",
-      "/publication/global_local_multigraphs/index.html",
-      "/publication/data_protection/index.html",
-      "/publication/multigraph_approach/index.html"
-    ]
-  },
-  {
     "listing": "/publications/index.html",
     "items": [
       "/publications/gof_multigraph/index.html",
@@ -70,17 +19,6 @@
     ]
   },
   {
-    "listing": "/blog/index.html",
-    "items": []
-  },
-  {
-    "listing": "/rpackage/index.html",
-    "items": [
-      "/rpackage/multigraphr/index.html",
-      "/rpackage/netropy/index.html"
-    ]
-  },
-  {
     "listing": "/talks/index.html",
     "items": [
       "/talks/SUNBELT2022/index.html",
@@ -88,6 +26,58 @@
       "/talks/EUSN2021/index.html",
       "/talks/NETWORKS2021/index.html",
       "/talks/EUSN2019/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/project/seand/index.html",
+      "/project/rmm/index.html",
+      "/project/convoys/index.html",
+      "/project/netdyn/index.html",
+      "/project/movienetworks/index.html",
+      "/project/nexus/index.html",
+      "/publications/gof_multigraph/index.html",
+      "/publications/multiplexity/index.html",
+      "/publications/sna_chapter/index.html",
+      "/publications/ergm_framework_arch/index.html",
+      "/publications/reconstructing_arch_nets/index.html",
+      "/publications/aggregated_triads/index.html",
+      "/publications/hypergraph/index.html",
+      "/publications/isotopes/index.html",
+      "/publications/global_local_multigraphs/index.html",
+      "/publications/ontario_sna/index.html",
+      "/publications/multivariate_entropy_analysis/index.html",
+      "/publications/data_protection/index.html",
+      "/publications/multigraph_approach/index.html",
+      "/publications/complexity_multigraphs/index.html",
+      "/talks/SUNBELT2022/index.html",
+      "/talks/wins_may2022/index.html",
+      "/talks/EUSN2021/index.html",
+      "/talks/NETWORKS2021/index.html",
+      "/talks/EUSN2019/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": []
+  },
+  {
+    "listing": "/project/index.html",
+    "items": [
+      "/project/seand/index.html",
+      "/project/rmm/index.html",
+      "/project/convoys/index.html",
+      "/project/netdyn/index.html",
+      "/project/movienetworks/index.html",
+      "/project/nexus/index.html"
+    ]
+  },
+  {
+    "listing": "/rpackage/index.html",
+    "items": [
+      "/rpackage/netropy/index.html",
+      "/rpackage/multigraphr/index.html"
     ]
   }
 ]

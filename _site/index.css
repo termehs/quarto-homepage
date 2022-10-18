@@ -9,8 +9,17 @@ h2 {
   color: #63615a;
 }
 
+body {
+font-family: 'IBM Plex Sans';
+color: #63615a;
+}
+
+
+
 .termeh-intro{
   margin-top: -30px;
+  font-family: 'IBM Plex Sans';
+  font-size: 1.5em;
 }
 
 
@@ -25,8 +34,9 @@ div.quarto-post .thumbnail img {
     object-fit: scale-down;
 }
 
+
 .all-link{
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: right;
 }
 
@@ -50,7 +60,6 @@ div.quarto-post .thumbnail img {
 .about-link a{
   text-decoration: none;
   text-transform: uppercase;
-  color: var(--navbar-fg);
 }
 
 .about-link a::after{
@@ -65,5 +74,9 @@ div.quarto-post .thumbnail img {
     padding: 20px 0;
     animation: intro .3s both;
     animation-delay: .15s;
+}
+
+.table {
+    --bs-table-hover-bg:   #ebe9e1;
 }
 
