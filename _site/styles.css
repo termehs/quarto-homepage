@@ -13,12 +13,10 @@ h1,h2,h3,h4{
   font-family: 'Teko';
 }
 
-
-
 .portrait {
     width: 200px;
     height: 200px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     margin-right: 50px;
     border-radius: 50%;
     object-fit: none;
@@ -35,6 +33,7 @@ h1,h2,h3,h4{
 
 .listing-title:hover {
   text-decoration:underline;
+  color:#8f8187;
 }
 
 
@@ -359,9 +358,11 @@ div.quarto-about-jolla .about-image {
 table.quarto-listing-table a {
     text-decoration: none;
 }
+
 .table a {
     word-break: break-word;
 }
+
 a {
     color: #63615a;
 }

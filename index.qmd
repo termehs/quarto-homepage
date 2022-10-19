@@ -168,7 +168,7 @@ Department for Computational Social Science, [GESIS](https://www.gesis.org/en/in
 ## R packages
 <div id="listing-rpckg" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3"><div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665686493490" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
-<a href=http://localhost:3602/project/seand/#r-package-netropy class="quarto-grid-link">
+<a href="/project/seand/#r-package-netropy" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 150px;">
@@ -176,7 +176,7 @@ Department for Computational Social Science, [GESIS](https://www.gesis.org/en/in
 </div>
 </a>
 </div><div class="g-col-1" data-index="1" data-categories="entropy" data-listing-file-modified-sort="1665686604701" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
-<a href="http://localhost:3602/project/rmm/#r-package-multigraphr" class="quarto-grid-link">
+<a href="/project/rmm/#r-package-multigraphr" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 150px;">
