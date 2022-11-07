@@ -8,7 +8,7 @@ toc: false
 image: featured.png
 date-format: medium
 categories:
-  - entropy
+  - multigraph
 ---
 
 <button type="button" class="btn btn-outline-success">

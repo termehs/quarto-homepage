@@ -4,6 +4,7 @@ listing:
   id: talks
   fields: [title,date,image]
   contents: 
+    - cmb2022
     - EUSN2021
     - NETWORKS2021
     - SUNBELT2022
