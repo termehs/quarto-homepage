@@ -305,7 +305,7 @@
     "href": "index.html#recent-talks",
     "title": "mrs schochastics",
     "section": "Recent Talks",
-    "text": "Recent Talks\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nThe 5th European Conference on Social Networks\n\n\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n  \n\n\n\n\n“Goodness of Fit Tests for Random Multigraph Models”\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n  \n\n\n\n\n“Gender Dependent Structures of Dialogue Networks in Films”\n\n\nThe 4th European Conference on Social Networks\n\n\n\n\n\n\nSep 9, 2019\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
+    "text": "Recent Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nThe 5th European Conference on Social Networks\n\n\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n  \n\n\n\n\n“Goodness of Fit Tests for Random Multigraph Models”\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
   },
   {
     "objectID": "blog/index.html",
@@ -460,5 +460,12 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "talks/cmb2022/index.html",
+    "href": "talks/cmb2022/index.html",
+    "title": "“Analyzing Social Structure using Multigraph Representations”",
+    "section": "",
+    "text": "Slides"
   }
 ]

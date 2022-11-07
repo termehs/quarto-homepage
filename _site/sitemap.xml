@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2022-10-26T10:00:05.841Z</lastmod>
+    <lastmod>2022-11-07T10:00:45.843Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/blog/index.html</loc>
@@ -135,5 +135,9 @@
   <url>
     <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
     <lastmod>2022-10-26T10:00:15.878Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/cmb2022/index.html</loc>
+    <lastmod>2022-11-07T09:59:33.717Z</lastmod>
   </url>
 </urlset>
