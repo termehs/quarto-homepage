@@ -17,12 +17,12 @@
       "complexity_multigraphs"
     ],
     "talks/index.qmd": [
+      "cmb2022",
       "EUSN2021",
       "NETWORKS2021",
       "SUNBELT2022",
       "wins_may2022",
-      "EUSN2019",
-      "cmb2022"
+      "EUSN2019"
     ],
     "index.qmd": [
       "project/rmm",

@@ -245,6 +245,13 @@
     "text": "Slides"
   },
   {
+    "objectID": "talks/cmb2022/index.html",
+    "href": "talks/cmb2022/index.html",
+    "title": "“Analyzing Social Structure using Multigraph Representations”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
     "objectID": "talks/EUSN2019/index.html",
     "href": "talks/EUSN2019/index.html",
     "title": "“Gender Dependent Structures of Dialogue Networks in Films”",
@@ -460,12 +467,5 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
-  },
-  {
-    "objectID": "talks/cmb2022/index.html",
-    "href": "talks/cmb2022/index.html",
-    "title": "“Analyzing Social Structure using Multigraph Representations”",
-    "section": "",
-    "text": "Slides"
   }
 ]
