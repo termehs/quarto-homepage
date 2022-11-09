@@ -1,6 +1,6 @@
 ---
 date: "2017-02-25"
-description: Develop and test more standardized and quantitative approaches to geographic assignment of individual origins using multivariate isotopic data.
+description: We develop and test more standardized and quantitative approaches to geographic assignment of individual origins using multivariate isotopic data.
 subtitle: Jason E Laffoon, Till F Sonnemann, Termeh Shafie, Corinne L Hofman, Ulrik Brandes, Gareth R Davies
 title: "Investigating Human Geographic Origins using Dual-Isotope (87Sr/86Sr, d18O) Assignment approaches"
 image: featured.png

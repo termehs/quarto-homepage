@@ -1,6 +1,6 @@
 ---
 date: "2015-06-01"
-description: The versatility and applicability of multigraph representations when analyzing social networks is presented.
+description: The theoretical background for analyzing multivariate social networks using multigraph representations is introduced.
 subtitle: Termeh Shafie
 title: "A Multigraph Approach to Social Network Analysis"
 image: featured.png

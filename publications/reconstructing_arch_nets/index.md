@@ -1,6 +1,6 @@
 ---
 date: "2018-03-25"
-description: We consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt's arguments on closure and structural holes (Burt 2001).
+description: We consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt's arguments on closure and structural holes.
 subtitle: Viviana Amati, Termeh Shafie, Ulrik Brandes
 title: "Reconstructing Archaeological Networks with Structural Holes"
 image: featured.png
