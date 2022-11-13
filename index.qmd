@@ -41,9 +41,9 @@ listing:
     - publications/complexity_multigraphs
     type: table
     table-hover: true
-    date-format: short
+    date-format: medium
     image-align: left
-    max-items: 10
+    max-items: 7
     sort: "date desc"
   - id: talks
     fields: [image,title,date]
