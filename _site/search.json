@@ -221,7 +221,7 @@
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Presentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\nThe 5th European Conference on Social Networks\n\n\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n  \n\n\n\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n  \n\n\n\n\n\nThe 4th European Conference on Social Networks\n\n\n\n\n\n\nSep 9, 2019\n\n\n\n\n\n\nNo matching items"
+    "text": "Presentation @ Centre Marc Bloch, Berlin\n\n\n\nmultigraph\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\nmultigraph\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\nentropy\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 5th European Conference on Social Networks\n\n\n\nmultigraph\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\nmultigraph\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 4th European Conference on Social Networks\n\n\n\nentropy\n\n\nmultigraph\n\n\n\n\nSep 9, 2019\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/NETWORKS2021/index.html",
@@ -467,5 +467,26 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "talks/wins_may2022/index.html#abstract",
+    "href": "talks/wins_may2022/index.html#abstract",
+    "title": "“Statistical Entropy Analysis of Network Data”",
+    "section": "Abstract",
+    "text": "Abstract\nIn multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analysing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks. In this presentation, multivariate entropy analysis is introduced and demonstrated as a general statistical method for finding, analysing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies. For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf. graphical models). By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit. The roles of various entropy based measures are further highlighted and illustrated by applications on social network data. These applications show that important social phenomena and processes are often identified using these tools. The proposed framework is implemented in the R package ‘netropy’ and examples of using functions from this package are also presented."
+  },
+  {
+    "objectID": "talks/WiNS2022/index.html",
+    "href": "talks/WiNS2022/index.html",
+    "title": "“Statistical Entropy Analysis of Network Data”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/WiNS2022/index.html#video",
+    "href": "talks/WiNS2022/index.html#video",
+    "title": "“Statistical Entropy Analysis of Network Data”",
+    "section": "Video",
+    "text": "Video"
   }
 ]

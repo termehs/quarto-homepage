@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Termeh Shafie">
+<meta name="dcterms.date" content="2022-05-05">
 
-<title>mrs schochastics - “Analyzing Social Structure using Multigraph Representations”</title>
+<title>mrs schochastics - “Statistical Entropy Analysis of Network Data”</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,14 +55,14 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="../../academicons.css">
-<meta property="og:title" content="mrs schochastics - “Analyzing Social Structure using Multigraph Representations”">
-<meta property="og:description" content="Multivariate networks consist of a vertex set with at least one type of edge between pairs of vertices and with numerical and/or qualitative attributes on the vertices and the edges. These networks provide a more accurate representation of social structure than univariate networks, but analysing them introduce technical and computational complexity. In this presentation, we consider exploratory and confirmatory analysis of multivariate networks represented as multigraphs. Multigraph data structure is described with examples of their natural appearance, together with a description of the possibility to obtain multigraphs using blocking, aggregation and scaling. Two random multigraph models are presented and several statistics under these models are derived. It is shown how these statistics can be used to analyse local and global network properties in order to convey important social phenomena and processes. Applications are used to illustrate the applicability of the presented approach, including when analysing the gendered inequalities in popular cinema by using dialogue networks. Moreover, some examples are provided on how to use the package ‘multigraphr’ in the statistical software R to perform the analysis.">
+<meta property="og:title" content="mrs schochastics - “Statistical Entropy Analysis of Network Data”">
+<meta property="og:description" content="In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analysing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks. In this presentation, multivariate entropy analysis is introduced and demonstrated as a general statistical method for finding, analysing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies. For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf.&nbsp;graphical models). By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit. The roles of various entropy based measures are further highlighted and illustrated by applications on social network data. These applications show that important social phenomena and processes are often identified using these tools. The proposed framework is implemented in the R package ‘netropy’ and examples of using functions from this package are also presented.">
 <meta property="og:image" content="https://mrs.schochastics.net/static/img/avatar.png">
 <meta property="og:site-name" content="mrs schochastics">
 <meta property="og:image:height" content="1846">
 <meta property="og:image:width" content="1817">
-<meta name="twitter:title" content="mrs schochastics - “Analyzing Social Structure using Multigraph Representations”">
-<meta name="twitter:description" content="Multivariate networks consist of a vertex set with at least one type of edge between pairs of vertices and with numerical and/or qualitative attributes on the vertices and the edges. These networks provide a more accurate representation of social structure than univariate networks, but analysing them introduce technical and computational complexity. In this presentation, we consider exploratory and confirmatory analysis of multivariate networks represented as multigraphs. Multigraph data structure is described with examples of their natural appearance, together with a description of the possibility to obtain multigraphs using blocking, aggregation and scaling. Two random multigraph models are presented and several statistics under these models are derived. It is shown how these statistics can be used to analyse local and global network properties in order to convey important social phenomena and processes. Applications are used to illustrate the applicability of the presented approach, including when analysing the gendered inequalities in popular cinema by using dialogue networks. Moreover, some examples are provided on how to use the package ‘multigraphr’ in the statistical software R to perform the analysis.">
+<meta name="twitter:title" content="mrs schochastics - “Statistical Entropy Analysis of Network Data”">
+<meta name="twitter:description" content="In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analysing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks. In this presentation, multivariate entropy analysis is introduced and demonstrated as a general statistical method for finding, analysing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies. For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf.&nbsp;graphical models). By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit. The roles of various entropy based measures are further highlighted and illustrated by applications on social network data. These applications show that important social phenomena and processes are often identified using these tools. The proposed framework is implemented in the R package ‘netropy’ and examples of using functions from this package are also presented.">
 <meta name="twitter:image" content="https://mrs.schochastics.net/static/img/avatar.png">
 <meta name="twitter:creator" content="@schochastics">
 <meta name="twitter:card" content="summary">
@@ -114,25 +115,31 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title display-7">“Analyzing Social Structure using Multigraph Representations”</h1>
-<p class="subtitle lead">Presentation @ Centre Marc Bloch, Berlin</p>
+<h1 class="title display-7">“Statistical Entropy Analysis of Network Data”</h1>
+<p class="subtitle lead">The Women in Network Science (WiNS) seminar</p>
 
 <p class="author">Termeh Shafie</p>
 
-<p class="date">Nov 2, 2022</p>
+<p class="date">May 5, 2022</p>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
-Multivariate networks consist of a vertex set with at least one type of edge between pairs of vertices and with numerical and/or qualitative attributes on the vertices and the edges. These networks provide a more accurate representation of social structure than univariate networks, but analysing them introduce technical and computational complexity. In this presentation, we consider exploratory and confirmatory analysis of multivariate networks represented as multigraphs. Multigraph data structure is described with examples of their natural appearance, together with a description of the possibility to obtain multigraphs using blocking, aggregation and scaling. Two random multigraph models are presented and several statistics under these models are derived. It is shown how these statistics can be used to analyse local and global network properties in order to convey important social phenomena and processes. Applications are used to illustrate the applicability of the presented approach, including when analysing the gendered inequalities in popular cinema by using dialogue networks. Moreover, some examples are provided on how to use the package ‘multigraphr’ in the statistical software R to perform the analysis.
+In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analysing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks. In this presentation, multivariate entropy analysis is introduced and demonstrated as a general statistical method for finding, analysing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies. For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf.&nbsp;graphical models). By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit. The roles of various entropy based measures are further highlighted and illustrated by applications on social network data. These applications show that important social phenomena and processes are often identified using these tools. The proposed framework is implemented in the R package ‘netropy’ and examples of using functions from this package are also presented.
 </div>
 </header>
 
 <button type="button" class="btn btn-outline-success">
 <a href="https://termehs.github.io/WiNS2022" target="_blank">Slides</a>
 </button>
-<iframe src="https://termehs.github.io/WiNS2022" width="100%" height="450px">
+<button type="button" class="btn btn-outline-success">
+<a href="wins_examples.html" target="_blank">Examples</a>
+</button>
+<section id="video" class="level2">
+<h2 class="anchored" data-anchor-id="video">Video</h2>
+<iframe src="https://www.youtube-nocookie.com/embed/uJMQKREntfE" width="100%" height="450px">
 </iframe>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

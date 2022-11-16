@@ -10,8 +10,11 @@ image: featured.png
 date-format: medium
 categories:
   - multigraph
+url: https://termehs.github.io/WiNS2022
 ---
 
 <button type="button" class="btn btn-outline-success">
-<a href="cmb_talk22.pdf" target="_blank">Slides</a></button>
+<a href="https://termehs.github.io/WiNS2022" target="_blank">Slides</a></button>
 
+
+<iframe src="`r rmarkdown::metadata$url`" width="100%" height="450px"></iframe>

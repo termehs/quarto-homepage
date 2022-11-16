@@ -8,9 +8,10 @@ listing:
     - EUSN2021
     - NETWORKS2021
     - SUNBELT2022
-    - wins_may2022
+    - WiNS2022
     - EUSN2019
-  type: default
+  type: grid
+  fields: [image, date, title, subtitle, categories]
   categories: true
   image-align: right
   sort: "date desc"

@@ -61,9 +61,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -166,139 +166,172 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="multigraph" data-listing-date-sort="1667343600000" data-listing-file-modified-sort="1668518827554" data-listing-reading-time-sort="0.03">
-<div class="thumbnail">
-<p><a href="../talks/cmb2022/index.html"> <img src="../talks/cmb2022/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../talks/cmb2022/index.html">
-<h3 class="no-anchor listing-title">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-talks">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="multigraph" data-listing-date-sort="1667343600000" data-listing-file-modified-sort="1668626068822" data-listing-reading-time-sort="0.05">
+<a href="../talks/cmb2022/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../talks/cmb2022/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 “Analyzing Social Structure using Multigraph Representations”
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Presentation @ Centre Marc Bloch, Berlin
 </div>
-</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('multigraph'); return false;">
+multigraph
 </div>
-<div class="metadata">
-<a href="../talks/cmb2022/index.html">
+</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Nov 2, 2022
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="multigraph" data-listing-date-sort="1657836000000" data-listing-file-modified-sort="1666084298640" data-listing-reading-time-sort="0.03">
-<div class="thumbnail">
-<p><a href="../talks/SUNBELT2022/index.html"> <img src="../talks/SUNBELT2022/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../talks/SUNBELT2022/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="1" data-categories="multigraph" data-listing-date-sort="1657836000000" data-listing-file-modified-sort="1666084298640" data-listing-reading-time-sort="0.03">
+<a href="../talks/SUNBELT2022/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../talks/SUNBELT2022/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 “Statistical Analysis of Multivariate Egocentric Networks”
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 The XLII Social Networks Conference of INSNA
 </div>
-</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('multigraph'); return false;">
+multigraph
 </div>
-<div class="metadata">
-<a href="../talks/SUNBELT2022/index.html">
+</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jul 15, 2022
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="entropy" data-listing-date-sort="1651701600000" data-listing-file-modified-sort="1666079100738" data-listing-reading-time-sort="0.18">
-<div class="thumbnail">
-<p><a href="../talks/wins_may2022/index.html"> <img src="../talks/wins_may2022/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../talks/wins_may2022/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="2" data-categories="entropy" data-listing-date-sort="1651701600000" data-listing-file-modified-sort="1668626685878" data-listing-reading-time-sort="0.075">
+<a href="../talks/WiNS2022/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../talks/WiNS2022/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 “Statistical Entropy Analysis of Network Data”
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 The Women in Network Science (WiNS) seminar
 </div>
-</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('entropy'); return false;">
+entropy
 </div>
-<div class="metadata">
-<a href="../talks/wins_may2022/index.html">
+</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 May 5, 2022
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="multigraph" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1666084123452" data-listing-reading-time-sort="0.03">
-<div class="thumbnail">
-<p><a href="../talks/EUSN2021/index.html"> <img src="../talks/EUSN2021/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../talks/EUSN2021/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="3" data-categories="multigraph" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1666084123452" data-listing-reading-time-sort="0.03">
+<a href="../talks/EUSN2021/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../talks/EUSN2021/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Multiplexity Analysis of Networks using Multigraph Representations
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 The 5th European Conference on Social Networks
 </div>
-</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('multigraph'); return false;">
+multigraph
 </div>
-<div class="metadata">
-<a href="../talks/EUSN2021/index.html">
+</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Sep 7, 2021
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="multigraph" data-listing-date-sort="1625522400000" data-listing-file-modified-sort="1666080050164" data-listing-reading-time-sort="0.155">
-<div class="thumbnail">
-<p><a href="../talks/NETWORKS2021/index.html"> <img src="../talks/NETWORKS2021/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../talks/NETWORKS2021/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="4" data-categories="multigraph" data-listing-date-sort="1625522400000" data-listing-file-modified-sort="1666080050164" data-listing-reading-time-sort="0.155">
+<a href="../talks/NETWORKS2021/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../talks/NETWORKS2021/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 “Goodness of Fit Tests for Random Multigraph Models”
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 Network 2021 - A Joint Sunbelt and NetSci Conference
 </div>
-</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('multigraph'); return false;">
+multigraph
 </div>
-<div class="metadata">
-<a href="../talks/NETWORKS2021/index.html">
+</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Jul 6, 2021
 </div>
+</div>
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="entropy,multigraph" data-listing-date-sort="1567980000000" data-listing-file-modified-sort="1666084731603" data-listing-reading-time-sort="0.03">
-<div class="thumbnail">
-<p><a href="../talks/EUSN2019/index.html"> <img src="../talks/EUSN2019/featured.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../talks/EUSN2019/index.html">
-<h3 class="no-anchor listing-title">
+<div class="g-col-1" data-index="5" data-categories="entropy,multigraph" data-listing-date-sort="1567980000000" data-listing-file-modified-sort="1666084731603" data-listing-reading-time-sort="0.03">
+<a href="../talks/EUSN2019/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../talks/EUSN2019/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 “Gender Dependent Structures of Dialogue Networks in Films”
-</h3>
-<div class="listing-subtitle">
+</h5>
+<div class="card-subtitle listing-subtitle">
 The 4th European Conference on Social Networks
 </div>
-</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('entropy'); return false;">
+entropy
 </div>
-<div class="metadata">
-<a href="../talks/EUSN2019/index.html">
+<div class="listing-category" onclick="window.quartoListingCategory('multigraph'); return false;">
+multigraph
+</div>
+</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Sep 9, 2019
 </div>
-</a>
 </div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">
