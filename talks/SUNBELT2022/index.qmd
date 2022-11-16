@@ -10,6 +10,8 @@ date-format: medium
 image: featured.png
 categories:
   - multigraph
+  - ego networks
+  - multivariate analysis
 url: https://termehs.github.io/SUNBELT2022
 ---
 

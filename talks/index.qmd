@@ -4,14 +4,14 @@ listing:
   id: talks
   fields: [title,date,image]
   contents: 
-    - cmb2022
+    - CMB2022
     - EUSN2021
     - NETWORKS2021
     - SUNBELT2022
     - WiNS2022
     - EUSN2019
   type: grid
-  fields: [image, date, title, subtitle, categories]
+  fields: [image, date, title, subtitle]
   categories: true
   image-align: right
   sort: "date desc"

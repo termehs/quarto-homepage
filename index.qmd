@@ -53,7 +53,7 @@ listing:
     - talks/NETWORKS2021
     - talks/SUNBELT2022
     - talks/WiNS2022
-    - talks/cmb2022
+    - talks/CMB2022
     type: default
     date-format: medium
     image-align: right

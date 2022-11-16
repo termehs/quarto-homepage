@@ -221,7 +221,7 @@
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Presentation @ Centre Marc Bloch, Berlin\n\n\n\nmultigraph\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\nmultigraph\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\nentropy\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 5th European Conference on Social Networks\n\n\n\nmultigraph\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\nmultigraph\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 4th European Conference on Social Networks\n\n\n\nentropy\n\n\nmultigraph\n\n\n\n\nSep 9, 2019\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Presentation @ Centre Marc Bloch, Berlin\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 5th European Conference on Social Networks\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 4th European Conference on Social Networks\n\n\n\nSep 9, 2019\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/NETWORKS2021/index.html",
@@ -488,5 +488,12 @@
     "title": "“Statistical Entropy Analysis of Network Data”",
     "section": "Video",
     "text": "Video"
+  },
+  {
+    "objectID": "talks/CMB2022/index.html",
+    "href": "talks/CMB2022/index.html",
+    "title": "“Analyzing Social Structure using Multigraph Representations”",
+    "section": "",
+    "text": "Slides"
   }
 ]

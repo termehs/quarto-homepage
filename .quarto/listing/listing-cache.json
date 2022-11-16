@@ -23,7 +23,8 @@
       "SUNBELT2022",
       "wins_may2022",
       "EUSN2019",
-      "WiNS2022"
+      "WiNS2022",
+      "CMB2022"
     ],
     "index.qmd": [
       "project/rmm",
@@ -52,7 +53,8 @@
       "talks/SUNBELT2022",
       "talks/wins_may2022",
       "talks/cmb2022",
-      "talks/WiNS2022"
+      "talks/WiNS2022",
+      "talks/CMB2022"
     ],
     "blog/index.qmd": [
       "B3049D40"

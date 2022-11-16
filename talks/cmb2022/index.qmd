@@ -10,11 +10,13 @@ image: featured.png
 date-format: medium
 categories:
   - multigraph
-url: https://termehs.github.io/WiNS2022
+  - multivariate analysis
+  - computational social science
+  - digital humanities
+url: https://termehs.github.io/CMB2022
 ---
 
 <button type="button" class="btn btn-outline-success">
-<a href="https://termehs.github.io/WiNS2022" target="_blank">Slides</a></button>
-
-
-<iframe src="`r rmarkdown::metadata$url`" width="100%" height="450px"></iframe>
+<a href="https://termehs.github.io/CMB2022" target="_blank">Slides</a></button>
+<br></br>
+<iframe src="`r rmarkdown::metadata$url`" width="100%" height="455px"></iframe>

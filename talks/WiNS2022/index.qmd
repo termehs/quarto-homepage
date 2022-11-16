@@ -10,6 +10,7 @@ image: featured.png
 date-format: medium
 categories:
   - entropy
+  - multivariate analysis
 url: https://termehs.github.io/WiNS2022
 ---
 
