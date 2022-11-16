@@ -3,6 +3,7 @@ author: Termeh Shafie, Pete Jones
 date: "2019-09-09"
 title: “Gender Dependent Structures of Dialogue Networks in Films”
 subtitle: The 4th European Conference on Social Networks
+abstract: We present a novel approach to empirically analyse gender representation in films by using entropy tools. Multivariate entropy analysis is a general statistical method for analysing and testing compli- cated dependence structures in data consisting of repeated observations of variables with a common domain and discrete finite range spaces. Only nominal scale is required for each variable, thus making it very suitable for extracting semantic information from dialogues and scripts. Variables on ordinal or numerical scales can also be used, but they should be aggregated so that their ranges match the number of available repeated observations. Using a corpus of movie dialogue networks, we illustrate how these tools can enhance the analysis of gender representations in films by identifying factors associated with certain tropes of gendered conversation. The observed dialogue networks are transformed into a multidimensional data set comprising multiple node and edge attributes, where the latter is coded according to conversational content between pairs of same sex characters. Under the assumptions that associations between conversational content are shared by members of the same gender group, dialogues are used to reflect a meaning structure that characterize this group (stereotypical and non-stereotypical gender portrayals). Furthermore, we use the output of the entropy analyses to specify different structural models to be tested against null distributions according to stochastic blockmodels and random multigraph models. This application yields a deeper insight into the gendered nature of dialogue in film, an area in which little systematic empirical research exists. Moreover, the multivariate entropy analysis allows for the relationships between textual attributes, production-level attributes and endogenous network attributes to be explored together. This provides a novel opportunity to situate the character networks within their industrial context in a way that provides a new layer to the development of network tools for analysing fictional narrative texts.
 title-block-style: none
 toc: false
 image: featured.png
@@ -10,7 +11,11 @@ date-format: medium
 categories:
   - entropy
   - multigraph
+url: https://termehs.github.io/EUSN2019
 ---
 
 <button type="button" class="btn btn-outline-success">
-<a href="EUSN2019_talk.pdf" target="_blank">Slides</a></button>
+<a href="https://termehs.github.io/SUNBELT2022" target="_blank">Slides</a></button>
+<br> </br>
+<iframe src="https://termehs.github.io/SUNBELT2022"  width="100%" height="455px"></iframe>
+
