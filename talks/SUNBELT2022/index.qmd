@@ -3,13 +3,19 @@ author: Termeh Shafie
 date: "2022-07-15"
 title: “Statistical Analysis of Multivariate Egocentric Networks”
 subtitle: The XLII Social Networks Conference of INSNA
+abstract: In this presentation we take a closer look at how multigraph representations (where multiple relations and edge loops are permitted) can be used to analyse structural and compositional features of egocentric networks with perceived alter-to-alter ties included. We aggregate the ego nets based on single or combined exogenous variables and several measures are used to uncover underlying social processes and phenomena with respect to the endogenous variables. Using theoretical underpinnings, we specify hypotheses that are tested using statistics under different probability models for multigraphs. The framework is exemplified and applied to the well-known data on Krackhardt's high tech managers.
 title-block-style: none
 toc: false
 date-format: medium
 image: featured.png
 categories:
   - multigraph
+url: https://termehs.github.io/SUNBELT2022
 ---
 
 <button type="button" class="btn btn-outline-success">
-<a href="sunbelt2022.pdf" target="_blank">Slides</a></button>
+<a href="https://termehs.github.io/SUNBELT2022" target="_blank">Slides</a></button>
+<br> </br>
+<iframe src="https://termehs.github.io/SUNBELT2022"  width="100%" height="455px"></iframe>
+
+
