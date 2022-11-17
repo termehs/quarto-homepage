@@ -2,150 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mrs.schochastics.net/publications/reconstructing_arch_nets/index.html</loc>
-    <lastmod>2022-11-13T18:31:21.983Z</lastmod>
+    <lastmod>2022-11-17T19:04:28.886Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/multivariate_entropy_analysis/index.html</loc>
-    <lastmod>2022-11-13T18:31:22.625Z</lastmod>
+    <lastmod>2022-11-17T19:04:29.367Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/multiplexity/index.html</loc>
-    <lastmod>2022-11-13T18:31:23.152Z</lastmod>
+    <lastmod>2022-11-17T19:04:29.864Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/aggregated_triads/index.html</loc>
-    <lastmod>2022-11-13T18:31:23.694Z</lastmod>
+    <lastmod>2022-11-17T19:04:30.344Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/hypergraph/index.html</loc>
-    <lastmod>2022-11-13T18:31:24.132Z</lastmod>
+    <lastmod>2022-11-17T19:04:30.806Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/index.html</loc>
-    <lastmod>2022-11-13T18:31:25.318Z</lastmod>
+    <lastmod>2022-11-17T19:04:31.922Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/gof_multigraph/index.html</loc>
-    <lastmod>2022-11-13T18:31:26.145Z</lastmod>
+    <lastmod>2022-11-17T19:04:32.764Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/complexity_multigraphs/index.html</loc>
-    <lastmod>2022-11-13T18:31:26.584Z</lastmod>
+    <lastmod>2022-11-17T19:04:33.155Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/global_local_multigraphs/index.html</loc>
-    <lastmod>2022-11-13T18:31:27.006Z</lastmod>
+    <lastmod>2022-11-17T19:04:33.566Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/sna_chapter/index.html</loc>
-    <lastmod>2022-11-13T18:31:27.426Z</lastmod>
+    <lastmod>2022-11-17T19:04:33.951Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/data_protection/index.html</loc>
-    <lastmod>2022-11-13T18:31:27.832Z</lastmod>
+    <lastmod>2022-11-17T19:04:34.368Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/multigraph_approach/index.html</loc>
-    <lastmod>2022-11-13T18:31:28.231Z</lastmod>
+    <lastmod>2022-11-17T19:04:34.779Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/isotopes/index.html</loc>
-    <lastmod>2022-11-13T18:31:28.723Z</lastmod>
+    <lastmod>2022-11-17T19:04:35.208Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/ergm_framework_arch/index.html</loc>
-    <lastmod>2022-11-13T18:31:29.118Z</lastmod>
+    <lastmod>2022-11-17T19:04:35.638Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/ontario_sna/index.html</loc>
-    <lastmod>2022-11-13T18:31:29.557Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/wins_may2022/index.html</loc>
-    <lastmod>2022-11-16T19:22:00.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/index.html</loc>
-    <lastmod>2022-11-17T18:57:37.725Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/NETWORKS2021/index.html</loc>
-    <lastmod>2022-11-17T10:05:13.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/SUNBELT2022/index.html</loc>
-    <lastmod>2022-11-16T20:20:38.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/cmb2022/index.html</loc>
-    <lastmod>2022-11-16T19:15:36.916Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/EUSN2019/index.html</loc>
-    <lastmod>2022-11-17T19:01:05.628Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/talks/EUSN2021/index.html</loc>
-    <lastmod>2022-11-17T10:20:30.680Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/about/index.html</loc>
-    <lastmod>2022-11-17T10:20:50.549Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2022-11-17T19:02:10.213Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/blog/index.html</loc>
-    <lastmod>2022-11-13T18:39:15.673Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/convoys/index.html</loc>
-    <lastmod>2022-11-13T18:31:36.787Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/movienetworks/index.html</loc>
-    <lastmod>2022-11-13T18:31:37.239Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/seand/index.html</loc>
-    <lastmod>2022-11-13T18:31:38.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/netdyn/index.html</loc>
-    <lastmod>2022-11-13T18:31:38.744Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/rmm/index.html</loc>
-    <lastmod>2022-11-13T18:31:39.781Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/index.html</loc>
-    <lastmod>2022-11-13T18:31:40.664Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/project/nexus/index.html</loc>
-    <lastmod>2022-11-13T18:31:41.514Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/rpackage/index.html</loc>
-    <lastmod>2022-11-13T18:31:42.378Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/rpackage/netropy/index.html</loc>
-    <lastmod>2022-11-13T18:31:43.220Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
-    <lastmod>2022-11-13T18:31:43.658Z</lastmod>
+    <lastmod>2022-11-17T19:04:36.057Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/WiNS2022/index.html</loc>
-    <lastmod>2022-11-16T20:14:30.204Z</lastmod>
+    <lastmod>2022-11-17T19:04:36.594Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/index.html</loc>
+    <lastmod>2022-11-17T19:04:37.573Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/NETWORKS2021/index.html</loc>
+    <lastmod>2022-11-17T19:04:38.464Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/SUNBELT2022/index.html</loc>
+    <lastmod>2022-11-17T19:04:38.920Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/CMB2022/index.html</loc>
-    <lastmod>2022-11-16T20:14:56.273Z</lastmod>
+    <lastmod>2022-11-17T19:04:39.972Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/EUSN2019/index.html</loc>
+    <lastmod>2022-11-17T19:04:40.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/talks/EUSN2021/index.html</loc>
+    <lastmod>2022-11-17T19:04:40.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/about/index.html</loc>
+    <lastmod>2022-11-17T19:04:41.879Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/index.html</loc>
+    <lastmod>2022-11-17T19:04:42.672Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/blog/index.html</loc>
+    <lastmod>2022-11-17T19:04:43.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/convoys/index.html</loc>
+    <lastmod>2022-11-17T19:04:43.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/movienetworks/index.html</loc>
+    <lastmod>2022-11-17T19:04:44.384Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/seand/index.html</loc>
+    <lastmod>2022-11-17T19:04:45.368Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/netdyn/index.html</loc>
+    <lastmod>2022-11-17T19:04:45.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/rmm/index.html</loc>
+    <lastmod>2022-11-17T19:04:46.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/index.html</loc>
+    <lastmod>2022-11-17T19:04:47.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/project/nexus/index.html</loc>
+    <lastmod>2022-11-17T19:04:48.682Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/rpackage/index.html</loc>
+    <lastmod>2022-11-17T19:04:49.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/rpackage/netropy/index.html</loc>
+    <lastmod>2022-11-17T19:04:50.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
+    <lastmod>2022-11-17T19:04:50.841Z</lastmod>
   </url>
 </urlset>

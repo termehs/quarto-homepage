@@ -203,18 +203,11 @@
     "text": "Abstract\nPottery is a mainstay of archaeological analysis worldwide. Often, high proportions of the pottery recovered from a given site are decorated in some manner. In northern Iroquoia, late pre-contact pottery and early contact decoration commonly occur on collars—thick bands of clay that encircle a pot and extend several centimeters down from the lip. These decorations constitute signals that conveyed information about a pot’s user(s). In southern Ontario the period A.D. 1350 to 1650 witnessed substantial changes in socio-political and settlement systems that included population movement, coalescence of formerly separate communities into large villages and towns, waxing and waning of regional strife, the formation of nations, and finally the development of three confederacies that each occupied distinct, constricted areas. Social network analysis demonstrates that signaling practices changed to reflect these regional patterns. Networks become more consolidated through time ultimately resulting in a “small world” network with small degrees of separation between sites reflecting the integration of communities within and between the three confederacies.\nPLoS ONE 11(5), e0156178"
   },
   {
-    "objectID": "talks/wins_may2022/index.html",
-    "href": "talks/wins_may2022/index.html",
+    "objectID": "talks/WiNS2022/index.html",
+    "href": "talks/WiNS2022/index.html",
     "title": "“Statistical Entropy Analysis of Network Data”",
     "section": "",
-    "text": "Slides"
-  },
-  {
-    "objectID": "talks/wins_may2022/index.html#video",
-    "href": "talks/wins_may2022/index.html#video",
-    "title": "“Statistical Entropy Analysis of Network Data”",
-    "section": "Video",
-    "text": "Video"
+    "text": "Examples\n\n\nVideo"
   },
   {
     "objectID": "talks/index.html",
@@ -231,13 +224,6 @@
     "text": "Video"
   },
   {
-    "objectID": "talks/NETWORKS2021/index.html#video",
-    "href": "talks/NETWORKS2021/index.html#video",
-    "title": "“Goodness of Fit Tests for Random Multigraph Models”",
-    "section": "Video",
-    "text": "Video"
-  },
-  {
     "objectID": "talks/SUNBELT2022/index.html",
     "href": "talks/SUNBELT2022/index.html",
     "title": "“Statistical Analysis of Multivariate Egocentric Networks”",
@@ -245,8 +231,8 @@
     "text": "Slides"
   },
   {
-    "objectID": "talks/cmb2022/index.html",
-    "href": "talks/cmb2022/index.html",
+    "objectID": "talks/CMB2022/index.html",
+    "href": "talks/CMB2022/index.html",
     "title": "“Analyzing Social Structure using Multigraph Representations”",
     "section": "",
     "text": "Slides"
@@ -467,33 +453,5 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
-  },
-  {
-    "objectID": "talks/wins_may2022/index.html#abstract",
-    "href": "talks/wins_may2022/index.html#abstract",
-    "title": "“Statistical Entropy Analysis of Network Data”",
-    "section": "Abstract",
-    "text": "Abstract\nIn multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analysing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks. In this presentation, multivariate entropy analysis is introduced and demonstrated as a general statistical method for finding, analysing and testing complicated dependence structures such as partial and conditional independencies, redundancies and functional dependencies. For example, consider the joint entropies of all pairs of variables which are used to construct a sequence of association graphs that represent variables by nodes and pairwise dependences above decreasing thresholds by links (cf. graphical models). By successively lowering the threshold from the maximum joint entropy to smaller occurring values, the sequence of graphs get more and more links. Connected components that are cliques represent dependent subsets of variables, and different components represent independent subsets of variables. Conditional independence between subsets of variables can be identified by omitting the subset corresponding to the conditioning variables. By comparing such graphs given different thresholds and with different components and cliques, specific structural models of multivariate dependence can be suggested and tested by divergence measures of goodness of fit. The roles of various entropy based measures are further highlighted and illustrated by applications on social network data. These applications show that important social phenomena and processes are often identified using these tools. The proposed framework is implemented in the R package ‘netropy’ and examples of using functions from this package are also presented."
-  },
-  {
-    "objectID": "talks/WiNS2022/index.html",
-    "href": "talks/WiNS2022/index.html",
-    "title": "“Statistical Entropy Analysis of Network Data”",
-    "section": "",
-    "text": "Examples\n\n\nVideo"
-  },
-  {
-    "objectID": "talks/WiNS2022/index.html#video",
-    "href": "talks/WiNS2022/index.html#video",
-    "title": "“Statistical Entropy Analysis of Network Data”",
-    "section": "Video",
-    "text": "Video"
-  },
-  {
-    "objectID": "talks/CMB2022/index.html",
-    "href": "talks/CMB2022/index.html",
-    "title": "“Analyzing Social Structure using Multigraph Representations”",
-    "section": "",
-    "text": "Slides"
   }
 ]
