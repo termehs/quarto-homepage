@@ -3,18 +3,20 @@ author: Termeh Shafie
 date: "2021-07-06"
 title: “Goodness of Fit Tests for Random Multigraph Models”
 subtitle: Network 2021 - A Joint Sunbelt and NetSci Conference
+abstract: Goodness of fit tests for two probabilistic multigraph models are presented. The first model is obtained by random stub matching given fixed degrees (RSM) so that edge assignments to vertex pair sites are dependent, and the second is obtained by independent edge assignments (IEA) according to a common probability distribution. The tests are performed using goodness of fit measures between the edge multiplicity sequence of an observed multigraph, and the expected multiplicity sequence according to a simple or composite hypothesis. Test statistics of Pearson type and of likelihood ratio type are used, and the expected values of the Pearson statistic under the different models are derived. Illustrations of test performances are given and the results indicate that even for small number of edges, the null distributions of both statistics are well approximated by their asymptotic χ2-distribution. The non-null distributions of the test statistics can be well approximated by proposed adjusted χ2-distributions used for power approximations. The influence of RSM on both test statistics is substantial for small number of edges and implies a shift of their distributions towards smaller values compared to what holds true for the null distributions under IEA.
 title-block-style: none
 toc: false
 date-format: medium
 image: featured.png
 categories:
   - multigraph
+  - goodness of fit
 ---
 
 <button type="button" class="btn btn-outline-success">
 <a href="networks2021.pdf" target="_blank">Slides</a></button>
 
-## Video
+### Video
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="10338_shafie.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen="" title="YouTube Video"></iframe>
