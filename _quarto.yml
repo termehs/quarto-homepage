@@ -3,18 +3,18 @@ project:
   
 website:
   site-url: "https://mrs.schochastics.net"
-  title: "mrs schochastics"
+  title: "Termeh Shafie"
   favicon: "static/favicon.png"
   twitter-card:
-    creator: "@schochastics"
-    site: "@schochastics"
-    description: "Senior Researcher, Department for Computational Social Science, GESIS"
+    creator: "@termehshafie"
+    site: "@termehshafie"
+    description: "Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R"
     image: "static/img/avatar.png"
     card-style: "summary"
   search: false
   open-graph: 
     site-name: mrs schochastics
-    description: "Senior Researcher, Department for Computational Social Science, GESIS"
+    description: "Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R"
     image: "static/img/avatar.png"
   navbar:
     logo: "static/logo.png"

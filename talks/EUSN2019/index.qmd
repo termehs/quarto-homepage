@@ -1,5 +1,7 @@
 ---
-author: Termeh Shafie, Pete Jones
+author:
+  - name: Termeh Shafie
+    url: https://mrs.schochastics.net
 date: "2019-09-09"
 title: “Gender Dependent Structures of Dialogue Networks in Films”
 subtitle: The 4th European Conference on Social Networks
