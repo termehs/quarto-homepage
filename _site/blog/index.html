@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Termeh Shafie">
 
-<title>Termeh Shafie - the network statistician will occupy this space soon</title>
+<title>Termeh Shafie -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,20 +55,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-blog .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-blog'] = new List('listing-blog', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -85,13 +86,14 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../academicons.css">
-<meta property="og:title" content="Termeh Shafie - the network statistician will occupy this space soon">
+<link rel="stylesheet" href="blog.css">
+<link rel="alternate" type="application/rss+xml" title="Termeh Shafie" href="index.xml"><meta property="og:title" content="Termeh Shafie -">
 <meta property="og:description" content="Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R">
 <meta property="og:image" content="https://mrs.schochastics.net/static/img/avatar.png">
 <meta property="og:site-name" content="mrs schochastics">
 <meta property="og:image:height" content="1846">
 <meta property="og:image:width" content="1817">
-<meta name="twitter:title" content="Termeh Shafie - the network statistician will occupy this space soon">
+<meta name="twitter:title" content="Termeh Shafie -">
 <meta name="twitter:description" content="Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R">
 <meta name="twitter:image" content="https://mrs.schochastics.net/static/img/avatar.png">
 <meta name="twitter:creator" content="@termehshafie">
@@ -131,6 +133,11 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="../blog/index.html" aria-current="page">Blog</a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -142,41 +149,55 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data visualization">data visualization <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">the network statistician will occupy this space soon</h1>
+
+
+<div class="center">
+<p><img src="blog-head.png" class="img-fluid"></p>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header>
-
-<p><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en"><img src="https://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" class="img-fluid"></a><br>
-All material listed here is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License</a>.</p>
 <div class="vspace">
 
 </div>
-<div class="center">
-<p><strong>Blog on statistical network analysis coming soon…</strong></p>
-</div>
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en"><img src="https://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" class="img-fluid"></a><br>
+All material listed here is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License</a>.</p>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-blog">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-
+<div class="quarto-post image-right" data-index="0" data-categories="data visualization" data-listing-file-modified-sort="1664173928000" data-listing-reading-time-sort="1.265">
+<div class="body">
+<a href="../blog/posts/minard/index.html">
+<h3 class="no-anchor listing-title">
+The Minard System in R
+</h3>
+<div class="listing-subtitle">
+Minard’s Statistical Graphics with Modern Data in R
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('data visualization'); return false;">
+data visualization
+</div>
+</div>
+<a href="../blog/posts/minard/index.html">
+<div class="listing-description">
+<p>Recreating Minard’s Statistical Graphics with Modern Data in R</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../blog/posts/minard/index.html">
+<div class="listing-reading-time">
+1 min
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -279,6 +300,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="TermehShafie/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 <footer class="footer">
