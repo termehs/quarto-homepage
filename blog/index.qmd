@@ -1,27 +1,33 @@
 ---
-title: "the network statistician will occupy this space soon"
-page-layout: full
+title: ""
 listing:
-  categories: true
-  id: blog
-  max-description-length: 500
-  image-height: "250px"	
-  fields: [image,title,description]
+  contents: posts/**/*.qmd
+  sort: "date desc"
   type: default
-  image-align: right
-  sort: "priority asc"
-  grid-item-border: false
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, reading-time, description, categories]
+  feed: true
+page-layout: full
+title-block-banner: false
 ---
+:::{.center}
+![](blog-head.png)
+:::
+
+:::{.vspace}
+:::
+
+
 
 
 [![](https://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en)  
 All material listed here is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License](https://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en).
 
 
-:::{.vspace}
-:::
 
-:::{.center}
-**Blog on statistical network analysis coming soon...**
-:::
+
+
+
 

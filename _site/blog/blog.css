@@ -1,0 +1,15 @@
+/* css styles for blog */
+
+.sidebar.toc-left>*, .sidebar.margin-sidebar>* {
+    padding-top: 2.5em;
+}
+
+input, button, select, optgroup, textarea {
+    background-color: #d2bebe54;
+}
+
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
+    margin-bottom: 1.1em;
+}
+

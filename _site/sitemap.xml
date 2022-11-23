@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/index.html</loc>
-    <lastmod>2022-11-17T19:28:32.671Z</lastmod>
+    <lastmod>2022-11-20T17:54:38.606Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/gof_multigraph/index.html</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/EUSN2019/index.html</loc>
-    <lastmod>2022-11-17T19:28:41.391Z</lastmod>
+    <lastmod>2022-11-19T18:47:30.944Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/EUSN2021/index.html</loc>
@@ -90,15 +90,15 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/about/index.html</loc>
-    <lastmod>2022-11-17T19:28:42.764Z</lastmod>
+    <lastmod>2022-11-20T13:57:39.552Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2022-11-17T19:28:43.577Z</lastmod>
+    <lastmod>2022-11-20T18:28:20.414Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/blog/index.html</loc>
-    <lastmod>2022-11-17T19:28:44.072Z</lastmod>
+    <lastmod>2022-11-23T09:46:32.828Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/project/convoys/index.html</loc>
@@ -139,5 +139,13 @@
   <url>
     <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
     <lastmod>2022-11-17T19:28:51.748Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/blog/blog.html</loc>
+    <lastmod>2022-11-23T09:46:29.950Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/blog/posts/minard/index.html</loc>
+    <lastmod>2022-11-21T19:32:35.867Z</lastmod>
   </url>
 </urlset>

@@ -70,7 +70,8 @@
       "multigraphr"
     ],
     "blog/blog.qmd": [
-      "posts/**/*.qmd"
+      "posts/**/*.qmd",
+      "B3049D40"
     ]
   }
 }

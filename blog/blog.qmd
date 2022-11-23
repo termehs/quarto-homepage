@@ -1,0 +1,28 @@
+---
+title: "![](blog-head.png)"
+listing:
+  contents: posts/**/*.qmd
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, description, categories, image]
+  feed: true
+page-layout: full
+title-block-banner: false
+margin-header: subscribe.html
+margin-footer: licence.html
+format:
+  html:
+    css: blog.css
+---
+
+
+
+
+
+
+
+
+

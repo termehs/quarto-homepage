@@ -80,3 +80,14 @@ div.quarto-post .thumbnail img {
     --bs-table-hover-bg:   #ebe9e1;
 }
 
+
+.portrait {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 70px;
+    margin-right: 50px;
+    border-radius: 50%;
+    object-fit: none;
+    position: relative;
+    float: left;
+}
