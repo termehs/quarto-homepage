@@ -32,7 +32,7 @@ website:
       - href: blog/index.qmd
         text: Blog
       - icon: rss
-        href: index.xml
+        href: blog/index.xml
   page-footer:
     left: "© 2022 Termeh Shafie"
     center: "powered by [quarto](https://quarto.org)"

@@ -53,8 +53,6 @@
       "talks/CMB2022"
     ],
     "blog/index.qmd": [
-      "B3049D40",
-      ".",
       "posts/**/*.qmd"
     ],
     "project/index.qmd": [
@@ -68,10 +66,6 @@
     "rpackage/index.qmd": [
       "netropy",
       "multigraphr"
-    ],
-    "blog/blog.qmd": [
-      "posts/**/*.qmd",
-      "B3049D40"
     ]
   }
 }

@@ -301,6 +301,13 @@
     "text": "Recent Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nThe 5th European Conference on Social Networks\n\n\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n  \n\n\n\n\n“Goodness of Fit Tests for Random Multigraph Models”\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
   },
   {
+    "objectID": "blog/posts/minard/index.html",
+    "href": "blog/posts/minard/index.html",
+    "title": "Hello World",
+    "section": "",
+    "text": "Code"
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "",
@@ -453,110 +460,5 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
-  },
-  {
-    "objectID": "blog/blog.html",
-    "href": "blog/blog.html",
-    "title": "",
-    "section": "",
-    "text": "test\n\n\n\nHello World\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html",
-    "href": "blog/posts/minard/index.html",
-    "title": "Hello World",
-    "section": "",
-    "text": "Code"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#ports-in-france-i",
-    "href": "blog/posts/minard/index.html#ports-in-france-i",
-    "title": "The Minard System in R",
-    "section": "(11) Ports in France I",
-    "text": "(11) Ports in France I\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#english-coal-exports-i",
-    "href": "blog/posts/minard/index.html#english-coal-exports-i",
-    "title": "The Minard System in R",
-    "section": "(14) English Coal Exports I",
-    "text": "(14) English Coal Exports I\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#meat-sent-to-paris",
-    "href": "blog/posts/minard/index.html#meat-sent-to-paris",
-    "title": "The Minard System in R",
-    "section": "(21) Meat Sent to Paris",
-    "text": "(21) Meat Sent to Paris\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#ports-in-france-ii",
-    "href": "blog/posts/minard/index.html#ports-in-france-ii",
-    "title": "The Minard System in R",
-    "section": "(24) Ports in France II",
-    "text": "(24) Ports in France II\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#cargo-ports-in-europe",
-    "href": "blog/posts/minard/index.html#cargo-ports-in-europe",
-    "title": "The Minard System in R",
-    "section": "(25) Cargo Ports in Europe",
-    "text": "(25) Cargo Ports in Europe\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#cargo-ports-of-the-globe",
-    "href": "blog/posts/minard/index.html#cargo-ports-of-the-globe",
-    "title": "The Minard System in R",
-    "section": "(34) Cargo Ports of the Globe",
-    "text": "(34) Cargo Ports of the Globe\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#global-migrants",
-    "href": "blog/posts/minard/index.html#global-migrants",
-    "title": "The Minard System in R",
-    "section": "(38) Global Migrants",
-    "text": "(38) Global Migrants\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#english-coal-exports-ii",
-    "href": "blog/posts/minard/index.html#english-coal-exports-ii",
-    "title": "The Minard System in R",
-    "section": "(41) English Coal Exports II",
-    "text": "(41) English Coal Exports II\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#post-offices-in-paris",
-    "href": "blog/posts/minard/index.html#post-offices-in-paris",
-    "title": "The Minard System in R",
-    "section": "(48) Post Offices in Paris",
-    "text": "(48) Post Offices in Paris\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#french-wine-exports",
-    "href": "blog/posts/minard/index.html#french-wine-exports",
-    "title": "The Minard System in R",
-    "section": "(50) French Wine Exports",
-    "text": "(50) French Wine Exports\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#english-coal-exports-iii",
-    "href": "blog/posts/minard/index.html#english-coal-exports-iii",
-    "title": "The Minard System in R",
-    "section": "(53) English Coal Exports III",
-    "text": "(53) English Coal Exports III\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#global-coal-production",
-    "href": "blog/posts/minard/index.html#global-coal-production",
-    "title": "The Minard System in R",
-    "section": "(54) Global Coal Production",
-    "text": "(54) Global Coal Production\n\nCode"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html#napoleons-campaign",
-    "href": "blog/posts/minard/index.html#napoleons-campaign",
-    "title": "The Minard System in R",
-    "section": "(60) Napoleon’s Campaign",
-    "text": "(60) Napoleon’s Campaign\n\nCode"
   }
 ]
