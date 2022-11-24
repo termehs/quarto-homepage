@@ -1,0 +1,93 @@
+h1 {
+  font-size: 4em;
+  color: #63615a;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #63615a;
+}
+
+body {
+font-family: 'IBM Plex Sans';
+color: #63615a;
+}
+
+
+
+.termeh-intro{
+  margin-top: -30px;
+  font-family: 'IBM Plex Sans';
+  font-size: 1.3em;
+}
+
+
+
+div.quarto-post .thumbnail {
+  flex-basis: 20%;
+}
+
+div.quarto-post .thumbnail img {
+    margin-top: .4em;
+    width: 100%;
+    object-fit: scale-down;
+}
+
+
+.all-link{
+  font-size: 1em;
+  text-align: right;
+}
+
+.all-link a{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.all-link a::after{
+  display: inline-block;
+  content: "→";
+  position: relative;
+  margin-left: 2px;
+}
+
+.about-link{
+  font-size: 1em;
+  float: right;
+}
+
+.about-link a{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.about-link a::after{
+  display: inline-block;
+  content: "→";
+  position: relative;
+  margin-left: 2px;
+}
+
+.home-section {
+    background-color: #ebe9e1;
+    padding: 20px 0;
+    animation: intro .3s both;
+    animation-delay: .15s;
+}
+
+.table {
+    --bs-table-hover-bg:   #ebe9e1;
+}
+
+
+.portrait {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 70px;
+    margin-right: 50px;
+    border-radius: 50%;
+    object-fit: none;
+    position: relative;
+    float: left;
+}

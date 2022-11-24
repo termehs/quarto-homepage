@@ -19,8 +19,30 @@ input, button, select, optgroup, textarea {
     font-weight: 10;
 }
 
+/* to remove author field */
 #title-block-header.quarto-title-block.default .quarto-title-meta-contents {
     font-size: .9em;
     opacity: 0;
     font-size: .1em;
 }
+
+/* styles for subscribe button */
+input, button, select, optgroup, textarea {
+    margin: 2px;
+    border-color: #63615a;
+    background-color: transparent;
+    border-radius: 7px;
+    padding: 1px;
+    min-width: 80px;
+    height: 30px;
+    font-size: 0.81em;
+}
+
+input:hover{
+  border-color: #63615a;
+  background-color: #ebe9e1;
+}
+
+
+
+
