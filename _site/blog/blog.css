@@ -27,14 +27,12 @@ input, button, select, optgroup, textarea {
 }
 
 /* styles for subscribe button */
-input, button, select, optgroup, textarea {
+input, button {
     margin: 2px;
     border-color: #63615a;
     background-color: transparent;
-    border-radius: 7px;
     padding: 1px;
     min-width: 80px;
-    height: 30px;
     font-size: 0.81em;
 }
 
