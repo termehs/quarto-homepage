@@ -5,7 +5,7 @@
 }
 
 input, button, select, optgroup, textarea {
-    background-color: #d2bebe54;
+    background-color: #ebe9e1;
 }
 
 
@@ -13,3 +13,14 @@ input, button, select, optgroup, textarea {
     margin-bottom: 1.1em;
 }
 
+#title-block-header.quarto-title-block.default .quarto-title-meta-heading {
+    font-size: .1em;
+    opacity: 0;
+    font-weight: 10;
+}
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents {
+    font-size: .9em;
+    opacity: 0;
+    font-size: .1em;
+}

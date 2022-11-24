@@ -10,10 +10,10 @@
 <atom:link href="https://mrs.schochastics.net/blog/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Wed, 23 Nov 2022 09:46:28 GMT</lastBuildDate>
+<lastBuildDate>Wed, 23 Nov 2022 10:15:09 GMT</lastBuildDate>
 <item>
-  <title>The Minard System in R</title>
-  <dc:creator>David Schoch</dc:creator>
+  <title>Hello World</title>
+  <dc:creator>Termeh Shafie</dc:creator>
   <link>https://mrs.schochastics.net/blog/posts/minard/index.html</link>
   <description><![CDATA[ 
 
@@ -22,81 +22,13 @@
 <button type="button" class="btn btn-outline-success">
 <a href="https://github.com/schochastics/minard">Code</a>
 </button>
-<p><img src="https://mrs.schochastics.net/blog/posts/minard/https:/upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/800px-Minard.png" class="img-fluid"></p>
-<p>If you are into data viz, then I am pretty sure that you have seen the chart above before. E. Tufte once declared this to be “the best statistical graphic ever drawn”.</p>
-<p>What you might not know is that its creator, <a href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">Charles Joseph Minard</a>, made far more significant contributions in the field of information graphics. Especially with his flow maps. <a href="https://twitter.com/srendgen">Sandra Rendgen</a> dedicated a book, “The Minard System”, which shows 61 maps and plots that Minard produced during his lifetime. The book is really inspiring and I can only recommend it. One cold winter day in early 2021, I decided to try to recreate some of Minards work with R. I was particularly interested in his <a href="https://heritage.ecoledesponts.fr/ark:/12148/btv1b104811770.r=Minard?rk=300430;4">flow maps</a>. This was also actually the starting point for me to develop the R package <code>edgebundle</code>. I had the ambitious goal to reproduce as many of his 61 drawings as possible and thus far managed to do 13.</p>
-<section id="ports-in-france-i" class="level2">
-<h2 class="anchored" data-anchor-id="ports-in-france-i">(11) Ports in France I</h2>
-<p><a href="viz_11.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_11.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/011-maritime_ports_france">Code</a></p>
-</section>
-<section id="english-coal-exports-i" class="level2">
-<h2 class="anchored" data-anchor-id="english-coal-exports-i">(14) English Coal Exports I</h2>
-<p><a href="viz_14.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_14.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/014-english_coal_1987">Code</a></p>
-</section>
-<section id="meat-sent-to-paris" class="level2">
-<h2 class="anchored" data-anchor-id="meat-sent-to-paris">(21) Meat Sent to Paris</h2>
-<p><a href="viz_21.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_21.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/021-meat_to_paris">Code</a></p>
-</section>
-<section id="ports-in-france-ii" class="level2">
-<h2 class="anchored" data-anchor-id="ports-in-france-ii">(24) Ports in France II</h2>
-<p><a href="viz_24.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_24.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/024-maritime_ports_france_2">Code</a></p>
-</section>
-<section id="cargo-ports-in-europe" class="level2">
-<h2 class="anchored" data-anchor-id="cargo-ports-in-europe">(25) Cargo Ports in Europe</h2>
-<p><a href="viz_25.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_25.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/025-cargo_ports_eu">Code</a></p>
-</section>
-<section id="cargo-ports-of-the-globe" class="level2">
-<h2 class="anchored" data-anchor-id="cargo-ports-of-the-globe">(34) Cargo Ports of the Globe</h2>
-<p><a href="viz_34.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_34.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/034-global_ports">Code</a></p>
-</section>
-<section id="global-migrants" class="level2">
-<h2 class="anchored" data-anchor-id="global-migrants">(38) Global Migrants</h2>
-<p><a href="viz_38.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_38.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/038-migrants_globe">Code</a></p>
-</section>
-<section id="english-coal-exports-ii" class="level2">
-<h2 class="anchored" data-anchor-id="english-coal-exports-ii">(41) English Coal Exports II</h2>
-<p><a href="viz_41.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_41.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/041-english_coal_1997">Code</a></p>
-</section>
-<section id="post-offices-in-paris" class="level2">
-<h2 class="anchored" data-anchor-id="post-offices-in-paris">(48) Post Offices in Paris</h2>
-<p><a href="viz_48.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_48.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/048-post_office_paris">Code</a></p>
-</section>
-<section id="french-wine-exports" class="level2">
-<h2 class="anchored" data-anchor-id="french-wine-exports">(50) French Wine Exports</h2>
-<p><a href="viz_50.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_50.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/050-french_wine">Code</a></p>
-</section>
-<section id="english-coal-exports-iii" class="level2">
-<h2 class="anchored" data-anchor-id="english-coal-exports-iii">(53) English Coal Exports III</h2>
-<p><a href="viz_53.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_53.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/053-english_coal_2017">Code</a></p>
-</section>
-<section id="global-coal-production" class="level2">
-<h2 class="anchored" data-anchor-id="global-coal-production">(54) Global Coal Production</h2>
-<p><a href="viz_54.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_54.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/054-coal_production">Code</a></p>
-</section>
-<section id="napoleons-campaign" class="level2">
-<h2 class="anchored" data-anchor-id="napoleons-campaign">(60) Napoleon’s Campaign</h2>
-<p><a href="viz_60.png"><img src="https://mrs.schochastics.net/blog/posts/minard/viz_60.png" width="100%"></a></p>
-<p><a href="https://github.com/schochastics/minard/tree/master/060-napoleon_russia">Code</a></p>
 
 
-</section>
 
  ]]></description>
-  <category>data visualization</category>
+  <category>test</category>
   <guid>https://mrs.schochastics.net/blog/posts/minard/index.html</guid>
-  <pubDate>Wed, 23 Nov 2022 09:46:28 GMT</pubDate>
+  <pubDate>Wed, 23 Nov 2022 10:15:09 GMT</pubDate>
   <media:content url="https://mrs.schochastics.net/blog/posts/minard/featured.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
