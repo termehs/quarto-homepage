@@ -10,26 +10,23 @@
 <atom:link href="https://mrs.schochastics.net/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Thu, 24 Nov 2022 12:24:29 GMT</lastBuildDate>
+<lastBuildDate>Fri, 25 Nov 2022 20:41:17 GMT</lastBuildDate>
 <item>
   <title>Hello World</title>
   <dc:creator>Termeh Shafie</dc:creator>
-  <link>https://mrs.schochastics.net/blog/posts/minard/index.html</link>
+  <link>https://mrs.schochastics.net/blog/posts/test/index.html</link>
   <description><![CDATA[ 
 
 
 
-<button type="button" class="btn btn-outline-success">
-<a href="https://github.com/schochastics/minard">Code</a>
-</button>
 
 
 
  ]]></description>
   <category>test</category>
-  <guid>https://mrs.schochastics.net/blog/posts/minard/index.html</guid>
-  <pubDate>Thu, 24 Nov 2022 12:24:29 GMT</pubDate>
-  <media:content url="https://mrs.schochastics.net/blog/posts/minard/featured.png" medium="image" type="image/png" height="164" width="144"/>
+  <guid>https://mrs.schochastics.net/blog/posts/test/index.html</guid>
+  <pubDate>Fri, 25 Nov 2022 20:41:17 GMT</pubDate>
+  <media:content url="https://mrs.schochastics.net/blog/posts/test/featured.png" medium="image" type="image/png" height="94" width="104"/>
 </item>
 </channel>
 </rss>

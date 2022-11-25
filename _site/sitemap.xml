@@ -90,11 +90,11 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/about/index.html</loc>
-    <lastmod>2022-11-25T20:37:16.170Z</lastmod>
+    <lastmod>2022-11-25T20:38:14.930Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2022-11-25T20:36:51.234Z</lastmod>
+    <lastmod>2022-11-25T20:41:12.777Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/blog/posts/minard/index.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/blog/index.html</loc>
-    <lastmod>2022-11-24T12:24:29.491Z</lastmod>
+    <lastmod>2022-11-25T20:41:17.481Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/project/convoys/index.html</loc>
@@ -143,5 +143,9 @@
   <url>
     <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
     <lastmod>2022-11-24T12:19:12.518Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/blog/posts/test/index.html</loc>
+    <lastmod>2022-11-25T20:41:09.005Z</lastmod>
   </url>
 </urlset>

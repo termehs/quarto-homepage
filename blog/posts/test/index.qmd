@@ -2,9 +2,8 @@
 author: Termeh Shafie
 categories:
   - test
-description: Hello World
+description: This is a test entry...
 title: "Hello World"
-subtitle: "Test blog post"
 image: featured.png
 toc: true
 title-block-style: none
@@ -15,6 +14,4 @@ comments:
     label: comment
     theme: github-light
 ---
-
-<button type="button" class="btn btn-outline-success"><a href="https://github.com/schochastics/minard">Code</a></button>
 
