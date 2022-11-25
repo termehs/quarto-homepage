@@ -8,49 +8,22 @@ socials:
 shortcodes:
   - socials.lua
 listing: 
-  - id: projects
-    max-description-length: 500
-    fields: [image,title]
-    contents: 
-      - project/rmm
-      - project/seand
-      - project/nexus
-      - project/movienetworks
-      - project/convoys
-      - project/netdyn      
-    type: grid
-    image-align: left
-    sort: "priority asc"
-    grid-columns: 3
   - id: publication
     fields: [title,date]
     contents: 
-    - publications/aggregated_triads
-    - publications/data_protection
-    - publications/ergm_framework_arch
-    - publications/global_local_multigraphs
     - publications/gof_multigraph
-    - publications/hypergraph
-    - publications/isotopes
-    - publications/multigraph_approach
     - publications/multiplexity
-    - publications/multivariate_entropy_analysis
-    - publications/ontario_sna
-    - publications/reconstructing_arch_nets
-    - publications/sna_chapter
-    - publications/complexity_multigraphs
     type: table
     table-hover: true
     date-format: medium
     image-align: left
-    max-items: 7
+    max-items: 5
+    sort-ui: false
+    filter-ui: false
     sort: "date desc"
   - id: talks
     fields: [image,title,date]
     contents: 
-    - talks/EUSN2019
-    - talks/EUSN2021
-    - talks/NETWORKS2021
     - talks/SUNBELT2022
     - talks/WiNS2022
     - talks/CMB2022
@@ -113,7 +86,65 @@ Department for Computational Social Science, [GESIS](https://www.gesis.org/en/in
 
 ::::
 
+::::{.columns}
+::: {.news-section}
+::: {.column .col-v-center width="15%"}
+:::
 
+::: {.column .col-v-center width="70%"}
+
+::: {.news-header}
+NEWS
+:::
+:::
+
+:::
+
+::::
+
+::::{.columns}
+
+::: {.home-section}
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center width="70%"}
+
+## Recent Publications
+:::{#publication}
+:::
+
+::: {.all-link}
+[all publications](publications/)
+:::
+
+:::
+:::
+::::
+
+
+
+
+::::{.columns}
+
+::: {.column .col-v-center width="15%"}
+:::
+
+::: {.column .col-v-center width="70%"}
+
+
+
+
+## Latest Talks
+:::{#talks}
+:::
+
+::: {.all-link}
+[more talks](talks/)
+:::
+:::
+
+::::
 
 
 
@@ -123,8 +154,43 @@ Department for Computational Social Science, [GESIS](https://www.gesis.org/en/in
 :::
 
 ::: {.column .col-v-center width="70%"}
-# News
 
+
+
+## R packages
+<div id="listing-rpckg" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3"><div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665686493490" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
+<a href="/project/seand/#r-package-netropy" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-text listing-description">
+Install development version from GitHub for the most recent updates.
+</div>
+</div>
+</a>
+</div><div class="g-col-1" data-index="1" data-categories="entropy" data-listing-file-modified-sort="1665686604701" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
+<a href="/project/rmm/#r-package-multigraphr" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-text listing-description">
+Latest published version on CRAN is up to date.
+</div>
+</div>
+</a>
+</div></div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+
+
+
+
+### GitHub Activity
 <script
   src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
 </script>
@@ -140,99 +206,34 @@ Loading my github calendar data.
 <script>
 GitHubCalendar(".calendar", "termehs", { responsive: true });
 </script>
-
-
-
-## Projects
-:::{#projects}
-:::
-
-:::{.all-link}
-[ALL PROJECTS](project/)
-:::
-
-:::
-:::
-::::
-
-
-
-
-::::{.columns}
-
-
-::: {.column .col-v-center width="15%"}
-:::
-
-::: {.column .col-v-center width="70%"}
-
-## Latest Publications
-:::{#publication}
-:::
-
-::: {.all-link}
-[all publications](publications/)
-:::
-
-:::
-::::
-
-
-::::{.columns}
-::: {.home-section}
-::: {.column .col-v-center width="15%"}
-:::
-
-::: {.column .col-v-center width="70%"}
-
-## R packages
-<div id="listing-rpckg" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3"><div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665686493490" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
-<a href="/project/seand/#r-package-netropy" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-</div>
-</a>
-</div><div class="g-col-1" data-index="1" data-categories="entropy" data-listing-file-modified-sort="1665686604701" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
-<a href="/project/rmm/#r-package-multigraphr" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-</div>
-</a>
-</div></div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-
-:::
-::: {.vspace}
 :::
 :::
 ::::
 
 
 ::::{.columns}
-
 ::: {.column .col-v-center width="15%"}
 :::
 
 ::: {.column .col-v-center width="70%"}
-
-
-
-
-## Recent Talks
-:::{#talks}
+## Social Media
+:::
+::: {.column .col-v-center width="22.5%"}
 :::
 
-::: {.all-link}
-[more talks](talks/)
+::: {.column .col-v-center width="25%"}
+### Tweets {{< twitter termehshafie >}}
+<a class="twitter-timeline" data-width="300" data-height="700" data-theme="dark" href="https://twitter.com/termehshafie?ref_src=twsrc%5Etfw">Tweets by termehshafie</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 :::
+
+::: {.column .col-v-center width="5%"}
+:::
+
+::: {.column .col-v-center width="25%"}
+### Toots {{< mastodon https://fediscience.org/@termehs >}}
+<iframe allowfullscreen sandbox="allow-top-navigation allow-scripts" width="300" height="700" src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffediscience.org%2Fusers%2Ftermehs&theme=dark&size=100&header=true&replies=true&boosts=true"></iframe>
+
 :::
 
 ::::

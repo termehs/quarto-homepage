@@ -20,6 +20,12 @@ color: #63615a;
   font-size: 1.3em;
 }
 
+.news-header{
+  font-size: 3em;
+  font-family: 'Teko';
+  margin-bottom: -30px;
+  color: #99978d;
+}
 
 
 div.quarto-post .thumbnail {
@@ -69,10 +75,16 @@ div.quarto-post .thumbnail img {
 
 .home-section {
     background-color: #ebe9e1;
-    padding: 20px 0;
+    padding: 10px 0;
     animation: intro .3s both;
     animation-delay: .15s;
 }
+
+.news-section {
+    background-color: #383732;
+    padding: 10px 0px;
+}
+
 
 .table {
     --bs-table-hover-bg:   #ebe9e1;
@@ -292,5 +304,14 @@ h2.f4.text-normal.mb-3 {
 .highlight-color{
  color: #AD0059;
 }
+
+
+/* --- widget border --- */
+iframe{
+border:1px solid black;
+border-radius: 25px
+}
+
+
 
 
