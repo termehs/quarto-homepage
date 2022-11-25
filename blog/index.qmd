@@ -1,7 +1,6 @@
 ---
 title: "![](blog-head.png)"
 listing:
-  contents: posts/**/*.qmd
   sort: "date desc"
   type: grid
   categories: true
@@ -9,6 +8,7 @@ listing:
   filter-ui: false
   fields: [date, title, description, categories, image]
   feed: true
+  contents: posts/**/*.qmd
 page-layout: full
 title-block-banner: false
 margin-header: subscribe.html
