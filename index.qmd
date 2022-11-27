@@ -222,7 +222,7 @@ GitHubCalendar(".calendar", "termehs", { responsive: true });
 :::
 
 ::: {.column .col-v-center width="25%"}
-### Tweets {{< twitter termehshafie >}}
+
 <a class="twitter-timeline" data-width="300" data-height="700" data-theme="dark" href="https://twitter.com/termehshafie?ref_src=twsrc%5Etfw">Tweets by termehshafie</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 :::
