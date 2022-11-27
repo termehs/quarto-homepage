@@ -273,18 +273,18 @@
     "text": "Experience\n\nSenior Researcher | Jul 2022 – Present | Department of Computational Social Science GESIS – Leibniz Institute for the Social Sciences\nLecturer in Social Statistics | Jul 2018 – Apr 2022 | Department of Social Statistics | The University of Manchester\nPostdoctoral Researcher | Nov 2017 – Jun 2018 | Department of Humanities, Social and Political Sciences | ETH Zürich\nPostdoctoral Researcher | Sep 2013 – Oct 2017 | Department of Computer and Information Science | University of Konstanz"
   },
   {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
+    "objectID": "index.html#recent-publications",
+    "href": "index.html#recent-publications",
     "title": "Termeh Shafie",
-    "section": "Projects",
-    "text": "Projects\n\n\n\n\n\n\n\n\n\n\nStatistical Entropy Analysis of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultigraph Representation of Network Data\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork of Interconnected Convoys\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Co-Evolution of Network Structure and Individual Outcomes\n\n\n\n\n\n\n\n\n\n\n\n\n\nGender Dependent Structures in Charachter Networks\n\n\n\n\n\n\n\n\n\n\n\n\n\nNEXUS1492 - Reconstructing Archaeological Networks\n\n\n\n\n\n\n\nNo matching items\n\n\n\nALL PROJECTS\n\n::: ::: ::::\n\n\n\n\n\nLatest Publications\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nSep 30, 2021\n\n\n\n\nSocial Network Analysis\n\n\nJun 17, 2020\n\n\n\n\nA Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models\n\n\nAug 25, 2019\n\n\n\n\nReconstructing Archaeological Networks with Structural Holes\n\n\nMar 25, 2018\n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nJan 25, 2018\n\n\n\n\nHypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700\n\n\nOct 25, 2017\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications\n\n\n\n\n\n\n\n\n\nRecent Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n  \n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nThe 5th European Conference on Social Networks\n\n\n\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n  \n\n\n\n\n“Goodness of Fit Tests for Random Multigraph Models”\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\n\n\n\nJul 6, 2021\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
+    "section": "Recent Publications",
+    "text": "Recent Publications\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nSep 30, 2021\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
   },
   {
-    "objectID": "index.html#latest-publications",
-    "href": "index.html#latest-publications",
+    "objectID": "index.html#latest-talks",
+    "href": "index.html#latest-talks",
     "title": "Termeh Shafie",
-    "section": "Latest Publications",
-    "text": "Latest Publications\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nSep 30, 2021\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
+    "section": "Latest Talks",
+    "text": "Latest Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
   },
   {
     "objectID": "index.html#r-packages",
@@ -294,18 +294,11 @@
     "text": "R packages\n\n\n\n\n\n\n\n\n\nInstall development version from GitHub for the most recent updates.\n\n\n\n\n\n\n\n\n\n\n\nLatest published version on CRAN is up to date.\n\n\n\n\n\n\nNo matching items\n\n\n\nGitHub Activity\n\n\n\n\nLoading my github calendar data."
   },
   {
-    "objectID": "index.html#recent-talks",
-    "href": "index.html#recent-talks",
+    "objectID": "index.html#social-media",
+    "href": "index.html#social-media",
     "title": "Termeh Shafie",
-    "section": "Recent Talks",
-    "text": "Recent Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
-  },
-  {
-    "objectID": "blog/posts/minard/index.html",
-    "href": "blog/posts/minard/index.html",
-    "title": "Hello World",
-    "section": "",
-    "text": "Code"
+    "section": "Social Media",
+    "text": "Social Media"
   },
   {
     "objectID": "blog/index.html",
@@ -460,40 +453,5 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
-  },
-  {
-    "objectID": "index.html#recent-publications",
-    "href": "index.html#recent-publications",
-    "title": "Termeh Shafie",
-    "section": "Recent Publications",
-    "text": "Recent Publications\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nSep 30, 2021\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
-  },
-  {
-    "objectID": "index.html#social-media",
-    "href": "index.html#social-media",
-    "title": "Termeh Shafie",
-    "section": "Social Media",
-    "text": "Social Media"
-  },
-  {
-    "objectID": "index.html#news",
-    "href": "index.html#news",
-    "title": "Termeh Shafie",
-    "section": "NEWS",
-    "text": "NEWS"
-  },
-  {
-    "objectID": "index.html#github",
-    "href": "index.html#github",
-    "title": "Termeh Shafie",
-    "section": "GitHub",
-    "text": "GitHub\n\n\n\n\nLoading my github calendar data."
-  },
-  {
-    "objectID": "index.html#latest-talks",
-    "href": "index.html#latest-talks",
-    "title": "Termeh Shafie",
-    "section": "Latest Talks",
-    "text": "Latest Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
   }
 ]
