@@ -34,8 +34,9 @@ website:
       - icon: rss
         href: blog/index.xml
   page-footer:
-    left: "© 2022 Termeh Shafie"
-    center: "powered by [quarto](https://quarto.org)"
+    left: |
+      <b>© 2022 Termeh Shafie</b>  <br>
+      powered by [quarto](https://quarto.org)
     right:
       - icon: mastodon
         href: https://fediscience.org/@termehs
