@@ -221,7 +221,6 @@ GitHubCalendar(".calendar", "termehs", { responsive: true });
 ### Tweets {{< twitter termehshafie >}}
 <a class="twitter-timeline" data-width="300" data-height="700" data-theme="dark" href="https://twitter.com/termehshafie?ref_src=twsrc%5Etfw">Tweets by termehshafie</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
 ### &nbsp; &nbsp; Toots {{< mastodon https://fediscience.org/@termehs >}}
 &nbsp; &nbsp; <iframe allowfullscreen sandbox="allow-top-navigation allow-scripts" width="300" height="700" src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffediscience.org%2Fusers%2Ftermehs&theme=dark&size=100&header=true&replies=true&boosts=true"></iframe>
 
