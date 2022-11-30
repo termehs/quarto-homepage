@@ -107,8 +107,8 @@ div.quarto-post .thumbnail img {
   --color-calendar-graph-day-bg: #edebeb;
   --color-calendar-graph-day-L1-bg: #cfcbbe;
   --color-calendar-graph-day-L2-bg: #a6a194;
-  --color-calendar-graph-day-L3-bg: #807a6c;
-  --color-calendar-graph-day-L4-bg: #383732;
+  --color-calendar-graph-day-L3-bg: #7a7569;
+  --color-calendar-graph-day-L4-bg: #54534c;
 }
 
 rect.ContributionCalendar-day[data-level='0'] {
