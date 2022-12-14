@@ -210,7 +210,6 @@ GitHubCalendar(".calendar", "termehs", { responsive: true });
 :::
 ::::
 
-
 ::::{.columns}
 ::: {.column .col-v-center width="15%"}
 :::
