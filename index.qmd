@@ -114,18 +114,12 @@ NEWS
 :::
 ::::
 
-
-
-
 ::::{.columns}
 
 ::: {.column .col-v-center width="15%"}
 :::
 
 ::: {.column .col-v-center width="70%"}
-
-
-
 
 ## Latest Talks
 :::{#talks}
