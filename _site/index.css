@@ -305,7 +305,6 @@ h2.f4.text-normal.mb-3 {
  color: #AD0059;
 }
 
-
 /* --- widget border --- */
 iframe{
 border:1px solid black;
@@ -315,5 +314,3 @@ border-radius: 25px
 .wrapper {
     display: flex;
   }
-
-
