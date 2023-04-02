@@ -100,8 +100,9 @@ NEWS
 
 ::: {.column .col-v-center width="70%"}
 
-## 01.04.2023 Teaching at The University of Konstanz
-I'm on leave from GESIS during April-May 2023 and have a teaching contract at the University of Konstanz during this period. There, I'll be teaching an undergraduate Econometrics course.
+## General
+### 01.04.2023: Teaching at The University of Konstanz
+I'm on leave from GESIS April-May 2023 and have a teaching contract at the University of Konstanz during this period. There, I'll be teaching an undergraduate Econometrics course (*good ol' Wooldrige*).
 :::
 
 ::::
