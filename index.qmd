@@ -102,7 +102,7 @@ NEWS
 
 ## General
 ### 27.07.2023: Associate Professor of Computational Social Science and Data Science
-Today I start my new position at the Department of Politics and Public Administration, University of Konstanz.
+Today I start my new position as a Professor (*Professorin mit Schwerpunkt Lehre*) at the Department of Politics and Public Administration, University of Konstanz.
 
 ### 01.04.2023: Interim Professorship at The University of Konstanz
 I'm on leave from GESIS April-May 2023 and will be working as an interim professor at the University of Konstanz during this period
