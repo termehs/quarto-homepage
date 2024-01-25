@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2023-08-15T18:39:48.967Z</lastmod>
+    <lastmod>2024-01-25T12:21:51.167Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/blog/posts/test/index.html</loc>
@@ -143,5 +143,13 @@
   <url>
     <loc>https://mrs.schochastics.net/rpackage/multigraphr/index.html</loc>
     <lastmod>2023-08-15T18:39:58.644Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/index.html</loc>
+    <lastmod>2024-01-25T12:28:03.704Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/StatLearnHw1/knn.html</loc>
+    <lastmod>2024-01-25T12:42:12.946Z</lastmod>
   </url>
 </urlset>

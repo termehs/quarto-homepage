@@ -31,11 +31,13 @@ website:
         text: Talks
       - href: blog/index.qmd
         text: Blog
+      - href: teaching/index.qmd
+        text: Teaching
       - icon: rss
         href: blog/index.xml
   page-footer:
     left: |
-      <b>© 2022 Termeh Shafie</b>  <br>
+      <b>© 2024 Termeh Shafie</b>  <br>
       powered by [quarto](https://quarto.org)
     right:
       - icon: mastodon

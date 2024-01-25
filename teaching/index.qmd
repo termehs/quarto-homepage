@@ -1,0 +1,21 @@
+---
+title: "Teaching"
+page-layout: full
+listing:
+  categories: true
+  id: material
+  max-description-length: 500
+  image-height: "250px"	
+  fields: [image,title,description]
+  contents: 
+    - StatLearnHw1
+    - StatLearnHw2
+  type: default
+  image-align: right
+  sort: "priority asc"
+  grid-item-border: false
+---
+
+
+:::{#teaching}
+:::

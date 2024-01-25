@@ -45,6 +45,10 @@
     "rpackage/index.qmd": [
       "netropy",
       "multigraphr"
+    ],
+    "teaching/index.qmd": [
+      "StatLearnHw1",
+      "StatLearnHw2"
     ]
   }
 }

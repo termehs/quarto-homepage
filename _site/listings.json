@@ -62,5 +62,11 @@
       "/rpackage/netropy/index.html",
       "/rpackage/multigraphr/index.html"
     ]
+  },
+  {
+    "listing": "/teaching/index.html",
+    "items": [
+      "/teaching/StatLearnHw1/knn.html"
+    ]
   }
 ]
