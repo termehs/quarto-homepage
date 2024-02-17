@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Termeh Shafie</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<link href="./static/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-publication .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-publication'] = new List('listing-publication', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-talks .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="academicons.css">
+<link rel="stylesheet" href="index.css">
+<meta property="og:title" content="Termeh Shafie">
+<meta property="og:description" content="Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R">
+<meta property="og:image" content="https://mrs.schochastics.net/static/img/avatar.png">
+<meta property="og:site-name" content="mrs schochastics">
+<meta property="og:image:height" content="1846">
+<meta property="og:image:width" content="1817">
+<meta name="twitter:title" content="Termeh Shafie">
+<meta name="twitter:description" content="Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R">
+<meta name="twitter:image" content="https://mrs.schochastics.net/static/img/avatar.png">
+<meta name="twitter:creator" content="@termehshafie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="1846">
+<meta name="twitter:image-width" content="1817">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./static/logo.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about/index.html">About me</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project/index.html">Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publications/index.html">Publications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./talks/index.html">Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog/index.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./blog/index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
+
+
+
+<div class="vspace">
+
+</div>
+<div class="columns">
+<div class="column col-v-center" style="width:15%;">
+
+</div><div class="column col-v-center" style="width:70%;">
+<div class="portrait">
+<p><img src="static/img/avatar.png" class="img-fluid"></p>
+<div class="socials">
+<a rel="me" href="https://fediscience.org/@termehs"><i class="bi bi-mastodon"></i></a>
+<a href="https://twitter.com/termehshafie"><i class="bi bi-twitter"></i></a>
+<a href="https://github.com/termehs"><i class="bi bi-github"></i></a>
+<a href="https://scholar.google.de/citations?user=Si-WbhAAAAAJ&amp;hl=en"><i class="ai ai-google-scholar"></i></a>
+<a href="https://orcid.org/0000-0002-8419-8477"><i class="ai ai-orcid"></i></a>
+<a href="https://researchgate.net/profile/Termeh-Shafie/"><i class="ai ai-researchgate"></i></a>
+</div>
+</div>
+<section id="termeh-shafie" class="level1">
+<h1>Termeh Shafie</h1>
+<div class="termeh-intro">
+<p>Associate Professor of Computational Social Science and Data Science <br> <a href="https://www.polver.uni-konstanz.de/cdm/people/faculty/termeh-shafie/">University of Konstanz</a>.</p>
+</div>
+<div class="about-link">
+<p><a href="about/">MORE ABOUT ME</a></p>
+</div>
+</section>
+</div><div class="vspace">
+
+</div><div class="column col-v-center" style="width:20%;">
+
+</div>
+</div>
+<div class="columns">
+<div class="news-section">
+<div class="column col-v-center" style="width:15%;">
+
+</div>
+<div class="column col-v-center" style="width:70%;">
+<div class="news-header">
+<p>NEWS</p>
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column col-v-center" style="width:15%;">
+
+</div><div class="column col-v-center" style="width:70%;">
+<section id="general" class="level2">
+<h2 data-anchor-id="general">General</h2>
+<section id="maternity-leave" class="level3">
+<h3 data-anchor-id="maternity-leave">10.08.2023: Maternity Leave</h3>
+<p>On maternity leave until end of the year.</p>
+</section>
+<section id="associate-professor-of-computational-social-science-and-data-science" class="level3">
+<h3 data-anchor-id="associate-professor-of-computational-social-science-and-data-science">27.07.2023: Associate Professor of Computational Social Science and Data Science</h3>
+<p>Today I start my new position as a Professor (<em>Professorin mit Schwerpunkt Lehre</em>) at the Department of Politics and Public Administration, University of Konstanz.</p>
+</section>
+<section id="interim-professorship-at-the-university-of-konstanz" class="level3">
+<h3 data-anchor-id="interim-professorship-at-the-university-of-konstanz">01.04.2023: Interim Professorship at The University of Konstanz</h3>
+<p>I’m on leave from GESIS April-May 2023 and will be working as an interim professor at the University of Konstanz during this period</p>
+</section>
+</section>
+</div>
+</div>
+<div class="columns">
+<div class="home-section">
+<div class="column col-v-center" style="width:15%;">
+
+</div>
+<div class="column col-v-center" style="width:70%;">
+<section id="recent-publications" class="level2">
+<h2 data-anchor-id="recent-publications">Recent Publications</h2>
+<div id="listing-publication" class="quarto-listing quarto-listing-container-table">
+
+<table class="quarto-listing-table table table-hover">
+<thead>
+<tr>
+<th>
+Title
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="entropy,centrality" data-listing-date-sort="1701817200000" data-listing-file-modified-sort="1708167321370" data-listing-reading-time-sort="0.74" data-listing-title-sort="The interplay of structural features and observed dissimilarities among centrality indices" data-listing-filename-sort="index.md" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td class="listing-title">
+<a href="./publications/interplay_str_cent/index.html" class="title">The interplay of structural features and observed dissimilarities among centrality indices</a>
+</td>
+<td class="listing-date">
+Dec 6, 2023
+</td>
+</tr>
+<tr data-index="1" data-categories="multigraph" data-listing-date-sort="1658354400000" data-listing-file-modified-sort="1665998714299" data-listing-reading-time-sort="1.05" data-listing-title-sort="Goodness of fit tests for random multigraph models" data-listing-filename-sort="index.md" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td class="listing-title">
+<a href="./publications/gof_multigraph/index.html" class="title">Goodness of fit tests for random multigraph models</a>
+</td>
+<td class="listing-date">
+Jul 21, 2022
+</td>
+</tr>
+</tbody>
+
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<div class="all-link">
+<p><a href="publications/">all publications</a></p>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column col-v-center" style="width:15%;">
+
+</div><div class="column col-v-center" style="width:70%;">
+<section id="latest-talks" class="level2">
+<h2 data-anchor-id="latest-talks">Latest Talks</h2>
+<div id="listing-talks" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="multigraph,multivariate analysis,computational social science,digital humanities" data-listing-date-sort="1667343600000" data-listing-file-modified-sort="1668629691508" data-listing-reading-time-sort="0.05">
+<div class="thumbnail">
+<p><a href="./talks/CMB2022/index.html"> <img src="./talks/CMB2022/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./talks/CMB2022/index.html">
+<h3 class="no-anchor listing-title">
+“Analyzing Social Structure using Multigraph Representations”
+</h3>
+<div class="listing-subtitle">
+Presentation @ Centre Marc Bloch, Berlin
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./talks/CMB2022/index.html">
+<div class="listing-date">
+Nov 2, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="multigraph,ego networks,multivariate analysis" data-listing-date-sort="1657836000000" data-listing-file-modified-sort="1668629821994" data-listing-reading-time-sort="0.055">
+<div class="thumbnail">
+<p><a href="./talks/SUNBELT2022/index.html"> <img src="./talks/SUNBELT2022/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./talks/SUNBELT2022/index.html">
+<h3 class="no-anchor listing-title">
+“Statistical Analysis of Multivariate Egocentric Networks”
+</h3>
+<div class="listing-subtitle">
+The XLII Social Networks Conference of INSNA
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./talks/SUNBELT2022/index.html">
+<div class="listing-date">
+Jul 15, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="entropy,multivariate analysis" data-listing-date-sort="1651701600000" data-listing-file-modified-sort="1668629666532" data-listing-reading-time-sort="0.075">
+<div class="thumbnail">
+<p><a href="./talks/WiNS2022/index.html"> <img src="./talks/WiNS2022/featured.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./talks/WiNS2022/index.html">
+<h3 class="no-anchor listing-title">
+“Statistical Entropy Analysis of Network Data”
+</h3>
+<div class="listing-subtitle">
+The Women in Network Science (WiNS) seminar
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./talks/WiNS2022/index.html">
+<div class="listing-date">
+May 5, 2022
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<div class="all-link">
+<p><a href="talks/">more talks</a></p>
+</div>
+</section>
+</div>
+</div>
+<div class="columns">
+<div class="home-section">
+<div class="column col-v-center" style="width:15%;">
+
+</div>
+<div class="column col-v-center" style="width:70%;">
+<section id="r-packages" class="level2">
+<h2 data-anchor-id="r-packages">R packages</h2>
+<div id="listing-rpckg" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="entropy" data-listing-file-modified-sort="1665686493490" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
+<a href="./project/seand/#r-package-netropy" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-text listing-description">
+<p>Install development version from GitHub for the most recent updates.</p>
+</div>
+</div>
+</a><p><a href="./project/seand/#r-package-netropy" class="quarto-grid-link"></a></p>
+</div>
+<div class="g-col-1" data-index="1" data-categories="entropy" data-listing-file-modified-sort="1665686604701" data-listing-reading-time-sort="0.005" data-listing-date-sort="null">
+<a href="./project/rmm/#r-package-multigraphr" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-text listing-description">
+<p>Latest published version on CRAN is up to date.</p>
+</div>
+</div>
+</a><p><a href="./project/rmm/#r-package-multigraphr" class="quarto-grid-link"></a></p>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+<p>No matching items</p>
+</div>
+</div>
+<section id="github-activity" class="level3">
+<h3 data-anchor-id="github-activity">GitHub Activity</h3>
+<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+</script>
+<div class="l-body-outset">
+<a href="https://github.com/termehs">
+<div class="calendar">
+<p>Loading my github calendar data.</p>
+</div>
+</a><p><a href="https://github.com/termehs"></a></p>
+</div>
+<script>
+GitHubCalendar(".calendar", "termehs", { responsive: true });
+</script>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column col-v-center" style="width:15%;">
+
+</div><div class="column col-v-center" style="width:70%;">
+<section id="social-media" class="level2">
+<h2 data-anchor-id="social-media">Social Media</h2>
+<div class="wrapper">
+<section id="tweets-twitter-termehshafie" class="level3">
+<h3 data-anchor-id="tweets-twitter-termehshafie">Tweets <a href="https://twitter.com/termehshafie"><i class="bi bi-twitter"></i></a></h3>
+<a class="twitter-timeline" data-width="300" data-height="700" data-theme="dark" href="https://twitter.com/termehshafie?ref_src=twsrc%5Etfw">Tweets by termehshafie</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</section>
+<section id="toots-mastodon-httpsfediscience.orgtermehs" class="level3">
+<h3 data-anchor-id="toots-mastodon-httpsfediscience.orgtermehs">&nbsp; &nbsp; Toots <a rel="me" href="https://fediscience.org/@termehs"><i class="bi bi-mastodon"></i></a></h3>
+<p>&nbsp; &nbsp; <iframe allowfullscreen="" sandbox="allow-top-navigation allow-scripts" width="300" height="700" src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffediscience.org%2Fusers%2Ftermehs&amp;theme=dark&amp;size=100&amp;header=true&amp;replies=true&amp;boosts=true"></iframe></p>
+</section>
+</div>
+</section>
+</div>
+</div>
+<div class="vspace">
+
+</div>
+
+
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><b>© 2024 Termeh Shafie</b> <br> powered by <a href="https://quarto.org">quarto</a></div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://fediscience.org/@termehs">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/termehshafie">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/termehs">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.de/citations?user=Si-WbhAAAAAJ&amp;hl=en"><i class="ai ai-google-scholar" role="img"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-8419-8477"><i class="ai ai-orcid" role="img"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Termeh-Shafie"><i class="ai ai-researchgate" role="img"></i></a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

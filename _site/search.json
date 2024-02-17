@@ -1,0 +1,485 @@
+[
+  {
+    "objectID": "publications/reconstructing_arch_nets/index.html",
+    "href": "publications/reconstructing_arch_nets/index.html",
+    "title": "Reconstructing Archaeological Networks with Structural Holes",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/reconstructing_arch_nets/index.html#abstract",
+    "href": "publications/reconstructing_arch_nets/index.html#abstract",
+    "title": "Reconstructing Archaeological Networks with Structural Holes",
+    "section": "Abstract",
+    "text": "Abstract\nModel-based reconstruction is an approach to infer network structures where they cannot be observed. For archaeological networks, several models based on assumptions concerning distance among sites, site size, or costs and benefits have been proposed to infer missing ties. Since these assumptions are formulated at a dyadic level, they do not provide means to express dependencies among ties and therefore include less plausible network scenarios. In this paper we investigate the use of network models that explicitly incorporate tie dependence. In particular, we consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt’s arguments on closure and structural holes (Burt 2001). The approach is illustrated on data from the Middle Bronze Age in the Aegean. authors:\nJournal of Archaeological Method and Theory 25(1), 226-253"
+  },
+  {
+    "objectID": "publications/multivariate_entropy_analysis/index.html",
+    "href": "publications/multivariate_entropy_analysis/index.html",
+    "title": "Multivariate Entropy Analysis of Network Data",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/multivariate_entropy_analysis/index.html#abstract",
+    "href": "publications/multivariate_entropy_analysis/index.html#abstract",
+    "title": "Multivariate Entropy Analysis of Network Data",
+    "section": "Abstract",
+    "text": "Abstract\nMultigraphs with numerical or qualitative attributes defined on vertices and edges can benefit from systematic methods based on multivariate entropies for describing and analysing the interdependencies that are present between vertex and edge attributes. This is here illustrated by application of these tools to a subset of data on the social relations among Renaissance Florentine families collected by John Padgett. Using multivariate entropies we show how it is possible to systematically check for tendencies in data that can be described as independencies or conditional independencies, or as dependencies allowing certain combinations of variables to predict other variables. We also show how different structural models can be tested by divergence measures obtained from the multivariate entropies.\nBulletin of Sociological Methodology/Bulletin de Méthodologie Sociologique 120(1), 45-63"
+  },
+  {
+    "objectID": "publications/interplay_str_cent/index.html",
+    "href": "publications/interplay_str_cent/index.html",
+    "title": "The interplay of structural features and observed dissimilarities among centrality indices",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/interplay_str_cent/index.html#abstract",
+    "href": "publications/interplay_str_cent/index.html#abstract",
+    "title": "The interplay of structural features and observed dissimilarities among centrality indices",
+    "section": "Abstract",
+    "text": "Abstract\nAn abundance of centrality indices has been proposed which capture the importance of nodes in a network based on different structural features. While there remains a persistent belief that similarities in outcomes of indices is contingent on their technical definitions, a growing body of research shows that structural features affect observed similarities more than technicalities. We conduct a series of experiments on artificial networks to trace the influence of specific structural features on the similarity of indices which confirm previous results in the literature. Our analysis on 1163 real-world networks, however, shows that little of the observations on synthetic networks convincingly carry over to empirical settings. Our findings suggest that although it seems clear that (dis)similarities among centralities depend on structural properties of the network, using correlation type analyses do not seem to be a promising approach to uncover such connections.\nSocial Networks"
+  },
+  {
+    "objectID": "publications/multiplexity/index.html",
+    "href": "publications/multiplexity/index.html",
+    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/multiplexity/index.html#abstract",
+    "href": "publications/multiplexity/index.html#abstract",
+    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
+    "section": "Abstract",
+    "text": "Abstract\nMultivariate networks comprising several compositional and structural variables can be represented as multigraphs by various forms of aggregations based on vertex attributes. We propose a framework to perform exploratory and confirmatory multiplexity analysis of aggregated multigraphs in order to find relevant associations between vertex and edge attributes. The exploration is performed by comparing frequencies of the different edges within and between aggregated vertex categories, while the confirmatory analysis is performed using derived complexity or multiplexity statistics under different random multigraph models. These statistics are defined by the distribution of edge multiplicities and provide information on the covariation and dependencies of different edges given vertex attributes. The presented approach highlights the need to further analyse and model structural dependencies with respect to edge entrainment. We illustrate the approach by applying it on a well known multivariate network dataset which has previously been analysed in the context of multiplexity.\npublication: Statistical Methods & Applications 30, 1425–1444"
+  },
+  {
+    "objectID": "publications/aggregated_triads/index.html",
+    "href": "publications/aggregated_triads/index.html",
+    "title": "Random Multigraphs and Aggregated Triads with Fixed Degrees",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/aggregated_triads/index.html#abstract",
+    "href": "publications/aggregated_triads/index.html#abstract",
+    "title": "Random Multigraphs and Aggregated Triads with Fixed Degrees",
+    "section": "Abstract",
+    "text": "Abstract\nRandom multigraphs with fixed degrees are obtained by the configuration model or by so called random stub matching. New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs. Relationships between entropy and complexity are given and numerically illustrated for multigraphs with different number of vertices and specified average and variance for the degrees.\nNetwork Science 6(2), 232-250"
+  },
+  {
+    "objectID": "publications/hypergraph/index.html",
+    "href": "publications/hypergraph/index.html",
+    "title": "Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/hypergraph/index.html#abstract",
+    "href": "publications/hypergraph/index.html#abstract",
+    "title": "Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700",
+    "section": "Abstract",
+    "text": "Abstract\nNetwork data consisting of recorded historical events can be represented as hyper-graphs where the ties or events can connect any number of nodes or event related attributes. In this paper, we perform a centrality analysis of a directed hypergraph representing attacks by indigenous peoples from the Lesser Antilles on European colonial settlements, 1509-1700. The results of central attacks with respect to at- tacked colonial force, member of attack alliances, and year and location of attack are discussed and compared to a non-relational exploratory analysis of the data. This comparison points to the importance of a mixed methods approach to enhance the analysis and to obtain a complementary understanding of a network study.\npublication: ‘Journal of Historical Network Research 1(1), 52-70’"
+  },
+  {
+    "objectID": "publications/index.html",
+    "href": "publications/index.html",
+    "title": "Publications",
+    "section": "",
+    "text": "The association of network topology with dissimilarities of indices is assessed\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoodness of fit tests for different probability models for random multigraphs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA method for performing multiplexity analysis in social networks with several node covariates is presented.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA review chapter on social network analysis aimed towards undergraduate students.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms for network formation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt’s arguments on closure and structural holes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe perform a centrality analysis of a directed hypergraph representing attacks by indigenous peoples from the Lesser Antilles on European colonial settlements, 1509-1700.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe develop and test more standardized and quantitative approaches to geographic assignment of individual origins using multivariate isotopic data.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe local and global structures of undirected multigraphs under two random multigraph models are analyzed and compared.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocial network analysis is used to demonstrates the signaling practices reflecting regional patterns.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe show how it is possible to systematically check for tendencies in data, such as independencies or conditional independencies, using multivariate entropies.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe theoretical background for analyzing multivariate social networks using multigraph representations is introduced.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComplexity measured for multigraphs are specified and their applicability is discussed.\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publications/gof_multigraph/index.html",
+    "href": "publications/gof_multigraph/index.html",
+    "title": "Goodness of fit tests for random multigraph models",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/gof_multigraph/index.html#abstract",
+    "href": "publications/gof_multigraph/index.html#abstract",
+    "title": "Goodness of fit tests for random multigraph models",
+    "section": "Abstract",
+    "text": "Abstract\nGoodness of fit tests for two probabilistic multigraph models are presented. The first model is random stub matching given fixed degrees (RSM) so that edge assignments to vertex pair sites are dependent, and the second is independent edge assignments (IEA) according to a common probability distribution. Tests are performed using goodness of fit measures between the edge multiplicity sequence of an observed multigraph, and the expected one according to a simple or composite hypothesis. Test statistics of Pearson type and of likelihood ratio type are used, and the expected values of the Pearson statistic under the different models are derived. Test performances based on simulations indicate that even for small number of edges, the null distributions of both statistics are well approximated by their asymptotic χ2-distribution. The non-null distributions of the test statistics can be well approximated by proposed adjusted χ2-distributions used for power approximations. The influence of RSM on both test statistics is substantial for small number of edges and implies a shift of their distributions towards smaller values compared to what holds true for the null distributions under IEA. Two applications on social networks are included to illustrate how the tests can guide in the analysis of social structure.\nJournal of Applied Statistics"
+  },
+  {
+    "objectID": "publications/complexity_multigraphs/index.html",
+    "href": "publications/complexity_multigraphs/index.html",
+    "title": "Complexity of Families of Multigraphs",
+    "section": "",
+    "text": "pdf"
+  },
+  {
+    "objectID": "publications/complexity_multigraphs/index.html#abstract",
+    "href": "publications/complexity_multigraphs/index.html#abstract",
+    "title": "Complexity of Families of Multigraphs",
+    "section": "Abstract",
+    "text": "Abstract\nThis article describes families of finite multigraphs with labeled or unlabeled edges and vertices. It shows how size and complexity vary for different types of equivalence classes of graphs defined by ignoring only edge labels or ignoring both edge and vertex labels. Complexity is quantified by the distribution of edge multiplicities, and different complexity measures are discussed. Basic occupancy models for multigraphs are used to illustrate different graph distributions on isomorphism and complexity. The loss of information caused by ignoring edge and vertex labels is quantified by entropy and joint information that provide tools for studying properties of and relations between different graph families.\nIn 2012 JSM Proceedings: Papers Presented at the Joint Statistical Meetings, San Diego, California, July 28-August 2, 2012, and Other ASA-sponsored Conferences, American Statistical Association, 2012"
+  },
+  {
+    "objectID": "publications/global_local_multigraphs/index.html",
+    "href": "publications/global_local_multigraphs/index.html",
+    "title": "Analyzing Local and Global Properties of Multigraphs",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/global_local_multigraphs/index.html#abstract",
+    "href": "publications/global_local_multigraphs/index.html#abstract",
+    "title": "Analyzing Local and Global Properties of Multigraphs",
+    "section": "Abstract",
+    "text": "Abstract\nThe local structure of undirected multigraphs under two random multigraph models is analyzed and compared. The first model generates multigraphs by randomly coupling pairs of stubs according to a fixed degree sequence so that edge assignments to vertex pair sites are dependent. The second model is a simplification that ignores the dependency between the edge assignments. It is investigated when this ignorance is justified so that the simplified model can be used as an approximation, thus facilitating the structural analysis of network data with multiple relations and loops. The comparison is based on the local properties of multigraphs given by marginal distribution of edge multiplicities and some local properties that are aggregations of global properties.\nJournal of Mathematical Sociology 40(4), 239-264"
+  },
+  {
+    "objectID": "publications/sna_chapter/index.html",
+    "href": "publications/sna_chapter/index.html",
+    "title": "Social Network Analysis",
+    "section": "",
+    "text": "book chapter"
+  },
+  {
+    "objectID": "publications/sna_chapter/index.html#abstract",
+    "href": "publications/sna_chapter/index.html#abstract",
+    "title": "Social Network Analysis",
+    "section": "Abstract",
+    "text": "Abstract\nSocial networks comprise a set of nodes or actors (representing, e.g., individuals, groups, organisations) that are pairwise connected by edges or ties (representing, e.g., relationships, interactions, communication). The social systems arising exhibit patterns of interest, and social network analysis is the study of how and why these patterns emerge, sustain, and evolve. Of primary interest is thus to understand and describe the social processes that support the observed structure. These processes are founded in theories about network representation and theories about observed social phenomena. The benefit from network conceptualisation is thus obtained by outlining the association and distinction between these theories. This entry serves as an introduction to fundamental network concepts and analytical approaches, their potential for studying social phenomena, and a description of why they are central to theoretical constructs. This entry also provides a short introduction to statistical network modelling for cross-sectional and longitudinal network data.\nSAGE Research Methods Foundations"
+  },
+  {
+    "objectID": "publications/data_protection/index.html",
+    "href": "publications/data_protection/index.html",
+    "title": "Data Protection for Online Social Networks and P-Stability for Graphs",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/data_protection/index.html#abstract",
+    "href": "publications/data_protection/index.html#abstract",
+    "title": "Data Protection for Online Social Networks and P-Stability for Graphs",
+    "section": "Abstract",
+    "text": "Abstract\nGraphs can be used as a model for online social networks. In this framework, vertices represent individuals and edges relationships between individuals. In recent years, different approaches have been considered to offer data privacy to online social networks and for developing graph protection. Perturbative approaches are formally defined in terms of perturbation and modification of graphs. In this paper, we discuss the concept of P -stability on graphs and its relation to data privacy. The concept of P-stability is rooted in the number of graphs given a fixed degree sequence. In this paper, we show that for any graph there exists a class of P-stable graphs. This result implies that there is a fully polynomial randomized approximation for graph masking for the graphs in the class. In order to further refine the classification of a given graph, we introduce the concept of natural class of a graph. It is based on a class of scale-free networks.\nIEEE Transactions on Emerging Topics in Computing 4(3), 374-381"
+  },
+  {
+    "objectID": "publications/multigraph_approach/index.html",
+    "href": "publications/multigraph_approach/index.html",
+    "title": "A Multigraph Approach to Social Network Analysis",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/multigraph_approach/index.html#abstract",
+    "href": "publications/multigraph_approach/index.html#abstract",
+    "title": "A Multigraph Approach to Social Network Analysis",
+    "section": "Abstract",
+    "text": "Abstract\nMultigraphs are graphs where multiple edges and edge loops are permitted. The main purpose of this article is to show the versatility of a multigraph approach when analysing social networks. Multigraph data structures are described and it is exemplified how they naturally occur in many contexts but also how they can be constructed by different kinds of aggregation in graphs. Special attention is given to a random multigraph model based on independent edge assignments to sites of vertex pairs and some useful measures of the local and global structure under this model are presented. Further, it is shown how some general measures of simplicity and complexity of multigraphs are easily handled under the present model.\n‘Journal of Social Structure 16, 1-22’"
+  },
+  {
+    "objectID": "publications/isotopes/index.html",
+    "href": "publications/isotopes/index.html",
+    "title": "Investigating Human Geographic Origins using Dual-Isotope (87Sr/86Sr, d18O) Assignment approaches",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/isotopes/index.html#abstract",
+    "href": "publications/isotopes/index.html#abstract",
+    "title": "Investigating Human Geographic Origins using Dual-Isotope (87Sr/86Sr, d18O) Assignment approaches",
+    "section": "Abstract",
+    "text": "Abstract\nSubstantial progress in the application of multiple isotope analyses has greatly improved the ability to identify nonlocal individuals amongst archaeological populations over the past decades. More recently the development of large scale models of spatial isotopic variation (isoscapes) has contributed to improved geographic assignments of human and animal origins. Persistent challenges remain, however, in the accurate identification of individual geographic origins from skeletal isotope data in studies of human (and animal) migration and provenance. In an attempt to develop and test more standardized and quantitative approaches to geographic assignment of individual origins using isotopic data two methods, combining 87Sr/86Sr and d18O isoscapes, are examined for the Circum-Caribbean region 1) an Interval approach using a defined range of fixed isotopic variation per location and 2) a Likelihood assignment approach using univariate and bivariate probability density functions. These two methods are tested with enamel isotope data from a modern sample of known origin from Caracas, Venezuela and further explored with two archaeological samples of unknown origin recovered from Cuba and Trinidad. The results emphasize both the potential and limitation of the different approaches. Validation tests on the known origin sample exclude most areas of the Circum-Caribbean region and correctly highlight Caracas as a possible place of origin with both approaches. The positive validation results clearly demonstrate the overall efficacy of a dual-isotope approach to geoprovenance. The accuracy and precision of geographic assignments may be further improved by better understanding of the relationships between environmental and biological isotope variation; continued development and refinement of relevant isoscapes; and the eventual incorporation of a broader array of isotope proxy data.\nPLoS ONE 12(2), e0172562"
+  },
+  {
+    "objectID": "publications/ergm_framework_arch/index.html",
+    "href": "publications/ergm_framework_arch/index.html",
+    "title": "A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/ergm_framework_arch/index.html#abstract",
+    "href": "publications/ergm_framework_arch/index.html#abstract",
+    "title": "A Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models",
+    "section": "Abstract",
+    "text": "Abstract\nReconstructing ties between archaeological contexts may contribute to explain and describe a variety of past social phenomena. Several models have been formulated to infer the structure of such archaeological networks. The underlying propositions about mechanisms regulating the formation of ties in the past are often articulated on a dyadic basis and therefore rarely account for dependencies among ties. Here, we present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms that may be responsible for network formation to account for tie dependence. We use data collected over a set of sites in the Caribbean during the period AD 100 - 400 to illustrate the steps to obtain a network reconstruction.\nJournal of Archaeological Method and Theory 27, 192-219"
+  },
+  {
+    "objectID": "publications/ontario_sna/index.html",
+    "href": "publications/ontario_sna/index.html",
+    "title": "Nation Building and Social Signaling in Southern Ontario AD 1350-1650",
+    "section": "",
+    "text": "journal"
+  },
+  {
+    "objectID": "publications/ontario_sna/index.html#abstract",
+    "href": "publications/ontario_sna/index.html#abstract",
+    "title": "Nation Building and Social Signaling in Southern Ontario AD 1350-1650",
+    "section": "Abstract",
+    "text": "Abstract\nPottery is a mainstay of archaeological analysis worldwide. Often, high proportions of the pottery recovered from a given site are decorated in some manner. In northern Iroquoia, late pre-contact pottery and early contact decoration commonly occur on collars—thick bands of clay that encircle a pot and extend several centimeters down from the lip. These decorations constitute signals that conveyed information about a pot’s user(s). In southern Ontario the period A.D. 1350 to 1650 witnessed substantial changes in socio-political and settlement systems that included population movement, coalescence of formerly separate communities into large villages and towns, waxing and waning of regional strife, the formation of nations, and finally the development of three confederacies that each occupied distinct, constricted areas. Social network analysis demonstrates that signaling practices changed to reflect these regional patterns. Networks become more consolidated through time ultimately resulting in a “small world” network with small degrees of separation between sites reflecting the integration of communities within and between the three confederacies.\nPLoS ONE 11(5), e0156178"
+  },
+  {
+    "objectID": "talks/WiNS2022/index.html",
+    "href": "talks/WiNS2022/index.html",
+    "title": "“Statistical Entropy Analysis of Network Data”",
+    "section": "",
+    "text": "Examples\n\n\nVideo"
+  },
+  {
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Presentation @ Centre Marc Bloch, Berlin\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\nMay 5, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 5th European Conference on Social Networks\n\n\n\nSep 7, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork 2021 - A Joint Sunbelt and NetSci Conference\n\n\n\nJul 6, 2021\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 4th European Conference on Social Networks\n\n\n\nSep 9, 2019\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "talks/NETWORKS2021/index.html",
+    "href": "talks/NETWORKS2021/index.html",
+    "title": "“Goodness of Fit Tests for Random Multigraph Models”",
+    "section": "",
+    "text": "Video"
+  },
+  {
+    "objectID": "talks/SUNBELT2022/index.html",
+    "href": "talks/SUNBELT2022/index.html",
+    "title": "“Statistical Analysis of Multivariate Egocentric Networks”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/CMB2022/index.html",
+    "href": "talks/CMB2022/index.html",
+    "title": "“Analyzing Social Structure using Multigraph Representations”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/EUSN2019/index.html",
+    "href": "talks/EUSN2019/index.html",
+    "title": "“Gender Dependent Structures of Dialogue Networks in Films”",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "talks/EUSN2021/index.html",
+    "href": "talks/EUSN2021/index.html",
+    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Termeh Shafie",
+    "section": "",
+    "text": "👋 Hi, I’m Termeh\nI’m a statistician with more than a decade of experience in developing methods and models to analyze multivariate social networks. I’m also the developer and maintainer of two R packages on the topic.\nInterdisciplinary applications are close to heart and I have had many such collaborations in different branches of computational social science and digital humanities. You can find information on some of the methodological and empirical projects that I have worked on or currently work on here."
+  },
+  {
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "Termeh Shafie",
+    "section": "Education",
+    "text": "Education\n\nPhD in Statistics | 2013 | Stockholm University | Stockholm, Sweden\nLicentiate of Philosophy in Statistic | 2008 | Umeå University | Umeå Sweden\nMaster of Social Science (major in Statistics) | 2006 | Umeå University | Umeå Sweden\nMaster of Science in Public Administration and Economics | 2006 | Umeå University | Umeå Sweden"
+  },
+  {
+    "objectID": "about/index.html#experience",
+    "href": "about/index.html#experience",
+    "title": "Termeh Shafie",
+    "section": "Experience",
+    "text": "Experience\n\nAssociate Professor of Computational Social Science and Data Science | July 2023 – | Department of Politics and Public Administration | Center for Data and Methods | University of Konstanz\nInterim Professor | Apr 2023 – July 2023 | Department of Politics and Public Administration | University of Konstanz\nSenior Researcher | Jul 2022 – Mar 2023 | Department of Computational Social Science GESIS – Leibniz Institute for the Social Sciences\nLecturer in Social Statistics | Jul 2018 – Apr 2022 | Department of Social Statistics | The University of Manchester\nPostdoctoral Researcher | Nov 2017 – Jun 2018 | Department of Humanities, Social and Political Sciences | ETH Zürich\nPostdoctoral Researcher | Sep 2013 – Oct 2017 | Department of Computer and Information Science | University of Konstanz"
+  },
+  {
+    "objectID": "index.html#general",
+    "href": "index.html#general",
+    "title": "Termeh Shafie",
+    "section": "General",
+    "text": "General\n\n10.08.2023: Maternity Leave\nOn maternity leave until end of the year.\n\n\n27.07.2023: Associate Professor of Computational Social Science and Data Science\nToday I start my new position as a Professor (Professorin mit Schwerpunkt Lehre) at the Department of Politics and Public Administration, University of Konstanz.\n\n\n01.04.2023: Interim Professorship at The University of Konstanz\nI’m on leave from GESIS April-May 2023 and will be working as an interim professor at the University of Konstanz during this period"
+  },
+  {
+    "objectID": "index.html#recent-publications",
+    "href": "index.html#recent-publications",
+    "title": "Termeh Shafie",
+    "section": "Recent Publications",
+    "text": "Recent Publications\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nThe interplay of structural features and observed dissimilarities among centrality indices\n\n\nDec 6, 2023\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
+  },
+  {
+    "objectID": "index.html#latest-talks",
+    "href": "index.html#latest-talks",
+    "title": "Termeh Shafie",
+    "section": "Latest Talks",
+    "text": "Latest Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
+  },
+  {
+    "objectID": "index.html#r-packages",
+    "href": "index.html#r-packages",
+    "title": "Termeh Shafie",
+    "section": "R packages",
+    "text": "R packages\n\n\n\n\n\n\n\n\n\nInstall development version from GitHub for the most recent updates.\n\n\n\n\n\n\n\n\n\n\n\nLatest published version on CRAN is up to date.\n\n\n\n\n\n\nNo matching items\n\n\n\nGitHub Activity\n\n\n\n\nLoading my github calendar data."
+  },
+  {
+    "objectID": "index.html#social-media",
+    "href": "index.html#social-media",
+    "title": "Termeh Shafie",
+    "section": "Social Media",
+    "text": "Social Media\n\n\nTweets \nTweets by termehshafie\n\n\n\n    Toots"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "",
+    "section": "",
+    "text": "test\n\n\n\nThis is a test entry…\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "project/movienetworks/index.html",
+    "href": "project/movienetworks/index.html",
+    "title": "Gender Dependent Structures in Charachter Networks",
+    "section": "",
+    "text": "Since 2019, I’m sporadically working on a project with Pete Jones which aims to apply existing and novel quantitative methods (e.g. relational event models, entropy based natural language processing and multigraph representations), to study the gendered inequalities in popular cinema. See Pete’s website for more information and some awesome packages such as charinet which he has developed on the topic."
+  },
+  {
+    "objectID": "project/seand/index.html",
+    "href": "project/seand/index.html",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "",
+    "text": "In multivariate statistics, there is an abundance of different measures of centrality and spread, many of which cannot be applied on variables measured on nominal or ordinal scale. Since network data in majority comprises such variables, alternative measures for analyzing spread, flatness and association is needed. This is also of particular relevance given the special feature of interdependent observations in networks.\nMultivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable’s range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.\nSince 2015, I am working with Ove Frank and Krzysztof Nowicki on a project in which we build a systematic framework for using statistical entropy tools to analyze network data. A forthcoming monograph on the topic is expected in the coming year.\nThe proposed framework is implemented in the R package ‘netropy’ and a description of various functions implemented in the package are given in the following. More details are provided in the package vignettes and the references listed."
+  },
+  {
+    "objectID": "project/seand/index.html#r-package-netropy",
+    "href": "project/seand/index.html#r-package-netropy",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "R package netropy",
+    "text": "R package netropy\n\n\nPackage overview\n  \nThis package introduces these entropy tools in the context of network data. Brief description of various functions implemented in the package are given in the following but more details are provided in the package vignettes and the references listed.\n\n\nInstallation\nYou can install the released version of netropy from CRAN with:\ninstall.packages(\"netropy\")\nThe development version from GitHub with:\n# install.packages(\"devtools\")\ndevtools::install_github(\"termehs/netropy\")\nTo load the package:\n\nlibrary('netropy')\n\n\n\nLoading internal data\nThe different entropy tools are explained and illustrated by exploring data from a network study of a corporate law firm, which has previously been analysed by several authors (link). The data set is included in the package as a list with objects representing adjacency matrices for each of the three networks advice (directed), friendship (directed) and co-work (undirected), together with a data frame comprising 8 attributes on each of the 71 lawyers.\nTo load the data, extract each object and assign the correct names to them:\n\ndata(lawdata) \nadj.advice <- lawdata[[1]]\nadj.friend <- lawdata[[2]]\nadj.cowork <-lawdata[[3]]\ndf.att <- lawdata[[4]]"
+  },
+  {
+    "objectID": "project/seand/index.html#variable-domains-and-data-editing",
+    "href": "project/seand/index.html#variable-domains-and-data-editing",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "Variable domains and data editing",
+    "text": "Variable domains and data editing\nA requirement for the applicability of these entropy tools is the specification of discrete variables with finite range spaces on the same domain: either node attributes/vertex variables, edges/dyad variables or triad variables. These can be either observed or transformed as shown in the following using the above example data set.\nWe have 8 vertex variables with 71 observations, two of which (years and age) are numerical and needs categorization based on their cumulative distributions. This categorization is in details described in the vignette “variable domains and data editing”. Here we just show the new dataframe created (note that variable senior is omitted as it only comprises unique values and that we edit all variable to start from 0):\n\natt.var <-\n  data.frame(\n    status   = df.att$status-1,\n    gender   = df.att$gender,\n    office   = df.att$office-1,\n    years    = ifelse(df.att$years <= 3,0,\n                      ifelse(df.att$years <= 13,1,2)),\n    age      = ifelse(df.att$age <= 35,0,\n                      ifelse(df.att$age <= 45,1,2)),\n    practice = df.att$practice,\n    lawschool= df.att$lawschool-1\n    )\nhead(att.var)\n\n  status gender office years age practice lawschool\n1      0      1      0     2   2        1         0\n2      0      1      0     2   2        0         0\n3      0      1      1     1   2        1         0\n4      0      1      0     2   2        0         2\n5      0      1      1     2   2        1         1\n6      0      1      1     2   2        1         0\n\n\nThese vertex variables can be transformed into dyad variables by using the function get_dyad_var(). Observed node attributes in the dataframe att_var are then transformed into pairs of individual attributes. For example, status with binary outcomes is transformed into dyads having 4 possible outcomes (0,0), (0,1), (1,0), (1,1):\n\ndyad.status    <- get_dyad_var(att.var$status, type = 'att')\ndyad.gender    <- get_dyad_var(att.var$gender, type = 'att')\ndyad.office    <- get_dyad_var(att.var$office, type = 'att')\ndyad.years     <- get_dyad_var(att.var$years, type = 'att')\ndyad.age       <- get_dyad_var(att.var$age, type = 'att')\ndyad.practice  <- get_dyad_var(att.var$practice, type = 'att')\ndyad.lawschool <- get_dyad_var(att.var$lawschool, type = 'att')\n\nSimilarly, dyad variables can be created based on observed ties. For the undirected edges, we use indicator variables read directly from the adjacency matrix for the dyad in question, while for the directed ones (advice and friendship) we have pairs of indicators representing sending and receiving ties with 4 possible outcomes :\n\ndyad.cwk    <- get_dyad_var(adj.cowork, type = 'tie')\ndyad.adv    <- get_dyad_var(adj.advice, type = 'tie')\ndyad.frn    <- get_dyad_var(adj.friend, type = 'tie')\n\nAll 10 dyad variables are merged into one data frame for subsequent entropy analysis:\n\ndyad.var <-\n  data.frame(cbind(status   = dyad.status$var,\n                  gender    = dyad.gender$var,\n                  office    = dyad.office$var,\n                  years     = dyad.years$var,\n                  age       = dyad.age$var,\n                  practice  = dyad.practice$var,\n                  lawschool = dyad.lawschool$var,\n                  cowork    = dyad.cwk$var,\n                  advice    = dyad.adv$var,\n                  friend    = dyad.frn$var)\n                  )\nhead(dyad.var)\n\n  status gender office years age practice lawschool cowork advice friend\n1      3      3      0     8   8        1         0      0      3      2\n2      3      3      3     5   8        3         0      0      0      0\n3      3      3      3     5   8        2         0      0      1      0\n4      3      3      0     8   8        1         6      0      1      2\n5      3      3      0     8   8        0         6      0      1      1\n6      3      3      1     7   8        1         6      0      1      1\n\n\nA similar function get_triad_var() is implemented for transforming vertex variables and different relation types into triad variables. This is described in more detail in the vignette “variable domains and data editing”."
+  },
+  {
+    "objectID": "project/seand/index.html#univariate-bivariate-and-trivariate-entropies",
+    "href": "project/seand/index.html#univariate-bivariate-and-trivariate-entropies",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "Univariate, bivariate and trivariate entropies",
+    "text": "Univariate, bivariate and trivariate entropies\nThe function entropy_bivar() computes the bivariate entropies of all pairs of variables in the dataframe. The output is given as an upper triangular matrix with cells giving the bivariate entropies of row and column variables. The diagonal thus gives the univariate entropies for each variable in the dataframe:\n\nH2 <- entropy_bivar(dyad.var)\nH2\n\n          status gender office years   age practice lawschool cowork advice\nstatus     1.493  2.868  3.640 3.370 3.912    3.453     4.363  2.092  2.687\ngender        NA  1.547  3.758 3.939 4.274    3.506     4.439  2.158  2.785\noffice        NA     NA  2.239 4.828 4.901    4.154     5.058  2.792  3.388\nyears         NA     NA     NA 2.671 4.857    4.582     5.422  3.268  3.868\nage           NA     NA     NA    NA 2.801    4.743     5.347  3.411  4.028\npractice      NA     NA     NA    NA    NA    1.962     4.880  2.530  3.127\nlawschool     NA     NA     NA    NA    NA       NA     2.953  3.567  4.186\ncowork        NA     NA     NA    NA    NA       NA        NA  0.615  1.687\nadvice        NA     NA     NA    NA    NA       NA        NA     NA  1.248\nfriend        NA     NA     NA    NA    NA       NA        NA     NA     NA\n          friend\nstatus     2.324\ngender     2.415\noffice     3.044\nyears      3.483\nage        3.637\npractice   2.831\nlawschool  3.812\ncowork     1.456\nadvice     1.953\nfriend     0.881\n\n\nBivariate entropies can be used to detect redundant variables that should be omitted from the dataframe for further analysis. This occurs when the univariate entropy for a variable is equal to the bivariate entropies for pairs including that variable. As seen above, the dataframe dyad.var has no redundant variables. This can also be checked using the function redundancy() which yields a binary matrix as output indicating which row and column variables are hold the same information:\n\nredundancy(dyad.var)\n\nNULL\n\n\nMore examples of using the function redundancy() is given in the vignette “univariate bivariate and trivariate entropies”.\nTrivariate entropies can be computed using the function entropy_trivar() which returns a dataframe with the first three columns representing possible triples of variables V1,V2, and V3 from the dataframe in question, and their entropies H(V1,V2,V3) as the fourth column. We illustrated this on the dataframe dyad.var:\n\nH3 <- entropy_trivar(dyad.var)\nhead(H3, 10) # view first 10 rows of dataframe\n\n       V1     V2        V3 H(V1,V2,V3)\n1  status gender    office       4.938\n2  status gender     years       4.609\n3  status gender       age       5.129\n4  status gender  practice       4.810\n5  status gender lawschool       5.664\n6  status gender    cowork       3.464\n7  status gender    advice       4.048\n8  status gender    friend       3.685\n9  status office     years       5.321\n10 status office       age       5.721"
+  },
+  {
+    "objectID": "project/seand/index.html#joint-entropy-and-association-graphs",
+    "href": "project/seand/index.html#joint-entropy-and-association-graphs",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "Joint entropy and association graphs",
+    "text": "Joint entropy and association graphs\nJoint entropies is a non-negative measure of association among pairs of variables. It is equal to 0 if and only if two variables are completely independent of each other.\nThe function joint_entropy() computes the joint entropies between all pairs of variables in a given dataframe and returns a list consisting of the upper triangular joint entropy matrix (univariate entropies in the diagonal) and a dataframe giving the frequency distributions of unique joint entropy values. A function argument specifies the precision given in number of decimals for which the frequency distribution of unique entropy values is created (default is 3). Applying the function on the dataframe dyad.var with two decimals:\n\nJ <- joint_entropy(dyad.var, 2)\nJ$matrix\n\n          status gender office years  age practice lawschool cowork advice\nstatus      1.49   0.17   0.09  0.79 0.38     0.00      0.08   0.02   0.05\ngender        NA   1.55   0.03  0.28 0.07     0.00      0.06   0.00   0.01\noffice        NA     NA   2.24  0.08 0.14     0.05      0.13   0.06   0.10\nyears         NA     NA     NA  2.67 0.61     0.05      0.20   0.02   0.05\nage           NA     NA     NA    NA 2.80     0.02      0.41   0.01   0.02\npractice      NA     NA     NA    NA   NA     1.96      0.04   0.05   0.08\nlawschool     NA     NA     NA    NA   NA       NA      2.95   0.00   0.01\ncowork        NA     NA     NA    NA   NA       NA        NA   0.62   0.18\nadvice        NA     NA     NA    NA   NA       NA        NA     NA   1.25\nfriend        NA     NA     NA    NA   NA       NA        NA     NA     NA\n          friend\nstatus      0.05\ngender      0.01\noffice      0.08\nyears       0.07\nage         0.05\npractice    0.01\nlawschool   0.02\ncowork      0.04\nadvice      0.18\nfriend      0.88\n\nJ$freq\n\n      j  #(J = j) #(J >= j)\n1  0.79         1         1\n2  0.61         1         2\n3  0.41         1         3\n4  0.38         1         4\n5  0.28         1         5\n6   0.2         1         6\n7  0.18         2         8\n8  0.17         1         9\n9  0.14         1        10\n10 0.13         1        11\n11  0.1         1        12\n12 0.09         1        13\n13 0.08         4        17\n14 0.07         2        19\n15 0.06         2        21\n16 0.05         7        28\n17 0.04         2        30\n18 0.03         1        31\n19 0.02         5        36\n20 0.01         5        41\n21    0         4        45\n\n\nAs seen, the strongest association is between the variables status and years with joint entropy values of 0.79. We have independence (joint entropy value of 0) between two pairs of variables: (status,practice), (practise,gender), (cowork,gender),and (cowork,lawschool).\nThese results can be illustrated in a association graph using the function assoc_graph() which returns a ggraph object in which nodes represent variables and links represent strength of association (thicker links indicate stronger dependence). To use the function we need to load the ggraph library and to determine a threshold which the graph drawn is based on. We set it to 0.15 so that we only visualize the strongest associations\n\nlibrary(ggraph)\nassoc_graph(dyad.var, 0.15)\n\n\n\n\n\n\n\n\nGiven this threshold, we see isolated and disconnected nodes representing independent variables. We note strong dependence between the three dyadic variables status,years and age, but also a somewhat strong dependence among the three variables lawschool, years and age, and the three variables status, years and gender. The association graph can also be interpreted as a tendency for relations cowork and friend to be independent conditionally on relation advice, that is, any dependence between dyad variables cowork and friend is explained by advice.\nA threshold that gives a graph with reasonably many small independent or conditionally independent subsets of variables can be considered to represent a multivariate model for further testing.\nMore details and examples of joint entropies and association graphs are given in the vignette “joint entropies and association graphs”."
+  },
+  {
+    "objectID": "project/seand/index.html#prediction-power-based-on-expected-conditional-entropies",
+    "href": "project/seand/index.html#prediction-power-based-on-expected-conditional-entropies",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "Prediction power based on expected conditional entropies",
+    "text": "Prediction power based on expected conditional entropies\nThe function prediction_power() computes prediction power when pairs of variables in a given dataframe are used to predict a third variable from the same dataframe. The variable to be predicted and the dataframe in which this variable also is part of is given as input arguments, and the output is an upper triangular matrix giving the expected conditional entropies of pairs of row and column variables (denoted \\(X\\) and \\(Y\\)) of the matrix, i.e. EH(Z|X,Y) where \\(Z\\) is the variable to be predicted. The diagonal gives EH(Z|X) , that is when only one variable as a predictor. Note that NA’s are in the row and column representing the variable being predicted.\nAssume we are interested in predicting variable status (that is whether a lawyer in the data set is an associate or partner). This is done by running the following syntax\n\nprediction_power('status', dyad.var)\n\n          status gender office years   age practice lawschool cowork advice\nstatus        NA     NA     NA    NA    NA       NA        NA     NA     NA\ngender        NA  1.375  1.180 0.670 0.855    1.304     1.225  1.306  1.263\noffice        NA     NA  2.147 0.493 0.820    1.374     1.245  1.373  1.325\nyears         NA     NA     NA 2.265 0.573    0.682     0.554  0.691  0.667\nage           NA     NA     NA    NA 1.877    1.089     0.958  1.087  1.052\npractice      NA     NA     NA    NA    NA    2.446     1.388  1.459  1.410\nlawschool     NA     NA     NA    NA    NA       NA     3.335  1.390  1.337\ncowork        NA     NA     NA    NA    NA       NA        NA  2.419  1.400\nadvice        NA     NA     NA    NA    NA       NA        NA     NA  2.781\nfriend        NA     NA     NA    NA    NA       NA        NA     NA     NA\n          friend\nstatus        NA\ngender     1.270\noffice     1.334\nyears      0.684\nage        1.058\npractice   1.427\nlawschool  1.350\ncowork     1.411\nadvice     1.407\nfriend     3.408\n\n\nFor better readability, the powers of different predictors can be conveniently compared by using prediction plots that display a color matrix with rows for \\(X\\) and columns for \\(Y\\) with darker colors in the cells when we have higher prediction power for \\(Z\\).\nMore details and examples of expected conditional entropies and prediction power are given in the package vignette."
+  },
+  {
+    "objectID": "project/seand/index.html#references",
+    "href": "project/seand/index.html#references",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "References",
+    "text": "References\nParts of the theoretical background is provided in the package vignettes, but for more details, consult the following literature:\n\nFrank, O., & Shafie, T. (2016). Multivariate entropy analysis of network data. Bulletin of Sociological Methodology/Bulletin de Méthodologie Sociologique, 129(1), 45-63. link\nNowicki, K., Shafie, T., & Frank, O. (Forthcoming 2022). Statistical Entropy Analysis of Network Data."
+  },
+  {
+    "objectID": "project/rmm/index.html",
+    "href": "project/rmm/index.html",
+    "title": "Multigraph Representation of Network Data",
+    "section": "",
+    "text": "Multigraphs are network representations in which multiple edges and edge loops (self edges) are permitted. Multigraph data structure can be observed directly but the possibility to obtain multigraphs using blocking, aggregation and scaling makes them widely applicable.\nFor the past decade, I’ve been working on a statistical framework for analyzing network data using this representation. I have developed different multigraph multigraph models and derived several statistics under these models that can be used to analyse local and global network properties in order to convey important social phenomena and processes. The latest contribution in this framework is formal goodness of fit tests for the developed probability models for random multigraphs.\nThe proposed framework is in full implemented in the R package ‘multigraphr’ and a description of various functions implemented in the package are given in the following. More details are provided in the package vignetteand the references listed."
+  },
+  {
+    "objectID": "project/rmm/index.html#r-package-multigraphr",
+    "href": "project/rmm/index.html#r-package-multigraphr",
+    "title": "Multigraph Representation of Network Data",
+    "section": "R package multigraphr",
+    "text": "R package multigraphr\n\nPackage overview\n  \nThis package introduces the multigraph framework for analyzing social network data. Brief description of various functions implemented in the package are given in the following but more details are provided in the package vignettes and the references listed.\n\n\nInstallation\nYou can install the released version of multigraphr from CRAN with:\ninstall.packages(\"multigraphr\")\nThe development version from GitHub with:\n# install.packages(\"devtools\")\ndevtools::install_github(\"termehs/multigraphr\")"
+  },
+  {
+    "objectID": "project/rmm/index.html#multigraphs-and-applicability",
+    "href": "project/rmm/index.html#multigraphs-and-applicability",
+    "title": "Multigraph Representation of Network Data",
+    "section": "Multigraphs and applicability",
+    "text": "Multigraphs and applicability\nMultigraphs are network representations in which multiple edges and edge loops (self edges) are permitted. These data structures can be either directly observed or aggregated by classifying or cross-classifying node attributes into meta nodes. For the latter case, within group edges correspond to self-edges. See example below where the original graph with 15 nodes and 12 edges (left) is aggregated based on node categories into a small multigraph with 4 nodes (right).\n\nEdge aggregation can also be used to obtain multigraphs. Assume that we study a graph with three different types of relations over three periods of time: \nIf we aggregate over time periods, we obtain for each edge category a multigraph for the total time period of three days:\n\nFor more details on these kinds of aggregations, see Shafie (2015;2016)."
+  },
+  {
+    "objectID": "project/rmm/index.html#multigraph-representation-of-network-data",
+    "href": "project/rmm/index.html#multigraph-representation-of-network-data",
+    "title": "Multigraph Representation of Network Data",
+    "section": "Multigraph representation of network data",
+    "text": "Multigraph representation of network data\nMultigraphs are represented by their edge multiplicity sequence M with elements M(i,j), denoting the number of edges at vertex pair sites (i,j) ordered according to (1,1) < (1,2) <···< (1,n) < (2,2) < (2,3) <···< (n,n), where n is number of nodes. The number of vertex pair sites is given by r = n(n+1)/2.\n\nRandom multigraph models\nTwo probability models for generating undirected random multigraphs are implemented in the package together with several statistics under these two models. Moreover, functions for goodness of fit tests are available for the presented models.\nNote that some of the functions are only practical for small scale multigraphs.\nThe first model is obtained by random stub matching (RSM) given observed degree sequence of a multigraphs, so that edge assignments to vertex pair sites are dependent. The second is obtained by independent edge assignments (IEA) according to a common probability distribution. There are two ways in which an approximate IEA model can be obtained from an RSM model, thus facilitating the structural analysis. These two ways are\n\nindependent stub assignment (ISA)\nindependent edge assignment of stubs (IEAS)\n\n(Shafie, 2016).\n\n\nExample\n\nlibrary('multigraphr')\n\nConsider a small graph on 3 nodes and the following adjacency matrix:\n\nA <-  matrix(c(1, 1, 0, \n               1, 2, 2, \n               0, 2, 0), \n             nrow = 3, ncol = 3)\nA\n\n     [,1] [,2] [,3]\n[1,]    1    1    0\n[2,]    1    2    2\n[3,]    0    2    0\n\n\nThe degree sequence of the multigraph has double counted diagonals (edge stubs for loops) and is given by\n\nD <- get_degree_seq(adj = A, type = 'graph')\nD\n\n[1] 3 7 2\n\n\nso that number of edges in the multigraph is half the sum of the degree sequence which is equal to 6.\nThe RSM model given observed degree sequence shows the sample space consists of 7 possible multigraphs, as represented by their multiplicity sequence m.seq (each row correspond to the edge multiplicity sequence of a unique multigraph):\n\nrsm_1 <- rsm_model(deg.seq = D)\nrsm_1$m.seq\n\n  M11 M12 M13 M22 M23 M33\n1   1   1   0   3   0   1\n2   1   1   0   2   2   0\n3   1   0   1   3   1   0\n4   0   3   0   2   0   1\n5   0   3   0   1   2   0\n6   0   2   1   2   1   0\n7   0   1   2   3   0   0\n\n\nwith probabilities associated with each multigraph, together with statistics ‘number of loops’, ‘number of multiple edges’ and ‘simple graphs or not’:\n\nrsm_1$prob.dists\n\n    prob.rsm loops multiedges simple\n1 0.03030303     5          1      0\n2 0.18181818     3          3      0\n3 0.06060606     4          2      0\n4 0.06060606     3          3      0\n5 0.24242424     1          5      0\n6 0.36363636     2          4      0\n7 0.06060606     3          3      0\n\n\nConsider using the IEA model to approximate the RSM model so that edge assignment probabilities are functions of observed degree sequence. Note that the sample space for multigraphs is much bigger than for the RSM model so the multiplicity sequences are not printed (they can be found using the function get_edgemultip_seq for very small multigraphs and their probabilities can be found using the multinomial distribution). The following shows the number of multigraphs under either of the IEA models:\n\nieas_1 <-   iea_model(adj = A , type = 'graph',  model = 'IEAS', K = 0, apx = TRUE)\nieas_1$nr.multigraphs\n\n[1] 462"
+  },
+  {
+    "objectID": "project/rmm/index.html#statistics-to-analyze-structural-properties",
+    "href": "project/rmm/index.html#statistics-to-analyze-structural-properties",
+    "title": "Multigraph Representation of Network Data",
+    "section": "Statistics to analyze structural properties",
+    "text": "Statistics to analyze structural properties\nThese statistics include number of loops (indicator of e.g. homophily) and number of multiple edges (indicator of e.g. multiplexity/interlocking), which are implemented in the package together with their probability distributions, moments and interval estimates under the different multigraph models.\n\nExample (cont’d)\nUnder the RSM model, the first two moments and interval estimates of the statistics M1 = ‘number of loops’ and M2 = ‘number of multiple edges’ are given by\n\nrsm_1$M\n\n             M1    M2\nExpected  2.273 3.727\nVariance  0.986 0.986\nUpper 95% 4.259 5.713\nLower 95% 0.287 1.741\n\n\nwhich are calculated using the numerically found probability distributions under RSM (no analytical solutions exist for these moments).\nUnder the IEA models (IEAS or ISA), moments of these statistics, together with the complexity statistic \\(R_k\\) representing the sequence of frequencies of edge sites with multiplicities 0,1,…,k, are found using derived formulas. Thus, there is no limit on multigraph size to use these. When the IEAS model is used to approximate the RSM model as shown above:\n\nieas_1$M\n\n              M1    M2\nObserved   3.000 3.000\nExpected   2.273 3.727\nVariance   1.412 1.412\nUpper 95%  4.649 6.104\nLower 95% -0.104 1.351\n\nieas_1$R\n\n             R0     R1     R2\nObserved  2.000  2.000  2.000\nExpected  2.674  1.588  1.030\nVariance  0.575  1.129  0.760\nUpper 95% 4.191  3.713  2.773\nLower 95% 1.156 -0.537 -0.713\n\n\nWhen the ISA model is used to approximate the RSM model (see above):\n\nisa_1 <-   iea_model(adj = A , type = 'graph',  \n                     model = 'ISA', K = 0, apx = TRUE)\nisa_1$M\n\n             M1    M2\nObserved  3.000 3.000\nExpected  2.583 3.417\nVariance  1.471 1.471\nUpper 95% 5.009 5.842\nLower 95% 0.158 0.991\n\nisa_1$R\n\n             R0     R1     R2\nObserved  2.000  2.000  2.000\nExpected  2.599  1.703  1.018\nVariance  0.622  1.223  0.748\nUpper 95% 4.176  3.915  2.748\nLower 95% 1.021 -0.509 -0.711\n\n\nThe IEA models can also be used independent of the RSM model. For example, the IEAS model can be used where edge assignment probabilities are estimated using the observed edge multiplicities (maximum likelihood estimates):\n\nieas_2 <-   iea_model(adj = A , type = 'graph',  \n                      model = 'IEAS', K = 0, apx = FALSE)\nieas_2$M\n\n             M1    M2\nObserved  3.000 3.000\nExpected  3.000 3.000\nVariance  1.500 1.500\nUpper 95% 5.449 5.449\nLower 95% 0.551 0.551\n\nieas_2$R\n\n             R0     R1     R2\nObserved  2.000  2.000  2.000\nExpected  2.845  1.331  1.060\nVariance  0.434  0.805  0.800\nUpper 95% 4.163  3.125  2.849\nLower 95% 1.528 -0.464 -0.729\n\n\nThe ISA model can also be used independent of the RSM model. Then, a sequence containing the stub assignment probabilities (for example based on prior belief) should be given as argument:\n\nisa_2 <-   iea_model(adj = A , type = 'graph',  \n                     model = 'ISA', K = 0, apx = FALSE, p.seq = c(1/3, 1/3, 1/3))\nisa_2$M\n\n              M1    M2\nObserved   3.000 3.000\nExpected   2.000 4.000\nVariance   1.333 1.333\nUpper 95%  4.309 6.309\nLower 95% -0.309 1.691\n\nisa_2$R\n\n             R0     R1     R2\nObserved  2.000  2.000  2.000\nExpected  2.144  2.248  1.160\nVariance  0.632  1.487  0.710\nUpper 95% 3.734  4.687  2.845\nLower 95% 0.554 -0.190 -0.525\n\n\nThe interval estimates can then be visualized to detect discrepancies between observed and expected values thus indicating social mechanisms at play in the generation of edges, and to detect interval overlap and potential interdependence between different types of edges (see Shafie 2015,2016; Shafie & Schoch 2021)."
+  },
+  {
+    "objectID": "project/rmm/index.html#goodness-of-fit-tests",
+    "href": "project/rmm/index.html#goodness-of-fit-tests",
+    "title": "Multigraph Representation of Network Data",
+    "section": "Goodness of fit tests",
+    "text": "Goodness of fit tests\nGoodness of fits tests of multigraph models using Pearson (S) and information divergence (A) test statistics under the random stub matching (RSM) and by independent edge assignments (IEA) model, where the latter is either independent edge assignments of stubs (IEAS) or independent stub assignment (ISA). The tests are performed using goodness-of-fit measures between the edge multiplicity sequence of a specified model or an observed multigraph, and the expected multiplicity sequence according to a simple or composite hypothesis."
+  },
+  {
+    "objectID": "project/rmm/index.html#simulated-goodness-of-fit-tests",
+    "href": "project/rmm/index.html#simulated-goodness-of-fit-tests",
+    "title": "Multigraph Representation of Network Data",
+    "section": "Simulated goodness of fit tests",
+    "text": "Simulated goodness of fit tests\nProbability distributions of test statistics, summary of tests, moments of tests statistics, adjusted test statistics, critical values, significance level according to asymptotic distribution, and power of tests can be examined using gof_sim given a specified model from which we simulate observed values from, and a null or non-null hypothesis from which we calculate expected values from. This in order to investigate the behavior of the null and non-null distributions of the test statistics and their fit to to asymptotic chi-square distributions.\n\nExample\nSimulated goodness of fit tests for multigraphs with n=4 nodes and m=10 edges.\n(1) Testing a simple IEAS hypothesis with degree sequence (6,6,6,2) against a RSM model with degrees (8,8,2,2):\n\ngof1 <- gof_sim(m = 10, model = 'IEAS', deg.mod = c(8,8,2,2), \n                hyp = 'IEAS', deg.hyp = c(6,6,6,2))\n\n(2) Testing a correctly specified simple IEAS hypothesis with degree sequence (14,2,2,2):\n\ngof2 <- gof_sim(m = 10, model = 'IEAS', deg.mod = c(14,2,2,2), \n                hyp = 'IEAS', deg.hyp = c(14,2,2,2))\n\nThe non-null (gof1) and null (gof2) distributions of the test statistics together with their asymptotic chi2-distribution can be visualized using ggplot2:\n \n(3) Testing a composite IEAS hypothesis against a RSM model with degree sequence (14,2,2,2):\n\ngof3 <- gof_sim(m = 10, model = 'RSM', deg.mod = c(14,2,2,2), \n                hyp = 'IEAS', deg.hyp = 0)\n\n(4) Testing a composite ISA hypothesis against a ISA model with degree sequence (14,2,2,2):\n\ngof4 <- gof_sim(m = 10, model = 'ISA', deg.mod = c(14,2,2,2), \n                hyp = 'ISA', deg.hyp = 0)\n\nThe non-null (gof3) and null (gof4) distributions of the test statistics can then be visualized as shown above to check their fit to the asymptotic χ²-distribution."
+  },
+  {
+    "objectID": "project/rmm/index.html#performing-the-goodness-of-fit-test-on-your-data",
+    "href": "project/rmm/index.html#performing-the-goodness-of-fit-test-on-your-data",
+    "title": "Multigraph Representation of Network Data",
+    "section": "Performing the goodness of fit test on your data",
+    "text": "Performing the goodness of fit test on your data\nUse function gof_test to test whether the observed data follows IEA approximations of the RSM model. The null hypotheses can be simple or composite, although the latter is not recommended for small multigraphs as it is difficult to detect a false composite hypothesis under an RSM model and under IEA models (this can be checked and verified using gof_sim to simulate these cases).\nNon-rejection of the null implies that the approximations fit the data, thus implying that above statistics under the IEA models can be used to further analyze the observed network. Consider the following multigraph from the well known Florentine family network with marital. This multigraphs is aggregated based on the three actor attributes wealth (W), number of priorates (P) and total number of ties (T) which are all dichotomized to reflect high or low economic, political and social influence (details on the aggregation can be found in Shafie, 2015):\n\nThe multiplicity sequence represented as an upper triangular matrix for this mutigrpah is given by\n\nflor_m <- t(matrix(c (0, 0, 1, 0, 0, 0, 0, 0,\n                      0, 0, 0, 0, 0, 0, 0, 0,\n                      0, 0, 0, 2, 0, 0, 1, 5,\n                      0, 0, 0, 0, 0, 0, 1, 1,\n                      0, 0, 0, 0, 0, 0, 1, 2,\n                      0, 0, 0, 0, 0, 0, 2, 1,\n                      0, 0, 0, 0, 0, 0, 0, 2,\n                      0, 0, 0, 0, 0, 0, 0, 1), nrow= 8, ncol=8))\n\nThe equivalence of adjacency matrix for the multigraph is given by\n\nflor_adj <- flor_m+t(flor_m)\nflor_adj \n\n     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]\n[1,]    0    0    1    0    0    0    0    0\n[2,]    0    0    0    0    0    0    0    0\n[3,]    1    0    0    2    0    0    1    5\n[4,]    0    0    2    0    0    0    1    1\n[5,]    0    0    0    0    0    0    1    2\n[6,]    0    0    0    0    0    0    2    1\n[7,]    0    0    1    1    1    2    0    2\n[8,]    0    0    5    1    2    1    2    2\n\n\nwith the diagonal representing the loops double counted (Shafie, 2016). The function get_degree_seq can now be used to find the degree sequence for this multigraph:\n\nflor_d <- get_degree_seq(adj = flor_adj, type = 'multigraph')\nflor_d\n\n[1]  1  0  9  4  3  3  7 13\n\n\nNow we test whether the observed network fits the IEAS or the ISA model. The \\(p\\)-values for testing whether there is a significant difference between observed and expected edge multiplicity values according to the two approximate IEA models are given in the output tables below. Note that the asymptotic χ²-distribution has \\(r-1 = (n(n+1)/2) - 1 =35\\) degrees of freedom.\n\nflor_ieas_test <- gof_test(flor_adj, 'multigraph', 'IEAS', flor_d, 35)\nflor_ieas_test\n\n  Stat dof Stat(obs) p-value\n1    S  35    15.762   0.998\n2    A  35    18.905   0.988\n\n\n\nflor_isa_test <- gof_test(flor_adj, 'multigraph', 'ISA', flor_d, 35)\nflor_isa_test \n\n  Stat dof Stat(obs) p-value\n1    S  35    16.572   0.997\n2    A  35    19.648   0.983\n\n\nThe results show that we have strong evidence for the null such that we fail to reject it. Thus, there is not a significant difference between the observed and the expected edge multiplicity sequence according on the two IEA models. Statistics derived under these models presented above can thus be used to analyze the structure of these multigraphs."
+  },
+  {
+    "objectID": "project/rmm/index.html#references",
+    "href": "project/rmm/index.html#references",
+    "title": "Multigraph Representation of Network Data",
+    "section": "References",
+    "text": "References\n\nShafie, T. (2015). A multigraph approach to social network analysis. Journal of Social Structure, 16. Link\nShafie, T. (2016). Analyzing local and global properties of multigraphs. The Journal of Mathematical Sociology, 40(4), 239-264. Link\nFrank, O., Shafie, T., (2018). Random Multigraphs and Aggregated Triads with Fixed Degrees. Network Science, 6(2), 232-250. Link\nShafie, T., Schoch, D. (2021) Multiplexity analysis of networks using multigraph representations. Statistical Methods & Applications 30, 1425–1444. Link\nShafie, T. (2022). Goodness of fit tests for random multigraph models, Journal of Applied Statistics. Link"
+  },
+  {
+    "objectID": "project/index.html",
+    "href": "project/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "In this project, a general framework for using statistical entropies to capture interdependencies among node and tie variables in multivariate networks is developed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe exploratory and confirmatory statistical analysis of multivariate social networks represented as multigraphs.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUsing network analysis to analyze gender representation in popular cinema.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReconstructing Archaeological Networks And Their Transformations Across The Historical Divide.\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "project/nexus/index.html",
+    "href": "project/nexus/index.html",
+    "title": "NEXUS1492 - Reconstructing Archaeological Networks",
+    "section": "",
+    "text": "Between 2013-2018, I worked in international ERC-Synergy research project NEXUS1492 investigates the impacts of colonial encounters in the Caribbean through the reconstruction and modelling of archaeological networks.\nYou can read more about the project and its output here."
+  },
+  {
+    "objectID": "project/nexus/index.html#references",
+    "href": "project/nexus/index.html#references",
+    "title": "NEXUS1492 - Reconstructing Archaeological Networks",
+    "section": "References",
+    "text": "References\n\nShafie T., Schoch D., Mans J., Hofman C., Brandes U., (2017). Hypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700. Journal of Historical Network Research,1(1), 52-70. Link\nLaffoon, J.E., Sonnemann, T.F., Shafie, T., Hofman, C.L., Brandes, U. and Davies, G.R., (2017). Investigating human geographic origins using dual-isotope (87Sr/86Sr, δ18O) assignment approaches. PloS one, 12(2), p.e0172562. Link\nAmati, V., Shafie, T., Brandes U., (2018) Reconstructing Archaeological Networks with Structural Holes. Journal of Archaeological Method and Theory volume 25, 226–253. Link\nAmati, V., Mol, A., Shafie, T., Hofman, C., Brandes U., (2020). A Framework for Reconstructing Archaeological Networks Using Exponential Random Graph Models. Journal of Archaeological Method and Theory volume 27, 192–219. Link"
+  },
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "rpackage/index.html",
+    "href": "rpackage/index.html",
+    "title": "R packages",
+    "section": "",
+    "text": "No matching items"
+  }
+]
