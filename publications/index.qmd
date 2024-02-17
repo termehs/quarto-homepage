@@ -4,11 +4,13 @@ listing:
   fields: [image,title,description]
   contents: 
     - aggregated_triads
+    - complexity_multigraphs
     - data_protection
     - ergm_framework_arch
     - global_local_multigraphs
     - gof_multigraph
     - hypergraph
+    - interplay_str_cent
     - isotopes
     - multigraph_approach
     - multiplexity
@@ -16,7 +18,6 @@ listing:
     - ontario_sna
     - reconstructing_arch_nets
     - sna_chapter
-    - complexity_multigraphs
   type: grid
   grid-columns: 3
   categories: true

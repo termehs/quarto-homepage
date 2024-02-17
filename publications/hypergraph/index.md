@@ -9,6 +9,7 @@ toc: false
 categories: 
   - hypergraph
   - archaeology
+  - centrality
 ---
 
 <button type="button" class="btn btn-outline-success"><a href="https://jhnr.uni.lu/index.php/jhnr/article/view/6" target="_blank">journal</a></button>

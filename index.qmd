@@ -11,8 +11,8 @@ listing:
   - id: publication
     fields: [title,date]
     contents: 
+    - publications/interplay_str_cent
     - publications/gof_multigraph
-    - publications/multiplexity
     type: table
     table-hover: true
     date-format: medium
