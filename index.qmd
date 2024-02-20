@@ -48,7 +48,7 @@ listing:
 ![](static/img/avatar.png)
 
 :::{.socials}
-{{< mastodon https://fediscience.org/@termehs >}}
+{{< mastodon https://fosstodon.org/@termehs >}}
 {{< twitter termehshafie >}}
 {{< github termehs >}}
 {{< scholar Si-WbhAAAAAJ >}}
