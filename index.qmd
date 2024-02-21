@@ -102,7 +102,7 @@ NEWS
 
 ## General
 ### 20.02.2024: Multigraphr 0.2.0
-The new version of [multigraphr](/project/rmm/#r-package-multigraphr) is published on CRAN. No user facing changes, just improved performance thanks to David Schoch [David Schoch](https://mr.schochastics.net).
+The new version of [multigraphr](/project/rmm/#r-package-multigraphr) is published on CRAN. No user facing changes, just improved performance thanks to [David Schoch](https://mr.schochastics.net).
 
 ### 10.08.2023: Maternity Leave
 On maternity leave until end of the year.

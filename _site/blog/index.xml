@@ -10,7 +10,7 @@
 <atom:link href="https://mrs.schochastics.net/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
-<lastBuildDate>Tue, 20 Feb 2024 09:45:13 GMT</lastBuildDate>
+<lastBuildDate>Wed, 21 Feb 2024 10:51:30 GMT</lastBuildDate>
 <item>
   <title>Hello World</title>
   <dc:creator>Termeh Shafie</dc:creator>
@@ -25,7 +25,7 @@
  ]]></description>
   <category>test</category>
   <guid>https://mrs.schochastics.net/blog/posts/test/index.html</guid>
-  <pubDate>Tue, 20 Feb 2024 09:45:13 GMT</pubDate>
+  <pubDate>Wed, 21 Feb 2024 10:51:30 GMT</pubDate>
   <media:content url="https://mrs.schochastics.net/blog/posts/test/featured.png" medium="image" type="image/png" height="94" width="104"/>
 </item>
 </channel>
