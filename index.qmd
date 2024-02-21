@@ -101,14 +101,14 @@ NEWS
 ::: {.column .col-v-center width="70%"}
 
 ## General
+### 20.02.2024: Multigraphr 0.2.0
+The new version of [multigraphr](/project/rmm/#r-package-multigraphr) is published on CRAN. No user facing changes, just improved performance thanks to David Schoch [David Schoch](https://mr.schochastics.net).
+
 ### 10.08.2023: Maternity Leave
 On maternity leave until end of the year.
 
 ### 27.07.2023: Associate Professor of Computational Social Science and Data Science
 Today I start my new position as a Professor (*Professorin mit Schwerpunkt Lehre*) at the Department of Politics and Public Administration, University of Konstanz.
-
-### 01.04.2023: Interim Professorship at The University of Konstanz
-I'm on leave from GESIS April-May 2023 and will be working as an interim professor at the University of Konstanz during this period
 :::
 
 ::::
@@ -182,7 +182,7 @@ Install development version from GitHub for the most recent updates.
 <img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-text listing-description">
-Latest published version on CRAN is up to date.
+Latest published version 0.2.0 on CRAN is up to date.
 </div>
 </div>
 </a>
