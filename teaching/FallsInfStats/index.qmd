@@ -1,0 +1,8 @@
+---
+title: Fallacies of Inferential Statistics
+subtitle: MSc seminar
+description: |
+  Statistical fallacies refer to incorrect applications of statistical reasoning that can misinterpret and distort scientific findings, e.g. multiple testing, *p*-hacking, HARKing, data dredging, data snooping, false causality, sampling bias, publication bias, and cherry-picking. In this seminar, we will each week review these pitfalls, what role they play in the so called ‘reproducibility crisis’ and discuss how we can avoid them in order to make the conclusions of scientific research more robust.
+toc: false
+---
+ 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -47,8 +47,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -81,32 +83,57 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../academicons.css">
 <meta property="og:title" content="Termeh Shafie - Publications">
-<meta property="og:description" content="Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R">
-<meta property="og:image" content="https://mrs.schochastics.net/static/img/avatar.png">
-<meta property="og:site-name" content="mrs schochastics">
-<meta property="og:image:height" content="1846">
-<meta property="og:image:width" content="1817">
+<meta property="og:description" content="Termeh Shafie’s website and blog that mainly features the topics statistics, network science, and R">
+<meta property="og:image" content="https://mrs.schochastics.net/publications/static/img/avatar.png">
+<meta property="og:site_name" content="mrs schochastics">
 <meta name="twitter:title" content="Termeh Shafie - Publications">
-<meta name="twitter:description" content="Termeh Shafie's website and blog that mainly features the topics statistics, network science, and R">
-<meta name="twitter:image" content="https://mrs.schochastics.net/static/img/avatar.png">
+<meta name="twitter:description" content="Termeh Shafie’s website and blog that mainly features the topics statistics, network science, and R">
+<meta name="twitter:image" content="https://mrs.schochastics.net/publications/static/img/avatar.png">
 <meta name="twitter:creator" content="@termehshafie">
+<meta name="twitter:site" content="@termehshafie">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="1846">
-<meta name="twitter:image-width" content="1817">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../static/logo.png" alt="" class="navbar-logo">
     </a>
@@ -117,30 +144,38 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about/index.html">About me</a>
+    <a class="nav-link" href="../about/index.html"> 
+<span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../project/index.html">Projects</a>
+    <a class="nav-link" href="../project/index.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../publications/index.html" aria-current="page">Publications</a>
+    <a class="nav-link active" href="../publications/index.html" aria-current="page"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html">Talks</a>
+    <a class="nav-link" href="../talks/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html">Blog</a>
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html">Teaching</a>
+    <a class="nav-link" href="../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog/index.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blog/index.xml"> <i class="bi bi-rss" role="img">
 </i> 
- </a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -164,9 +199,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
+
 
 </header>
 
@@ -174,9 +211,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="entropy,centrality" data-listing-date-sort="1701817200000" data-listing-file-modified-sort="1708167321370" data-listing-reading-time-sort="0.74">
+<div class="g-col-1" data-index="0" data-categories="entropy,centrality" data-listing-date-sort="1701817200000" data-listing-file-modified-sort="1708343398699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
 <a href="../publications/interplay_str_cent/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -193,7 +231,7 @@ The association of network topology with dissimilarities of indices is assessed
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="multigraph" data-listing-date-sort="1658354400000" data-listing-file-modified-sort="1665998714299" data-listing-reading-time-sort="1.05">
+<div class="g-col-1" data-index="1" data-categories="multigraph" data-listing-date-sort="1658354400000" data-listing-file-modified-sort="1708343398695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
 <a href="../publications/gof_multigraph/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -210,7 +248,7 @@ Goodness of fit tests for different probability models for random multigraphs.
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="multigraph" data-listing-date-sort="1632952800000" data-listing-file-modified-sort="1665998382119" data-listing-reading-time-sort="0.79">
+<div class="g-col-1" data-index="2" data-categories="multigraph" data-listing-date-sort="1632952800000" data-listing-file-modified-sort="1708343398703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="158">
 <a href="../publications/multiplexity/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -227,7 +265,7 @@ A method for performing multiplexity analysis in social networks with several no
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="sna survey,teaching" data-listing-date-sort="1592344800000" data-listing-file-modified-sort="1665998678442" data-listing-reading-time-sort="0.785">
+<div class="g-col-1" data-index="3" data-categories="sna survey,teaching" data-listing-date-sort="1592344800000" data-listing-file-modified-sort="1708343398726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="157">
 <a href="../publications/sna_chapter/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -244,7 +282,7 @@ A review chapter on social network analysis aimed towards undergraduate students
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="archaeology,ergm" data-listing-date-sort="1566684000000" data-listing-file-modified-sort="1665998888872" data-listing-reading-time-sort="0.645">
+<div class="g-col-1" data-index="4" data-categories="archaeology,ergm" data-listing-date-sort="1566684000000" data-listing-file-modified-sort="1708343398692" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
 <a href="../publications/ergm_framework_arch/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -261,7 +299,7 @@ We present a general framework in which we combine exponential random graph mode
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="ergm,archaeology" data-listing-date-sort="1521932400000" data-listing-file-modified-sort="1667996089455" data-listing-reading-time-sort="0.68">
+<div class="g-col-1" data-index="5" data-categories="ergm,archaeology" data-listing-date-sort="1521932400000" data-listing-file-modified-sort="1708343398726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
 <a href="../publications/reconstructing_arch_nets/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -278,7 +316,7 @@ We consider exponential random graph models, and show how they can be applied to
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="multigraph,entropy" data-listing-date-sort="1516834800000" data-listing-file-modified-sort="1665997454294" data-listing-reading-time-sort="0.49">
+<div class="g-col-1" data-index="6" data-categories="multigraph,entropy" data-listing-date-sort="1516834800000" data-listing-file-modified-sort="1708343398686" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
 <a href="../publications/aggregated_triads/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -295,7 +333,7 @@ New combinatorial results are given for the global probability distribution of e
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="hypergraph,archaeology,centrality" data-listing-date-sort="1508882400000" data-listing-file-modified-sort="1708167342286" data-listing-reading-time-sort="0.625">
+<div class="g-col-1" data-index="7" data-categories="hypergraph,archaeology,centrality" data-listing-date-sort="1508882400000" data-listing-file-modified-sort="1708343398697" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="125">
 <a href="../publications/hypergraph/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -312,7 +350,7 @@ We perform a centrality analysis of a directed hypergraph representing attacks b
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="archaeology,multivariate statistics" data-listing-date-sort="1487977200000" data-listing-file-modified-sort="1667996065423" data-listing-reading-time-sort="1.365">
+<div class="g-col-1" data-index="8" data-categories="archaeology,multivariate statistics" data-listing-date-sort="1487977200000" data-listing-file-modified-sort="1708343398701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="273">
 <a href="../publications/isotopes/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -329,7 +367,7 @@ We develop and test more standardized and quantitative approaches to geographic 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-categories="multigraph" data-listing-date-sort="1474754400000" data-listing-file-modified-sort="1665998809021" data-listing-reading-time-sort="0.625">
+<div class="g-col-1" data-index="9" data-categories="multigraph" data-listing-date-sort="1474754400000" data-listing-file-modified-sort="1708343398692" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="125">
 <a href="../publications/global_local_multigraphs/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -346,7 +384,7 @@ The local and global structures of undirected multigraphs under two random multi
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="archaeology" data-listing-date-sort="1464127200000" data-listing-file-modified-sort="1665998481278" data-listing-reading-time-sort="0.85">
+<div class="g-col-1" data-index="10" data-categories="archaeology" data-listing-date-sort="1464127200000" data-listing-file-modified-sort="1708343398722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
 <a href="../publications/ontario_sna/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -363,7 +401,7 @@ Social network analysis is used to demonstrates the signaling practices reflecti
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="multivariate statistics,entropy" data-listing-date-sort="1451689200000" data-listing-file-modified-sort="1665998398474" data-listing-reading-time-sort="0.64">
+<div class="g-col-1" data-index="11" data-categories="multivariate statistics,entropy" data-listing-date-sort="1451689200000" data-listing-file-modified-sort="1708343398707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="128">
 <a href="../publications/multivariate_entropy_analysis/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -380,7 +418,7 @@ We show how it is possible to systematically check for tendencies in data, such 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="data privacy,disclosure control" data-listing-date-sort="1451602800000" data-listing-file-modified-sort="1665998852818" data-listing-reading-time-sort="0.845">
+<div class="g-col-1" data-index="12" data-categories="data privacy,disclosure control" data-listing-date-sort="1451602800000" data-listing-file-modified-sort="1708343398690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="169">
 <a href="../publications/data_protection/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -397,7 +435,7 @@ We consider different approaches for data privacy in online social networks and 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="multigraph" data-listing-date-sort="1433109600000" data-listing-file-modified-sort="1667996258132" data-listing-reading-time-sort="0.63">
+<div class="g-col-1" data-index="13" data-categories="multigraph" data-listing-date-sort="1433109600000" data-listing-file-modified-sort="1708343398702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
 <a href="../publications/multigraph_approach/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -414,7 +452,7 @@ The theoretical background for analyzing multivariate social networks using mult
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="multigraph,entropy" data-listing-date-sort="1354316400000" data-listing-file-modified-sort="1665999079404" data-listing-reading-time-sort="0.67">
+<div class="g-col-1" data-index="14" data-categories="multigraph,entropy" data-listing-date-sort="1354316400000" data-listing-file-modified-sort="1708343398689" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="134">
 <a href="../publications/complexity_multigraphs/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -463,9 +501,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -477,17 +529,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -497,8 +565,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -513,31 +590,286 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><b>© 2024 Termeh Shafie</b> <br> powered by <a href="https://quarto.org">quarto</a></div>   
+    <div class="nav-footer-left">
+<p><b>© 2024 Termeh Shafie</b> <br> powered by ❤️ and <a href="https://quarto.org">quarto</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -559,18 +891,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.de/citations?user=Si-WbhAAAAAJ&amp;hl=en"><i class="ai ai-google-scholar" role="img"></i></a>
+    <a class="nav-link" href="https://scholar.google.de/citations?user=Si-WbhAAAAAJ&amp;hl=en">
+<p><i class="ai ai-google-scholar" role="img"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://orcid.org/0000-0002-8419-8477"><i class="ai ai-orcid" role="img"></i></a>
+    <a class="nav-link" href="https://orcid.org/0000-0002-8419-8477">
+<p><i class="ai ai-orcid" role="img"></i></p>
+</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://www.researchgate.net/profile/Termeh-Shafie"><i class="ai ai-researchgate" role="img"></i></a>
+    <a class="nav-link" href="https://www.researchgate.net/profile/Termeh-Shafie">
+<p><i class="ai ai-researchgate" role="img"></i></p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

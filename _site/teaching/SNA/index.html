@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="This course is an introduction to the statistical analysis and modeling of social networks. The course aims to give a basic understanding of and a working handle on drawing inference for network structure and actor level attributes for both cross-sectional and longitudinal network data. A fundamental notion of the course will be on how the structure of observed graphs relate to various forms of random graphs. This will be developed in the context of non-parametric approaches, and elaborated to the analysis of networks using exponential random graph models (ERGMs) and Stochastic Actor Oriented Models (SAOMs). The students will be provided several hands-on exercises and will apply the covered approaches to a suite of real world data sets. The statistical software R is used.section-divs: false">
 
-<title>Termeh Shafie</title>
+<title>Termeh Shafie - Statistical Analysis of Social Networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,19 +24,19 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<link href="../../../../static/favicon.png" rel="icon" type="image/png">
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../static/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -51,35 +52,31 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="../../../../site_libs/font-awesome/css/all.min.css" rel="stylesheet">
-<link href="../../../../site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet">
-<link href="../../../../site_libs/panelset/panelset.css" rel="stylesheet">
-<script src="../../../../site_libs/panelset/panelset.js"></script>
 
 
-<link rel="stylesheet" href="../../../../styles.css">
-<link rel="stylesheet" href="../../../../academicons.css">
-<meta property="og:title" content="Termeh Shafie">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../academicons.css">
+<meta property="og:title" content="Termeh Shafie - Statistical Analysis of Social Networks">
 <meta property="og:description" content="Termeh Shafie’s website and blog that mainly features the topics statistics, network science, and R">
-<meta property="og:image" content="https://mrs.schochastics.net/teaching/Tidyverse/material/introduction/static/img/avatar.png">
+<meta property="og:image" content="https://mrs.schochastics.net/teaching/SNA/static/img/avatar.png">
 <meta property="og:site_name" content="mrs schochastics">
-<meta name="twitter:title" content="Termeh Shafie">
+<meta name="twitter:title" content="Termeh Shafie - Statistical Analysis of Social Networks">
 <meta name="twitter:description" content="Termeh Shafie’s website and blog that mainly features the topics statistics, network science, and R">
-<meta name="twitter:image" content="https://mrs.schochastics.net/teaching/Tidyverse/material/introduction/static/img/avatar.png">
+<meta name="twitter:image" content="https://mrs.schochastics.net/teaching/SNA/static/img/avatar.png">
 <meta name="twitter:creator" content="@termehshafie">
 <meta name="twitter:site" content="@termehshafie">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../static/logo.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../static/logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -88,31 +85,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../about/index.html"> 
+    <a class="nav-link" href="../../about/index.html"> 
 <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../project/index.html"> 
+    <a class="nav-link" href="../../project/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../publications/index.html"> 
+    <a class="nav-link" href="../../publications/index.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../talks/index.html"> 
+    <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../teaching/index.html"> 
+    <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../../blog/index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog/index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -127,17 +124,35 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistical Analysis of Social Networks</h1>
+<p class="subtitle lead">MSc course</p>
+</div>
+
+<div>
+  <div class="description">
+    <p>This course is an introduction to the statistical analysis and modeling of social networks. The course aims to give a basic understanding of and a working handle on drawing inference for network structure and actor level attributes for both cross-sectional and longitudinal network data. A fundamental notion of the course will be on how the structure of observed graphs relate to various forms of random graphs. This will be developed in the context of non-parametric approaches, and elaborated to the analysis of networks using exponential random graph models (ERGMs) and Stochastic Actor Oriented Models (SAOMs). The students will be provided several hands-on exercises and will apply the covered approaches to a suite of real world data sets. The statistical software R is used.section-divs: false</p>
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<p>layout: true</p>
-<hr>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 
 
 
@@ -533,7 +548,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><b>© 2024 Termeh Shafie</b> <br> powered by <a href="https://quarto.org">quarto</a></p>
+<p><b>© 2024 Termeh Shafie</b> <br> powered by ❤️ and <a href="https://quarto.org">quarto</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

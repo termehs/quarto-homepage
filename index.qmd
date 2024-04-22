@@ -101,11 +101,15 @@ NEWS
 ::: {.column .col-v-center width="70%"}
 
 ## General
+### 05.06.2024: Inaugural Professorial Lecture 🤓
+My inaugural talk will take place on June 5th at the University of Konstanz which is open for everyone to join. The talk is followed by (finger) food and drinks 🥂
+More information can be found [here](https://www.polver.uni-konstanz.de/fachbereich/aktuelles/veranstaltungen/aktuelle-termine/detail-aktuelle-termine/termin/inaugural-lecture-of-prof-dr-termeh-shafie/). 
+
 ### 20.02.2024: Multigraphr 0.2.0
 The new version of [multigraphr](/project/rmm/#r-package-multigraphr) is published on CRAN. No user facing changes, just improved performance thanks to [David Schoch](https://mr.schochastics.net).
 
-### 10.08.2023: Maternity Leave
-On maternity leave until end of the year.
+### 10.08.2023: Maternity Leave 🐣
+On parental leave until end of the year.
 
 ### 27.07.2023: Associate Professor of Computational Social Science and Data Science
 Today I start my new position as a Professor (*Professorin mit Schwerpunkt Lehre*) at the Department of Politics and Public Administration, University of Konstanz.

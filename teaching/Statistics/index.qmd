@@ -1,0 +1,9 @@
+---
+title: Statistics
+subtitle: BSc course 
+description: |
+  An introductory course to statistics and specifically focusing on linear models.
+section-divs: false
+toc: false
+---
+ 

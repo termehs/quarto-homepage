@@ -38,7 +38,7 @@ website:
   page-footer:
     left: |
       <b>© 2024 Termeh Shafie</b>  <br>
-      powered by [quarto](https://quarto.org)
+      powered by ❤️ and [quarto](https://quarto.org)
     right:
       - icon: mastodon
         href: https://fosstodon.org/@termehs
