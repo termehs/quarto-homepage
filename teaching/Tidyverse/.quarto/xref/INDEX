@@ -1,0 +1,26 @@
+{
+  "index.qmd": {
+    "index.html": "3171cf51"
+  },
+  "setup.Rmd": {
+    "setup.html": "0683a982"
+  },
+  "material/introduction/introduction.Rmd": {
+    "introduction.html": "9ec7f606"
+  },
+  "material/setup.Rmd": {
+    "setup.html": "5e477d63"
+  },
+  "material/introduction/setup.Rmd": {
+    "setup.html": "dd4b74ab"
+  },
+  "material/bechdel.qmd": {
+    "bechdel.html": "54e0cc86"
+  },
+  "bechdel.qmd": {
+    "bechdel.html": "d25f223e"
+  },
+  "material/starwars.qmd": {
+    "starwars.html": "adbf4d9b"
+  }
+}
