@@ -11,5 +11,6 @@ listing:
     - "FallsInfStats/index.qmd"
     - "SNA/index.qmd"
   type: table
+margin-footer: licence.html
 section-divs: false
 ---
