@@ -1,0 +1,25 @@
+---
+title: Data Wrangling and Visualization with Tidyverse
+subtitle: MSc course 
+description: |
+    Tidyverse is awesome!
+listing:
+  id: tidyverse
+section-divs: false
+toc: false
+---
+
+
+:::{.highlight}
+**Please make sure to install  Tidyverse**
+:::
+
+<button type="button" class="btn btn-outline-success">
+<a href="https://termehs.github.io/tidy01-meet-the-toolkit" target="_blank">Slides</a></button>
+
+## Schedule
+
+|                                                    | date       |slides  | practical | data      | scripts | 
+|----------------------------------------------------|------------|:------:|:---------:|:---------:|:---------:|
+| **Week 1**: Meet the toolkit | 12.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd)   | [zip](material/data/data_day1.zip)
+| **Week 2**:  Data visualization and ggplot  | 19.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy02-data-viz-ggplot)  |  [{{< fa file >}}](material/starwars.qmd)   | [zip](material/data/data_day2.zip)

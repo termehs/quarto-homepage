@@ -221,7 +221,7 @@
     "href": "talks/WiNS2022/index.html",
     "title": "“Statistical Entropy Analysis of Network Data”",
     "section": "",
-    "text": "Examples\n\n\nVideo"
+    "text": "Slides\n\n\nExamples\n\n\nVideo"
   },
   {
     "objectID": "talks/index.html",
@@ -298,14 +298,14 @@
     "href": "index.html#recent-publications",
     "title": "Termeh Shafie",
     "section": "Recent Publications",
-    "text": "Recent Publications\n\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nThe interplay of structural features and observed dissimilarities among centrality indices\n\n\nDec 6, 2023\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
+    "text": "Recent Publications\n\n\n\n\n\nTitle\n\n\nDate\n\n\n\n\n\n\nThe interplay of structural features and observed dissimilarities among centrality indices\n\n\nDec 6, 2023\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\n\nNo matching items\n\n\n\nall publications"
   },
   {
     "objectID": "index.html#latest-talks",
     "href": "index.html#latest-talks",
     "title": "Termeh Shafie",
     "section": "Latest Talks",
-    "text": "Latest Talks\n\n\n\n\n  \n\n\n\n\n“Analyzing Social Structure using Multigraph Representations”\n\n\nPresentation @ Centre Marc Bloch, Berlin\n\n\n\n\n\n\nNov 2, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
+    "text": "Latest Talks\n\n\n\n\n\n\n\n\n\n\n“Statistical Analysis of Multivariate Egocentric Networks”\n\n\nThe XLII Social Networks Conference of INSNA\n\n\n\n\n\nJul 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n“Statistical Entropy Analysis of Network Data”\n\n\nThe Women in Network Science (WiNS) seminar\n\n\n\n\n\nMay 5, 2022\n\n\n\n\n\n\nNo matching items\n\n\n\nmore talks"
   },
   {
     "objectID": "index.html#r-packages",
@@ -473,7 +473,7 @@
     "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
-    "text": "No matching items"
+    "text": "Currently teaching the following courses and seminars:"
   },
   {
     "objectID": "rpackage/index.html",
@@ -481,5 +481,425 @@
     "title": "R packages",
     "section": "",
     "text": "No matching items"
+  },
+  {
+    "objectID": "teaching/Tidyverse/index.html",
+    "href": "teaching/Tidyverse/index.html",
+    "title": "Data Wrangling and Visualization with Tidyverse",
+    "section": "",
+    "text": "Please make sure to install Tidyverse\n\n\nSlides\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\nscripts\n\n\n\n\nWeek 1: Meet the toolkit\n12.04.2024\n\n\nzip\n\n\n\nWeek 2: Data visualization and ggplot\n19.04.2024\n\n\nzip\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBechdel\n\n\n\n\n\n\n\n\n\n\n\nTermeh Shafie  (adapted from original script by Mine Çetinkaya-Rundel)\n\n\n\n\n\n\n\n\n\n\n\n\nVisualizing Starwars characters\n\n\n\n\n\n\n\n\n\n\n\nTermeh Shafie  (adapted from original script by Mine Çetinkaya-Rundel)\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html",
+    "href": "teaching/Tidyverse/material/introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "layout: true"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#data-science",
+    "href": "teaching/Tidyverse/material/introduction.html#data-science",
+    "title": "Introduction",
+    "section": "Data science",
+    "text": "Data science\n.pull-left-wide[ - Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\n\nWe’re going to learn to do this in a tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking. ]\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#software",
+    "href": "teaching/Tidyverse/material/introduction.html#software",
+    "title": "Introduction",
+    "section": "Software",
+    "text": "Software\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#data-science-life-cycle",
+    "href": "teaching/Tidyverse/material/introduction.html#data-science-life-cycle",
+    "title": "Introduction",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.pull-left[\n\n\n\n\n\n\n\n\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]\n\n.pull-left[\n\n\n\n\n\n\n\n\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ...   \n\n\n]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.pull-left[ ### .pink[Doing data science] - .pink[Programming:] - .pink[R] - .pink[RStudio] - .pinktidyverse - .pink[R Markdown]]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#learning-goals",
+    "href": "teaching/Tidyverse/material/introduction.html#learning-goals",
+    "title": "Introduction",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the course, you will be able to…\n–\n\ngain insight from data\n\n\n\n\n\n\n\n- gain insight from data, reproducibly\n\n\n\n\n- gain insight from data, reproducibly, using modern programming tools and techniques\n\n\n\n\ngain insight from data, reproducibly and collaboratively, using modern programming tools and techniques\n\n\n\n\n\n\n\n- gain insight from data, reproducibly (with literate programming and version control) and collaboratively, using modern programming tools and techniques\n\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#reproducible-data-analysis",
+    "href": "teaching/Tidyverse/material/introduction.html#reproducible-data-analysis",
+    "title": "Introduction",
+    "section": "Reproducible data analysis",
+    "text": "Reproducible data analysis"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#reproducibility-checklist",
+    "href": "teaching/Tidyverse/material/introduction.html#reproducibility-checklist",
+    "title": "Introduction",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n.question[ What does it mean for a data analysis to be “reproducible”?]\n–\nNear-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#toolkit-for-reproducibility",
+    "href": "teaching/Tidyverse/material/introduction.html#toolkit-for-reproducibility",
+    "title": "Introduction",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) R Markdown\nVersion control \\(\\rightarrow\\) Git / GitHub\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#r-and-rstudio",
+    "href": "teaching/Tidyverse/material/introduction.html#r-and-rstudio",
+    "title": "Introduction",
+    "section": "R and RStudio",
+    "text": "R and RStudio"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#r-and-rstudio-1",
+    "href": "teaching/Tidyverse/material/introduction.html#r-and-rstudio-1",
+    "title": "Introduction",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n.pull-left[\n\n\n\n\n\n\n\n\n\n\nR is an open-source statistical programming language\nR is also an environment for statistical computing and graphics\nIt’s easily extensible with packages ] .pull-right[\n\n\n\n\n\n\n\n\n\n\n\nRStudio is a convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nRStudio is not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists ]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#r-packages",
+    "href": "teaching/Tidyverse/material/introduction.html#r-packages",
+    "title": "Introduction",
+    "section": "R packages",
+    "text": "R packages\n\nPackages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data1\nAs of September 2020, there are over 16,000 R packages available on CRAN (the Comprehensive R Archive Network)2\nWe’re going to work with a small (but important) subset of these!\n\n.footnote[ 1 Wickham and Bryan, R Packages.\n2 CRAN contributed packages. ]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#a-short-list-for-now-of-r-essentials",
+    "href": "teaching/Tidyverse/material/introduction.html#a-short-list-for-now-of-r-essentials",
+    "title": "Introduction",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n–\n\nPackages are installed with the install.packages function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#r-essentials-continued",
+    "href": "teaching/Tidyverse/material/introduction.html#r-essentials-continued",
+    "title": "Introduction",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n.small[\n\ndataframe$var_name\n\n]\n–\n\nObject documentation can be accessed with ?\n\n\n?mean"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#tidyverse",
+    "href": "teaching/Tidyverse/material/introduction.html#tidyverse",
+    "title": "Introduction",
+    "section": "tidyverse",
+    "text": "tidyverse\n.pull-left[\n\n\n\n\n\n\n\n\n\n]\n.pull-right[ .center[.large[ tidyverse.org]]\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar ]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#rmarkdown",
+    "href": "teaching/Tidyverse/material/introduction.html#rmarkdown",
+    "title": "Introduction",
+    "section": "rmarkdown",
+    "text": "rmarkdown\n.pull-left[ .center[.large[ rmarkdown.rstudio.com]]\n\nrmarkdown and the various packages that support it enable R users to write their code and prose in reproducible computational documents\nWe will generally refer to R Markdown documents (with .Rmd extension), e.g. “Do this in your R Markdown document” and rarely discuss loading the rmarkdown package ]\n\n.pull-right[\n\n\n\n\n\n\n\n\n\n]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#quarto",
+    "href": "teaching/Tidyverse/material/introduction.html#quarto",
+    "title": "Introduction",
+    "section": "Quarto",
+    "text": "Quarto\n.center[.large[ https://quarto.org/]] .center[\n\n\n\n\n\n\n\n\n\n]\n\nAn open-source scientific and technical publishing system\nCreate dynamic content with Python, R, Julia, and Observable.\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#r-markdown-and-quarto",
+    "href": "teaching/Tidyverse/material/introduction.html#r-markdown-and-quarto",
+    "title": "Introduction",
+    "section": "R Markdown and Quarto",
+    "text": "R Markdown and Quarto"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#r-markdown-and-quarto-1",
+    "href": "teaching/Tidyverse/material/introduction.html#r-markdown-and-quarto-1",
+    "title": "Introduction",
+    "section": "R Markdown and Quarto",
+    "text": "R Markdown and Quarto\n\nFully reproducible reports – each time you knit the analysis is ran from the beginning\nSimple markdown syntax for text\nCode goes in chunks, defined by three backticks, narrative goes outside of chunks"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#tour-quarto",
+    "href": "teaching/Tidyverse/material/introduction.html#tour-quarto",
+    "title": "Introduction",
+    "section": "Tour: Quarto",
+    "text": "Tour: Quarto"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#environments",
+    "href": "teaching/Tidyverse/material/introduction.html#environments",
+    "title": "Introduction",
+    "section": "Environments",
+    "text": "Environments\n.tip[ The environment of your R Markdown/Quarto document is separate from the Console!]\nRemember this, and expect it to bite you a few times as you’re learning to work with them!"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#how-will-we-use-r-markdown-and-quarto",
+    "href": "teaching/Tidyverse/material/introduction.html#how-will-we-use-r-markdown-and-quarto",
+    "title": "Introduction",
+    "section": "How will we use R Markdown and Quarto?",
+    "text": "How will we use R Markdown and Quarto?\n\nEvery assignment / report / project / etc. is an R Markdown document\nYou’ll always have a template R Markdown document to start with"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction.html#whats-with-all-the-hexes",
+    "href": "teaching/Tidyverse/material/introduction.html#whats-with-all-the-hexes",
+    "title": "Introduction",
+    "section": "What’s with all the hexes?",
+    "text": "What’s with all the hexes?\n\n\n\n\n\n\n\n\n\n.footnote[ Mitchell O’Hara-Wild, useR! 2018 feature wall]\n\n.your-turn[ .light-blue[.hand[Practical:]] Bechdel + Quarto - The Bechdel test asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.\n\n\n\n\n\n\n\n\n\n]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "layout: true"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#data-science",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#data-science",
+    "title": "Introduction",
+    "section": "Data science",
+    "text": "Data science\n.pull-left-wide[ - Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\n\nWe’re going to learn to do this in a tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking. ]\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#software",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#software",
+    "title": "Introduction",
+    "section": "Software",
+    "text": "Software\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#data-science-life-cycle",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#data-science-life-cycle",
+    "title": "Introduction",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.pull-left[\n\n\n\n\n\n\n\n\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]\n\n.pull-left[\n\n\n\n\n\n\n\n\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ...   \n\n\n]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.pull-left[ ### .pink[Doing data science] - .pink[Programming:] - .pink[R] - .pink[RStudio] - .pinktidyverse - .pink[R Markdown]]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#learning-goals",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#learning-goals",
+    "title": "Introduction",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the course, you will be able to…\n–\n\ngain insight from data\n\n\n\n\n\n\n\n- gain insight from data, reproducibly\n\n\n\n\n- gain insight from data, reproducibly, using modern programming tools and techniques\n\n\n\n\ngain insight from data, reproducibly and collaboratively, using modern programming tools and techniques\n\n\n\n\n\n\n\n- gain insight from data, reproducibly (with literate programming and version control) and collaboratively, using modern programming tools and techniques\n\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#reproducible-data-analysis",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#reproducible-data-analysis",
+    "title": "Introduction",
+    "section": "Reproducible data analysis",
+    "text": "Reproducible data analysis"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#reproducibility-checklist",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#reproducibility-checklist",
+    "title": "Introduction",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n.question[ What does it mean for a data analysis to be “reproducible”?]\n–\nNear-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#toolkit-for-reproducibility",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#toolkit-for-reproducibility",
+    "title": "Introduction",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) R Markdown\nVersion control \\(\\rightarrow\\) Git / GitHub\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#r-and-rstudio",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#r-and-rstudio",
+    "title": "Introduction",
+    "section": "R and RStudio",
+    "text": "R and RStudio"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#r-and-rstudio-1",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#r-and-rstudio-1",
+    "title": "Introduction",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n.pull-left[\n\n\n\n\n\n\n\n\n\n\nR is an open-source statistical programming language\nR is also an environment for statistical computing and graphics\nIt’s easily extensible with packages ] .pull-right[\n\n\n\n\n\n\n\n\n\n\n\nRStudio is a convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nRStudio is not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists ]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#r-packages",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#r-packages",
+    "title": "Introduction",
+    "section": "R packages",
+    "text": "R packages\n\nPackages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data1\nAs of September 2020, there are over 16,000 R packages available on CRAN (the Comprehensive R Archive Network)2\nWe’re going to work with a small (but important) subset of these!\n\n.footnote[ 1 Wickham and Bryan, R Packages.\n2 CRAN contributed packages. ]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#a-short-list-for-now-of-r-essentials",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#a-short-list-for-now-of-r-essentials",
+    "title": "Introduction",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n–\n\nPackages are installed with the install.packages function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#r-essentials-continued",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#r-essentials-continued",
+    "title": "Introduction",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n.small[\n\ndataframe$var_name\n\n]\n–\n\nObject documentation can be accessed with ?\n\n\n?mean"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#tidyverse",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#tidyverse",
+    "title": "Introduction",
+    "section": "tidyverse",
+    "text": "tidyverse\n.pull-left[\n\n\n\n\n\n\n\n\n\n]\n.pull-right[ .center[.large[ tidyverse.org]]\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar ]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#rmarkdown",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#rmarkdown",
+    "title": "Introduction",
+    "section": "rmarkdown",
+    "text": "rmarkdown\n.pull-left[ .center[.large[ rmarkdown.rstudio.com]]\n\nrmarkdown and the various packages that support it enable R users to write their code and prose in reproducible computational documents\nWe will generally refer to R Markdown documents (with .Rmd extension), e.g. “Do this in your R Markdown document” and rarely discuss loading the rmarkdown package ]\n\n.pull-right[\n\n\n\n\n\n\n\n\n\n]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#quarto",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#quarto",
+    "title": "Introduction",
+    "section": "Quarto",
+    "text": "Quarto\n.center[.large[ https://quarto.org/]] .center[\n\n\n\n\n\n\n\n\n\n]\n\nAn open-source scientific and technical publishing system\nCreate dynamic content with Python, R, Julia, and Observable.\nPublish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\n\n\nclass: middle"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#r-markdown-and-quarto",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#r-markdown-and-quarto",
+    "title": "Introduction",
+    "section": "R Markdown and Quarto",
+    "text": "R Markdown and Quarto"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#r-markdown-and-quarto-1",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#r-markdown-and-quarto-1",
+    "title": "Introduction",
+    "section": "R Markdown and Quarto",
+    "text": "R Markdown and Quarto\n\nFully reproducible reports – each time you knit the analysis is ran from the beginning\nSimple markdown syntax for text\nCode goes in chunks, defined by three backticks, narrative goes outside of chunks"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#tour-quarto",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#tour-quarto",
+    "title": "Introduction",
+    "section": "Tour: Quarto",
+    "text": "Tour: Quarto"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#environments",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#environments",
+    "title": "Introduction",
+    "section": "Environments",
+    "text": "Environments\n.tip[ The environment of your R Markdown/Quarto document is separate from the Console!]\nRemember this, and expect it to bite you a few times as you’re learning to work with them!"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#how-will-we-use-r-markdown-and-quarto",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#how-will-we-use-r-markdown-and-quarto",
+    "title": "Introduction",
+    "section": "How will we use R Markdown and Quarto?",
+    "text": "How will we use R Markdown and Quarto?\n\nEvery assignment / report / project / etc. is an R Markdown document\nYou’ll always have a template R Markdown document to start with"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/introduction.html#whats-with-all-the-hexes",
+    "href": "teaching/Tidyverse/material/introduction/introduction.html#whats-with-all-the-hexes",
+    "title": "Introduction",
+    "section": "What’s with all the hexes?",
+    "text": "What’s with all the hexes?\n\n\n\n\n\n\n\n\n\n.footnote[ Mitchell O’Hara-Wild, useR! 2018 feature wall]\n\n.your-turn[ .light-blue[.hand[Practical:]] Bechdel + Quarto - The Bechdel test asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.\n\n\n\n\n\n\n\n\n\n]"
+  },
+  {
+    "objectID": "teaching/Tidyverse/setup.html",
+    "href": "teaching/Tidyverse/setup.html",
+    "title": "Termeh Shafie",
+    "section": "",
+    "text": "layout: true"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/introduction/setup.html",
+    "href": "teaching/Tidyverse/material/introduction/setup.html",
+    "title": "Termeh Shafie",
+    "section": "",
+    "text": "layout: true"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/setup.html",
+    "href": "teaching/Tidyverse/material/setup.html",
+    "title": "Termeh Shafie",
+    "section": "",
+    "text": "layout: true"
+  },
+  {
+    "objectID": "teaching/Tidyverse/bechdel.html",
+    "href": "teaching/Tidyverse/bechdel.html",
+    "title": "Bechdel",
+    "section": "",
+    "text": "In this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”. We will together fill in the blanks denoted by ___."
+  },
+  {
+    "objectID": "teaching/Tidyverse/bechdel.html#data-and-packages",
+    "href": "teaching/Tidyverse/bechdel.html#data-and-packages",
+    "title": "Bechdel",
+    "section": "Data and packages",
+    "text": "Data and packages\nWe start with loading the packages we’ll use.\n\nlibrary(fivethirtyeight)\nlibrary(tidyverse)\n\nThe dataset contains information on 1794 movies released between 1970 and 2013. However we’ll focus our analysis on movies released between 1990 and 2013.\n\nbechdel90_13 &lt;- bechdel %&gt;% \n  filter(between(year, 1990, 2013))\n\nThere are ___ such movies.\nThe financial variables we’ll focus on are the following:\n\nbudget_2013: Budget in 2013 inflation adjusted dollars\ndomgross_2013: Domestic gross (US) in 2013 inflation adjusted dollars\nintgross_2013: Total International (i.e., worldwide) gross in 2013 inflation adjusted dollars\n\nAnd we’ll also use the binary and clean_test variables for grouping."
+  },
+  {
+    "objectID": "teaching/Tidyverse/bechdel.html#analysis",
+    "href": "teaching/Tidyverse/bechdel.html#analysis",
+    "title": "Bechdel",
+    "section": "Analysis",
+    "text": "Analysis\nLet’s take a look at how median budget and gross vary by whether the movie passed the Bechdel test, which is stored in the binary variable.\n\nbechdel90_13 %&gt;%\n  group_by(binary) %&gt;%\n  summarise(\n    med_budget = median(budget_2013),\n    med_domgross = median(domgross_2013, na.rm = TRUE),\n    med_intgross = median(intgross_2013, na.rm = TRUE)\n    )\n\n# A tibble: 2 × 4\n  binary med_budget med_domgross med_intgross\n  &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1 FAIL    48385984.    57318606.    104475669\n2 PASS    31070724     45330446.     80124349\n\n\nNext, let’s take a look at how median budget and gross vary by a more detailed indicator of the Bechdel test result. This information is stored in the clean_test variable, which takes on the following values:\n\nok = passes test\ndubious\nmen = women only talk about men\nnotalk = women don’t talk to each other\nnowomen = fewer than two women\n\n\nbechdel90_13 %&gt;%\n  #group_by(___) %&gt;%\n  summarise(\n    med_budget = median(budget_2013),\n    med_domgross = median(domgross_2013, na.rm = TRUE),\n    med_intgross = median(intgross_2013, na.rm = TRUE)\n    )\n\n# A tibble: 1 × 3\n  med_budget med_domgross med_intgross\n       &lt;int&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1   37878971     52270207     93523336\n\n\nIn order to evaluate how return on investment varies among movies that pass and fail the Bechdel test, we’ll first create a new variable called roi as the ratio of the gross to budget.\n\nbechdel90_13 &lt;- bechdel90_13 %&gt;%\n  mutate(roi = (intgross_2013 + domgross_2013) / budget_2013)\n\nLet’s see which movies have the highest return on investment.\n\nbechdel90_13 %&gt;%\n  arrange(desc(roi)) %&gt;% \n  select(title, roi, year)\n\n# A tibble: 1,615 × 3\n   title                     roi  year\n   &lt;chr&gt;                   &lt;dbl&gt; &lt;int&gt;\n 1 Paranormal Activity      671.  2007\n 2 The Blair Witch Project  648.  1999\n 3 El Mariachi              583.  1992\n 4 Clerks.                  258.  1994\n 5 In the Company of Men    231.  1997\n 6 Napoleon Dynamite        227.  2004\n 7 Once                     190.  2006\n 8 The Devil Inside         155.  2012\n 9 Primer                   142.  2004\n10 Fireproof                134.  2008\n# ℹ 1,605 more rows\n\n\nBelow is a visualization of the return on investment by test result, however it’s difficult to see the distributions due to a few extreme observations.\n\nggplot(data = bechdel90_13, \n       mapping = aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    x = \"Detailed Bechdel result\",\n    y = \"___\",\n    color = \"Binary Bechdel result\"\n    )\n\n\n\n\n\n\n\n\nWhat are those movies with very high returns on investment?\n\nbechdel90_13 %&gt;%\n  filter(roi &gt; 400) %&gt;%\n  select(title, budget_2013, domgross_2013, year)\n\n# A tibble: 3 × 4\n  title                   budget_2013 domgross_2013  year\n  &lt;chr&gt;                         &lt;int&gt;         &lt;dbl&gt; &lt;int&gt;\n1 Paranormal Activity          505595     121251476  2007\n2 The Blair Witch Project      839077     196538593  1999\n3 El Mariachi                   11622       3388636  1992\n\n\nZooming in on the movies with roi &lt; ___ provides a better view of how the medians across the categories compare:\n\nggplot(data = bechdel90_13, mapping = aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    subtitle = \"___\", # Something about zooming in to a certain level\n    x = \"Detailed Bechdel result\",\n    y = \"Return on investment\",\n    color = \"Binary Bechdel result\"\n    ) +\n  coord_cartesian(ylim = c(0, 15))"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/bechdel.html",
+    "href": "teaching/Tidyverse/material/bechdel.html",
+    "title": "Bechdel",
+    "section": "",
+    "text": "In this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”. We will together fill in the blanks denoted by ___."
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/bechdel.html#data-and-packages",
+    "href": "teaching/Tidyverse/material/bechdel.html#data-and-packages",
+    "title": "Bechdel",
+    "section": "Data and packages",
+    "text": "Data and packages\nWe start with loading the packages we’ll use.\n\nlibrary(fivethirtyeight)\nlibrary(tidyverse)\n\nThe dataset contains information on 1794 movies released between 1970 and 2013. However we’ll focus our analysis on movies released between 1990 and 2013.\n\nbechdel90_13 &lt;- bechdel %&gt;% \n  filter(between(year, 1990, 2013))\n\nThere are ___ such movies.\nThe financial variables we’ll focus on are the following:\n\nbudget_2013: Budget in 2013 inflation adjusted dollars\ndomgross_2013: Domestic gross (US) in 2013 inflation adjusted dollars\nintgross_2013: Total International (i.e., worldwide) gross in 2013 inflation adjusted dollars\n\nAnd we’ll also use the binary and clean_test variables for grouping."
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/bechdel.html#analysis",
+    "href": "teaching/Tidyverse/material/bechdel.html#analysis",
+    "title": "Bechdel",
+    "section": "Analysis",
+    "text": "Analysis\nLet’s take a look at how median budget and gross vary by whether the movie passed the Bechdel test, which is stored in the binary variable.\n\nbechdel90_13 %&gt;%\n  group_by(binary) %&gt;%\n  summarise(\n    med_budget = median(budget_2013),\n    med_domgross = median(domgross_2013, na.rm = TRUE),\n    med_intgross = median(intgross_2013, na.rm = TRUE)\n    )\n\n# A tibble: 2 × 4\n  binary med_budget med_domgross med_intgross\n  &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1 FAIL    48385984.    57318606.    104475669\n2 PASS    31070724     45330446.     80124349\n\n\nNext, let’s take a look at how median budget and gross vary by a more detailed indicator of the Bechdel test result. This information is stored in the clean_test variable, which takes on the following values:\n\nok = passes test\ndubious\nmen = women only talk about men\nnotalk = women don’t talk to each other\nnowomen = fewer than two women\n\n\nbechdel90_13 %&gt;%\n  #group_by(___) %&gt;%\n  summarise(\n    med_budget = median(budget_2013),\n    med_domgross = median(domgross_2013, na.rm = TRUE),\n    med_intgross = median(intgross_2013, na.rm = TRUE)\n    )\n\n# A tibble: 1 × 3\n  med_budget med_domgross med_intgross\n       &lt;int&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1   37878971     52270207     93523336\n\n\nIn order to evaluate how return on investment varies among movies that pass and fail the Bechdel test, we’ll first create a new variable called roi as the ratio of the gross to budget.\n\nbechdel90_13 &lt;- bechdel90_13 %&gt;%\n  mutate(roi = (intgross_2013 + domgross_2013) / budget_2013)\n\nLet’s see which movies have the highest return on investment.\n\nbechdel90_13 %&gt;%\n  arrange(desc(roi)) %&gt;% \n  select(title, roi, year)\n\n# A tibble: 1,615 × 3\n   title                     roi  year\n   &lt;chr&gt;                   &lt;dbl&gt; &lt;int&gt;\n 1 Paranormal Activity      671.  2007\n 2 The Blair Witch Project  648.  1999\n 3 El Mariachi              583.  1992\n 4 Clerks.                  258.  1994\n 5 In the Company of Men    231.  1997\n 6 Napoleon Dynamite        227.  2004\n 7 Once                     190.  2006\n 8 The Devil Inside         155.  2012\n 9 Primer                   142.  2004\n10 Fireproof                134.  2008\n# ℹ 1,605 more rows\n\n\nBelow is a visualization of the return on investment by test result, however it’s difficult to see the distributions due to a few extreme observations.\n\nggplot(data = bechdel90_13, \n       mapping = aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    x = \"Detailed Bechdel result\",\n    y = \"___\",\n    color = \"Binary Bechdel result\"\n    )\n\n\n\n\n\n\n\n\nWhat are those movies with very high returns on investment?\n\nbechdel90_13 %&gt;%\n  filter(roi &gt; 400) %&gt;%\n  select(title, budget_2013, domgross_2013, year)\n\n# A tibble: 3 × 4\n  title                   budget_2013 domgross_2013  year\n  &lt;chr&gt;                         &lt;int&gt;         &lt;dbl&gt; &lt;int&gt;\n1 Paranormal Activity          505595     121251476  2007\n2 The Blair Witch Project      839077     196538593  1999\n3 El Mariachi                   11622       3388636  1992\n\n\nZooming in on the movies with roi &lt; ___ provides a better view of how the medians across the categories compare:\n\nggplot(data = bechdel90_13, mapping = aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    subtitle = \"___\", # Something about zooming in to a certain level\n    x = \"Detailed Bechdel result\",\n    y = \"Return on investment\",\n    color = \"Binary Bechdel result\"\n    ) +\n  coord_cartesian(ylim = c(0, 15))"
+  },
+  {
+    "objectID": "teaching/Tidyverse/material/starwars.html",
+    "href": "teaching/Tidyverse/material/starwars.html",
+    "title": "Visualizing Starwars characters",
+    "section": "",
+    "text": "Glimpse at the starwars data frame.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nModify the following plot to change the color of all points to \"pink\".\n\n\nggplot(starwars, \n       aes(x = height, y = mass, color = gender, size = birth_year)) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 51 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nAdd labels for title, x and y axes, and size of points. Uncomment to see the effect.\n\n\nggplot(starwars, \n       aes(x = height, y = mass, color = gender, size = birth_year)) +\n  geom_point(color = \"#30509C\") +\n  labs(\n    #title = \"___\",\n    #x = \"___\", \n    #y = \"___\",\n    #___\n    )\n\nWarning: Removed 51 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nPick a single numerical variable and make a histogram of it. Select a reasonable binwidth for it.\n\n(A little bit of starter code is provided below, and the code chunk is set to not be evaluated with eval: false because the current code in there is not valid code and hence the document wouldn’t knit. Once you replace the code with valid code, set the chunk option to eval: true, or remove the eval option altogether since it’s set to true by default.)\n\nggplot(starwars, aes(___)) +\n  geom___\n\n\nPick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualization the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\nInterpretation goes here…\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\nInterpretation goes here…\n\nPick two numerical variables and two categorical variables and make a visualization that incorporates all of them and provide an interpretation with your answer.\n\n(This time no starter code is provided, you’re on your own!)\nInterpretation goes here…"
+  },
+  {
+    "objectID": "teaching/index.html#statistical-learning",
+    "href": "teaching/index.html#statistical-learning",
+    "title": "Teaching",
+    "section": "Statistical Learning",
+    "text": "Statistical Learning"
+  },
+  {
+    "objectID": "teaching/index.html#statistical-analysis-of-social-networks",
+    "href": "teaching/index.html#statistical-analysis-of-social-networks",
+    "title": "Teaching",
+    "section": "Statistical Analysis of Social Networks",
+    "text": "Statistical Analysis of Social Networks"
+  },
+  {
+    "objectID": "teaching/index.html#statistics-introductory-undergraduate-course",
+    "href": "teaching/index.html#statistics-introductory-undergraduate-course",
+    "title": "Teaching",
+    "section": "Statistics (introductory undergraduate course)",
+    "text": "Statistics (introductory undergraduate course)"
+  },
+  {
+    "objectID": "teaching/index.html#fallacies-of-inferential-statistics-seminar",
+    "href": "teaching/index.html#fallacies-of-inferential-statistics-seminar",
+    "title": "Teaching",
+    "section": "Fallacies of Inferential Statistics (seminar)",
+    "text": "Fallacies of Inferential Statistics (seminar)"
+  },
+  {
+    "objectID": "teaching/index.html#data-wrangling-and-visualization-with-tidyverse",
+    "href": "teaching/index.html#data-wrangling-and-visualization-with-tidyverse",
+    "title": "Teaching",
+    "section": "Data Wrangling and Visualization with Tidyverse",
+    "text": "Data Wrangling and Visualization with Tidyverse\nCOURSE MATERIAL"
   }
 ]

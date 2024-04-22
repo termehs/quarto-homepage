@@ -3,10 +3,10 @@ title: "Teaching"
 page-layout: full
 listing:
   categories: true
-  id: material
+  id: teaching
   max-description-length: 500
   image-height: "250px"	
-  fields: [image,title,description]
+  fields: [title]
   type: default
   image-align: right
   sort: "priority asc"
@@ -14,14 +14,15 @@ listing:
 ---
 
 
-:::{#teaching}
+
 Currently teaching the following courses and seminars:
 
-- Statistical Learning
-- Statistical Analysis of Social Networks
-- Data Wrangling and Visualization with Tidyverse
-- Statistics (introductory undergraduate course)
-- Fallacies of Inferential Statistics (seminar)
+## Data Wrangling and Visualization with Tidyverse 
+[COURSE MATERIAL](tidyverse)
 
-Watch this space, material will be shared soon.
-:::
+
+## Statistical Learning
+## Statistical Analysis of Social Networks
+## Statistics (introductory undergraduate course)
+## Fallacies of Inferential Statistics (seminar)
+
