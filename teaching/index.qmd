@@ -2,27 +2,13 @@
 title: "Teaching"
 page-layout: full
 listing:
-  categories: true
   id: teaching
-  max-description-length: 500
-  image-height: "250px"	
-  fields: [title]
-  type: default
-  image-align: right
-  sort: "priority asc"
-  grid-item-border: false
+  fields: [title, subtitle]
+  contents: 
+    - "Tidyverse/index.qmd"
+  type: table
+section-divs: false
 ---
 
 
-
-Currently teaching the following courses and seminars:
-
-## Data Wrangling and Visualization with Tidyverse 
-[COURSE MATERIAL](tidyverse)
-
-
-## Statistical Learning
-## Statistical Analysis of Social Networks
-## Statistics (introductory undergraduate course)
-## Fallacies of Inferential Statistics (seminar)
 

@@ -11,7 +11,9 @@ listing:
     - WiNS2022
     - EUSN2019
   type: grid
+  image-height: "124px"	
   categories: true
   image-align: right
   sort: "date desc"
+  grid-item-border: true
 ---

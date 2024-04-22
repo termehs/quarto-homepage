@@ -22,7 +22,6 @@
   {
     "listing": "/talks/index.html",
     "items": [
-      "/talks/CMB2022/index.html",
       "/talks/SUNBELT2022/index.html",
       "/talks/WiNS2022/index.html",
       "/talks/EUSN2021/index.html",
@@ -60,9 +59,7 @@
   {
     "listing": "/teaching/index.html",
     "items": [
-      "/teaching/Tidyverse/index.html",
-      "/teaching/Tidyverse/material/bechdel.html",
-      "/teaching/Tidyverse/material/starwars.html"
+      "/teaching/Tidyverse/index.html"
     ]
   },
   {
