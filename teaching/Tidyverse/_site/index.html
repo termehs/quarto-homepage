@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -118,7 +152,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="highlight">
-<p><em>Please make sure to install Tidyverse</em></p>
+<p><em>Make sure to install and load Tidyverse:</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <h2 id="schedule" class="anchored">Schedule</h2>
 <table class="table">
@@ -128,6 +166,7 @@ ul.task-list li input[type="checkbox"] {
 <th>date</th>
 <th style="text-align: center;">slides</th>
 <th style="text-align: center;">practical</th>
+<th style="text-align: center;">data</th>
 </tr>
 </thead>
 <tbody>
@@ -136,12 +175,21 @@ ul.task-list li input[type="checkbox"] {
 <td>12.04.2024</td>
 <td style="text-align: center;"><a href="https://termehs.github.io/tidy01-meet-the-toolkit"><i class="fa-solid fa-display" aria-hidden="true"></i></a></td>
 <td style="text-align: center;"><a href="./material/bechdel.html"><i class="fa-solid fa-file" aria-hidden="true"></i></a></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td><strong>Week 2</strong>: Data visualization and ggplot</td>
 <td>19.04.2024</td>
 <td style="text-align: center;"><a href="https://termehs.github.io/tidy02-data-viz-ggplot"><i class="fa-solid fa-display" aria-hidden="true"></i></a></td>
 <td style="text-align: center;"><a href="./material/starwars.html"><i class="fa-solid fa-file" aria-hidden="true"></i></a></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Week 3</strong>: Visualizing numerical and categorical data</td>
+<td>26.04.2024</td>
+<td style="text-align: center;"><a href="https://termehs.github.io/tidy03-data-viz-num-cat"><i class="fa-solid fa-display" aria-hidden="true"></i></a></td>
+<td style="text-align: center;"><a href="./material/plastic-waste.html"><i class="fa-solid fa-file" aria-hidden="true"></i></a></td>
+<td style="text-align: center;"><a href="material/data/plastic-waste.csv">.csv</a></td>
 </tr>
 </tbody>
 </table>

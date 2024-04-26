@@ -2,7 +2,8 @@
 title: Statistical Analysis of Social Networks
 subtitle: MSc course 
 description: |
-  This course is an introduction to the statistical analysis and modeling of social networks. The course aims to give a basic understanding of and a working handle on drawing inference for network structure and actor level attributes for both cross-sectional and longitudinal network data. A fundamental notion of the course will be on how the structure of observed graphs relate to various forms of random graphs. This will be developed in the context of non-parametric approaches, and elaborated to the analysis of networks using exponential random graph models (ERGMs) and Stochastic Actor Oriented Models (SAOMs). The students will be provided several hands-on exercises and will apply the covered approaches to a suite of real world data sets. The statistical software R is used.section-divs: false
+  This course is an introduction to the statistical analysis and modeling of social networks. The course aims to give a basic understanding of and a working handle on drawing inference for network structure and actor level attributes for both cross-sectional and longitudinal network data. A fundamental notion of the course will be on how the structure of observed graphs relate to various forms of random graphs. This will be developed in the context of non-parametric approaches, and elaborated to the analysis of networks using exponential random graph models (ERGMs) and Stochastic Actor Oriented Models (SAOMs). The students will be provided several hands-on exercises and will apply the covered approaches to a suite of real world data sets. The statistical software R is used.
+section-divs: false
 toc: false
 ---
  

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Wrangling and Visualization with Tidyverse",
     "section": "",
-    "text": "Please make sure to install Tidyverse\n\nSchedule\n\n\n\n\ndate\nslides\npractical\n\n\n\n\nWeek 1: Meet the toolkit\n12.04.2024\n\n\n\n\nWeek 2: Data visualization and ggplot\n19.04.2024"
+    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\nWeek 1: Meet the toolkit\n12.04.2024\n\n\n\n\n\nWeek 2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\nWeek 3: Visualizing numerical and categorical data\n26.04.2024\n\n\n.csv"
   },
   {
     "objectID": "material/bechdel.html",
@@ -54,5 +54,26 @@
     "title": "Visualizing Starwars characters",
     "section": "",
     "text": "Glimpse at the starwars data frame.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nModify the following plot to change the color of all points to \"pink\".\n\n\nggplot(starwars, \n       aes(x = height, y = mass, color = gender, size = birth_year)) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 51 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nAdd labels for title, x and y axes, and size of points. Uncomment to see the effect.\n\n\nggplot(starwars, \n       aes(x = height, y = mass, color = gender, size = birth_year)) +\n  geom_point(color = \"#30509C\") +\n  labs(\n    #title = \"___\",\n    #x = \"___\", \n    #y = \"___\",\n    #___\n    )\n\nWarning: Removed 51 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nPick a single numerical variable and make a histogram of it. Select a reasonable binwidth for it.\n\n(A little bit of starter code is provided below, and the code chunk is set to not be evaluated with eval: false because the current code in there is not valid code and hence the document wouldn’t knit. Once you replace the code with valid code, set the chunk option to eval: true, or remove the eval option altogether since it’s set to true by default.)\n\nggplot(starwars, aes(___)) +\n  geom___\n\n\nPick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualization the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\nInterpretation goes here…\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\nInterpretation goes here…\n\nPick two numerical variables and two categorical variables and make a visualization that incorporates all of them and provide an interpretation with your answer.\n\n(This time no starter code is provided, you’re on your own!)\nInterpretation goes here…"
+  },
+  {
+    "objectID": "material/plastic-waste.html",
+    "href": "material/plastic-waste.html",
+    "title": "Global plastic waste",
+    "section": "",
+    "text": "Plastic pollution is a major and growing problem, negatively affecting oceans and wildlife health. Our World in Data has a lot of great data at various levels including globally, per country, and over time. For this lab we focus on data from 2010.\nAdditionally, National Geographic ran a data visualization communication contest on plastic waste as seen here."
+  },
+  {
+    "objectID": "material/plastic-waste.html#packages",
+    "href": "material/plastic-waste.html#packages",
+    "title": "Global plastic waste",
+    "section": "Packages",
+    "text": "Packages\nWe’ll use the tidyverse package for this analysis.\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "material/plastic-waste.html#data",
+    "href": "material/plastic-waste.html#data",
+    "title": "Global plastic waste",
+    "section": "Data",
+    "text": "Data\nThe dataset for this assignment can be found as a csv file. You can read it in using the following (make sure you save the data in your working directory).\n\nplastic_waste &lt;- read_csv(\"data/plastic-waste.csv\")\n\nThe variable descriptions are as follows:\n\ncode: 3 Letter country code\nentity: Country name\ncontinent: Continent name\nyear: Year\ngdp_per_cap: GDP per capita constant 2011 international $, rate\nplastic_waste_per_cap: Amount of plastic waste per capita in kg/day\nmismanaged_plastic_waste_per_cap: Amount of mismanaged plastic waste per capita in kg/day\nmismanaged_plastic_waste: Tonnes of mismanaged plastic waste\ncoastal_pop: Number of individuals living on/near coast\ntotal_pop: Total population according to Gapminder"
   }
 ]
