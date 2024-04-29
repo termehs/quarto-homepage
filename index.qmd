@@ -172,7 +172,7 @@ Today I start my new position as a Professor (*Professorin mit Schwerpunkt Lehre
 <a href="/project/seand/#r-package-netropy" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 210px;">
+<img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 350px;">
 </p>
 <div class="card-text listing-description">
 Install development version from GitHub for the most recent updates.
@@ -183,7 +183,7 @@ Install development version from GitHub for the most recent updates.
 <a href="/project/rmm/#r-package-multigraphr" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 210px;">
+<img src="./rpackage/multigraphr/featured.png" class="thumbnail-image card-img" style="height: 350px;">
 </p>
 <div class="card-text listing-description">
 Latest published version 0.2.0 on CRAN is up to date.
