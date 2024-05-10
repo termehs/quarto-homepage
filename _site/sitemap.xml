@@ -166,7 +166,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/Tidyverse/index.html</loc>
-    <lastmod>2024-04-26T07:35:09.451Z</lastmod>
+    <lastmod>2024-05-10T08:00:34.840Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/Tidyverse/material/starwars.html</loc>
@@ -183,5 +183,13 @@
   <url>
     <loc>https://mrs.schochastics.net/rpackage/netropy/index.html</loc>
     <lastmod>2024-02-19T11:49:58.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/Tidyverse/material/hotels-datawrangling.html</loc>
+    <lastmod>2024-05-07T10:42:01.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/Tidyverse/material/lab-03-nobel-laureates.html</loc>
+    <lastmod>2024-01-29T14:18:26.000Z</lastmod>
   </url>
 </urlset>
