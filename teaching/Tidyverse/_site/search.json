@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Wrangling and Visualization with Tidyverse",
     "section": "",
-    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\nWeek 1: Meet the toolkit\n12.04.2024\n\n\n\n\n\nWeek 2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\nWeek 3: Visualizing numerical and categorical data\n26.04.2024\n\n\n.csv\n\n\nWeek 4: Grammar of data wrangling I\n10.05.2024\n\n\n.csv\n\n\n\n\n\n\n.csv"
+    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\nWeek 1: Meet the toolkit\n12.04.2024\n\n\n\n\n\nWeek 2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\nWeek 3: Visualizing numerical and categorical data\n26.04.2024\n\n\nplastic-waste.csv\n\n\nWeek 4: Grammar of data wrangling I\n10.05.2024\n\n\nhotels.csv\n\n\n\n\n\n\nnobel.csv\n\n\nWeek 5: Grammar of data wrangling II\n17.05.2024\n\n\nlecture.zip"
   },
   {
     "objectID": "material/bechdel.html",
