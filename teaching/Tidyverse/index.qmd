@@ -22,8 +22,9 @@ library(tidyverse)
 
 |                                                    | date       |slides  | practical | data | 
 |----------------------------------------------------|------------|:------:|:---------:|:---------:|
-| **Week 1**: Meet the toolkit | 12.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd)  | |
-| **Week 2**:  Data visualization and ggplot  | 19.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy02-data-viz-ggplot)  |  [{{< fa file >}}](material/starwars.qmd)   |  |
-| **Week 3**:  Visualizing numerical and categorical data | 26.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy03-data-viz-num-cat)  |  [{{< fa file >}}](material/plastic-waste.qmd)   |  [.zip](material/data03.zip)|
-| **Week 4**:  Grammar of data wrangling I| 10.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy04-grammar-wrangle-single-df)  |  [{{< fa file >}}](material/hotels-datawrangling.qmd)   [{{< fa file >}}](material/nobel-laureates.qmd)   |  [.zip](material/data04.zip)|
-| **Week 5**:  Grammar of data wrangling II| 17.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy05-grammar-wrangle-multiple-df)  | [{{< fa file >}}](material/la-quinta.qmd) |  [.zip](material/data05.zip)|
+| **1**: Meet the toolkit | 12.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd)  | |
+| **2**:  Data visualization and ggplot  | 19.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy02-data-viz-ggplot)  |  [{{< fa file >}}](material/starwars.qmd)   |  |
+| **3**:  Visualizing numerical and categorical data | 26.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy03-data-viz-num-cat)  |  [{{< fa file >}}](material/plastic-waste.qmd)   |  [.zip](material/data03.zip)|
+| **4**:  Grammar of data wrangling I| 10.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy04-grammar-wrangle-single-df)  |  [{{< fa file >}}](material/hotels-datawrangling.qmd)   [{{< fa file >}}](material/nobel-laureates.qmd)   |  [.zip](material/data04.zip)|
+| **5**:  Grammar of data wrangling II| 17.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy05-grammar-wrangle-multiple-df)  | [{{< fa file >}}](material/la-quinta.qmd) |  [.zip](material/data05.zip)|
+| **6**:  Tidying Data| 23.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy06-tidying)  | [{{< fa file >}}]() |  [.zip](material/data06.zip)|
