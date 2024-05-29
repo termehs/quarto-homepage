@@ -102,8 +102,10 @@ NEWS
 
 ## General
 ### 05.06.2024: Inaugural Professorial Lecture 🤓
-My inaugural talk will take place on June 5th at the University of Konstanz which is open for everyone to join. The talk is followed by (finger) food and drinks 🥂
-More information can be found [here](https://www.polver.uni-konstanz.de/fachbereich/aktuelles/veranstaltungen/aktuelle-termine/detail-aktuelle-termine/termin/inaugural-lecture-of-prof-dr-termeh-shafie/). 
+I'll be giving my [inaugural professorial lecture](https://www.polver.uni-konstanz.de/fachbereich/aktuelles/veranstaltungen/aktuelle-termine/detail-aktuelle-termine/termin/inaugural-lecture-of-prof-dr-termeh-shafie/).  which is open for anyone who wants join. Expect a lot of big words, personal anecdotes, some mildly amusing jokes, and maybe even technical hiccup or two 🤓📚✨ <br> Join afterward for finger food and drinks 🥂<br>
+<br>
+📅 Date: June 5th<br>
+📍 Venue: Data Theatre ZT1204, University of Konstanz 
 
 ### 20.02.2024: Multigraphr 0.2.0
 The new version of [multigraphr](/project/rmm/#r-package-multigraphr) is published on CRAN. No user facing changes, just improved performance thanks to [David Schoch](https://mr.schochastics.net).
