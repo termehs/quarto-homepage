@@ -28,3 +28,4 @@ library(tidyverse)
 | **4**:  Grammar of data wrangling I| 10.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy04-grammar-wrangle-single-df)  |  [{{< fa file >}}](material/hotels-datawrangling.qmd)   [{{< fa file >}}](material/nobel-laureates.qmd)   |  [.zip](material/data04.zip)|
 | **5**:  Grammar of data wrangling II| 17.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy05-grammar-wrangle-multiple-df)  | [{{< fa file >}}](material/la-quinta.qmd) |  [.zip](material/data05.zip)|
 | **6**:  Tidying Data| 23.05.2024 | [{{< fa display >}}](https://termehs.github.io/tidy06-tidying)  | [{{< fa file >}}]() |  [.zip](material/data06.zip)|
+| **7**:  More Practicals| 07.06.2024 | | [{{< fa file >}}](material/college-majors.qmd)   [{{< fa file >}}](material/legos.qmd)   |  [.zip](material/data07.zip)|

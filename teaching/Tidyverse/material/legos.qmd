@@ -1,0 +1,59 @@
+---
+title:  "Legos"
+author: "Termeh Shafie <br> (adapted from original script by Mine Çetinkaya-Rundel)"
+format:
+  html:
+    embed-resources: true
+editor: visual
+execute:
+  warning: false
+---
+
+![](img/daniel-cheung-ZqqlOZyGG7g-unsplash.jpg) Here, we work with (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.
+
+## Data and Packages
+
+We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data is given to import.
+
+```{r load-packages, message = FALSE, eval = TRUE}
+library(tidyverse)
+```
+
+The following variables are available in the data set:
+
+-   `first_name`: First name of customer
+-   `last_name`: Last name of customer
+-   `age`: Age of customer
+-   `phone_number`: Phone number of customer
+-   `set_id`: Set ID of lego set purchased
+-   `number`: Item number of lego set purchased
+-   `theme`: Theme of lego set purchased
+-   `subtheme`: Sub theme of lego set purchased
+-   `year`: Year of purchase
+-   `name`: Name of lego set purchased
+-   `pieces`: Number of pieces of legos in set purchased
+-   `us_price`: Price of set purchase in US Dollars
+-   `image_url`: Image URL of lego set purchased
+-   `quantity`: Quantity of lego set(s) purchased
+
+# Exercises
+
+Answer the following questions using pipelines.
+
+1.  What are the three most common first names of purchasers?
+
+2.  What are the three most common themes of Lego sets purchased?
+
+3.  Among the most common theme of Lego sets purchased, what is the most common subtheme? **Hint:** Use the `case_when()` function.
+
+4.  Create a new variable called `age_group` and group the ages into the following categories: "18 and under", "19 - 25", "26 - 35", "36 - 50", "51 and over". **Hint:** You will need to consider quantity of purchases.
+
+5.  Which age group has purchased the highest number of Lego sets. **Hint:** You will need to consider quantity of purchases as well as price of lego sets.
+
+6.  Which age group has spent the most money on Legos? **Hint:** The [`str_sub()`](https://stringr.tidyverse.org/reference/str_sub.html) function will be helpful here!
+
+7.  Which Lego theme has made the most money for Lego?
+
+8.  Which area code has spent the most money on Legos? In the US the area code is the first 3 digits of a phone number.
+
+9.  Come up with a question you want to answer using these data, and write it down. Then, create a data visualization that answers the question, and explain how your visualization answers the question.

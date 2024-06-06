@@ -1,0 +1,17 @@
+{
+  "hash": "f775ba810184439657395b2502a0637f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle:  \"Legos\"\nauthor: \"Termeh Shafie <br> (adapted from original script by Mine Çetinkaya-Rundel)\"\nformat:\n  html:\n    embed-resources: true\neditor: visual\nexecute:\n  warning: false\n---\n\n\n![](img/daniel-cheung-ZqqlOZyGG7g-unsplash.jpg) Here, we work with (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.\n\n## Data and Packages\n\nWe'll use the **tidyverse** package for much of the data wrangling and visualisation and the data is given to import.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n:::\n\n\nThe following variables are available in the data set:\n\n-   `first_name`: First name of customer\n-   `last_name`: Last name of customer\n-   `age`: Age of customer\n-   `phone_number`: Phone number of customer\n-   `set_id`: Set ID of lego set purchased\n-   `number`: Item number of lego set purchased\n-   `theme`: Theme of lego set purchased\n-   `subtheme`: Sub theme of lego set purchased\n-   `year`: Year of purchase\n-   `name`: Name of lego set purchased\n-   `pieces`: Number of pieces of legos in set purchased\n-   `us_price`: Price of set purchase in US Dollars\n-   `image_url`: Image URL of lego set purchased\n-   `quantity`: Quantity of lego set(s) purchased\n\n# Exercises\n\nAnswer the following questions using pipelines.\n\n1.  What are the three most common first names of purchasers?\n\n2.  What are the three most common themes of Lego sets purchased?\n\n3.  Among the most common theme of Lego sets purchased, what is the most common subtheme? **Hint:** Use the `case_when()` function.\n\n4.  Create a new variable called `age_group` and group the ages into the following categories: \"18 and under\", \"19 - 25\", \"26 - 35\", \"36 - 50\", \"51 and over\". **Hint:** You will need to consider quantity of purchases.\n\n5.  Which age group has purchased the highest number of Lego sets. **Hint:** You will need to consider quantity of purchases as well as price of lego sets.\n\n6.  Which age group has spent the most money on Legos? **Hint:** The [`str_sub()`](https://stringr.tidyverse.org/reference/str_sub.html) function will be helpful here!\n\n7.  Which Lego theme has made the most money for Lego?\n\n8.  Which area code has spent the most money on Legos? In the US the area code is the first 3 digits of a phone number.\n\n9.  Come up with a question you want to answer using these data, and write it down. Then, create a data visualization that answers the question, and explain how your visualization answers the question.\n",
+    "supporting": [
+      "legos_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
