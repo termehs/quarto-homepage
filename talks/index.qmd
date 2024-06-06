@@ -10,6 +10,8 @@ listing:
     - SUNBELT2022
     - WiNS2022
     - EUSN2019
+    - EUSN2019
+    - Inaugural-KN
   type: grid
   image-height: "124px"	
   categories: true

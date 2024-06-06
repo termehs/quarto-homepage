@@ -1,0 +1,22 @@
+---
+author: Termeh Shafie
+date: "2024-06-05"
+title: Statistical Analysis & Modeling of Multivariate Networks
+subtitle: Inaugural Lecture, University of Konstanz
+title-block-style: none
+toc: false
+image: featured.png
+date-format: medium
+categories:
+  - multigraph
+  - multivariate analysis
+  - computational social science
+  - digital humanities 
+  - ego networks
+  - entropy
+  - goodness of fit
+url: https://termehs.github.io/Inaugural-KN-050624
+---
+
+<button type="button" class="btn btn-outline-success">
+<a href="https://termehs.github.io/Inaugural-KN-050624" target="_blank">Slides</a></button>

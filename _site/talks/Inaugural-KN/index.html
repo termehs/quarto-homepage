@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Termeh Shafie">
 
-<title>Termeh Shafie - Talks</title>
+<title>Termeh Shafie - Statistical Analysis &amp; Modeling of Multivariate Networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +24,19 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<link href="../static/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../static/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -53,90 +52,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../academicons.css">
-<link rel="stylesheet" href="talks.css">
-<meta property="og:title" content="Termeh Shafie - Talks">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../academicons.css">
+<link rel="stylesheet" href="../talks.css">
+<meta property="og:title" content="Termeh Shafie - Statistical Analysis &amp; Modeling of Multivariate Networks">
 <meta property="og:description" content="Termeh Shafie’s website and blog that mainly features the topics statistics, network science, and R">
-<meta property="og:image" content="https://mrs.schochastics.net/talks/static/img/avatar.png">
+<meta property="og:image" content="https://mrs.schochastics.net/talks/Inaugural-KN/featured.png">
 <meta property="og:site_name" content="mrs schochastics">
-<meta name="twitter:title" content="Termeh Shafie - Talks">
+<meta property="og:image:height" content="962">
+<meta property="og:image:width" content="1720">
+<meta name="twitter:title" content="Termeh Shafie - Statistical Analysis &amp; Modeling of Multivariate Networks">
 <meta name="twitter:description" content="Termeh Shafie’s website and blog that mainly features the topics statistics, network science, and R">
-<meta name="twitter:image" content="https://mrs.schochastics.net/talks/static/img/avatar.png">
+<meta name="twitter:image" content="https://mrs.schochastics.net/talks/Inaugural-KN/featured.png">
 <meta name="twitter:creator" content="@termehshafie">
 <meta name="twitter:site" content="@termehshafie">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="962">
+<meta name="twitter:image-width" content="1720">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../static/logo.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../static/logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -145,31 +90,31 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about/index.html"> 
+    <a class="nav-link" href="../../about/index.html"> 
 <span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../project/index.html"> 
+    <a class="nav-link" href="../../project/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../publications/index.html"> 
+    <a class="nav-link" href="../../publications/index.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../talks/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html"> 
+    <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../blog/index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog/index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -184,196 +129,26 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="computational social science">computational social science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="digital humanities">digital humanities <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ego networks">ego networks <span class="quarto-category-count">(2)</span></div><div class="category" data-category="entropy">entropy <span class="quarto-category-count">(3)</span></div><div class="category" data-category="goodness of fit">goodness of fit <span class="quarto-category-count">(2)</span></div><div class="category" data-category="multigraph">multigraph <span class="quarto-category-count">(6)</span></div><div class="category" data-category="multivariate analysis">multivariate analysis <span class="quarto-category-count">(5)</span></div></div></div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Talks</h1>
-</div>
+<header id="title-block-header">
+<h1 class="title display-7">Statistical Analysis &amp; Modeling of Multivariate Networks</h1>
+<p class="subtitle lead">Inaugural Lecture, University of Konstanz</p>
+<p class="author">Termeh Shafie</p>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
+<p class="date">Jun 5, 2024</p>
 </header>
 
 
+<button type="button" class="btn btn-outline-success">
+<a href="https://termehs.github.io/Inaugural-KN-050624" target="_blank">Slides</a>
+</button>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-talks">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="multigraph,multivariate analysis,computational social science,digital humanities,ego networks,entropy,goodness of fit" data-listing-date-sort="1717538400000" data-listing-file-modified-sort="1717681204375" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
-<a href="../talks/Inaugural-KN/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/Inaugural-KN/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Statistical Analysis &amp; Modeling of Multivariate Networks
-</h5>
-<div class="card-subtitle listing-subtitle">
-Inaugural Lecture, University of Konstanz
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jun 5, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="multigraph,multivariate analysis,computational social science,digital humanities" data-listing-date-sort="1667343600000" data-listing-file-modified-sort="1716550007830" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<a href="../talks/CMB2022/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/CMB2022/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-“Analyzing Social Structure using Multigraph Representations”
-</h5>
-<div class="card-subtitle listing-subtitle">
-Presentation @ Centre Marc Bloch, Berlin
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 2, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="multigraph,ego networks,multivariate analysis" data-listing-date-sort="1657836000000" data-listing-file-modified-sort="1708343398825" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="11">
-<a href="../talks/SUNBELT2022/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/SUNBELT2022/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-“Statistical Analysis of Multivariate Egocentric Networks”
-</h5>
-<div class="card-subtitle listing-subtitle">
-The XLII Social Networks Conference of INSNA
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 15, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="entropy,multivariate analysis" data-listing-date-sort="1651701600000" data-listing-file-modified-sort="1708343398827" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
-<a href="../talks/WiNS2022/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/WiNS2022/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-“Statistical Entropy Analysis of Network Data”
-</h5>
-<div class="card-subtitle listing-subtitle">
-The Women in Network Science (WiNS) seminar
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-May 5, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="multigraph,multivariate analysis" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1708343398744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
-<a href="../talks/EUSN2021/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/EUSN2021/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Multiplexity Analysis of Networks using Multigraph Representations
-</h5>
-<div class="card-subtitle listing-subtitle">
-The 5th European Conference on Social Networks
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 7, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="multigraph,goodness of fit" data-listing-date-sort="1625522400000" data-listing-file-modified-sort="1708343398819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="31">
-<a href="../talks/NETWORKS2021/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/NETWORKS2021/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-“Goodness of Fit Tests for Random Multigraph Models”
-</h5>
-<div class="card-subtitle listing-subtitle">
-Network 2021 - A Joint Sunbelt and NetSci Conference
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 6, 2021
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="entropy,multigraph" data-listing-date-sort="1567980000000" data-listing-file-modified-sort="1716549768458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
-<a href="../talks/EUSN2019/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../talks/EUSN2019/featured.png" class="thumbnail-image card-img" style="height: 124px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-“Gender Dependent Structures of Dialogue Networks in Films”
-</h5>
-<div class="card-subtitle listing-subtitle">
-The 4th European Conference on Social Networks
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 9, 2019
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
