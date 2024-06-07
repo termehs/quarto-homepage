@@ -9,7 +9,10 @@ execute:
   warning: false
 ---
 
-![](img/daniel-cheung-ZqqlOZyGG7g-unsplash.jpg) Here, we work with (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.
+
+
+![](img/daniel-cheung-ZqqlOZyGG7g-unsplash.jpg)
+Here, we work with (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.
 
 ## Data and Packages
 
@@ -18,7 +21,6 @@ We'll use the **tidyverse** package for much of the data wrangling and visualisa
 ```{r load-packages, message = FALSE, eval = TRUE}
 library(tidyverse)
 ```
-
 The following variables are available in the data set:
 
 -   `first_name`: First name of customer
@@ -36,6 +38,7 @@ The following variables are available in the data set:
 -   `image_url`: Image URL of lego set purchased
 -   `quantity`: Quantity of lego set(s) purchased
 
+
 # Exercises
 
 Answer the following questions using pipelines.
@@ -44,16 +47,25 @@ Answer the following questions using pipelines.
 
 2.  What are the three most common themes of Lego sets purchased?
 
-3.  Among the most common theme of Lego sets purchased, what is the most common subtheme? **Hint:** Use the `case_when()` function.
+3.  Among the most common theme of Lego sets purchased, what is the most common subtheme?
 
-4.  Create a new variable called `age_group` and group the ages into the following categories: "18 and under", "19 - 25", "26 - 35", "36 - 50", "51 and over". **Hint:** You will need to consider quantity of purchases.
 
-5.  Which age group has purchased the highest number of Lego sets. **Hint:** You will need to consider quantity of purchases as well as price of lego sets.
+4.  Create a new variable called `age_group` and group the ages into the following categories: "18 and under", "19 - 25", "26 - 35", "36 - 50", "51 and over".
+**Hint:** Use the `case_when()` function.
 
-6.  Which age group has spent the most money on Legos? **Hint:** The [`str_sub()`](https://stringr.tidyverse.org/reference/str_sub.html) function will be helpful here!
+
+5.  Which age group has purchased the highest number of Lego sets.
+**Hint:** You will need to consider quantity of purchases.
+
+6.  Which age group has spent the most money on Legos?
+ **Hint:** You will need to consider quantity of purchases as well as price of lego sets.
 
 7.  Which Lego theme has made the most money for Lego?
+**Hint:** The [`str_sub()`](https://stringr.tidyverse.org/reference/str_sub.html) function will be helpful here!
 
-8.  Which area code has spent the most money on Legos? In the US the area code is the first 3 digits of a phone number.
 
-9.  Come up with a question you want to answer using these data, and write it down. Then, create a data visualization that answers the question, and explain how your visualization answers the question.
+8.  Which area code has spent the most money on Legos?
+    In the US the area code is the first 3 digits of a phone number.
+
+9.  Come up with a question you want to answer using these data, and write it down.
+    Then, create a data visualization that answers the question, and explain how your visualization answers the question.
