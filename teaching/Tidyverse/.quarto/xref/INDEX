@@ -43,5 +43,14 @@
   },
   "material/college-majors.qmd": {
     "college-majors.html": "443059b2"
+  },
+  "material/data-type-class-exercises.qmd": {
+    "data-type-class-exercises.html": "12e65463"
+  },
+  "material/hotels-forcats.qmd": {
+    "hotels-forcats.html": "18ae712d"
+  },
+  "material/type-coercion.qmd": {
+    "type-coercion.html": "5ff4cbf4"
   }
 }

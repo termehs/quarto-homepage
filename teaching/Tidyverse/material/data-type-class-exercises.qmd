@@ -1,0 +1,141 @@
+---
+title: "Data Type and Data Classes: Exercises"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+editor: visual
+execute:
+  warning: false
+---
+
+## Exercise
+
+Double check that you do not have stored objects in your current session with the following command. This will list all objects that you have in
+your current R session.
+
+```{r}
+ls()
+```
+
+In case you have objects that you want to remove from the current session you can do so with the `rm()` function. <i class="fas fa-exclamation-circle"></i> This command will remove all objects available in your current environment.
+
+```{r,eval=FALSE}
+rm(list = ls())
+```
+
+This command uses commands that we have not talked about yet. If you do not understand how it works now, you will do so after tomorrows lectures and exercises.
+
+1. Create variables *var1* and *var2* and initialize them with two integers of choice.
+
+```{r, include = FALSE, accordion=TRUE}
+var1 <- 11
+var2 <- 34
+```
+
+2. Add the two variables and save them as a new variable named *var3* and print the result.
+
+```{r,include = FALSE, accordion=TRUE}
+var3 <- var1 + var2
+var3
+```
+
+3. Check the class, mode, and type for var1, var2, var3 and &pi; (is found under the variable name `pi` in R)
+
+```{r,include = FALSE, accordion=TRUE}
+mode(var1)
+class(var1)
+typeof(var1)
+```
+
+```{r, include = FALSE, accordion=TRUE}
+mode(pi)
+class(pi)
+typeof(pi)
+```
+
+4. Create two character variables containing a text of choice. Check the mode, class, and type of the first one.
+
+```{r, include = FALSE, accordion=TRUE}
+text1 <- "test1"
+text2 <- "test2"
+
+mode(text1)
+class(text1)
+typeof(text1)
+```
+
+Add **var1** to it. What is the result and why?
+
+<!-- # ```{r,include = FALSE, accordion=TRUE, error=TRUE} -->
+<!-- # text1+var1 -->
+<!-- # ``` -->
+
+5. Convert **var3** to an integer, cast an integer variable to double, cast a string to a double.
+
+```{r,include = FALSE, accordion=TRUE}
+as.integer(var3)
+i <- 175
+as.double(i)
+as.double(text1)
+```
+
+6. Report floor and ceiling of &pi; and round &pi; to 3 decimal places.
+
+```{r,include = FALSE, ,accordion=TRUE}
+floor(pi)
+ceiling(pi)
+round(pi, digits=3)
+```
+
+7. Is floor of &pi; an integer?
+
+```{r,include = FALSE, accordion=TRUE}
+is.integer(floor(pi))
+```
+
+8. Treat `"3.56437"` string as number.
+
+```{r,include = FALSE, accordion=TRUE}
+as.numeric('3.56437')
+```
+
+9. Divide &infin; by - &infin;
+
+```{r,include = FALSE, accordion=TRUE}
+Inf/-Inf
+```
+
+
+10. Print a truth table for OR (for three distinct logical values). Read about truth tables [here](https://en.wikipedia.org/wiki/Truth_table).
+
+```{r,include = FALSE, accordion=TRUE}
+x <- c(NA, FALSE, TRUE)
+names(x) <- as.character(x)
+outer(x, x, "|")
+```
+
+12. Multiply a logical TRUE by a logical FALSE. Rise the logical true to the 7-th power.
+
+```{r,include = FALSE, accordion=TRUE}
+TRUE * FALSE
+T^7
+```
+
+13. Create two character variables containing two verses of a chosen song.
+
+- Concatenate the two variables,  
+- Paste the variables with '\*' as separator.  
+- Find if 'and' occurs in the second line,  
+- Substitute a word for another,  
+- Extract substring starting at the 5th character and 5 characters long.  
+
+```{r,include = FALSE, accordion=TRUE}
+line1 <- "Hello darkness my old friend"
+line2 <- "I've come to talk to you again"
+paste(line1, line2, sep = "")
+paste(line1, line2, sep = "*")
+grep('and', line2)
+sub('Hello', 'Goodbye', line1)
+substr(line1, 5, 5 + 5)
+```
