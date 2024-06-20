@@ -1,0 +1,15 @@
+{
+  "hash": "50af5409d3870c48ca9e9dc4c551dd6f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Nobel winners\"\nauthor: \"Termeh Shafie <br> (adapted from original script by Mine Çetinkaya-Rundel)\"\neditor: visual\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n:::\n\n\nLet's first load the data:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nnobel <- ___(___)\n```\n:::\n\n\nThen let's split the data into two:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# stem laureates\n___ <- nobel %>%\n  filter(___)\n\n# non-steam laureates\n___ <- nobel %>%\n  filter(___)\n```\n:::\n\n\nAnd finally write out the data:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# add code for writing out the two data frames here\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

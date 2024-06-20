@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Wrangling and Visualization with Tidyverse",
     "section": "",
-    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\n1: Meet the toolkit\n12.04.2024\n\n\n\n\n\n2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\n3: Visualizing numerical and categorical data\n26.04.2024\n\n\n.zip\n\n\n4: Grammar of data wrangling I\n10.05.2024\n\n \n.zip\n\n\n5: Grammar of data wrangling II\n17.05.2024\n\n\n.zip\n\n\n6: Tidying Data\n23.05.2024\n\n\n.zip\n\n\n     More Practicals\n07.06.2024\n\n \n.zip\n\n\n7: Data Types and Data Classes\n14.06.2024\n\n  \n.zip"
+    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\n1: Meet the toolkit\n12.04.2024\n\n\n\n\n\n2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\n3: Visualizing numerical and categorical data\n26.04.2024\n\n\n.zip\n\n\n4: Grammar of data wrangling I\n10.05.2024\n\n \n.zip\n\n\n5: Grammar of data wrangling II\n17.05.2024\n\n\n.zip\n\n\n6: Tidying Data\n23.05.2024\n\n\n.zip\n\n\n     More Practicals\n07.06.2024\n\n \n.zip\n\n\n7: Data Types and Data Classes\n14.06.2024\n\n  \n.zip\n\n\n8: Importing and Recoding Data\n21.06.2024\n\n  \n.zip"
   },
   {
     "objectID": "material/bechdel.html",
@@ -369,5 +369,138 @@
     "title": "Data Type and Data Classes: Exercises",
     "section": "",
     "text": "Double check that you do not have stored objects in your current session with the following command. This will list all objects that you have in your current R session.\n\nls()\n\ncharacter(0)\n\n\nIn case you have objects that you want to remove from the current session you can do so with the rm() function.  This command will remove all objects available in your current environment.\n\nrm(list = ls())\n\nThis command uses commands that we have not talked about yet. If you do not understand how it works now, you will do so after tomorrows lectures and exercises.\n\nCreate variables var1 and var2 and initialize them with two integers of choice.\nAdd the two variables and save them as a new variable named var3 and print the result.\nCheck the class, mode, and type for var1, var2, var3 and π (is found under the variable name pi in R)\nCreate two character variables containing a text of choice. Check the mode, class, and type of the first one.\n\nAdd var1 to it. What is the result and why?\n\n\n\n\nConvert var3 to an integer, cast an integer variable to double, cast a string to a double.\nReport floor and ceiling of π and round π to 3 decimal places.\nIs floor of π an integer?\nTreat \"3.56437\" string as number.\nDivide ∞ by - ∞\nPrint a truth table for OR (for three distinct logical values). Read about truth tables here.\nMultiply a logical TRUE by a logical FALSE. Rise the logical true to the 7-th power.\nCreate two character variables containing two verses of a chosen song.\n\n\nConcatenate the two variables,\n\nPaste the variables with ‘*’ as separator.\n\nFind if ‘and’ occurs in the second line,\n\nSubstitute a word for another,\n\nExtract substring starting at the 5th character and 5 characters long."
+  },
+  {
+    "objectID": "material/nobels-csv.html",
+    "href": "material/nobels-csv.html",
+    "title": "Nobel winners",
+    "section": "",
+    "text": "library(tidyverse)\n\nLet’s first load the data:\n\nnobel &lt;- ___(___)\n\nThen let’s split the data into two:\n\n# stem laureates\n___ &lt;- nobel %&gt;%\n  filter(___)\n\n# non-steam laureates\n___ &lt;- nobel %&gt;%\n  filter(___)\n\nAnd finally write out the data:\n\n# add code for writing out the two data frames here"
+  },
+  {
+    "objectID": "material/sales-excel.html",
+    "href": "material/sales-excel.html",
+    "title": "Sales",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(readxl)\n\n\nRead in the Excel file called sales.xlsx from the data-raw/ folder such that it looks like the following.\n\n\n\n\n\n\n\n\n\n\n\nStretch goal: Manipulate the sales data such such that it looks like the following."
+  },
+  {
+    "objectID": "material/nyc-flights.html",
+    "href": "material/nyc-flights.html",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows."
+  },
+  {
+    "objectID": "material/nyc-flights.html#packages",
+    "href": "material/nyc-flights.html#packages",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package.\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
+  },
+  {
+    "objectID": "material/nyc-flights.html#data",
+    "href": "material/nyc-flights.html#data",
+    "title": "NYC flights",
+    "section": "Data",
+    "text": "Data\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises."
+  },
+  {
+    "objectID": "material/nyc-flights.html#exercise-1",
+    "href": "material/nyc-flights.html#exercise-1",
+    "title": "NYC flights",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nImagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables would you need to combine?"
+  },
+  {
+    "objectID": "material/nyc-flights.html#exercise-2",
+    "href": "material/nyc-flights.html#exercise-2",
+    "title": "NYC flights",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nThis plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. Hint: you can create a layer of map borders using borders(state)."
+  },
+  {
+    "objectID": "material/nyc-flights.html#exercise-3",
+    "href": "material/nyc-flights.html#exercise-3",
+    "title": "NYC flights",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe know that some days of the year are “special”, and fewer people than usual fly on them. Since it is US data for 2013 we will consider: New Years Day, Independence Day, Thanksgiving Day, Christmas Day.\nHow might you represent that data as a data frame? What would be the primary keys of that table? How would it connect to the existing tables?"
+  },
+  {
+    "objectID": "material/nyc-flights.html#exercise-4",
+    "href": "material/nyc-flights.html#exercise-4",
+    "title": "NYC flights",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nCreate a visualization fo your own to illustrate if indeed fewer people than usual fly on the above special days."
+  },
+  {
+    "objectID": "material/nyc-flights.html#packages-and-data",
+    "href": "material/nyc-flights.html#packages-and-data",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows."
+  },
+  {
+    "objectID": "material/nyc-flights.html#familiarizing-ourselves-with-the-dataset",
+    "href": "material/nyc-flights.html#familiarizing-ourselves-with-the-dataset",
+    "title": "NYC flights",
+    "section": "Familiarizing ourselves with the dataset",
+    "text": "Familiarizing ourselves with the dataset\n\nWhat variables are included in the flights dataset? How many rows are there?\nWhat variables are included in the airports dataset? How many rows are there?\nWhich variables are included in the airlines dataset? How many rows are there?"
+  },
+  {
+    "objectID": "material/nyc-flights.html#focusing-on-atlanta",
+    "href": "material/nyc-flights.html#focusing-on-atlanta",
+    "title": "NYC flights",
+    "section": "Focusing on Atlanta",
+    "text": "Focusing on Atlanta\n\nLet’s focus on flights from NYC area airports to Atlanta GA (FAA code ATL). Create a new object atlanta that includes only these flights. Hint: use filter()). How many flights to Atlanta were there in 2013?"
+  },
+  {
+    "objectID": "material/nyc-flights.html#seasonality",
+    "href": "material/nyc-flights.html#seasonality",
+    "title": "NYC flights",
+    "section": "Seasonality",
+    "text": "Seasonality\n\nIs there a difference in the number of flights per month?\nSummarize the number of flights for each month and provide a sorted list with the months with the most flights first. Hint: use group_by() in combination with summarize())."
+  },
+  {
+    "objectID": "material/nyc-flights.html#use-filter",
+    "href": "material/nyc-flights.html#use-filter",
+    "title": "NYC flights",
+    "section": "Use filter()",
+    "text": "Use filter()\n\nFind all flights that\n\n\nHad an arrival delay of two or more hours.\nFlew to Houston (IAH or HOU)\nWere operated by United, American, or Delta. Hint: In the flights dataset, the column carrier indicates the airline, but it uses two-character carrier codes. You can find the carrier codes for the airlines in the airlines dataset. Since the carrier code dataset only has 16 rows, and the names of the airlines in that dataset are not exactly “United”, “American”, or “Delta”, it is easiest to manually look up their carrier codes in that data.\nDeparted in summer (July, August, and September). Hint: the summer flights are those that departed in months 7 (July), 8 (August), and 9 (September).\nArrived more than two hours late, but didn’t leave late. Hint: Flights that arrived more than two hours late, but didn’t leave late will have an arrival delay of more than 120 minutes (arr_delay &gt; 120) and a non-positive departure delay (dep_delay &lt;=0)\nWere delayed by at least an hour, but made up over 30 minutes in flight. Hint: If a flight was delayed by at least an hour, then dep_delay &gt;= 60. If the flight didn’t make up any time in the air, then its arrival would be delayed by the same amount as its departure, meaning dep_delay == arr_delay, or alternatively, dep_delay - arr_delay == 0. If it makes up over 30 minutes in the air, then the arrival delay must be at least 30 minutes less than the departure delay, which is stated as dep_delay - arr_delay &gt; 30.\nDeparted between midnight and 6 am (inclusive). Hint: In dep_time, midnight is represented by 2400, not 0. You can verify this by checking the minimum and maximum of dep_time."
+  },
+  {
+    "objectID": "material/nyc-flights.html#arrange-rows-with-arrange",
+    "href": "material/nyc-flights.html#arrange-rows-with-arrange",
+    "title": "NYC flights",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\nHow could you use arrange() to sort all missing values to the start? Hint: use is.na()) and add an indicator of whether the column has a missing value, the flights will first be sorted by desc(is.na(dep_time)). Since desc(is.na(dep_time)) is either TRUE when dep_time is missing, or FALSE, when it is not, the rows with missing values of dep_time will come first, since TRUE &gt; FALSE.\nSort flights to find the most delayed flights. Find the flights that left earliest.\nSort flights to find the fastest flights."
+  },
+  {
+    "objectID": "material/nyc-flights.html#seelct-variables-with-select",
+    "href": "material/nyc-flights.html#seelct-variables-with-select",
+    "title": "NYC flights",
+    "section": "Seelct variables with select()",
+    "text": "Seelct variables with select()\n\nWhat does the one_of() function do? Why might it be helpful in conjunction with this vector?"
+  },
+  {
+    "objectID": "material/nyc-flights.html#add-new-variables-with-mutate",
+    "href": "material/nyc-flights.html#add-new-variables-with-mutate",
+    "title": "NYC flights",
+    "section": "Add new variables with mutate()",
+    "text": "Add new variables with mutate()\n\nCompare air_time with arr_time - dep_time. What do you expect to see? What do you see? What do you need to do to fix it?\nCome up with another approach that will give you the same output as not_cancelled %&gt;% count(dest) and not_cancelled %&gt;% count(tailnum, wt = distance) (without using count()).\nLook at the number of cancelled flights per day. Is there a pattern? Create a plot to visualize your answers.\nFor each destination, compute the total minutes of delay. For each flight, compute the proportion of the total delay for its destination.\nDelays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using lag() to explore how the delay of a flight is related to the delay of the immediately preceding flight. Use a plot to visualize this."
+  },
+  {
+    "objectID": "material/nyc-flights.html#more-viz",
+    "href": "material/nyc-flights.html#more-viz",
+    "title": "NYC flights",
+    "section": "More Viz",
+    "text": "More Viz\n\nVisualize the distribution of on time departure rate across the three airports using a segmented bar plot. Hint: Remove NA’s and suppose that a flight that is delayed for less than 5 minutes is basically “on time”."
+  },
+  {
+    "objectID": "material/nyc-flights.html#advanced-exercises",
+    "href": "material/nyc-flights.html#advanced-exercises",
+    "title": "NYC flights",
+    "section": "Advanced Exercises:",
+    "text": "Advanced Exercises:\n\nImagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables from the package you loaded would you need to combine?\nThis plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. Hint: you can create a layer of map borders using borders(state).\n\n\n\n\n\n\n\n\n\n\n\nWe know that some days of the year are “special”, and fewer people than usual fly on them. Since it is US data for 2013 we will consider: New Years Day, Independence Day, Thanksgiving Day, Christmas Day.\n\nHow might you represent that data as a data frame? What would be the primary keys of that table? How would it connect to the existing tables?\nWe can add a table of special dates, similar to the following table.\n\nspecial_days &lt;- tribble(\n  ~year, ~month, ~day, ~holiday,\n  2013, 01, 01, \"New Years Day\",\n  2013, 07, 04, \"Independence Day\",\n  2013, 11, 29, \"Thanksgiving Day\",\n  2013, 12, 25, \"Christmas Day\"\n)\n\nThe primary key of the table would be the (year, month, day) columns. The (year, month, day) columns could be used to join special_days with other tables.\n\nCreate a visualization fo your own to illustrate if indeed fewer people than usual fly on the above special days.\nCompute the average delay by destination, then join on the airports data frame so you can show the spatial distribution of delays. Here’s an easy way to draw a map of the United States (can you understand why we choose semi-join?):\n\n\nairports %&gt;%\n  semi_join(flights, c(\"faa\" = \"dest\")) %&gt;%\n  ggplot(aes(lon, lat)) +\n  borders(\"state\") +\n  geom_point() +\n  coord_quickmap() + \n  theme_void()\n\n\n\n\n\n\n\n\nHint: You might want to use the size or color of the points to display the average delay for each airport.\n\nWhat weather conditions make it more likely to see a delay? Use the variable precip (precipitation) from the weather dataset to answer this.\nWhat happened on June 13, 2013? Reproduce the following plot which displays the spatial pattern of delays, and then use Google to cross-reference with the weather. Hint: use library(viridis) to get the same colors."
   }
 ]

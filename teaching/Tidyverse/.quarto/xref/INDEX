@@ -52,5 +52,14 @@
   },
   "material/type-coercion.qmd": {
     "type-coercion.html": "5ff4cbf4"
+  },
+  "material/sales-excel.qmd": {
+    "sales-excel.html": "a9743131"
+  },
+  "material/nyc-flights.qmd": {
+    "nyc-flights.html": "e68b48b9"
+  },
+  "material/nobels-csv.qmd": {
+    "nobels-csv.html": "c0100ef8"
   }
 }

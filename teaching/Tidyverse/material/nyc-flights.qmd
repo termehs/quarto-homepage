@@ -1,0 +1,374 @@
+---
+title:  "NYC flights"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+editor: visual
+execute:
+  warning: false
+---
+
+
+## Packages and Data
+
+For the below exercies we use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **nycflights13** package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013. 
+
+
+```{r load-packages, message = FALSE, eval = TRUE}
+library(tidyverse)
+library(nycflights13)
+```
+
+The data sets available in the package can be viewed using the following syntax:
+
+```{r glimpse, include = FALSE}
+data(package = "nycflights13")
+```
+
+You will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows.
+![](nycflights13.png)
+
+## Familiarizing ourselves with the dataset
+1. What variables are included in the `flights` dataset?
+How many rows are there?
+
+```{r include = FALSE}
+glimpse(flights)
+```
+
+2. What variables are included in the `airports` dataset? How many rows are there?
+```{r include = FALSE}
+glimpse(airports)
+```
+ 
+3. Which variables are included in the `airlines` dataset?
+How many rows are there?
+```{r include = FALSE}
+glimpse(airlines)
+```
+
+## Focusing on Atlanta
+
+4. Let's focus on flights from NYC area airports to Atlanta GA (FAA code ATL).
+Create a new object `atlanta` that includes only these flights. **Hint:** use `filter()`). How many flights to Atlanta were there in 2013?
+
+```{r include = FALSE }
+atlanta <- flights %>%
+  filter(dest == "ATL")
+glimpse(atlanta)
+```
+
+## Seasonality
+5. Is there a difference in the number of flights per month?  
+Summarize the number of flights for each month and provide a sorted list with the months with the most flights first. **Hint:** use `group_by()` in combination with `summarize()`).
+
+```{r include = FALSE}
+atlanta %>%
+  group_by(month) %>%
+  summarize(num_flights = n()) %>%
+  arrange(desc(num_flights))
+```
+
+## Use `filter()`
+6. Find all flights that
+- Had an arrival delay of two or more hours.
+```{r include = FALSE}
+filter(flights, arr_delay >= 120)
+```
+- Flew to Houston (IAH or HOU)
+```{r include = FALSE}
+filter(flights, dest == "IAH" | dest == "HOU")
+filter(flights, dest %in% c("IAH", "HOU"))
+```
+ - Were operated by United, American, or Delta. **Hint:** In the `flights` dataset, the column `carrier` indicates the airline, but it uses two-character carrier codes. You can find the carrier codes for the airlines in the `airlines` dataset. Since the carrier code dataset only has 16 rows, and the names of the airlines in that dataset are not exactly “United”, “American”, or “Delta”, it is easiest to manually look up their carrier codes in that data.
+```{r include = FALSE}
+filter(flights, carrier %in% c("AA", "DL", "UA"))
+```
+- Departed in summer (July, August, and September).
+**Hint:** the summer flights are those that departed in months 7 (July), 8 (August), and 9 (September).
+```{r include = FALSE}
+filter(flights, month %in% 7:9)
+# or
+filter(flights, month == 7 | month == 8 | month == 9)
+# or 
+filter(flights, between(month, 7, 9))
+```
+- Arrived more than two hours late, but didn’t leave late. **Hint:** Flights that arrived more than two hours late, but didn’t leave late will have an arrival delay of more than 120 minutes (`arr_delay > 120`) and a non-positive departure delay (`dep_delay <=0`)
+```{r include = FALSE}
+filter(flights, arr_delay > 120, dep_delay <= 0)
+```
+- Were delayed by at least an hour, but made up over 30 minutes in flight. **Hint:** If a flight was delayed by at least an hour, then `dep_delay >= 60`. If the flight didn’t make up any time in the air, then its arrival would be delayed by the same amount as its departure, meaning `dep_delay == arr_delay`, or alternatively, `dep_delay - arr_delay == 0`. If it makes up over 30 minutes in the air, then the arrival delay must be at least 30 minutes less than the departure delay, which is stated as `dep_delay - arr_delay > 30`.
+```{r include = FALSE}
+filter(flights, dep_delay >= 60, dep_delay - arr_delay > 30)
+```
+- Departed between midnight and 6 am (inclusive). **Hint:** In `dep_time`, midnight is represented by `2400`, not `0`. You can verify this by checking the minimum and maximum of `dep_time`.
+```{r include = FALSE}
+summary(flights$dep_time)
+filter(flights, dep_time <= 600 | dep_time == 2400)
+```
+
+## Arrange rows with `arrange()`
+7. How could you use  `arrange()` to sort all missing values to the start? **Hint:** use `is.na())` and add an indicator of whether the column has a missing value, the flights will first be sorted by `desc(is.na(dep_time))`. Since `desc(is.na(dep_time))` is either TRUE when `dep_time` is missing, or `FALSE`, when it is not, the rows with missing values of `dep_time` will come first, since `TRUE > FALSE`.
+```{r include = FALSE}
+arrange(flights, dep_time) %>%
+  tail()
+# Using desc() does not change that
+arrange(flights, desc(dep_time))
+# add an indicator of whether the column has a missing value
+arrange(flights, desc(is.na(dep_time)), dep_time)
+```
+
+
+8. Sort flights to find the most delayed flights. Find the flights that left earliest.
+```{r include = FALSE}
+arrange(flights, desc(dep_delay))
+# the earliest departing flight can be found by sorting dep_delay in ascending order.
+arrange(flights, dep_delay)
+```
+
+9. Sort flights to find the fastest flights.
+```{r include = FALSE}
+head(arrange(flights, air_time))
+# the highest average ground speed.
+head(arrange(flights, desc(distance / air_time)))
+```
+
+## Seelct variables with `select()`
+
+10. What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
+```{r include = FALSE}
+# it is easier to programmatically generate character vectors with variable names than to generate unquoted variable names
+vars <- c("year", "month", "day", "dep_delay", "arr_delay")
+select(flights, one_of(vars))
+# also useful:
+select(flights, any_of(vars))
+select(flights, all_of(vars))
+```
+
+
+## Add new variables with `mutate()`
+
+11. Compare `air_time` with `arr_time - dep_time`. What do you expect to see? What do you see? What do you need to do to fix it?
+```{r include = FALSE}
+# air_time = arr_time - dep_time
+flights_airtime <-
+  mutate(flights,
+    dep_time = (dep_time %/% 100 * 60 + dep_time %% 100) %% 1440,
+    arr_time = (arr_time %/% 100 * 60 + arr_time %% 100) %% 1440,
+    air_time_diff = air_time - arr_time + dep_time
+  )
+
+# does air_time = arr_time - dep_time?
+nrow(filter(flights_airtime, air_time_diff != 0))
+```
+
+
+12. Come up with another approach that will give you the same output as `not_cancelled %>% count(dest)` and `not_cancelled %>% count(tailnum, wt = distance`) (without using `count()`).
+```{r include = FALSE}
+not_cancelled <- flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+
+not_cancelled %>%
+  group_by(dest) %>%
+  summarise(n = length(dest))
+```
+
+
+13. Look at the number of cancelled flights per day. Is there a pattern? Create a plot to visualize your answers.
+```{r include = FALSE}
+cancelled_per_day <- 
+  flights %>%
+  mutate(cancelled = (is.na(arr_delay) | is.na(dep_delay))) %>%
+  group_by(year, month, day) %>%
+  summarise(
+    cancelled_num = sum(cancelled),
+    flights_num = n(),
+  )
+
+# Plotting flights_num against cancelled_num shows that the number of flights cancelled increases with the total number of flights.
+ggplot(cancelled_per_day) +
+  geom_point(aes(x = flights_num, y = cancelled_num)) 
+```
+
+14. For each destination, compute the total minutes of delay. For each flight, compute the proportion of the total delay for its destination.
+```{r include = FALSE}
+# only include delayed flights when calculating the total delay and proportion of delay
+flights %>%
+  filter(arr_delay > 0) %>%
+  group_by(dest) %>%
+  mutate(
+    arr_delay_total = sum(arr_delay),
+    arr_delay_prop = arr_delay / arr_delay_total
+  ) %>%
+  select(dest, month, day, dep_time, carrier, flight,
+         arr_delay, arr_delay_prop) %>%
+  arrange(dest, desc(arr_delay_prop))
+```
+
+15. Delays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using `lag()` to explore how the delay of a flight is related to the delay of the immediately preceding flight. Use a plot to visualize this.
+```{r include = FALSE}
+# This calculates the departure delay of the preceding flight from the same airport
+lagged_delays <- flights %>%
+  arrange(origin, month, day, dep_time) %>%
+  group_by(origin) %>%
+  mutate(dep_delay_lag = lag(dep_delay)) %>%
+  filter(!is.na(dep_delay), !is.na(dep_delay_lag))
+
+# This plots the relationship between the mean delay of a flight for all values of the previous flight. 
+lagged_delays %>%
+  group_by(dep_delay_lag) %>%
+  summarise(dep_delay_mean = mean(dep_delay)) %>%
+  ggplot(aes(y = dep_delay_mean, x = dep_delay_lag)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(0, 1500, by = 120)) +
+  labs(y = "Departure Delay", x = "Previous Departure Delay")
+
+#The overall relationship looks similar in all three origin airports.
+lagged_delays %>%
+  group_by(origin, dep_delay_lag) %>%
+  summarise(dep_delay_mean = mean(dep_delay)) %>%
+  ggplot(aes(y = dep_delay_mean, x = dep_delay_lag)) +
+  geom_point() +
+  facet_wrap(~ origin, ncol=1) +
+  labs(y = "Departure Delay", x = "Previous Departure Delay")
+```
+
+## More Viz
+15. Visualize the distribution of on time departure rate across the three airports using a segmented bar plot. **Hint:** Remove NA's and suppose that a flight that is delayed for less than 5 minutes is basically “on time”. 
+```{r include = FALSE}
+flights <-  flights %>%
+  filter_all(any_vars(!is.na(.))) %>% 
+  drop_na(dep_delay) %>% 
+  mutate(dep_type = ifelse(dep_delay < 5, "on time", "delayed")) %>%
+  group_by(origin) 
+
+flights %>%
+  group_by(origin) %>%
+  summarise(ot_dep_rate = sum(dep_type == "on time") / n()) %>%
+  arrange(desc(ot_dep_rate))
+
+  ggplot(data = flights, aes(x = origin, fill = dep_type)) +
+  geom_bar() +
+  theme_minimal()
+```
+
+
+## Advanced Exercises:
+16. Imagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables from the package you loaded would you need to combine?
+
+
+```{r include = FALSE}
+# Drawing the routes requires the latitude and longitude of the origin and the destination airports of each flight. This requires the `flights` and `airports` tables. The flights table has the origin (`origin`) and destination (`dest`) airport of each flight. The airports table has the longitude (`lon`) and latitude (`lat`) of each airport. To get the latitude and longitude for the origin and destination of each flight, requires two joins for `flights` to `airports`, once for the latitude and longitude of the origin airport, and once for the latitude and longitude of the destination airport. Use inner join in order to drop any flights with missing airports since they will not have a longitude or latitude
+
+flights_latlon <- flights %>%
+  inner_join(select(airports, origin = faa, origin_lat = lat, origin_lon = lon),
+    by = "origin"
+  ) %>%
+  inner_join(select(airports, dest = faa, dest_lat = lat, dest_lon = lon),
+    by = "dest"
+  )
+```
+
+
+17.  This plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. **Hint:** you can create a layer of map borders using `borders(state)`.
+
+```{r echo = FALSE }
+flights_latlon %>%
+  slice(1:100) %>%
+  ggplot(aes(
+    x = origin_lon, xend = dest_lon,
+    y = origin_lat, yend = dest_lat
+  )) +
+  borders("state") +
+  geom_segment(arrow = arrow(length = unit(0.1, "cm"))) +
+  coord_quickmap() +
+  labs(y = "Latitude", x = "Longitude") + 
+  theme_void()
+```
+
+
+18. We know that some days of the year are “special”, and fewer people than usual fly on them. Since it is US data for 2013 we will consider: New Years Day, Independence Day, Thanksgiving Day, Christmas Day.
+
+How might you represent that data as a data frame? What would be the primary keys of that table? How would it connect to the existing tables?
+
+We can add a table of special dates, similar to the following table.
+
+```{r}
+special_days <- tribble(
+  ~year, ~month, ~day, ~holiday,
+  2013, 01, 01, "New Years Day",
+  2013, 07, 04, "Independence Day",
+  2013, 11, 29, "Thanksgiving Day",
+  2013, 12, 25, "Christmas Day"
+)
+```
+
+The primary key of the table would be the (`year`, `month`, `day`) columns. The (`year`, `month`, `day`) columns could be used to join `special_days` with other tables.
+
+19. Create a visualization fo your own to illustrate if indeed fewer people than usual fly on the above special days.
+
+20.  Compute the average delay by destination, then join on the airports data frame so you can show the spatial distribution of delays. Here’s an easy way to draw a map of the United States (*can you understand why we choose semi-join?*):
+```{r}
+airports %>%
+  semi_join(flights, c("faa" = "dest")) %>%
+  ggplot(aes(lon, lat)) +
+  borders("state") +
+  geom_point() +
+  coord_quickmap() + 
+  theme_void()
+```
+**Hint:** You might want to use the size or color of the points to display the average delay for each airport.
+```{r include = FALSE}
+avg_dest_delays <-
+  flights %>%
+  group_by(dest) %>%
+  # arrival delay NA's are cancelled flights
+  summarise(delay = mean(arr_delay, na.rm = TRUE)) %>%
+  inner_join(airports, by = c(dest = "faa"))
+
+avg_dest_delays %>%
+  ggplot(aes(lon, lat, colour = delay)) +
+  borders("state") +
+  geom_point() +
+  coord_quickmap() + 
+  theme_void()
+```
+
+21. What weather conditions make it more likely to see a delay? Use the variable `precip` (precipitation) from the `weather` dataset to answer this.
+```{r include = FALSE}
+flight_weather <-
+  flights %>%
+  inner_join(weather, by = c(
+    "origin" = "origin",
+    "year" = "year",
+    "month" = "month",
+    "day" = "day",
+    "hour" = "hour"
+  ))
+
+flight_weather %>%
+  group_by(precip) %>%
+  summarise(delay = mean(dep_delay, na.rm = TRUE)) %>%
+  ggplot(aes(x = precip, y = delay)) +
+  geom_line() +
+  geom_point() + 
+  theme_minimal()
+```
+
+22. What happened on June 13, 2013? Reproduce the following plot which displays the spatial pattern of delays, and then use Google to cross-reference with the weather. **Hint:** use `library(viridis)` to get the same colors.
+
+```{r echo = FALSE}
+library(viridis)
+flights %>%
+  filter(year == 2013, month == 6, day == 13) %>%
+  group_by(dest) %>%
+  summarise(delay = mean(arr_delay, na.rm = TRUE)) %>%
+  inner_join(airports, by = c("dest" = "faa")) %>%
+  ggplot(aes(y = lat, x = lon, size = delay, colour = delay)) +
+  borders("state") +
+  geom_point() +
+  coord_quickmap() +
+  scale_colour_viridis() +
+  theme_void()
+```

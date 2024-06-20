@@ -1,0 +1,40 @@
+---
+title: "Sales"
+author: "Termeh Shafie <br> (adapted from original script by Mine Çetinkaya-Rundel)"
+editor: visual
+---
+
+```{r}
+#| label: load-packages
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(readxl)
+```
+
+-   Read in the Excel file called `sales.xlsx` from the `data-raw/` folder such that it looks like the following.
+
+```{r}
+#| echo: false
+#| out-width: "20%"
+
+knitr::include_graphics("images/sales-1.png")
+```
+
+```{r}
+
+```
+
+-   **Stretch goal:** Manipulate the sales data such such that it looks like the following.
+
+```{r}
+#| echo: false
+#| out-width: "25%"
+
+knitr::include_graphics("images/sales-2.png")
+```
+
+```{r}
+
+```
