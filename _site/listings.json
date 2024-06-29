@@ -38,21 +38,10 @@
     "items": [
       "/publications/interplay_str_cent/index.html",
       "/publications/gof_multigraph/index.html",
+      "/talks/SUNBELT2024/index.html",
       "/talks/Inaugural-KN/index.html",
       "/talks/SUNBELT2022/index.html",
       "/talks/WiNS2022/index.html"
-    ]
-  },
-  {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/Inaugural-KN/index.html",
-      "/talks/CMB2022/index.html",
-      "/talks/SUNBELT2022/index.html",
-      "/talks/WiNS2022/index.html",
-      "/talks/EUSN2021/index.html",
-      "/talks/NETWORKS2021/index.html",
-      "/talks/EUSN2019/index.html"
     ]
   },
   {
@@ -73,6 +62,19 @@
       "/publications/data_protection/index.html",
       "/publications/multigraph_approach/index.html",
       "/publications/complexity_multigraphs/index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/SUNBELT2024/index.html",
+      "/talks/Inaugural-KN/index.html",
+      "/talks/CMB2022/index.html",
+      "/talks/SUNBELT2022/index.html",
+      "/talks/WiNS2022/index.html",
+      "/talks/EUSN2021/index.html",
+      "/talks/NETWORKS2021/index.html",
+      "/talks/EUSN2019/index.html"
     ]
   }
 ]

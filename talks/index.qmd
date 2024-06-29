@@ -8,6 +8,7 @@ listing:
     - EUSN2021
     - NETWORKS2021
     - SUNBELT2022
+    - SUNBELT2024
     - WiNS2022
     - EUSN2019
     - EUSN2019

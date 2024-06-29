@@ -20,3 +20,5 @@ url: https://termehs.github.io/Inaugural-KN-050624
 
 <button type="button" class="btn btn-outline-success">
 <a href="https://termehs.github.io/Inaugural-KN-050624" target="_blank">Slides</a></button>
+
+<iframe src="https://termehs.github.io/Inaugural-KN-050624"  width="100%" height="455px"></iframe>

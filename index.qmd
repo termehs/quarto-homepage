@@ -24,6 +24,7 @@ listing:
   - id: talks
     fields: [image,title,date]
     contents: 
+    - talks/SUNBELT2024
     - talks/Inaugural-KN
     - talks/SUNBELT2022
     - talks/WiNS2022
