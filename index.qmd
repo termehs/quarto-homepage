@@ -61,7 +61,7 @@ listing:
 
 # Termeh Shafie 
 ::: {.termeh-intro}
-Associate Professor of Computational Social Science and Data Science
+Professor of Computational Social Science and Data Science
 <br>
 [University of Konstanz](https://www.polver.uni-konstanz.de/cdm/people/faculty/termeh-shafie/).
 
@@ -114,7 +114,7 @@ The new version of [multigraphr](/project/rmm/#r-package-multigraphr) is publish
 ### 10.08.2023: Maternity Leave 🐣
 On parental leave until end of the year.
 
-### 27.07.2023: Associate Professor of Computational Social Science and Data Science
+### 27.07.2023: Professor of Computational Social Science and Data Science
 Today I start my new position as a Professor (*Professorin mit Schwerpunkt Lehre*) at the Department of Politics and Public Administration, University of Konstanz.
 :::
 
