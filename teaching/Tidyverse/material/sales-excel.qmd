@@ -19,7 +19,7 @@ library(readxl)
 #| echo: false
 #| out-width: "20%"
 
-knitr::include_graphics("images/sales-1.png")
+knitr::include_graphics("img/sales-1.png")
 ```
 
 ```{r}
@@ -32,7 +32,7 @@ knitr::include_graphics("images/sales-1.png")
 #| echo: false
 #| out-width: "25%"
 
-knitr::include_graphics("images/sales-2.png")
+knitr::include_graphics("img/sales-2.png")
 ```
 
 ```{r}

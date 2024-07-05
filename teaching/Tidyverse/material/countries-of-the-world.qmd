@@ -1,0 +1,122 @@
+---
+title: "Countries of the world"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+editor: visual
+execute:
+  cache:  true
+---
+
+
+![](img/world.png)
+
+In order to complete this assignment you will need a Chrome browser with the [Selector Gadget extension](http://selectorgadget.com/) installed.
+
+This [website](https://scrapethissite.com/pages/simple/)  lists the names of 250 countries, as well as their flag, capital, population and size in square kilometres. Our goal could be to read this information into R for each country so that we can potentially analyse it further.
+
+Before we start, we should load the required packages (we will also need the tidyverse package this time) and read the website with the function `read_html()` and assign it to an R object.
+
+```{r}
+#| label: load-packages
+#| warning: false
+#| message: false
+#| cache: true
+library(tidyverse)
+library(rvest)
+library(DT)
+
+page <- read_html("https://scrapethissite.com/pages/simple/")
+```
+
+
+## Country names
+Use the Selector Gadget to identify the CSS selectors needed to extract country names. 
+```{r eval = TRUE}
+country <- page %>%
+  html_elements(".country-name") %>%
+  html_text(trim = TRUE) 
+
+head(country)
+```
+
+
+## Capitals, population and area
+Let us now turn to the further information for each country. Again use the selector gadget to identify the CSS selector needed which in this case is `.country-info`:
+```{r eval = TRUE}
+page %>%
+  html_elements(".country-info") %>%
+  html_text(trim = TRUE) %>% 
+  head(n = 10)
+```
+
+So we get the names of the capitals, but also the population and the size of the country. The selector was not specific enough and we have to tell `html_elements()` more precisely which of these we are interested in. These CSS selectors differ between the three countries’ information:
+
+1. The selector `country-capital` gives us the capital of the countries:
+```{r eval = TRUE}
+capital <- page %>%
+  html_elements(".country-capital") %>%
+  html_text(trim = TRUE) 
+
+head(capital)
+```
+
+2. The selector `country-population` gives us the population of the countries:
+```{r eval = TRUE}
+population <-  page %>%
+  html_elements(".country-population") %>%
+  html_text() %>% 
+  as.numeric()
+head(population)
+```
+
+3. The selector `country-area` gives us the area of the countries:
+```{r eval = TRUE}
+area <-  page %>%
+  html_elements(".country-area") %>%
+  html_text() %>% 
+  as.numeric()
+head(area)
+```
+
+Note that we need to tell R to interpret the “text” read from the HTML code as numbers using the function `as.numeric()`.
+
+## Merge into one tibble
+We could already continue working with this, but for many applications it is more practical if we combine the data in a vertical form:
+```{r eval = TRUE}
+countries <- tibble(
+  country = country,
+  capital = capital,
+  population = population,
+  area = area
+)
+countries
+```
+
+## All in one step
+
+If we are sure that we do not need the individual vectors, we can also perform the reading of the data and the creation of the tibble in a single step. Below you can see how the complete scraping process can be completed in relatively few lines.
+```{r eval = TRUE}
+page <- "https://scrapethissite.com/pages/simple/" %>%
+  read_html()
+
+countries_2 <- tibble(
+  Land = page %>%
+    html_elements(css = ".country-name") %>% 
+    html_text(trim = TRUE),
+  capital = page %>% 
+    html_elements(css = ".country-capital") %>% 
+    html_text(),
+  population = page %>% 
+    html_elements(css = ".country-population") %>% 
+    html_text() %>% 
+    as.numeric(),
+  area = page %>% 
+    html_elements(css = ".country-area") %>% 
+    html_text() %>% 
+    as.numeric()
+)
+
+countries_2
+```

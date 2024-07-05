@@ -9,11 +9,9 @@ execute:
   warning: false
 ---
 
-
 ## Packages and Data
 
-For the below exercies we use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **nycflights13** package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013. 
-
+For the below exercies we use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **nycflights13** package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.
 
 ```{r load-packages, message = FALSE, eval = TRUE}
 library(tidyverse)
@@ -26,32 +24,31 @@ The data sets available in the package can be viewed using the following syntax:
 data(package = "nycflights13")
 ```
 
-You will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows.
-![](nycflights13.png)
+You will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows. ![](img/nycflights13.png)
 
 ## Familiarizing ourselves with the dataset
-1. What variables are included in the `flights` dataset?
-How many rows are there?
+
+1.  What variables are included in the `flights` dataset? How many rows are there?
 
 ```{r include = FALSE}
 glimpse(flights)
 ```
 
-2. What variables are included in the `airports` dataset? How many rows are there?
+2.  What variables are included in the `airports` dataset? How many rows are there?
+
 ```{r include = FALSE}
 glimpse(airports)
 ```
- 
-3. Which variables are included in the `airlines` dataset?
-How many rows are there?
+
+3.  Which variables are included in the `airlines` dataset? How many rows are there?
+
 ```{r include = FALSE}
 glimpse(airlines)
 ```
 
 ## Focusing on Atlanta
 
-4. Let's focus on flights from NYC area airports to Atlanta GA (FAA code ATL).
-Create a new object `atlanta` that includes only these flights. **Hint:** use `filter()`). How many flights to Atlanta were there in 2013?
+4.  Let's focus on flights from NYC area airports to Atlanta GA (FAA code ATL). Create a new object `atlanta` that includes only these flights. **Hint:** use `filter()`). How many flights to Atlanta were there in 2013?
 
 ```{r include = FALSE }
 atlanta <- flights %>%
@@ -60,8 +57,9 @@ glimpse(atlanta)
 ```
 
 ## Seasonality
-5. Is there a difference in the number of flights per month?  
-Summarize the number of flights for each month and provide a sorted list with the months with the most flights first. **Hint:** use `group_by()` in combination with `summarize()`).
+
+5.  Is there a difference in the number of flights per month?\
+    Summarize the number of flights for each month and provide a sorted list with the months with the most flights first. **Hint:** use `group_by()` in combination with `summarize()`).
 
 ```{r include = FALSE}
 atlanta %>%
@@ -71,22 +69,30 @@ atlanta %>%
 ```
 
 ## Use `filter()`
-6. Find all flights that
-- Had an arrival delay of two or more hours.
+
+6.  Find all flights that
+
+-   Had an arrival delay of two or more hours.
+
 ```{r include = FALSE}
 filter(flights, arr_delay >= 120)
 ```
-- Flew to Houston (IAH or HOU)
+
+-   Flew to Houston (IAH or HOU)
+
 ```{r include = FALSE}
 filter(flights, dest == "IAH" | dest == "HOU")
 filter(flights, dest %in% c("IAH", "HOU"))
 ```
- - Were operated by United, American, or Delta. **Hint:** In the `flights` dataset, the column `carrier` indicates the airline, but it uses two-character carrier codes. You can find the carrier codes for the airlines in the `airlines` dataset. Since the carrier code dataset only has 16 rows, and the names of the airlines in that dataset are not exactly “United”, “American”, or “Delta”, it is easiest to manually look up their carrier codes in that data.
+
+-   Were operated by United, American, or Delta. **Hint:** In the `flights` dataset, the column `carrier` indicates the airline, but it uses two-character carrier codes. You can find the carrier codes for the airlines in the `airlines` dataset. Since the carrier code dataset only has 16 rows, and the names of the airlines in that dataset are not exactly “United”, “American”, or “Delta”, it is easiest to manually look up their carrier codes in that data.
+
 ```{r include = FALSE}
 filter(flights, carrier %in% c("AA", "DL", "UA"))
 ```
-- Departed in summer (July, August, and September).
-**Hint:** the summer flights are those that departed in months 7 (July), 8 (August), and 9 (September).
+
+-   Departed in summer (July, August, and September). **Hint:** the summer flights are those that departed in months 7 (July), 8 (August), and 9 (September).
+
 ```{r include = FALSE}
 filter(flights, month %in% 7:9)
 # or
@@ -94,22 +100,30 @@ filter(flights, month == 7 | month == 8 | month == 9)
 # or 
 filter(flights, between(month, 7, 9))
 ```
-- Arrived more than two hours late, but didn’t leave late. **Hint:** Flights that arrived more than two hours late, but didn’t leave late will have an arrival delay of more than 120 minutes (`arr_delay > 120`) and a non-positive departure delay (`dep_delay <=0`)
+
+-   Arrived more than two hours late, but didn’t leave late. **Hint:** Flights that arrived more than two hours late, but didn’t leave late will have an arrival delay of more than 120 minutes (`arr_delay > 120`) and a non-positive departure delay (`dep_delay <=0`)
+
 ```{r include = FALSE}
 filter(flights, arr_delay > 120, dep_delay <= 0)
 ```
-- Were delayed by at least an hour, but made up over 30 minutes in flight. **Hint:** If a flight was delayed by at least an hour, then `dep_delay >= 60`. If the flight didn’t make up any time in the air, then its arrival would be delayed by the same amount as its departure, meaning `dep_delay == arr_delay`, or alternatively, `dep_delay - arr_delay == 0`. If it makes up over 30 minutes in the air, then the arrival delay must be at least 30 minutes less than the departure delay, which is stated as `dep_delay - arr_delay > 30`.
+
+-   Were delayed by at least an hour, but made up over 30 minutes in flight. **Hint:** If a flight was delayed by at least an hour, then `dep_delay >= 60`. If the flight didn’t make up any time in the air, then its arrival would be delayed by the same amount as its departure, meaning `dep_delay == arr_delay`, or alternatively, `dep_delay - arr_delay == 0`. If it makes up over 30 minutes in the air, then the arrival delay must be at least 30 minutes less than the departure delay, which is stated as `dep_delay - arr_delay > 30`.
+
 ```{r include = FALSE}
 filter(flights, dep_delay >= 60, dep_delay - arr_delay > 30)
 ```
-- Departed between midnight and 6 am (inclusive). **Hint:** In `dep_time`, midnight is represented by `2400`, not `0`. You can verify this by checking the minimum and maximum of `dep_time`.
+
+-   Departed between midnight and 6 am (inclusive). **Hint:** In `dep_time`, midnight is represented by `2400`, not `0`. You can verify this by checking the minimum and maximum of `dep_time`.
+
 ```{r include = FALSE}
 summary(flights$dep_time)
 filter(flights, dep_time <= 600 | dep_time == 2400)
 ```
 
 ## Arrange rows with `arrange()`
-7. How could you use  `arrange()` to sort all missing values to the start? **Hint:** use `is.na())` and add an indicator of whether the column has a missing value, the flights will first be sorted by `desc(is.na(dep_time))`. Since `desc(is.na(dep_time))` is either TRUE when `dep_time` is missing, or `FALSE`, when it is not, the rows with missing values of `dep_time` will come first, since `TRUE > FALSE`.
+
+7.  How could you use `arrange()` to sort all missing values to the start? **Hint:** use `is.na())` and add an indicator of whether the column has a missing value, the flights will first be sorted by `desc(is.na(dep_time))`. Since `desc(is.na(dep_time))` is either TRUE when `dep_time` is missing, or `FALSE`, when it is not, the rows with missing values of `dep_time` will come first, since `TRUE > FALSE`.
+
 ```{r include = FALSE}
 arrange(flights, dep_time) %>%
   tail()
@@ -119,15 +133,16 @@ arrange(flights, desc(dep_time))
 arrange(flights, desc(is.na(dep_time)), dep_time)
 ```
 
+8.  Sort flights to find the most delayed flights. Find the flights that left earliest.
 
-8. Sort flights to find the most delayed flights. Find the flights that left earliest.
 ```{r include = FALSE}
 arrange(flights, desc(dep_delay))
 # the earliest departing flight can be found by sorting dep_delay in ascending order.
 arrange(flights, dep_delay)
 ```
 
-9. Sort flights to find the fastest flights.
+9.  Sort flights to find the fastest flights.
+
 ```{r include = FALSE}
 head(arrange(flights, air_time))
 # the highest average ground speed.
@@ -137,6 +152,7 @@ head(arrange(flights, desc(distance / air_time)))
 ## Seelct variables with `select()`
 
 10. What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
+
 ```{r include = FALSE}
 # it is easier to programmatically generate character vectors with variable names than to generate unquoted variable names
 vars <- c("year", "month", "day", "dep_delay", "arr_delay")
@@ -146,10 +162,10 @@ select(flights, any_of(vars))
 select(flights, all_of(vars))
 ```
 
-
 ## Add new variables with `mutate()`
 
 11. Compare `air_time` with `arr_time - dep_time`. What do you expect to see? What do you see? What do you need to do to fix it?
+
 ```{r include = FALSE}
 # air_time = arr_time - dep_time
 flights_airtime <-
@@ -163,8 +179,8 @@ flights_airtime <-
 nrow(filter(flights_airtime, air_time_diff != 0))
 ```
 
-
 12. Come up with another approach that will give you the same output as `not_cancelled %>% count(dest)` and `not_cancelled %>% count(tailnum, wt = distance`) (without using `count()`).
+
 ```{r include = FALSE}
 not_cancelled <- flights %>%
   filter(!is.na(dep_delay), !is.na(arr_delay))
@@ -174,8 +190,8 @@ not_cancelled %>%
   summarise(n = length(dest))
 ```
 
-
 13. Look at the number of cancelled flights per day. Is there a pattern? Create a plot to visualize your answers.
+
 ```{r include = FALSE}
 cancelled_per_day <- 
   flights %>%
@@ -192,6 +208,7 @@ ggplot(cancelled_per_day) +
 ```
 
 14. For each destination, compute the total minutes of delay. For each flight, compute the proportion of the total delay for its destination.
+
 ```{r include = FALSE}
 # only include delayed flights when calculating the total delay and proportion of delay
 flights %>%
@@ -207,6 +224,7 @@ flights %>%
 ```
 
 15. Delays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using `lag()` to explore how the delay of a flight is related to the delay of the immediately preceding flight. Use a plot to visualize this.
+
 ```{r include = FALSE}
 # This calculates the departure delay of the preceding flight from the same airport
 lagged_delays <- flights %>%
@@ -235,7 +253,9 @@ lagged_delays %>%
 ```
 
 ## More Viz
-15. Visualize the distribution of on time departure rate across the three airports using a segmented bar plot. **Hint:** Remove NA's and suppose that a flight that is delayed for less than 5 minutes is basically “on time”. 
+
+15. Visualize the distribution of on time departure rate across the three airports using a segmented bar plot. **Hint:** Remove NA's and suppose that a flight that is delayed for less than 5 minutes is basically “on time”.
+
 ```{r include = FALSE}
 flights <-  flights %>%
   filter_all(any_vars(!is.na(.))) %>% 
@@ -253,10 +273,9 @@ flights %>%
   theme_minimal()
 ```
 
-
 ## Advanced Exercises:
-16. Imagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables from the package you loaded would you need to combine?
 
+16. Imagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables from the package you loaded would you need to combine?
 
 ```{r include = FALSE}
 # Drawing the routes requires the latitude and longitude of the origin and the destination airports of each flight. This requires the `flights` and `airports` tables. The flights table has the origin (`origin`) and destination (`dest`) airport of each flight. The airports table has the longitude (`lon`) and latitude (`lat`) of each airport. To get the latitude and longitude for the origin and destination of each flight, requires two joins for `flights` to `airports`, once for the latitude and longitude of the origin airport, and once for the latitude and longitude of the destination airport. Use inner join in order to drop any flights with missing airports since they will not have a longitude or latitude
@@ -270,8 +289,7 @@ flights_latlon <- flights %>%
   )
 ```
 
-
-17.  This plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. **Hint:** you can create a layer of map borders using `borders(state)`.
+17. This plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. **Hint:** you can create a layer of map borders using `borders(state)`.
 
 ```{r echo = FALSE }
 flights_latlon %>%
@@ -286,7 +304,6 @@ flights_latlon %>%
   labs(y = "Latitude", x = "Longitude") + 
   theme_void()
 ```
-
 
 18. We know that some days of the year are “special”, and fewer people than usual fly on them. Since it is US data for 2013 we will consider: New Years Day, Independence Day, Thanksgiving Day, Christmas Day.
 
@@ -308,7 +325,8 @@ The primary key of the table would be the (`year`, `month`, `day`) columns. The 
 
 19. Create a visualization fo your own to illustrate if indeed fewer people than usual fly on the above special days.
 
-20.  Compute the average delay by destination, then join on the airports data frame so you can show the spatial distribution of delays. Here’s an easy way to draw a map of the United States (*can you understand why we choose semi-join?*):
+20. Compute the average delay by destination, then join on the airports data frame so you can show the spatial distribution of delays. Here’s an easy way to draw a map of the United States (*can you understand why we choose semi-join?*):
+
 ```{r}
 airports %>%
   semi_join(flights, c("faa" = "dest")) %>%
@@ -318,7 +336,9 @@ airports %>%
   coord_quickmap() + 
   theme_void()
 ```
+
 **Hint:** You might want to use the size or color of the points to display the average delay for each airport.
+
 ```{r include = FALSE}
 avg_dest_delays <-
   flights %>%
@@ -336,6 +356,7 @@ avg_dest_delays %>%
 ```
 
 21. What weather conditions make it more likely to see a delay? Use the variable `precip` (precipitation) from the `weather` dataset to answer this.
+
 ```{r include = FALSE}
 flight_weather <-
   flights %>%
