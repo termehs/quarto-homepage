@@ -33,3 +33,4 @@ library(tidyverse)
 | **8**:  Importing and Recoding Data| 21.06.2024 |  [{{< fa display >}}](https://termehs.github.io/tidy08-data-import-recode)  |  [{{< fa file >}}](material/nobels-csv.qmd)   [{{< fa file >}}](material/sales-excel.qmd)   [{{< fa file >}}](material/nyc-flights.qmd) |  [.zip](material/data08.zip)|
 | **9**: Web Scraping | 05.07.2024 |  [{{< fa display >}}](https://termehs.github.io/tidy09-web-scrape)  |  [{{< fa file >}}](material/countries-of-the-world.qmd)    |  |
 | **10**: Functions and Iteration | 12.07.2024 |  [{{< fa display >}}](https://termehs.github.io/tidy10-functions-iteration)  |  [{{< fa file >}}](material/uoe-art.qmd)    |  |
+| **11**: Effective Visualization | 19.07.2024 |  [{{< fa display >}}](https://termehs.github.io/tidy11-effective-dataviz)  |  [{{< fa file >}}](material/brexit.qmd)    |  [.zip](material/data11.zip)||
