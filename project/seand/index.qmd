@@ -15,7 +15,7 @@ In multivariate statistics, there is an abundance of different measures of centr
 
 Multivariate entropy analysis is a general statistical method for analyzing and finding dependence structure in data consisting of repeated observations of variables with a common domain and with discrete finite range spaces. Only nominal scale is required for each variable, so only the size of the variable's range space is important but not its actual values. Variables on ordinal or numerical scales, even continuous numerical scales, can be used, but they should be aggregated so that their ranges match the number of available repeated observations. By investigating the frequencies of occurrences of joint variable outcomes, complicated dependence structures, partial independence and conditional independence as well as redundancies and functional dependence can be found.
 
-Since 2015, I am working with [Ove Frank](https://scholar.google.com/citations?user=9hTp2rsAAAAJ&hl=en) and [Krzysztof Nowicki](https://portal.research.lu.se/en/persons/krzysztof-nowicki) on a project in which we build a systematic framework for using statistical entropy tools to analyze network data. A forthcoming monograph on the topic is expected in the coming year.
+Since 2015, I am working with [Ove Frank](https://scholar.google.com/citations?user=9hTp2rsAAAAJ&hl=en) and [Krzysztof Nowicki](https://portal.research.lu.se/en/persons/krzysztof-nowicki) on a project in which we build a systematic framework for using statistical entropy tools to analyze network data.
 
 The proposed framework is implemented in the R package 'netropy' and a description of various functions implemented in the package are given in the following. More details are provided in the package
 [vignettes](https://cran.r-project.org/web/packages/netropy/)  and the references listed.
@@ -184,6 +184,15 @@ For better readability, the powers of different predictors can be conveniently c
 
 More details and examples of expected conditional entropies and prediction power  are given in the package [vignette](https://cran.r-project.org/web/packages/netropy/vignettes/prediction_power.html). 
 
+## Divergence Tests of Goodness of Fit
+Occurring cliques in association graphs represent connected components of dependent variables, and by comparing the graphs for different thresholds, specific structural models of multivariate dependence can be suggested and tested.  The function `div_gof()` allows such hypothesis tests for pairwise independence of $X$ and $Y$: $X \bot Y$, and pairwise independence conditional a third variable $Z$: $X\bot Y|Z$.
+
+To test `friend`$\bot$ `cowork`$|$`advice`, that is whether dyad variable `friend` is independent of `cowork` given `advice` we use the function as shown below:
+```{r eval=TRUE}
+div_gof(dat = dyad.var, var1 = "friend", var2 = "cowork", var_cond = "advice")
+```
+Not specifying argument `var_cond` would instead test `friend`$\bot$`cowork` without any conditioning.
+
 ## References
 
 Parts of the theoretical background is provided in the package vignettes, but for more details, consult the following literature:
@@ -191,4 +200,3 @@ Parts of the theoretical background is provided in the package vignettes, but fo
 * Frank, O., & Shafie, T. (2016). Multivariate entropy analysis of network data.
 *Bulletin of Sociological Methodology/Bulletin de Méthodologie Sociologique*, 129(1), 45-63. [link](/publications/multivariate_entropy_analysis/index.html)
 
-*  Nowicki, K., Shafie, T., & Frank, O. (Forthcoming 2022). *Statistical Entropy Analysis of Network Data*.
