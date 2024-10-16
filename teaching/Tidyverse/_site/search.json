@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data Wrangling and Visualization with Tidyverse",
+    "title": "Data Science with Tidyverse",
     "section": "",
     "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\n1: Meet the toolkit\n12.04.2024\n\n\n\n\n\n2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\n3: Visualizing numerical and categorical data\n26.04.2024\n\n\n.zip\n\n\n4: Grammar of data wrangling I\n10.05.2024\n\n \n.zip\n\n\n5: Grammar of data wrangling II\n17.05.2024\n\n\n.zip\n\n\n6: Tidying Data\n23.05.2024\n\n\n.zip\n\n\n     More Practicals\n07.06.2024\n\n \n.zip\n\n\n7: Data Types and Data Classes\n14.06.2024\n\n  \n.zip\n\n\n8: Importing and Recoding Data\n21.06.2024\n\n  \n.zip\n\n\n9: Web Scraping\n05.07.2024\n\n\n\n\n\n10: Functions and Iteration\n12.07.2024\n\n\n\n\n\n11: Effective Visualization\n19.07.2024\n\n\n.zip"
   },

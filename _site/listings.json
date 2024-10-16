@@ -9,11 +9,12 @@
   {
     "listing": "/teaching/index.html",
     "items": [
-      "/teaching/Tidyverse/index.html",
-      "/teaching/FallsInfStats/index.html",
-      "/teaching/SNA/index.html",
-      "/teaching/StatLearn/index.html",
-      "/teaching/Statistics/index.html"
+      "/teaching/tidyverse/index.html",
+      "/teaching/falls-inf-stats/index.html",
+      "/teaching/math-ss/index.html",
+      "/teaching/sna/index.html",
+      "/teaching/stat-learn/index.html",
+      "/teaching/intro-stats/index.html"
     ]
   },
   {

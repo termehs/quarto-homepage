@@ -1,0 +1,19 @@
+---
+title: Mathematics for Social Scientists
+subtitle: MSc course 
+description: |
+  This course aims to provide students with the mathematical foundations, with respect to both
+  language and concepts, which are required for analysis using both basic and advanced
+  quantitative methods in social science.
+section-divs: false
+toc: false
+---
+
+
+
+## Schedule
+
+|                                                    | date       |slides  | 
+|----------------------------------------------------|------------|:------:|
+| **1**: Preliminaries | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd) | 
+| **2**: Elementary Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd) | 

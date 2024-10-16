@@ -11,7 +11,7 @@
     "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nData Wrangling and Visualization with Tidyverse\n\n\nMSc course\n\n\n\n\nFallacies of Inferential Statistics\n\n\nMSc seminar\n\n\n\n\nStatistical Analysis of Social Networks\n\n\nMSc course\n\n\n\n\nStatistical Learning\n\n\nMSc course\n\n\n\n\nStatistics\n\n\nBSc course\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nData Science with Tidyverse\n\n\nMSc course\n\n\n\n\nFallacies of Inferential Statistics\n\n\nMSc seminar\n\n\n\n\nMathematics for Social Scientists\n\n\nMSc course\n\n\n\n\nSocial Network Analysis\n\n\nMSc course\n\n\n\n\nStatistical Learning\n\n\nMSc course\n\n\n\n\nStatistics\n\n\nBSc course\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "teaching/Tidyverse/material/college-majors.html",
@@ -313,6 +313,13 @@
     "title": "Statistical Entropy Analysis of Network Data",
     "section": "Prediction power based on expected conditional entropies",
     "text": "Prediction power based on expected conditional entropies\nThe function prediction_power() computes prediction power when pairs of variables in a given dataframe are used to predict a third variable from the same dataframe. The variable to be predicted and the dataframe in which this variable also is part of is given as input arguments, and the output is an upper triangular matrix giving the expected conditional entropies of pairs of row and column variables (denoted \\(X\\) and \\(Y\\)) of the matrix, i.e. EH(Z|X,Y) where \\(Z\\) is the variable to be predicted. The diagonal gives EH(Z|X) , that is when only one variable as a predictor. Note that NA’s are in the row and column representing the variable being predicted.\nAssume we are interested in predicting variable status (that is whether a lawyer in the data set is an associate or partner). This is done by running the following syntax\n\nprediction_power('status', dyad.var)\n\n          status gender office years   age practice lawschool cowork advice\nstatus        NA     NA     NA    NA    NA       NA        NA     NA     NA\ngender        NA  1.375  1.180 0.670 0.855    1.304     1.225  1.306  1.263\noffice        NA     NA  2.147 0.493 0.820    1.374     1.245  1.373  1.325\nyears         NA     NA     NA 2.265 0.573    0.682     0.554  0.691  0.667\nage           NA     NA     NA    NA 1.877    1.089     0.958  1.087  1.052\npractice      NA     NA     NA    NA    NA    2.446     1.388  1.459  1.410\nlawschool     NA     NA     NA    NA    NA       NA     3.335  1.390  1.337\ncowork        NA     NA     NA    NA    NA       NA        NA  2.419  1.400\nadvice        NA     NA     NA    NA    NA       NA        NA     NA  2.781\nfriend        NA     NA     NA    NA    NA       NA        NA     NA     NA\n          friend\nstatus        NA\ngender     1.270\noffice     1.334\nyears      0.684\nage        1.058\npractice   1.427\nlawschool  1.350\ncowork     1.411\nadvice     1.407\nfriend     3.408\n\n\nFor better readability, the powers of different predictors can be conveniently compared by using prediction plots that display a color matrix with rows for \\(X\\) and columns for \\(Y\\) with darker colors in the cells when we have higher prediction power for \\(Z\\).\nMore details and examples of expected conditional entropies and prediction power are given in the package vignette."
+  },
+  {
+    "objectID": "project/seand/index.html#divergence-tests-of-goodness-of-fit",
+    "href": "project/seand/index.html#divergence-tests-of-goodness-of-fit",
+    "title": "Statistical Entropy Analysis of Network Data",
+    "section": "Divergence Tests of Goodness of Fit",
+    "text": "Divergence Tests of Goodness of Fit\nOccurring cliques in association graphs represent connected components of dependent variables, and by comparing the graphs for different thresholds, specific structural models of multivariate dependence can be suggested and tested. The function div_gof() allows such hypothesis tests for pairwise independence of \\(X\\) and \\(Y\\): \\(X \\bot Y\\), and pairwise independence conditional a third variable \\(Z\\): \\(X\\bot Y|Z\\).\nTo test friend\\(\\bot\\) cowork\\(|\\)advice, that is whether dyad variable friend is independent of cowork given advice we use the function as shown below:\n\ndiv_gof(dat = dyad.var, var1 = \"friend\", var2 = \"cowork\", var_cond = \"advice\")\n\n     D df(D)\n1 0.94    12\n\n\nNot specifying argument var_cond would instead test friend\\(\\bot\\)cowork without any conditioning."
   },
   {
     "objectID": "project/seand/index.html#references",
@@ -695,7 +702,7 @@
   {
     "objectID": "teaching/Tidyverse/index.html",
     "href": "teaching/Tidyverse/index.html",
-    "title": "Data Wrangling and Visualization with Tidyverse",
+    "title": "Data Science with Tidyverse",
     "section": "",
     "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\n1: Meet the toolkit\n12.04.2024\n\n\n\n\n\n2: Data visualization and ggplot\n19.04.2024\n\n\n\n\n\n3: Visualizing numerical and categorical data\n26.04.2024\n\n\n.zip\n\n\n4: Grammar of data wrangling I\n10.05.2024\n\n \n.zip\n\n\n5: Grammar of data wrangling II\n17.05.2024\n\n\n.zip\n\n\n6: Tidying Data\n23.05.2024\n\n\n.zip\n\n\n     More Practicals\n07.06.2024\n\n \n.zip\n\n\n7: Data Types and Data Classes\n14.06.2024\n\n  \n.zip\n\n\n8: Importing and Recoding Data\n21.06.2024\n\n  \n.zip\n\n\n9: Web Scraping\n05.07.2024\n\n\n\n\n\n10: Functions and Iteration\n12.07.2024\n\n\n\n\n\n11: Effective Visualization\n19.07.2024\n\n\n.zip"
   },
@@ -973,10 +980,31 @@
     "text": "Here’s where those immigrant Nobelists were born\nNote: your bar plot won’t exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.\n\nIn a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the count() function) for their birth country (born_country) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?"
   },
   {
-    "objectID": "project/seand/index.html#divergence-tests-of-goodness-of-fit",
-    "href": "project/seand/index.html#divergence-tests-of-goodness-of-fit",
-    "title": "Statistical Entropy Analysis of Network Data",
-    "section": "Divergence Tests of Goodness of Fit",
-    "text": "Divergence Tests of Goodness of Fit\nOccurring cliques in association graphs represent connected components of dependent variables, and by comparing the graphs for different thresholds, specific structural models of multivariate dependence can be suggested and tested. The function div_gof() allows such hypothesis tests for pairwise independence of \\(X\\) and \\(Y\\): \\(X \\bot Y\\), and pairwise independence conditional a third variable \\(Z\\): \\(X\\bot Y|Z\\).\nTo test friend\\(\\bot\\) cowork\\(|\\)advice, that is whether dyad variable friend is independent of cowork given advice we use the function as shown below:\n\ndiv_gof(dat = dyad.var, var1 = \"friend\", var2 = \"cowork\", var_cond = \"advice\")\n\n     D df(D)\n1 0.94    12\n\n\nNot specifying argument var_cond would instead test friend\\(\\bot\\)cowork without any conditioning."
+    "objectID": "teaching/Math-SS/index.html",
+    "href": "teaching/Math-SS/index.html",
+    "title": "Mathematics for Social Scientists",
+    "section": "",
+    "text": "Schedule\n\n\n\n\ndate\nslides\n\n\n\n\n1: Preliminaries\n22.10.2024\n{{&lt; fa display &gt;}}\n\n\n1: Algebra Review\n29.10.2024\n{{&lt; fa display &gt;}}"
+  },
+  {
+    "objectID": "teaching/StatLearn/index.html",
+    "href": "teaching/StatLearn/index.html",
+    "title": "Statistical Learning",
+    "section": "",
+    "text": "Schedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\n1: Linear Regression\n12.04.2024\n{{&lt; fa display &gt;}}\n{{&lt; fa file &gt;}}"
+  },
+  {
+    "objectID": "teaching/math-ss/index.html",
+    "href": "teaching/math-ss/index.html",
+    "title": "Mathematics for Social Scientists",
+    "section": "",
+    "text": "Schedule\n\n\n\n\ndate\nslides\n\n\n\n\n1: Preliminaries\n22.10.2024\n{{&lt; fa display &gt;}}\n\n\n2: Elementary Algebra Review, Modular Arithmetic & Boolean Algebra\n29.10.2024\n{{&lt; fa display &gt;}}"
+  },
+  {
+    "objectID": "teaching/stat-learn/index.html",
+    "href": "teaching/stat-learn/index.html",
+    "title": "Statistical Learning",
+    "section": "",
+    "text": "Schedule\n\n\n\n\ndate\nslides\npractical\ndata\n\n\n\n\n1: Linear Regression\n12.04.2024\n{{&lt; fa display &gt;}}\n{{&lt; fa file &gt;}}"
   }
 ]
