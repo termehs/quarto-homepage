@@ -4,7 +4,7 @@ subtitle: MSc course
 description: |
   This course aims to provide students with the mathematical foundations, with respect to both
   language and concepts, which are required for analysis using both basic and advanced
-  quantitative methods in social science.
+  quantitative and computational methods in social science.
 section-divs: false
 toc: false
 ---

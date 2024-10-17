@@ -11,6 +11,6 @@ toc: false
 
 ## Schedule
 
-|                                                    | date       |slides  | practical | data | 
-|----------------------------------------------------|------------|:------:|:---------:|:---------:|
-| **1**: Linear Regression| 12.04.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd)  | |
+|                                                    | slides  | practical | data | 
+|-------------------------------------|:------:|:---------:|:---------:|
+| **1**: Introduction | [{{< fa display >}}]()  |  [{{< fa file >}}](material/01-R-you-ready.qmd)  | |

@@ -8,9 +8,6 @@ listing:
     - "math-ss/index.qmd"
     - "stat-learn/index.qmd"
     - "tidyverse/index.qmd"
-    - "intro-stats/index.qmd"
-    - "falls-inf-stats/index.qmd"
-    - "sna/index.qmd"
   type: table
 margin-footer: licence.html
 section-divs: false
