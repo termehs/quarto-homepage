@@ -11,6 +11,6 @@ toc: false
 
 ## Schedule
 
-|                                                    | slides  | practical | data | 
-|-------------------------------------|:------:|:---------:|:---------:|
-| **1**: Introduction | [{{< fa display >}}]()  |  [{{< fa file >}}](material/01-R-you-ready.qmd)  | |
+|                                                    | date       |slides  | practical | data | 
+|----------------------------------------------------|------------|:------:|:---------:|:---------:|
+| **1**:  Introduction: What is Statistical Learning? | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn01-intro)  |  [{{< fa file >}}](material/01-R-you-ready.qmd)   |  [.zip](material/01-data.zip)|

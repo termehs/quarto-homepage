@@ -15,5 +15,5 @@ toc: false
 
 |                                                    | date       |slides  | 
 |----------------------------------------------------|------------|:------:|
-| **1**: Preliminaries | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd) | 
-| **2**: Elementary Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/tidy01-meet-the-toolkit)  |  [{{< fa file >}}](material/bechdel.qmd) | 
+| **1**: Preliminaries | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss01-prel)  |  [{{< fa file >}}](material/01-R-you-ready.qmd)  | |
+| **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}]()  |  

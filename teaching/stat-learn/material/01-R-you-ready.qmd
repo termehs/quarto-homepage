@@ -236,7 +236,7 @@ We begin by loading in the `Auto` data set. This data is part of the `ISLR2` lib
 
 ```{r chunk25}
 Auto <- read.table("01-data/Auto.data")
-knitr::kable(head(Auto))
+knitr::kable(head(Auto)) # note: you only write head(Auto) here
 ```
 
 Note that `Auto.data` is simply a text file, which you could alternatively open on your computer using a standard text editor (you can even change the format to .txt). It is often a good idea to view a data set using a text editor or other software such as Excel before loading it into `R`.
