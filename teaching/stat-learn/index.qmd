@@ -11,7 +11,7 @@ toc: false
 
 ## Schedule
 
-|                                                    | date       |slides  | practical | data | 
-|----------------------------------------------------|------------|:------:|:---------:|:---------:|
-| **1**:  Introduction: What is Statistical Learning? | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn01-intro)  |  [{{< fa file >}}](material/01-R-you-ready.qmd)   |  [.zip](material/01-data.zip)|
-| **2**: Linear Regression I | 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn02-linreg-I)  |  [{{< fa file >}}](material/01-R-you-ready.qmd)   |  [.zip](material/01-data.zip)|
+|                                                    | date       |slides  | handout| practical | data | 
+|----------------------------------------------------|------------|:------:|:------:|:---------:|:---------:|
+| **1**:  Introduction: What is Statistical Learning? | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn01-intro)  | [{{<fa file-pdf >}}](material/01-intro-ho.pdf)| [{{< fa file >}}](material/01-R-you-ready.qmd)   |  [.zip](material/01-data.zip)|
+| **2**: Linear Regression I | 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn02-linreg-I) |  [{{<fa file-pdf >}}](material/02-linregI-ho.pdf) |  [{{< fa file >}}](material/02-linear-regression-I.qmd)   |  |
