@@ -16,4 +16,4 @@ toc: false
 |                                                    | date       |slides |  handouts  | 
 |----------------------------------------------------|------------|:------:|:------:|
 | **1**: Preliminaries | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss01-prel)  |  [{{< fa file >}}](material/01-prel-ho.pdf)  | |
-| **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}]()  |  
+| **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss02-algebra)  |  [{{< fa file >}}](material/02-algebra-ho.pdf)  | |
