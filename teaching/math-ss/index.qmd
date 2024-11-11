@@ -18,3 +18,4 @@ toc: false
 | **1**: Preliminaries | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss01-prel)  |  [{{< fa file-pdf >}}](material/01-prel-ho.pdf)  | |
 | **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss02-algebra)  |  [{{< fa file-pdf >}}](material/02-algebra-ho.pdf)  | |
 | **3**: Functions & Relations| 05.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss03-functions-relations)  |  [{{< fa file-pdf >}}](material/03-functions-relations-ho.pdf)  | |
+| **4**: Sequences & Series, Limits & Continuity | 12.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss04-seq-series-lim-cont)  |  [{{< fa file-pdf >}}](material/04-seq-series-lim-cont-ho.pdf)  | |
