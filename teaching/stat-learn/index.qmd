@@ -16,3 +16,4 @@ toc: false
 | **1**:  Introduction: What is Statistical Learning? | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn01-intro)  | [{{<fa file-pdf >}}](material/01-intro-ho.pdf)| [{{< fa file >}}](material/01-R-you-ready.qmd)   |  [.zip](material/01-data.zip)|
 | **2**: Linear Regression I | 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn02-linreg-I) |  [{{<fa file-pdf >}}](material/02-linregI-ho.pdf) |  [{{< fa file >}}](material/02-linear-regression-I.qmd)   |  |
 | **3**: Linear Regression II | 05.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn03-linreg-II) |  [{{<fa file-pdf >}}](material/03-linregII-ho.pdf) |  [{{< fa file >}}](material/03-linear-regression-II.qmd)   | [.zip](material/03-data.zip) |
+| **4**: Classification I | 12.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn04-class-I) |  [{{<fa file-pdf >}}](material/04-class-I-ho.pdf) | TBD  | TBD |
