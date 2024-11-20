@@ -1,0 +1,240 @@
+---
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+# Classification Methods II
+
+## Caravan data and KNN
+
+To continue our dive into classification methods we will take a loook at the Insurance dataset stored as "Caravan".
+
+This data set includes 85 predictors that measure demographic characteristics for 5,822 individuals.
+The response variable is Purchase, which indicates whether or not a given individual purchases a caravan insurance policy.
+In this data set, only 6% of people purchased caravan insurance.
+
+```{r chunk1}
+library(ISLR2)
+library(class)
+attach(Caravan)
+dim(Caravan)
+```
+
+```{r}
+summary(Caravan$Purchase)
+348 / 5474
+```
+
+Because the KNN classifier predicts the class of a given test observation by identifying the observations that are nearest to it, the scale of the variables matters.
+Variables that are on a large scale will have a much larger effect on the distance between the observations, and hence on the KNN classifier, than variables that are on a small scale.
+For instance, imagine a data set that contains two variables, salary and age (measured in dollars and years, respectively).
+As far as KNN is concerned, a difference of \$1,000 in salary is enormous compared to a difference of 50 years in age.
+Consequently, salary will drive the KNN classification results, and age will have almost no effect.
+This is contrary to our intuition that a salary difference of \$1,000 is quite small compared to an age difference of 50 years.
+Furthermore, the importance of scale to the KNN classifier leads to another issue: if we measured salary in Japanese yen, or if we measured age in minutes, then we’d get quite different classification results from what we get if these two variables are measured in dollars and years.
+
+A good way to handle this problem is to standardize the data so that all variables are given a mean of zero and a standard deviation of one.
+Then all variables will be on a comparable scale.
+The scale() function does just this.
+In standardizing the data, we exclude column 86, because that is the qualitative Purchase variable.
+
+```{r}
+standardized.X <- scale(Caravan[, -86])
+cat("Unstandardized:\n")
+var(Caravan[, 1])
+var(Caravan[, 2])
+cat("Standardized:\n")
+var(standardized.X[, 1])
+var(standardized.X[, 2])
+
+```
+
+Now every column of standardized.X has a standard deviation of one and a mean of zero.
+
+We now split the observations into a test set, containing the first 1,000 observations, and a training set, containing the remaining observations.
+We fit a KNN model on the training data using K=1, and evaluate its performance on the test data.
+
+```{r chunk9}
+test <- 1:1000
+train.X <- standardized.X[-test, ]
+test.X <- standardized.X[test, ]
+train.Y <- Purchase[-test]
+test.Y <- Purchase[test]
+set.seed(1)
+knn.pred <- knn(train.X, test.X, train.Y, k = 1)
+mean(test.Y != knn.pred)
+
+```
+
+```{r}
+table(knn.pred, test.Y)
+9 / (68 + 9)
+```
+
+This looks like a nice result - we have high accuracy.
+But do we care about how many people are not buying insurance in this example?
+
+### Exercise:
+
+Tune your hyperparameter k and compare to our previous result.
+Also Compare to random guessing (50:50)
+
+```{r}
+
+```
+
+## LDA with the stocks data
+
+Now we will perform LDA on the `Smarket` data.
+In `R`, we fit an LDA model using the `lda()` function, which is part of the `MASS` library.
+Notice that the syntax for the `lda()` function is identical to that of `lm()`, and to that of `glm()` except for the absence of the `family` option.
+We fit the model using only the observations before 2005.
+
+```{r}
+attach(Smarket)
+train <- (Year < 2005)
+Smarket.2005 <- Smarket[!train, ]
+dim(Smarket.2005)
+Direction.2005 <- Direction[!train]
+```
+
+```{r}
+library(MASS)
+lda.fit <- lda(Direction ~ Lag1 + Lag2, data = Smarket,
+    subset = train)
+lda.fit
+```
+
+```{r}
+plot(lda.fit)
+```
+
+The LDA output indicates that $\hat\pi_1=0.492$ and $\hat\pi_2=0.508$; in other words, $49.2$ % of the training observations correspond to days during which the market went down.
+It also provides the group means; these are the average of each predictor within each class, and are used by LDA as estimates of $\mu_k$.
+These suggest that there is a tendency for the previous 2\~days' returns to be negative on days when the market increases, and a tendency for the previous days' returns to be positive on days when the market declines.
+The *coefficients of linear discriminants* output provides the linear combination of `lagone` and `lagtwo` that are used to form the LDA decision rule.
+In other words, these are the multipliers of the elements of $X=x$ in (4.24).
+If \$-0.642 \times $`lagone`$ - 0.514 \times \$`lagtwo` is large, then the LDA classifier will predict a market increase, and if it is small, then the LDA classifier will predict a market decline.
+
+The `plot()` function produces plots of the *linear discriminants*, obtained by computing \$-0.642 \times $`lagone`$ - 0.514 \times \$`lagtwo` for each of the training observations.
+The `Up` and `Down` observations are displayed separately.
+
+The `predict()` function returns a list with three elements.
+The first element, `class`, contains LDA's predictions about the movement of the market.
+The second element, `posterior`, is a matrix whose $k$th column contains the posterior probability that the corresponding observation belongs to the $k$th class, computed from (4.15).
+Finally, `x` contains the linear discriminants, described earlier.
+
+```{r chunk15}
+lda.pred <- predict(lda.fit, Smarket.2005)
+names(lda.pred)
+```
+
+As we observed in Section 4.5, the LDA and logistic regression predictions are almost identical.
+
+```{r chunk16}
+lda.class <- lda.pred$class
+table(lda.class, Direction.2005)
+mean(lda.class == Direction.2005)
+```
+
+Applying a $50$ % threshold to the posterior probabilities allows us to recreate the predictions contained in `lda.pred$class`.
+
+```{r chunk17}
+sum(lda.pred$posterior[, 1] >= .5)
+sum(lda.pred$posterior[, 1] < .5)
+```
+
+Notice that the posterior probability output by the model corresponds to the probability that the market will *decrease*:
+
+```{r chunk18}
+lda.pred$posterior[1:20, 1]
+lda.class[1:20]
+```
+
+If we wanted to use a posterior probability threshold other than $50$ % in order to make predictions, then we could easily do so.
+For instance, suppose that we wish to predict a market decrease only if we are very certain that the market will indeed decrease on that day---say, if the posterior probability is at least $90$ %.
+
+```{r chunk19}
+sum(lda.pred$posterior[, 1] > .9)
+```
+
+No days in 2005 meet that threshold!
+In fact, the greatest posterior probability of decrease in all of 2005 was $52.02$
+
+## Quadratic Discriminant Analysis
+
+We will now fit a QDA model to the `Smarket` data.
+QDA is implemented in `R` using the `qda()` function, which is also part of the `MASS` library.
+The syntax is identical to that of `lda()`.
+
+```{r chunk20}
+qda.fit <- qda(Direction ~ Lag1 + Lag2, data = Smarket,
+    subset = train)
+qda.fit
+```
+
+The output contains the group means.
+But it does not contain the coefficients of the linear discriminants, because the QDA classifier involves a quadratic, rather than a linear, function of the predictors.
+The `predict()` function works in exactly the same fashion as for LDA.
+
+```{r chunk21}
+qda.class <- predict(qda.fit, Smarket.2005)$class
+table(qda.class, Direction.2005)
+mean(qda.class == Direction.2005)
+```
+
+Interestingly, the QDA predictions are accurate almost $60$ % of the time, even though the 2005 data was not used to fit the model.
+This level of accuracy is quite impressive for stock market data, which is known to be quite hard to model accurately.
+This suggests that the quadratic form assumed by QDA may capture the true relationship more accurately than the linear forms assumed by LDA and logistic regression.
+However, we recommend evaluating this method's performance on a larger test set before betting that this approach will consistently beat the market!
+
+## Naive Bayes
+
+Next, we fit a naive Bayes model to the `Smarket` data.
+Naive Bayes is implemented in `R` using the `naiveBayes()` function, which is part of the `e1071` library.
+The syntax is identical to that of `lda()` and `qda()`.
+By default, this implementation of the naive Bayes classifier models each quantitative feature using a Gaussian distribution.
+However, a kernel density method can also be used to estimate the distributions.
+
+```{r chunk22}
+# install.packages("e1071")
+library(e1071)
+nb.fit <- naiveBayes(Direction ~ Lag1 + Lag2, data = Smarket,
+    subset = train)
+nb.fit
+```
+
+The output contains the estimated mean and standard deviation for each variable in each class.
+For example, the mean for `lagone` is $0.0428$ for
+
+`Direction=Down`, and the standard deviation is $1.23$.
+We can easily verify this:
+
+```{r chunk23}
+mean(Lag1[train][Direction[train] == "Down"])
+sd(Lag1[train][Direction[train] == "Down"])
+```
+
+The `predict()` function is straightforward.
+
+```{r chunk24}
+nb.class <- predict(nb.fit, Smarket.2005)
+table(nb.class, Direction.2005)
+mean(nb.class == Direction.2005)
+```
+
+Naive Bayes performs very well on this data, with accurate predictions over $59\%$ of the time.
+This is slightly worse than QDA, but much better than LDA.
+
+The `predict()` function can also generate estimates of the probability that each observation belongs to a particular class.
+%
+
+```{r chunk25}
+nb.preds <- predict(nb.fit, Smarket.2005, type = "raw")
+nb.preds[1:5, ]
+```
