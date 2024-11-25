@@ -1,0 +1,373 @@
+---
+title: "Cross Validation and Model Selection"
+author: "Termeh Shafie"
+format: html
+editor: visual
+execute:
+  cache:  true
+---
+
+
+# Part I: Iris Data
+
+   - `iris` data is a built-in data set in R that contains measurements for 50 flowers in 3 different species and 4 different attributes.
+  - `caret` package is short for Classification And REgression Training. This is a useful tool for data splitting, pre-processing, feature selection and model tuning. In this simple example I will use this package to illustrate cross-validation methods.
+  - `dplyr` package is a commonly used tool for data manipulation.
+  - `tidyverse`  package is for data manipulation and visualization (with `dplyr` included).
+
+```{r, message = FALSE}
+library(caret)
+library(tidyverse)
+# Load data
+data(iris)
+
+# Take a look at data 
+str(iris)
+```
+
+## Model Performance Metrics
+To determine whether the designed model is performing well, we need to use the observations that are not being used during the training of the model. Therefore the test set will serve as the unseen data, then the values of the dependent variables are predicted and model accuracy will be evaluated based on the difference between actual values and predicted values of the dependent variable. We use following model performance metrics (consult lecture slides for more information):
+
+  - $R^2$
+  - Rooted Mean Squared Error (RMSE)
+  - Mean Absolute Error (MAE)
+ 
+ 
+## Procedure for each CV method applied
+Each methods below will be conducted in four steps:
+
+  - **Data splitting**: split the data set into different subsets.
+  - **Training**: build the model on the training data set.
+  - **Testing**: apply the resultant model to the unseen data (testing data set) to predict the outcome of new observations.
+  - **Evaluating**: calculate prediction error using the model performance metrics.
+
+## Validation Set Approach
+In this approach, the available data is divided into two subsets: a training set and a validation set. The training set is used to train the model, and the validation set is used to evaluate its performance. Predictions done by this method could be largely affected by the subset of observations used in testing set. If the test set is not representative of the entire data, this method may lead to overfitting. 
+
+```{r, message = FALSE}
+### Data splitting
+
+# set seed to generate a reproducible random sample
+set.seed(123)
+
+# create training and testing data set using index, training data contains 80% of the data set
+# 'list = FALSE' allows us to create a matrix data structure with the indices of the observations in the subsets along the rows.
+train.index.vsa <- createDataPartition(iris$Species, p= 0.8, list = FALSE)
+train.vsa <- iris[train.index.vsa,]
+test.vsa <- iris[-train.index.vsa,]
+
+# see how the the subsets are randomized
+role = rep('train',nrow(iris))
+role[-train.index.vsa] = 'test'
+ggplot(data = cbind(iris,role)) + 
+  geom_point(aes(x = Sepal.Length,
+                 y = Petal.Width,
+                 color = role)) +
+  theme_minimal()
+```
+
+```{r, message = FALSE}
+### Training: linear model is fit using all availbale predictors
+model.vsa <- lm(Petal.Width ~., data = train.vsa)
+
+
+### Testing
+predictions.vsa <- model.vsa %>% predict(test.vsa)
+
+
+### Evaluating
+data.frame(RMSE = RMSE(predictions.vsa, test.vsa$Petal.Width),
+           R2 = R2(predictions.vsa, test.vsa$Petal.Width),
+           MAE = MAE(predictions.vsa, test.vsa$Petal.Width))
+```
+
+## Leave-One-Out Cross-Validation: LOOCV
+```{r, message = FALSE}
+### Data splitting: leave one out
+train.loocv <- trainControl(method = "LOOCV")
+
+### Training
+model.loocv <- train(Petal.Width ~.,
+                     data = iris,
+                     method = "lm",
+                     trControl = train.loocv)
+
+### Present results
+print(model.loocv)
+```
+## K-Fold Cross Validation
+```{r, message = FALSE}
+### Data splitting
+
+# set seed to generate a reproducible random sample
+set.seed(123)
+# the number of K is set to be 5
+train.kfold <- trainControl(method = "cv", number = 5)
+
+### Training
+model.kfold <- train(Petal.Width ~.,
+                     data = iris,
+                     method = "lm",
+                     trControl = train.kfold)
+
+### Present results
+print(model.kfold)
+```
+
+## Repeated K-Fold Cross Validation
+
+### Data splitting
+```{r, message = FALSE}
+# set seed to generate a reproducible random sample
+set.seed(123)
+# the number of K is set to be 5
+train.rkfold <- trainControl(method = "repeatedcv", number = 5, repeats = 3)
+
+### Training
+model.rkfold <- train(Petal.Width ~.,
+                     data = iris,
+                     method = "lm",
+                     trControl = train.rkfold)
+
+### Present results
+print(model.rkfold)
+print(model.kfold)
+```
+
+## Let's summarize the results
+
+| CV method| RMSE | R2 | MAE |
+|---------|:-----|------:|:------:|
+| Validation Set   |  0.1675| 0.9498| 0.1288|
+| LOOCV    | 0.1706 | 0.9496 | 0.1268|
+| K-Fold       |   0.1704  |  0.9514  |  0.1289 | 
+| K-Fold repeat   |   0.1704 | 0.9514 | 0.1289|
+
+What do you note?
+
+
+# Part II: Simulation
+
+## KNN
+
+Recall our `KNN` classifier from earlier where the following function was used:
+
+```{r}
+KNN = function(x0, x, y, K) {
+    distances = abs(x - x0)  # Euclidean distance between x0 and each x_i
+    o = order(distances)  # order of the training points by distance from x0 (nearest to farthest)
+    y0_hat = mean(y[o[1:K]])  # take average of the y values of the K nearest training points
+    return(y0_hat)  # return predicted value of y
+}
+```
+
+where:
+
+-   $x_0$ as the new point at which we wish to predict $y$
+-   ${\bf x} = (x_1,x_2, \dots, x_n)$ as the vector of training $x$'s
+-   ${\bf y} = (y_1,y_2, \dots, y_n)$ as the vector of training $y$'s
+-   $K$ as number of neighbors to use
+-   $\hat{y}_0$ as the predicted value of $y$ at $x_0$
+
+## Simulate data
+
+We also simulate training data as before and plot it:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 7
+set.seed(1)  
+n = 100 
+x = 5*runif(n)
+sigma = 0.3  
+f = function(x) { cos(x) }  
+y = f(x) + sigma*rnorm(n)  
+plot(x,y,col=2,pch=20,cex=2)  # plot training data
+```
+
+## K-Fold Cross Validation
+
+Here we are going to use cross-validation to estimate test performance of the KNN classifier. We set number of neighbors as $K=1$ and use the 10-fold cross validation. We do a random ordering of all the available data, and initialize a vector to hold MSE for each fold. For each fold, we then create a training and test (hold one out/validation) set, run KNN at each $x$ in this test set (the one left out), and compute MSE on this test set. Then we average the MSE over all folds to obtain the CV estimate of test MSE:
+
+```{r}
+K = 1  
+nfolds = 10 
+permutation = sample(1:n)  
+MSE_fold = rep(0,nfolds)  
+for (j in 1:nfolds) {
+    test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+    train = setdiff(1:n, test)  
+    y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) }) 
+    MSE_fold[j] = mean((y[test] - y_hat)^2) 
+}
+MSE_cv = mean(MSE_fold)  
+MSE_cv
+```
+
+Next we compare with the ground truth estimate of test performance, given this training set. Because this is a simulation example, we can generate lots of test data. We simulate $x$'s and $y$'s from the true data generating process. Then we run the KNN classifier at each $x$ in the test set and compute the MSE on the test set:
+
+```{r}
+n_test = 100000
+x_test = 5*runif(n_test)  
+y_test = f(x_test) + sigma*rnorm(n_test)  
+y_test_hat = sapply(x_test, function(x0) { KNN(x0, x, y, K) })  
+MSE_test = mean((y_test - y_test_hat)^2)  
+```
+
+Let's compare the two values:
+
+```{r}
+MSE_test
+MSE_cv
+```
+
+Be careful when calculating the *root* MSE (RMSE) since it corresponds to root mean squared error or square root of MSE: Let's try with
+
+```{r}
+sqrt(MSE_test)  # test RMSE
+sqrt(mean(MSE_fold))  # sqrt of MSE_cv
+mean(sqrt(MSE_fold))  # can we use this?
+```
+
+## Leave-One Out Cross-Validation (LOOCV)
+Use the leave-one out cross-validation (LOOCV) in the above example and report the CV estimate of test MSE and the MSE given ground truth.
+
+
+```{r}
+K = 1  
+nfolds = n
+permutation = sample(1:n)  
+MSE_fold = rep(0,nfolds)  
+for (j in 1:nfolds) {
+    test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+    train = setdiff(1:n, test)  
+    y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) }) 
+    MSE_fold[j] = mean((y[test] - y_hat)^2) 
+}
+MSE_loocv = mean(MSE_fold)  
+MSE_test = mean((y_test - y_test_hat)^2)  
+MSE_loocv
+MSE_test
+```
+
+
+## Hyperparameter Tuning: Choosing Model Settings
+
+With the following example, we will illustrate how to use cross validation to choose the optimal number of neighbors $K$ in KNN. We start with a rather high number of $K$ to try for KNN ($K=30$) and use 10 folds for each of these cases in the cross validation. Then we do a random ordering of data and initialize vector for holding MSE's. For each number of folds in the range, we compute the training and test set as before (this is again the validation set). For each $K$ up to 30, we then run KNN at each $x$ in the test set (the one left out), and compute MSE on the this test set. We average across folds to obtain CV estimate of test MSE for each $K$ and plot the results:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 7
+K_max = 30 
+nfolds = 10  
+permutation = sample(1:n)  
+MSE_fold = matrix(0,nfolds,K_max)  
+for (j in 1:nfolds) {
+    test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+    train = setdiff(1:n, test) 
+    for (K in 1:K_max) {
+        y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) })
+        MSE_fold[j,K] = mean((y[test] - y_hat)^2)  
+    }
+}
+MSE_cv = colMeans(MSE_fold)  
+```
+
+We plot CV estimate of test MSE against number of neighbors $K=1,2,\dots,30$, and choose the value of $K$ that minimizes estimated test MSE. Compare with a ground truth estimate of test performance by using the chosen number of $K$ and running KNN on each $x$ in the test set (denoted `x_test` above). Why do you think the test performance estimate for the chosen $K$ tend to be smaller than the ground truth estimate of test performance in this example?
+
+
+```{r}
+plot(1:K_max, MSE_cv, pch=19)  # plot CV estimate of test MSE for each K
+
+# Choose the value of K that minimizes estimated test MSE
+K_cv = which.min(MSE_cv)
+K_cv
+```
+
+Answer: MSE_cv\[K_cv\] may systematically underestimate or overestimate test MSE! There are two sources of bias: K_cv is the minimum, and the pseudo-training set is smaller than $n$.
+
+
+## Choosing the number of folds
+
+We start by simulating training data as before:
+
+```{r}
+set.seed(1) 
+n = 20
+x = 5*runif(n)  
+sigma = 0.3 
+y = f(x) + sigma*rnorm(n)  
+```
+
+We then compute "ground truth" estimate of test performance, given this training set. We set $K=10$, and run KNN at each $x$ in the test set and compute MSE on the test set:
+
+```{r}
+K = 10
+y_test_hat = sapply(x_test, function(x0) { KNN(x0, x, y, K) })  
+MSE_test = mean((y_test - y_test_hat)^2)  
+```
+
+Next, we repeatedly run CV for a range of number of folds `nfolds` up to maximum $n=20$ (same as $n$ above in our simulated data). We repeat the simulation 200 times, and for each repetition and number of folds, we split the training data into training and test (hold one out/validation set). We run KNN at each $x$ in this test set and compute MSE. We then average the MSE's for each case with a different number of folds:
+
+```{r}
+nfolds_max = n  # maximum value of nfolds to use for CV
+nreps = 200  # number of times to repeat the simulation
+MSE_cv = matrix(0,nreps,nfolds_max)  
+for (r in 1:nreps) {  
+    for (nfolds in 1:nfolds_max) {
+        permutation = sample(1:n) 
+        MSE_fold = rep(0,nfolds)  
+        for (j in 1:nfolds) {
+            test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+            train = setdiff(1:n, test)  
+            y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) }) 
+            MSE_fold[j] = mean((y[test] - y_hat)^2) 
+        }
+        MSE_cv[r,nfolds] = mean(MSE_fold)
+    }
+}
+```
+
+We compute the MSE, bias, and variance of the CV estimate of test MSE, for each value of nfolds and plot MSE, bias\^2, and variance of the CV estimate, for each value of nfolds.
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 7
+mse = colMeans((MSE_cv - MSE_test)^2)
+bias = colMeans(MSE_cv) - MSE_test
+variance = apply(MSE_cv,2,var)
+
+# plot of MSE, bias^2 and variance against number of folds
+plot(1:nfolds_max, type="n", ylim=c(0,max(mse[2:nfolds_max])*1.1), xlab="nfolds", ylab="mse", main="MSE of the CV estimates")
+lines(1:nfolds_max, mse, col=1, lty=2, lwd=2, ylim=c(0,0.2))
+lines(1:nfolds_max, bias^2, col=2, lwd=2)
+lines(1:nfolds_max, variance, col=4, lwd=2)
+legend("topright", legend=c("mse","bias^2","variance"), col=c(1,2,4), lwd=2)
+
+# plot bias against number of folds
+plot(1:nfolds_max, bias)
+lines(1:nfolds_max, bias, col=2, lwd=2)
+```
+
+ In the following plot below, why do you think  the bias of the CV estimate of test MSE is always positive?
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 7
+# plot bias against number of folds
+plot(1:nfolds_max, bias)
+lines(1:nfolds_max, bias, col=2, lwd=2)
+```
+
+
+Answer: Because the the "pseudo"-training set (each fold) is smaller than the training set.
+
+
