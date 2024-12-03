@@ -19,4 +19,4 @@ toc: false
 | **4**: Classification I | 12.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn04-class-I) |  [{{<fa file-pdf >}}](material/04-class-I-ho.pdf) |  [{{< fa file >}}](material/04-classification-I.qmd)   | |
 | **5**: Classification II | 19.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn05-class-II) |  [{{<fa file-pdf >}}](material/05-class-II-ho.pdf) |  [{{< fa file >}}](material/05-knn-reg-class.qmd)   [{{< fa file >}}](material/05_Class-II.qmd)| |
 | **6**: Model Validation| 26.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn06-mod-val) |  [{{<fa file-pdf >}}](material/06-model-validation-ho.pdf) |  [{{< fa file >}}](material/06-model-validation-1.qmd)  [{{< fa file >}}](material/06_Model_Validation_Resampling.qmd)  |
-
+| **7**: Model Selection & Regularization| 02.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn07-mod-sel-regul) |  [{{<fa file-pdf >}}](material/07-model-selection-regularization-ho.pdf) |  |
