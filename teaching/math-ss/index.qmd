@@ -21,4 +21,5 @@ toc: false
 | **4**: Sequences & Series, Limits & Continuity | 12.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss04-seq-series-lim-cont)  |  [{{< fa file-pdf >}}](material/04-seq-series-lim-cont-ho.pdf)  | |
 | **5**: Calculus Fundamentals: Differentiation| 19.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss05-calc-fund)  |  [{{< fa file-pdf >}}](material/05-calc-fund-ho.pdf)  | |
 | **6**: Calculus Fundamentals: The Integral| 26.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss06-the-integral)  |  [{{< fa file-pdf >}}](material/06-the-integral-ho.pdf)  | |
-| **7**:Extrema in One Dimension| 02.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss07-extrema)  |  [{{< fa file-pdf >}}](material/07-extrema-ho.pdf)  | |
+| **7**:Extrema in One Dimension| 03.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss07-extrema)  |  [{{< fa file-pdf >}}](material/07-extrema-ho.pdf)  | |
+| **8**: Introduction to Probability| 10.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss08-prob-intro)  |  [{{< fa file-pdf >}}](material/mathss08-prob-intro-ho.pdf)  | |
