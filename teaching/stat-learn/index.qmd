@@ -21,6 +21,6 @@ toc: false
 | **6**: Model Validation| 26.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn06-mod-val) |  [{{<fa file-pdf >}}](material/06-model-validation-ho.pdf) |  [{{< fa file >}}](material/06-model-validation-1.qmd)  [{{< fa file >}}](material/06_Model_Validation_Resampling.qmd)  |
 | **7**: Model Selection & Regularization| 03.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn07-mod-sel-regul) |  [{{<fa file-pdf >}}](material/07-model-selection-regularization-ho.pdf) |   [{{< fa file >}}](material/07_model_selection_regularization.qmd)  | 
 | **8**: "Non-linear" Linear Regression | 10.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn08-non-linearity) |  [{{<fa file-pdf >}}](material/08-non-linearity-ho.pdf) |   [{{< fa file >}}](material/08-nonlinearity.qmd)  [{{< fa file >}}](material/08_nonlinear_modeling.qmd) | 
-| **9**: Tree Based Methods| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn09-tree-based-methods) |  [{{<fa file-pdf >}}](material/09-tree-based-methods-ho.pdf) |   | 
+| **9**: Tree Based Methods| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn09-tree-based-methods) |  [{{<fa file-pdf >}}](material/09-tree-based-methods-ho.pdf) |   [{{< fa file >}}](material/09_Trees.qmd)  | 
 
 
