@@ -22,5 +22,6 @@ toc: false
 | **7**: Model Selection & Regularization| 03.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn07-mod-sel-regul) |  [{{<fa file-pdf >}}](material/07-model-selection-regularization-ho.pdf) |   [{{< fa file >}}](material/07_model_selection_regularization.qmd)  | 
 | **8**: "Non-linear" Linear Regression | 10.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn08-non-linearity) |  [{{<fa file-pdf >}}](material/08-non-linearity-ho.pdf) |   [{{< fa file >}}](material/08-nonlinearity.qmd)  [{{< fa file >}}](material/08_nonlinear_modeling.qmd) | 
 | **9**: Tree Based Methods| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn09-tree-based-methods) |  [{{<fa file-pdf >}}](material/09-tree-based-methods-ho.pdf) |   [{{< fa file >}}](material/09_Trees.qmd)  | 
+| **10**: Support Vector Machines| 07.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn10-support-vector-machines) |  [{{<fa file-pdf >}}](material/10-support-vector-machines-ho.pdf) |   | 
 
 

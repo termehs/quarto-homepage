@@ -18,6 +18,12 @@
     ]
   },
   {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/test/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/publications/interplay_str_cent/index.html",
@@ -59,12 +65,6 @@
       "/talks/EUSN2021/index.html",
       "/talks/NETWORKS2021/index.html",
       "/talks/EUSN2019/index.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/posts/test/index.html"
     ]
   },
   {

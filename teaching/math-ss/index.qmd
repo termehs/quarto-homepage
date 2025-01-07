@@ -24,3 +24,4 @@ toc: false
 | **7**:Extrema in One Dimension| 03.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss07-extrema)  |  [{{< fa file-pdf >}}](material/07-extrema-ho.pdf)  | |
 | **8**: Introduction to Probability| 10.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss08-prob-intro)  |  [{{< fa file-pdf >}}](material/08-prob-intro-ho.pdf)  | |
 | **9**: Discrete Distributions| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss09-discrete-dists)  |  [{{< fa file-pdf >}}](material/09-discrete-dists-ho.pdf)  | |
+| **10**: Continuous Distributions| 07.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss10-cont-dists)  |  [{{< fa file-pdf >}}](material/10-cont-dists-ho.pdf)  | |
