@@ -24,5 +24,5 @@ toc: false
 | **9**: Tree Based Methods| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn09-tree-based-methods) |  [{{<fa file-pdf >}}](material/09-tree-based-methods-ho.pdf) |   [{{< fa file >}}](material/09_Trees.qmd)  | 
 | **10**: Support Vector Machines| 07.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn10-support-vector-machines) |  [{{<fa file-pdf >}}](material/10-support-vector-machines-ho.pdf) |    [{{< fa file >}}](material/10_SVM.qmd)  | 
 | **11**: Neural Networks| 14.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn11-neural-networks) |  [{{<fa file-pdf >}}](material/11-neural-networks-ho.pdf) |     | 
-| **12**: Clustering | 21.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn12-clustering) |  [{{<fa file-pdf >}}](material/12-clustering-ho.pdf) |     | 
+| **12**: Clustering | 21.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn12-clustering) |  [{{<fa file-pdf >}}](material/12-clustering-ho.pdf) |    [{{< fa file >}}](material/12_Clustering.qmd)   | [.zip](material/12-data.zip)|
 
