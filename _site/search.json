@@ -340,7 +340,7 @@
     "href": "teaching/stat-learn/index.html",
     "title": "Statistical Learning",
     "section": "",
-    "text": "Schedule\n\n\n\n\ndate\nslides\nhandout\npractical\ndata\n\n\n\n\n1: Introduction: What is Statistical Learning?\n22.10.2024\n\n\n\n.zip\n\n\n2: Linear Regression I\n29.10.2024\n\n\n\n\n\n\n3: Linear Regression II\n05.11.2024\n\n\n\n.zip\n\n\n4: Classification I\n12.11.2024\n\n\n\n\n\n\n5: Classification II\n19.11.2024\n\n\n \n\n\n\n6: Model Validation\n26.11.2024\n\n\n \n\n\n\n7: Model Selection & Regularization\n03.12.2024\n\n\n\n\n\n\n8: “Non-linear” Linear Regression\n10.12.2024\n\n\n \n\n\n\n9: Tree Based Methods\n17.12.2024\n\n\n\n\n\n\n10: Support Vector Machines\n07.01.2025\n\n\n\n\n\n\n11: Neural Networks\n14.01.2025\n\n\n\n\n\n\n12: Clustering\n21.01.2025\n\n\n\n.zip"
+    "text": "Schedule\n\n\n\n\ndate\nslides\nhandout\npractical\ndata\n\n\n\n\n1: Introduction: What is Statistical Learning?\n22.10.2024\n\n\n\n.zip\n\n\n2: Linear Regression I\n29.10.2024\n\n\n\n\n\n\n3: Linear Regression II\n05.11.2024\n\n\n\n.zip\n\n\n4: Classification I\n12.11.2024\n\n\n\n\n\n\n5: Classification II\n19.11.2024\n\n\n \n\n\n\n6: Model Validation\n26.11.2024\n\n\n \n\n\n\n7: Model Selection & Regularization\n03.12.2024\n\n\n\n\n\n\n8: “Non-linear” Linear Regression\n10.12.2024\n\n\n \n\n\n\n9: Tree Based Methods\n17.12.2024\n\n\n\n\n\n\n10: Support Vector Machines\n07.01.2025\n\n\n\n\n\n\n11: Neural Networks\n14.01.2025\n\n\n\n\n\n\n12: Clustering\n21.01.2025\n\n\n\n.zip\n\n\n13: Clustering\n28.01.2025\n\n\n\n.zip"
   },
   {
     "objectID": "teaching/tidyverse/material/nobel-laureates.html",
@@ -627,7 +627,7 @@
     "href": "teaching/math-ss/index.html",
     "title": "Mathematics for Social Scientists",
     "section": "",
-    "text": "Schedule\n\n\n\n\ndate\nslides\nhandout\n\n\n\n\n1: Preliminaries\n22.10.2024\n\n\n\n\n2: Algebra Review, Modular Arithmetic & Boolean Algebra\n29.10.2024\n\n\n\n\n3: Functions & Relations\n05.11.2024\n\n\n\n\n4: Sequences & Series, Limits & Continuity\n12.11.2024\n\n\n\n\n5: Calculus Fundamentals: Differentiation\n19.11.2024\n\n\n\n\n6: Calculus Fundamentals: The Integral\n26.11.2024\n\n\n\n\n7:Extrema in One Dimension\n03.12.2024\n\n\n\n\n8: Introduction to Probability\n10.12.2024\n\n\n\n\n9: Discrete Distributions\n17.12.2024\n\n\n\n\n10: Continuous Distributions\n07.01.2025\n\n\n\n\n11: Introduction Linear Algebra\n14.01.2025\n\n\n\n\n12: Vector Spaces and Systems of Equations\n21.01.2025"
+    "text": "Schedule\n\n\n\n\ndate\nslides\nhandout\n\n\n\n\n1: Preliminaries\n22.10.2024\n\n\n\n\n2: Algebra Review, Modular Arithmetic & Boolean Algebra\n29.10.2024\n\n\n\n\n3: Functions & Relations\n05.11.2024\n\n\n\n\n4: Sequences & Series, Limits & Continuity\n12.11.2024\n\n\n\n\n5: Calculus Fundamentals: Differentiation\n19.11.2024\n\n\n\n\n6: Calculus Fundamentals: The Integral\n26.11.2024\n\n\n\n\n7:Extrema in One Dimension\n03.12.2024\n\n\n\n\n8: Introduction to Probability\n10.12.2024\n\n\n\n\n9: Discrete Distributions\n17.12.2024\n\n\n\n\n10: Continuous Distributions\n07.01.2025\n\n\n\n\n11: Introduction Linear Algebra\n14.01.2025\n\n\n\n\n12: Vector Spaces and Systems of Equations\n21.01.2025\n\n\n\n\n13: Eigenvalues and Eigenvectors\n28.01.2025"
   },
   {
     "objectID": "project/index.html",

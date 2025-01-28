@@ -27,3 +27,4 @@ toc: false
 | **10**: Continuous Distributions| 07.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss10-cont-dists)  |  [{{< fa file-pdf >}}](material/10-cont-dists-ho.pdf)  | |
 | **11**: Introduction Linear Algebra| 14.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss11-intro-lin-alg)  |  [{{< fa file-pdf >}}](material/11-intro-lin-alg-ho.pdf)  | |
 | **12**: Vector Spaces and Systems of Equations| 21.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss12-vec-space-soe)  |  [{{< fa file-pdf >}}](material/12-vec-space-soe-ho.pdf)  | |
+| **13**: Eigenvalues and Eigenvectors | 28.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss13-eigenvalues-eigenvectors)  |  [{{< fa file-pdf >}}](material/13-eigenvalues-eigenvectors-ho.pdf)  | |
