@@ -26,3 +26,4 @@ toc: false
 | **11**: Neural Networks| 14.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn11-neural-networks) |  [{{<fa file-pdf >}}](material/11-neural-networks-ho.pdf) |     | 
 | **12**: Clustering | 21.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn12-clustering) |  [{{<fa file-pdf >}}](material/12-clustering-ho.pdf) |    [{{< fa file >}}](material/12_Clustering.qmd)   | [.zip](material/12-data.zip)|
 | **13**: Principal Component Analysis| 28.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn13-pca) |  [{{<fa file-pdf >}}](material/13-pca-ho.pdf) |    [{{< fa file >}}](material/13-pca.qmd)  [{{< fa file >}}](material/13_PCA.qmd)  | [.zip](material/13-data.zip)|
+| **14**: Review | 04.02.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn14-review) |  [{{<fa file-pdf >}}](material/14-review-ho.pdf) |     | |
