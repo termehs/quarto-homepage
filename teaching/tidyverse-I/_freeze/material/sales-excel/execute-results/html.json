@@ -1,0 +1,15 @@
+{
+  "hash": "0e5fd5c89853f09488a6cfcf885fb65e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Sales\"\nauthor: \"Termeh Shafie <br> (adapted from original script by Mine Çetinkaya-Rundel)\"\neditor: visual\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(readxl)\n```\n:::\n\n\n-   Read in the Excel file called `sales.xlsx` from the `data-raw/` folder such that it looks like the following.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](img/sales-1.png){width=20%}\n:::\n:::\n\n::: {.cell}\n\n:::\n\n\n-   **Stretch goal:** Manipulate the sales data such such that it looks like the following.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](img/sales-2.png){width=25%}\n:::\n:::\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

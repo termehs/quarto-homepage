@@ -7,7 +7,7 @@ listing:
   contents: 
     - "math-ss/index.qmd"
     - "stat-learn/index.qmd"
-    - "tidyverse/index.qmd"
+    - "tidyverse-I/index.qmd"
   type: table
 margin-footer: licence.html
 section-divs: false

@@ -1,0 +1,15 @@
+{
+  "hash": "e8578888f40245ba988aacf8d6b38fcb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Data Type and Data Classes: Exercises\"\nauthor: \"Termeh Shafie\"\nformat:\n  html:\n    embed-resources: true\neditor: visual\nexecute:\n  warning: false\n---\n\n\n## Exercise\n\nDouble check that you do not have stored objects in your current session with the following command. This will list all objects that you have in\nyour current R session.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nls()\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\ncharacter(0)\n```\n\n\n:::\n:::\n\n\nIn case you have objects that you want to remove from the current session you can do so with the `rm()` function. <i class=\"fas fa-exclamation-circle\"></i> This command will remove all objects available in your current environment.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nrm(list = ls())\n```\n:::\n\n\nThis command uses commands that we have not talked about yet. If you do not understand how it works now, you will do so after tomorrows lectures and exercises.\n\n1. Create variables *var1* and *var2* and initialize them with two integers of choice.\n\n\n\n\n\n2. Add the two variables and save them as a new variable named *var3* and print the result.\n\n\n\n\n\n3. Check the class, mode, and type for var1, var2, var3 and &pi; (is found under the variable name `pi` in R)\n\n\n\n\n\n\n\n4. Create two character variables containing a text of choice. Check the mode, class, and type of the first one.\n\n\n\n\n\nAdd **var1** to it. What is the result and why?\n\n<!-- # ```{r,include = FALSE, accordion=TRUE, error=TRUE} -->\n<!-- # text1+var1 -->\n<!-- # ``` -->\n\n5. Convert **var3** to an integer, cast an integer variable to double, cast a string to a double.\n\n\n\n\n\n6. Report floor and ceiling of &pi; and round &pi; to 3 decimal places.\n\n\n\n\n\n7. Is floor of &pi; an integer?\n\n\n\n\n\n8. Treat `\"3.56437\"` string as number.\n\n\n\n\n\n9. Divide &infin; by - &infin;\n\n\n\n\n\n\n10. Print a truth table for OR (for three distinct logical values). Read about truth tables [here](https://en.wikipedia.org/wiki/Truth_table).\n\n\n\n\n\n12. Multiply a logical TRUE by a logical FALSE. Rise the logical true to the 7-th power.\n\n\n\n\n\n13. Create two character variables containing two verses of a chosen song.\n\n- Concatenate the two variables,  \n- Paste the variables with '\\*' as separator.  \n- Find if 'and' occurs in the second line,  \n- Substitute a word for another,  \n- Extract substring starting at the 5th character and 5 characters long.  \n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
