@@ -14,6 +14,8 @@
         url('static/fonts/academicons.ttf') format('truetype'),
         url('static/fonts/academicons.woff') format('woff'),
         url('static/fonts/academicons.svg') format('svg');
+
+        
 }
 .ai {
   font-family: 'Academicons';

@@ -7,7 +7,6 @@ listing:
     - seand
     - rmm
     - convoys
-    - netdyn
     - movienetworks
     - nexus
   type: grid

@@ -50,7 +50,6 @@ listing:
 
 :::{.socials}
 {{< mastodon https://fosstodon.org/@termehs >}}
-{{< twitter termehshafie >}}
 {{< github termehs >}}
 {{< scholar Si-WbhAAAAAJ >}}
 {{< orcid 0000-0002-8419-8477 >}}
