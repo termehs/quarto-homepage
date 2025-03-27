@@ -1,0 +1,48 @@
+---
+title: Data Science with Tidyverse II
+subtitle: Tidymodeling
+description: |
+  The tidymodels framework is a collection of packages for modeling using tidyverse principles. This course introduces the principles and practices of predictive modeling using this framework in R. Designed for learners with R knowledge, the course emphasizes building, evaluating, and deploying machine learning models in a tidy and reproducible manner. Students will gain hands-on experience with data preprocessing, feature engineering, model tuning, and evaluation, using real-world datasets. The course consists of two parts, one introductory and one more advanced. These parts are combianed with several case studies for more practice.
+section-divs: false
+toc: false
+---
+
+
+:::{.highlight}
+*Make sure to install and load Tidymodels:*
+```{r}
+#| eval: false
+install.packages("tidymodels")
+library(tidymodels)
+```
+:::
+
+
+## Schedule
+
+|                                                    | slides  | worksheets  
+|----------------------------------------------------|:------:|:---------
+| |    | |
+| **Introduction** | [{{< fa display >}}]() | 
+| **Part I** |   [{{< fa display >}}]()  | 1.Your Data Budget  [{{< fa file >}}]() 
+| |    | 2. Build a Model [{{< fa file >}}]()  
+| |    | 3. Evaluate the Model [{{< fa file >}}]() 
+| |    | 4. Model Tuning [{{< fa file >}}]() 
+| |    | |
+| **Part II** |   [{{< fa display >}}]()  | 1.  [{{< fa file >}}]() |
+| |    | 2. [{{< fa file >}}]() 
+| |    | 3. [{{< fa file >}}]() 
+| |    | 4. [{{< fa file >}}]() 
+
+<br><br>
+
+<br><br>
+
+
+<br><br>
+
+ The teaching material here is inspired and adapted from <https://tidymodels.org> and <https://workshops.tidymodels.org> and licenced under Creative Commons Attribution [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+ 
+
+
+

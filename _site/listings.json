@@ -7,26 +7,20 @@
     ]
   },
   {
-    "listing": "/project/index.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/project/seand/index.html",
-      "/project/rmm/index.html",
-      "/project/convoys/index.html",
-      "/project/movienetworks/index.html",
-      "/project/nexus/index.html"
+      "/blog/posts/test/index.html"
     ]
   },
   {
-    "listing": "/talks/index.html",
+    "listing": "/index.html",
     "items": [
+      "/publications/interplay_str_cent/index.html",
+      "/publications/gof_multigraph/index.html",
       "/talks/SUNBELT2024/index.html",
       "/talks/Inaugural-KN/index.html",
-      "/talks/CMB2022/index.html",
       "/talks/SUNBELT2022/index.html",
-      "/talks/WiNS2022/index.html",
-      "/talks/EUSN2021/index.html",
-      "/talks/NETWORKS2021/index.html",
-      "/talks/EUSN2019/index.html"
+      "/talks/WiNS2022/index.html"
     ]
   },
   {
@@ -50,26 +44,33 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/talks/index.html",
     "items": [
-      "/publications/interplay_str_cent/index.html",
-      "/publications/gof_multigraph/index.html",
       "/talks/SUNBELT2024/index.html",
       "/talks/Inaugural-KN/index.html",
+      "/talks/CMB2022/index.html",
       "/talks/SUNBELT2022/index.html",
-      "/talks/WiNS2022/index.html"
+      "/talks/WiNS2022/index.html",
+      "/talks/EUSN2021/index.html",
+      "/talks/NETWORKS2021/index.html",
+      "/talks/EUSN2019/index.html"
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/project/index.html",
     "items": [
-      "/blog/posts/test/index.html"
+      "/project/seand/index.html",
+      "/project/rmm/index.html",
+      "/project/convoys/index.html",
+      "/project/movienetworks/index.html",
+      "/project/nexus/index.html"
     ]
   },
   {
     "listing": "/teaching/index.html",
     "items": [
       "/teaching/tidyverse-I/index.html",
+      "/teaching/tidyverse-II/index.html",
       "/teaching/math-ss/index.html",
       "/teaching/stat-learn/index.html"
     ]
