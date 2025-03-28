@@ -5,6 +5,7 @@ description: |
   The tidymodels framework is a collection of packages for modeling using tidyverse principles. This course introduces the principles and practices of predictive modeling using this framework in R. Designed for learners with R knowledge, the course emphasizes building, evaluating, and deploying machine learning models in a tidy and reproducible manner. Students will gain hands-on experience with data preprocessing, feature engineering, model tuning, and evaluation, using real-world datasets. The course consists of two parts, one introductory and one more advanced. These parts are combianed with several case studies for more practice.
 section-divs: false
 toc: false
+margin-footer: The teaching material here is inspired and adapted from <https://tidymodels.org> and <https://workshops.tidymodels.org> and licenced under Creative Commons Attribution [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 ---
 
 
@@ -41,8 +42,6 @@ library(tidymodels)
 
 <br><br>
 
- The teaching material here is inspired and adapted from <https://tidymodels.org> and <https://workshops.tidymodels.org> and licenced under Creative Commons Attribution [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
- 
 
 
 

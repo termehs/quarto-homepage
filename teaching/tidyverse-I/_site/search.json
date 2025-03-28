@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Science with Tidyverse I",
     "section": "",
-    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\nslides\npractical\ndata\n\n\n\n\n1: Meet the toolkit\n\n\n\n\n\n2: Data visualization and ggplot\n\n\n\n\n\n3: Visualizing numerical and categorical data\n\n\n.zip\n\n\n4: Grammar of data wrangling I\n\n \n.zip\n\n\n5: Grammar of data wrangling II\n\n\n.zip\n\n\n6: Tidying Data\n\n\n.zip\n\n\n     More Practicals\n\n \n.zip\n\n\n7: Data Types and Data Classes\n\n  \n.zip\n\n\n8: Importing and Recoding Data\n\n  \n.zip\n\n\n9: Functions and Iteration\n\n\n\n\n\n10: Effective Visualization\n\n\n.zip"
+    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\nslides\npractical\ndata\nquarto\n\n\n\n\n1: Meet the toolkit\n\n\n\n\n\n\n2: Data visualization and ggplot\n\n\n\n.qmd\n\n\n3: Visualizing numerical and categorical data\n\n\n.zip\n\n\n\n4: Effective Visualization\n\n\n.zip\n.qmd\n\n\n5: Grammar of data wrangling I\n\n \n.zip\n.qmd\n\n\n6: Grammar of data wrangling II\n\n\n.zip\n.qmd\n\n\n7: Tidying Data\n\n\n.zip\n\n\n\n     More Practicals\n\n \n.zip\n.qmd\n\n\n8: Data Types and Data Classes\n\n  \n.zip\n\n\n\n9: Importing and Recoding Data\n\n  \n.zip\n.qmd\n\n\n10: Functions and Iteration\n\n\n\n.qmd"
   },
   {
     "objectID": "material/bechdel.html",

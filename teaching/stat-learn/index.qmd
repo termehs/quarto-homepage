@@ -5,6 +5,7 @@ description: |
   Statistical learning is a collection of techniques that help us learn from complex data structures to determine trends and predict future outcomes. In essence, it moves beyond the statistical inference problem of finding a model to explain the data generation process to finding a predictive function based on the data. This course is an introduction to the theory and application of both supervised and unsupervised statistical learning techniques, and provides the skills to apply and evaluate them. Programming in the statistical software R will be used throughout the course to provide hands-on training and practical examples
 section-divs: false
 toc: false
+margin-footer: licence.html
 ---
 
 
