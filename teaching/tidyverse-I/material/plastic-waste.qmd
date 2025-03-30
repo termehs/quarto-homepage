@@ -39,7 +39,7 @@ library(tidyverse)
 The dataset for this assignment can be found as a csv file. You can read it in using the following (make sure you save the data in your working directory).
 
 ```{r}
-plastic_waste <- read_csv("data03/plastic-waste.csv")
+plastic_waste <- read_csv("data-pw/plastic-waste.csv")
 ```
 
 The variable descriptions are as follows:

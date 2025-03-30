@@ -30,7 +30,7 @@ The data from the survey is in `data/brexit.csv`.
 ```{r}
 #| message: false
 
-brexit <- read_csv("data11/brexit.csv")
+brexit <- read_csv("data-brexit/brexit.csv")
 ```
 
 In the course video we made the following visualisation.
