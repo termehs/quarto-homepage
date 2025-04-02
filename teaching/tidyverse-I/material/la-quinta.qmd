@@ -236,10 +236,9 @@ Now that we have the data in the format we wanted, all that is left is to calcul
 
 One way of calculating the distance between any two points on the earth is to use the Haversine distance formula. This formula takes into account the fact that the earth is not flat, but instead spherical.
 
-This function is not available in R, but we have it saved in a file called `haversine.R` that we can load and then use:
+This function is not available in R, so we specify it below so that we can load and then use:
 
 ```{r}
-#| eval: false
 haversine <- function(long1, lat1, long2, lat2, round = 3) {
   # convert to radians
   long1 = long1 * pi / 180

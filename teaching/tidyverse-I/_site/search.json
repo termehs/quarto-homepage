@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Science with Tidyverse I",
     "section": "",
-    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\nslides\npractical\ndata\nworksheet\n\n\n\n\n1: Meet the toolkit\n\n\n\n.qmd\n\n\n2: Data visualization and ggplot\n\n\n\n.qmd\n\n\n3: Visualizing numerical and categorical data\n\n\n.zip\n.qmd\n\n\n4: Effective Visualization\n\n\n.zip\n.qmd\n\n\n5: Grammar of data wrangling I\n\n \n.zip\n.qmd\n\n\n6: Grammar of data wrangling II\n\n\n.zip\n.qmd\n\n\n7: Tidying Data\n\n\n.zip\n\n\n\n     More Practicals\n\n \n.zip\n\n\n\n8: Data Types and Data Classes\n\n  \n.zip\n\n\n\n9: Importing and Recoding Data\n\n  \n.zip\n\n\n\n10: Functions and Iteration"
+    "text": "Make sure to install and load Tidyverse:\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\nSchedule\n\n\n\n\nslides\npractical\ndata\nworksheet\n\n\n\n\n1: Meet the toolkit\n\n\n\n.qmd\n\n\n2: Data visualization and ggplot\n\n\n\n.qmd\n\n\n3: Visualizing numerical and categorical data\n\n\n.zip\n.qmd\n\n\n4: Effective Visualization\n\n\n.zip\n.qmd\n\n\n5: Grammar of data wrangling I\n\n \n.zip\n.qmd\n\n\n6: Grammar of data wrangling II\n\n\n.zip\n.qmd\n\n\n7: Tidying Data\n\n\n.zip\n\n\n\n     More Practicals\n\n \n.zip\n.qmd\n\n\n8: Data Types and Data Classes\n\n  \n.zip\n.qmd\n\n\n9: Importing and Recoding Data\n\n  \n.zip\n.qmd\n\n\n10: Functions and Iteration"
   },
   {
     "objectID": "material/bechdel.html",
@@ -838,5 +838,278 @@
     "title": "Nobel Laureates",
     "section": "Here’s where those immigrant Nobelists were born",
     "text": "Here’s where those immigrant Nobelists were born\nNote: your bar plot won’t exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.\n\nIn a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the count() function) for their birth country (born_country) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?"
+  },
+  {
+    "objectID": "material/bechdel-ws.html",
+    "href": "material/bechdel-ws.html",
+    "title": "Bechdel",
+    "section": "",
+    "text": "In this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”. We will together fill in the blanks denoted by ___."
+  },
+  {
+    "objectID": "material/bechdel-ws.html#data-and-packages",
+    "href": "material/bechdel-ws.html#data-and-packages",
+    "title": "Bechdel",
+    "section": "Data and packages",
+    "text": "Data and packages\nWe start with loading the packages we’ll use.\n\nlibrary(fivethirtyeight)\nlibrary(tidyverse)\n\nThe dataset contains information on 1794 movies released between 1970 and 2013. However we’ll focus our analysis on movies released between 1990 and 2013.\n\nbechdel90_13 &lt;- bechdel %&gt;% \n  filter(between(year, 1990, 2013))\n\nThere are ___ such movies.\nThe financial variables we’ll focus on are the following:\n\nbudget_2013: Budget in 2013 inflation adjusted dollars\ndomgross_2013: Domestic gross (US) in 2013 inflation adjusted dollars\nintgross_2013: Total International (i.e., worldwide) gross in 2013 inflation adjusted dollars\n\nAnd we’ll also use the binary and clean_test variables for grouping."
+  },
+  {
+    "objectID": "material/bechdel-ws.html#analysis",
+    "href": "material/bechdel-ws.html#analysis",
+    "title": "Bechdel",
+    "section": "Analysis",
+    "text": "Analysis\nLet’s take a look at how median budget and gross vary by whether the movie passed the Bechdel test, which is stored in the binary variable.\n\nbechdel90_13 %&gt;%\n  group_by(binary) %&gt;%\n  summarise(\n    med_budget = median(budget_2013),\n    med_domgross = median(domgross_2013, na.rm = TRUE),\n    med_intgross = median(intgross_2013, na.rm = TRUE)\n    )\n\n# A tibble: 2 × 4\n  binary med_budget med_domgross med_intgross\n  &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1 FAIL    48385984.    57318606.    104475669\n2 PASS    31070724     45330446.     80124349\n\n\nNext, let’s take a look at how median budget and gross vary by a more detailed indicator of the Bechdel test result. This information is stored in the clean_test variable, which takes on the following values:\n\nok = passes test\ndubious\nmen = women only talk about men\nnotalk = women don’t talk to each other\nnowomen = fewer than two women\n\n\nbechdel90_13 %&gt;%\n  #group_by(___) %&gt;%\n  summarise(\n    med_budget = median(budget_2013),\n    med_domgross = median(domgross_2013, na.rm = TRUE),\n    med_intgross = median(intgross_2013, na.rm = TRUE)\n    )\n\n# A tibble: 1 × 3\n  med_budget med_domgross med_intgross\n       &lt;int&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n1   37878971     52270207     93523336\n\n\nIn order to evaluate how return on investment varies among movies that pass and fail the Bechdel test, we’ll first create a new variable called roi as the ratio of the gross to budget.\n\nbechdel90_13 &lt;- bechdel90_13 %&gt;%\n  mutate(roi = (intgross_2013 + domgross_2013) / budget_2013)\n\nLet’s see which movies have the highest return on investment.\n\nbechdel90_13 %&gt;%\n  arrange(desc(roi)) %&gt;% \n  select(title, roi, year)\n\n# A tibble: 1,615 × 3\n   title                     roi  year\n   &lt;chr&gt;                   &lt;dbl&gt; &lt;int&gt;\n 1 Paranormal Activity      671.  2007\n 2 The Blair Witch Project  648.  1999\n 3 El Mariachi              583.  1992\n 4 Clerks.                  258.  1994\n 5 In the Company of Men    231.  1997\n 6 Napoleon Dynamite        227.  2004\n 7 Once                     190.  2006\n 8 The Devil Inside         155.  2012\n 9 Primer                   142.  2004\n10 Fireproof                134.  2008\n# ℹ 1,605 more rows\n\n\nBelow is a visualization of the return on investment by test result, however it’s difficult to see the distributions due to a few extreme observations.\n\nggplot(data = bechdel90_13, \n       mapping = aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    x = \"Detailed Bechdel result\",\n    y = \"___\",\n    color = \"Binary Bechdel result\"\n    )\n\n\n\n\n\n\n\n\nWhat are those movies with very high returns on investment?\n\nbechdel90_13 %&gt;%\n  filter(roi &gt; 400) %&gt;%\n  select(title, budget_2013, domgross_2013, year)\n\n# A tibble: 3 × 4\n  title                   budget_2013 domgross_2013  year\n  &lt;chr&gt;                         &lt;int&gt;         &lt;dbl&gt; &lt;int&gt;\n1 Paranormal Activity          505595     121251476  2007\n2 The Blair Witch Project      839077     196538593  1999\n3 El Mariachi                   11622       3388636  1992\n\n\nZooming in on the movies with roi &lt; ___ provides a better view of how the medians across the categories compare:\n\nggplot(data = bechdel90_13, mapping = aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    subtitle = \"___\", # Something about zooming in to a certain level\n    x = \"Detailed Bechdel result\",\n    y = \"Return on investment\",\n    color = \"Binary Bechdel result\"\n    ) +\n  coord_cartesian(ylim = c(0, 15))"
+  },
+  {
+    "objectID": "material/legos-ws.html",
+    "href": "material/legos-ws.html",
+    "title": "Legos",
+    "section": "",
+    "text": "Here, we work with (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US."
+  },
+  {
+    "objectID": "material/legos-ws.html#data-and-packages",
+    "href": "material/legos-ws.html#data-and-packages",
+    "title": "Legos",
+    "section": "Data and Packages",
+    "text": "Data and Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualisation and the data is given to import.\n\nlibrary(tidyverse)\n\nThe following variables are available in the data set:\n\nfirst_name: First name of customer\nlast_name: Last name of customer\nage: Age of customer\nphone_number: Phone number of customer\nset_id: Set ID of lego set purchased\nnumber: Item number of lego set purchased\ntheme: Theme of lego set purchased\nsubtheme: Sub theme of lego set purchased\nyear: Year of purchase\nname: Name of lego set purchased\npieces: Number of pieces of legos in set purchased\nus_price: Price of set purchase in US Dollars\nimage_url: Image URL of lego set purchased\nquantity: Quantity of lego set(s) purchased"
+  },
+  {
+    "objectID": "material/college-majors-ws.html",
+    "href": "material/college-majors-ws.html",
+    "title": "What should I major in?",
+    "section": "",
+    "text": "The first step in the process of turning information into knowledge process is to summarize and describe the raw information - the data. In this assignment we explore data on college majors and earnings, specifically the data begin the FiveThirtyEight story “The Economic Guide To Picking A College Major”.\nThese data originally come from the American Community Survey (ACS) 2010-2012 Public Use Microdata Series. While this is outside the scope of this assignment, if you are curious about how raw data from the ACS were cleaned and prepared, see the code FiveThirtyEight authors used.\nWe should also note that there are many considerations that go into picking a major. Earnings potential and employment prospects are two of them, and they are important, but they don’t tell the whole story. Keep this in mind as you analyze the data."
+  },
+  {
+    "objectID": "material/college-majors-ws.html#packages",
+    "href": "material/college-majors-ws.html#packages",
+    "title": "What should I major in?",
+    "section": "Packages",
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualisation, the scales package for better formatting of labels on visualisations, and the data lives in the fivethirtyeight package. These packages are already installed for you. You can load them by running the following in your Console:\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(fivethirtyeight)"
+  },
+  {
+    "objectID": "material/college-majors-ws.html#data",
+    "href": "material/college-majors-ws.html#data",
+    "title": "What should I major in?",
+    "section": "Data",
+    "text": "Data\nThe data can be found in the fivethirtyeight package, and it’s called college_recent_grads. Since the dataset is distributed with the package, we don’t need to load it separately; it becomes available to us when we load the package. You can find out more about the dataset by inspecting its documentation, which you can access by running ?college_recent_grads in the Console or using the Help menu in RStudio to search for college_recent_grads. You can also find this information here.\nYou can also take a quick peek at your data frame and view its dimensions with the glimpse function.\n\nglimpse(college_recent_grads)\n\nRows: 173\nColumns: 21\n$ rank                        &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,…\n$ major_code                  &lt;int&gt; 2419, 2416, 2415, 2417, 2405, 2418, 6202, …\n$ major                       &lt;chr&gt; \"Petroleum Engineering\", \"Mining And Miner…\n$ major_category              &lt;chr&gt; \"Engineering\", \"Engineering\", \"Engineering…\n$ total                       &lt;int&gt; 2339, 756, 856, 1258, 32260, 2573, 3777, 1…\n$ sample_size                 &lt;int&gt; 36, 7, 3, 16, 289, 17, 51, 10, 1029, 631, …\n$ men                         &lt;int&gt; 2057, 679, 725, 1123, 21239, 2200, 2110, 8…\n$ women                       &lt;int&gt; 282, 77, 131, 135, 11021, 373, 1667, 960, …\n$ sharewomen                  &lt;dbl&gt; 0.1205643, 0.1018519, 0.1530374, 0.1073132…\n$ employed                    &lt;int&gt; 1976, 640, 648, 758, 25694, 1857, 2912, 15…\n$ employed_fulltime           &lt;int&gt; 1849, 556, 558, 1069, 23170, 2038, 2924, 1…\n$ employed_parttime           &lt;int&gt; 270, 170, 133, 150, 5180, 264, 296, 553, 1…\n$ employed_fulltime_yearround &lt;int&gt; 1207, 388, 340, 692, 16697, 1449, 2482, 82…\n$ unemployed                  &lt;int&gt; 37, 85, 16, 40, 1672, 400, 308, 33, 4650, …\n$ unemployment_rate           &lt;dbl&gt; 0.018380527, 0.117241379, 0.024096386, 0.0…\n$ p25th                       &lt;dbl&gt; 95000, 55000, 50000, 43000, 50000, 50000, …\n$ median                      &lt;dbl&gt; 110000, 75000, 73000, 70000, 65000, 65000,…\n$ p75th                       &lt;dbl&gt; 125000, 90000, 105000, 80000, 75000, 10200…\n$ college_jobs                &lt;int&gt; 1534, 350, 456, 529, 18314, 1142, 1768, 97…\n$ non_college_jobs            &lt;int&gt; 364, 257, 176, 102, 4440, 657, 314, 500, 1…\n$ low_wage_jobs               &lt;int&gt; 193, 50, 0, 0, 972, 244, 259, 220, 3253, 3…\n\n\nThe college_recent_grads data frame is a trove of information. Let’s think about some questions we might want to answer with these data:\n\nWhich major has the lowest unemployment rate?\nWhich major has the highest percentage of women?\nHow do the distributions of median income compare across major categories?\nDo women tend to choose majors with lower or higher earnings?\n\nIn the next section we aim to answer these questions."
+  },
+  {
+    "objectID": "material/college-majors-ws.html#which-major-has-the-lowest-unemployment-rate",
+    "href": "material/college-majors-ws.html#which-major-has-the-lowest-unemployment-rate",
+    "title": "What should I major in?",
+    "section": "Which major has the lowest unemployment rate?",
+    "text": "Which major has the lowest unemployment rate?\nIn order to answer this question all we need to do is sort the data. We use the arrange function to do this, and sort it by the unemployment_rate variable. By default arrange sorts in ascending order, which is what we want here – we’re interested in the major with the lowest unemployment rate.\n\ncollege_recent_grads %&gt;%\n  arrange(unemployment_rate)\n\n# A tibble: 173 × 21\n    rank major_code major           major_category total sample_size   men women\n   &lt;int&gt;      &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1    53       4005 Mathematics An… Computers & M…   609           7   500   109\n 2    74       3801 Military Techn… Industrial Ar…   124           4   124     0\n 3    84       3602 Botany          Biology & Lif…  1329           9   626   703\n 4   113       1106 Soil Science    Agriculture &…   685           4   476   209\n 5   121       2301 Educational Ad… Education        804           5   280   524\n 6    15       2409 Engineering Me… Engineering     4321          30  3526   795\n 7    20       3201 Court Reporting Law & Public …  1148          14   877   271\n 8   120       2305 Mathematics Te… Education      14237         123  3872 10365\n 9     1       2419 Petroleum Engi… Engineering     2339          36  2057   282\n10    65       1100 General Agricu… Agriculture &… 10399         158  6053  4346\n# ℹ 163 more rows\n# ℹ 13 more variables: sharewomen &lt;dbl&gt;, employed &lt;int&gt;,\n#   employed_fulltime &lt;int&gt;, employed_parttime &lt;int&gt;,\n#   employed_fulltime_yearround &lt;int&gt;, unemployed &lt;int&gt;,\n#   unemployment_rate &lt;dbl&gt;, p25th &lt;dbl&gt;, median &lt;dbl&gt;, p75th &lt;dbl&gt;,\n#   college_jobs &lt;int&gt;, non_college_jobs &lt;int&gt;, low_wage_jobs &lt;int&gt;\n\n\nThis gives us what we wanted, but not in an ideal form. First, the name of the major barely fits on the page. Second, some of the variables are not that useful (e.g. major_code, major_category) and some we might want front and center are not easily viewed (e.g. unemployment_rate).\nWe can use the select function to choose which variables to display, and in which order:\n\ncollege_recent_grads %&gt;%\n  arrange(unemployment_rate) %&gt;%\n  select(rank, major, unemployment_rate)\n\n# A tibble: 173 × 3\n    rank major                                      unemployment_rate\n   &lt;int&gt; &lt;chr&gt;                                                  &lt;dbl&gt;\n 1    53 Mathematics And Computer Science                     0      \n 2    74 Military Technologies                                0      \n 3    84 Botany                                               0      \n 4   113 Soil Science                                         0      \n 5   121 Educational Administration And Supervision           0      \n 6    15 Engineering Mechanics Physics And Science            0.00633\n 7    20 Court Reporting                                      0.0117 \n 8   120 Mathematics Teacher Education                        0.0162 \n 9     1 Petroleum Engineering                                0.0184 \n10    65 General Agriculture                                  0.0196 \n# ℹ 163 more rows\n\n\nOk, this is looking better, but do we really need to display all those decimal places in the unemployment variable? Not really!\nWe can use the percent() function to clean up the display a bit.\n\ncollege_recent_grads %&gt;%\n  arrange(unemployment_rate) %&gt;%\n  select(rank, major, unemployment_rate) %&gt;%\n  mutate(unemployment_rate = percent(unemployment_rate))\n\n# A tibble: 173 × 3\n    rank major                                      unemployment_rate\n   &lt;int&gt; &lt;chr&gt;                                      &lt;chr&gt;            \n 1    53 Mathematics And Computer Science           0.00000%         \n 2    74 Military Technologies                      0.00000%         \n 3    84 Botany                                     0.00000%         \n 4   113 Soil Science                               0.00000%         \n 5   121 Educational Administration And Supervision 0.00000%         \n 6    15 Engineering Mechanics Physics And Science  0.63343%         \n 7    20 Court Reporting                            1.16897%         \n 8   120 Mathematics Teacher Education              1.62028%         \n 9     1 Petroleum Engineering                      1.83805%         \n10    65 General Agriculture                        1.96425%         \n# ℹ 163 more rows"
+  },
+  {
+    "objectID": "material/college-majors-ws.html#which-major-has-the-highest-percentage-of-women",
+    "href": "material/college-majors-ws.html#which-major-has-the-highest-percentage-of-women",
+    "title": "What should I major in?",
+    "section": "Which major has the highest percentage of women?",
+    "text": "Which major has the highest percentage of women?\nTo answer such a question we need to arrange the data in descending order. For example, if earlier we were interested in the major with the highest unemployment rate, we would use the following:\n\nThe `desc` function specifies that we want `unemployment_rate` in descending order.\n\n\ncollege_recent_grads %&gt;%\n  arrange(desc(unemployment_rate)) %&gt;%\n  select(rank, major, unemployment_rate)\n\n# A tibble: 173 × 3\n    rank major                                      unemployment_rate\n   &lt;int&gt; &lt;chr&gt;                                                  &lt;dbl&gt;\n 1     6 Nuclear Engineering                                    0.177\n 2    90 Public Administration                                  0.159\n 3    85 Computer Networking And Telecommunications             0.152\n 4   171 Clinical Psychology                                    0.149\n 5    30 Public Policy                                          0.128\n 6   106 Communication Technologies                             0.120\n 7     2 Mining And Mineral Engineering                         0.117\n 8    54 Computer Programming And Data Processing               0.114\n 9    80 Geography                                              0.113\n10    59 Architecture                                           0.113\n# ℹ 163 more rows\n\n\n\nUsing what you’ve learned so far, arrange the data in descending order with respect to proportion of women in a major, and display only the major, the total number of people with major, and proportion of women. Show only the top 3 majors by adding top_n(3) at the end of the pipeline."
+  },
+  {
+    "objectID": "material/college-majors-ws.html#how-do-the-distributions-of-median-income-compare-across-major-categories",
+    "href": "material/college-majors-ws.html#how-do-the-distributions-of-median-income-compare-across-major-categories",
+    "title": "What should I major in?",
+    "section": "How do the distributions of median income compare across major categories?",
+    "text": "How do the distributions of median income compare across major categories?\nNote: A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations fall. For example, the 20th percentile is the value below which 20% of the observations may be found. (Source: Wikipedia\nThere are three types of incomes reported in this data frame: p25th, median, and p75th. These correspond to the 25th, 50th, and 75th percentiles of the income distribution of sampled individuals for a given major.\n\nWhy do we often choose the median, rather than the mean, to describe the typical income of a group of people?\n\nThe question we want to answer “How do the distributions of median income compare across major categories?”. We need to do a few things to answer this question: First, we need to group the data by major_category. Then, we need a way to summarize the distributions of median income within these groups. This decision will depend on the shapes of these distributions. So first, we need to visualize the data.\nWe use the ggplot() function to do this. The first argument is the data frame, and the next argument gives the mapping of the variables of the data to the aesthetic elements of the plot.\nLet’s start simple and take a look at the distribution of all median incomes, without considering the major categories.\n\nggplot(data = college_recent_grads, mapping = aes(x = median)) +\n  geom_histogram()\n\n\n\n\n\n\n\n\nAlong with the plot, we get a message:\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\nThis is telling us that we might want to reconsider the binwidth we chose for our histogram – or more accurately, the binwidth we didn’t specify. It’s good practice to always think in the context of the data and try out a few binwidths before settling on a binwidth. You might ask yourself: “What would be a meaningful difference in median incomes?” $1 is obviously too little, $10000 might be too high.\n\nTry binwidths of $1000 and $5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the geom_histogram function. So to specify a binwidth of $1000, you would use geom_histogram(binwidth = 1000).\n\nWe can also calculate summary statistics for this distribution using the summarise function:\n\ncollege_recent_grads %&gt;%\n  summarise(min = min(median), max = max(median),\n            mean = mean(median), med = median(median),\n            sd = sd(median), \n            q1 = quantile(median, probs = 0.25),\n            q3 = quantile(median, probs = 0.75))\n\n# A tibble: 1 × 7\n    min    max   mean   med     sd    q1    q3\n  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 22000 110000 40151. 36000 11470. 33000 45000\n\n\n\nBased on the shape of the histogram you created in the previous exercise, determine which of these summary statistics is useful for describing the distribution. Write up your description (remember shape, center, spread, any unusual observations) and include the summary statistic output as well.\nPlot the distribution of median income using a histogram, faceted by major_category. Use the binwidth you chose in the earlier exercise.\n\nNow that we’ve seen the shapes of the distributions of median incomes for each major category, we should have a better idea for which summary statistic to use to quantify the typical median income.\n\nWhich major category has the highest typical (you’ll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.\n\n\ncollege_recent_grads %&gt;%\n  group_by(major_category) %&gt;%\n  summarise(___ = ___(median)) %&gt;%\n  arrange(___)\n\n\nWhich major category is the least popular in this sample? To answer this question we use a new function called count, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the lowest observations is on top.\n\n\ncollege_recent_grads %&gt;%\n  count(major_category)\n\n# A tibble: 16 × 2\n   major_category                          n\n   &lt;chr&gt;                               &lt;int&gt;\n 1 Agriculture & Natural Resources        10\n 2 Arts                                    8\n 3 Biology & Life Science                 14\n 4 Business                               13\n 5 Communications & Journalism             4\n 6 Computers & Mathematics                11\n 7 Education                              16\n 8 Engineering                            29\n 9 Health                                 12\n10 Humanities & Liberal Arts              15\n11 Industrial Arts & Consumer Services     7\n12 Interdisciplinary                       1\n13 Law & Public Policy                     5\n14 Physical Sciences                      10\n15 Psychology & Social Work                9\n16 Social Science                          9"
+  },
+  {
+    "objectID": "material/college-majors-ws.html#all-stem-fields-arent-the-same",
+    "href": "material/college-majors-ws.html#all-stem-fields-arent-the-same",
+    "title": "What should I major in?",
+    "section": "All STEM fields aren’t the same",
+    "text": "All STEM fields aren’t the same\nOne of the sections of the FiveThirtyEight story is “All STEM fields aren’t the same”. Let’s see if this is true.\nFirst, let’s create a new vector called stem_categories that lists the major categories that are considered STEM fields.\n\nstem_categories &lt;- c(\"Biology & Life Science\",\n                     \"Computers & Mathematics\",\n                     \"Engineering\",\n                     \"Physical Sciences\")\n\nThen, we can use this to create a new variable in our data frame indicating whether a major is STEM or not.\n\ncollege_recent_grads &lt;- college_recent_grads %&gt;%\n  mutate(major_type = ifelse(major_category %in% stem_categories, \"stem\", \"not stem\"))\n\nLet’s unpack this: with mutate we create a new variable called major_type, which is defined as \"stem\" if the major_category is in the vector called stem_categories we created earlier, and as \"not stem\" otherwise.\n%in% is a logical operator. Other logical operators that are commonly used are\n\n\n\nOperator\nOperation\n\n\n\n\nx &lt; y\nless than\n\n\nx &gt; y\ngreater than\n\n\nx &lt;= y\nless than or equal to\n\n\nx &gt;= y\ngreater than or equal to\n\n\nx != y\nnot equal to\n\n\nx == y\nequal to\n\n\nx %in% y\ncontains\n\n\nx | y\nor\n\n\nx & y\nand\n\n\n!x\nnot\n\n\n\nWe can use the logical operators to also filter our data for STEM majors whose median earnings is less than median for all majors’ median earnings, which we found to be $36,000 earlier.\n\ncollege_recent_grads %&gt;%\n  filter(\n    major_type == \"stem\",\n    median &lt; 36000\n  )\n\n# A tibble: 10 × 22\n    rank major_code major        major_category  total sample_size    men  women\n   &lt;int&gt;      &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;           &lt;int&gt;       &lt;int&gt;  &lt;int&gt;  &lt;int&gt;\n 1    93       1301 Environment… Biology & Lif…  25965         225  10787  15178\n 2    98       5098 Multi-Disci… Physical Scie…  62052         427  27015  35037\n 3   102       3608 Physiology   Biology & Lif…  22060          99   8422  13638\n 4   106       2001 Communicati… Computers & M…  18035         208  11431   6604\n 5   109       3611 Neuroscience Biology & Lif…  13663          53   4944   8719\n 6   111       5002 Atmospheric… Physical Scie…   4043          32   2744   1299\n 7   123       3699 Miscellaneo… Biology & Lif…  10706          63   4747   5959\n 8   124       3600 Biology      Biology & Lif… 280709        1370 111762 168947\n 9   133       3604 Ecology      Biology & Lif…   9154          86   3878   5276\n10   169       3609 Zoology      Biology & Lif…   8409          47   3050   5359\n# ℹ 14 more variables: sharewomen &lt;dbl&gt;, employed &lt;int&gt;,\n#   employed_fulltime &lt;int&gt;, employed_parttime &lt;int&gt;,\n#   employed_fulltime_yearround &lt;int&gt;, unemployed &lt;int&gt;,\n#   unemployment_rate &lt;dbl&gt;, p25th &lt;dbl&gt;, median &lt;dbl&gt;, p75th &lt;dbl&gt;,\n#   college_jobs &lt;int&gt;, non_college_jobs &lt;int&gt;, low_wage_jobs &lt;int&gt;,\n#   major_type &lt;chr&gt;\n\n\n\nWhich STEM majors have median salaries equal to or less than the median for all majors’ median earnings? Your output should only show the major name and median, 25th percentile, and 75th percentile earning for that major as and should be sorted such that the major with the highest median earning is on top."
+  },
+  {
+    "objectID": "material/college-majors-ws.html#what-types-of-majors-do-women-tend-to-major-in",
+    "href": "material/college-majors-ws.html#what-types-of-majors-do-women-tend-to-major-in",
+    "title": "What should I major in?",
+    "section": "What types of majors do women tend to major in?",
+    "text": "What types of majors do women tend to major in?\n\nCreate a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables."
+  },
+  {
+    "objectID": "material/college-majors-ws.html#further-exploration",
+    "href": "material/college-majors-ws.html#further-exploration",
+    "title": "What should I major in?",
+    "section": "Further exploration",
+    "text": "Further exploration\n\nAsk a question of interest to you, and answer it using summary statistic(s) and/or visualization(s)."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html",
+    "href": "material/types-classes-ws/nyc-flights-ws.html",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#packages-and-data",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#packages-and-data",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#familiarizing-ourselves-with-the-dataset",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#familiarizing-ourselves-with-the-dataset",
+    "title": "NYC flights",
+    "section": "Familiarizing ourselves with the dataset",
+    "text": "Familiarizing ourselves with the dataset\n\nWhat variables are included in the flights dataset? How many rows are there?\nWhat variables are included in the airports dataset? How many rows are there?\nWhich variables are included in the airlines dataset? How many rows are there?"
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#focusing-on-atlanta",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#focusing-on-atlanta",
+    "title": "NYC flights",
+    "section": "Focusing on Atlanta",
+    "text": "Focusing on Atlanta\n\nLet’s focus on flights from NYC area airports to Atlanta GA (FAA code ATL). Create a new object atlanta that includes only these flights. Hint: use filter()). How many flights to Atlanta were there in 2013?"
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#seasonality",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#seasonality",
+    "title": "NYC flights",
+    "section": "Seasonality",
+    "text": "Seasonality\n\nIs there a difference in the number of flights per month?\nSummarize the number of flights for each month and provide a sorted list with the months with the most flights first. Hint: use group_by() in combination with summarize())."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#use-filter",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#use-filter",
+    "title": "NYC flights",
+    "section": "Use filter()",
+    "text": "Use filter()\n\nFind all flights that\n\n\nHad an arrival delay of two or more hours.\nFlew to Houston (IAH or HOU)\nWere operated by United, American, or Delta. Hint: In the flights dataset, the column carrier indicates the airline, but it uses two-character carrier codes. You can find the carrier codes for the airlines in the airlines dataset. Since the carrier code dataset only has 16 rows, and the names of the airlines in that dataset are not exactly “United”, “American”, or “Delta”, it is easiest to manually look up their carrier codes in that data.\nDeparted in summer (July, August, and September). Hint: the summer flights are those that departed in months 7 (July), 8 (August), and 9 (September).\nArrived more than two hours late, but didn’t leave late. Hint: Flights that arrived more than two hours late, but didn’t leave late will have an arrival delay of more than 120 minutes (arr_delay &gt; 120) and a non-positive departure delay (dep_delay &lt;=0)\nWere delayed by at least an hour, but made up over 30 minutes in flight. Hint: If a flight was delayed by at least an hour, then dep_delay &gt;= 60. If the flight didn’t make up any time in the air, then its arrival would be delayed by the same amount as its departure, meaning dep_delay == arr_delay, or alternatively, dep_delay - arr_delay == 0. If it makes up over 30 minutes in the air, then the arrival delay must be at least 30 minutes less than the departure delay, which is stated as dep_delay - arr_delay &gt; 30.\nDeparted between midnight and 6 am (inclusive). Hint: In dep_time, midnight is represented by 2400, not 0. You can verify this by checking the minimum and maximum of dep_time."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#arrange-rows-with-arrange",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#arrange-rows-with-arrange",
+    "title": "NYC flights",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\nHow could you use arrange() to sort all missing values to the start? Hint: use is.na()) and add an indicator of whether the column has a missing value, the flights will first be sorted by desc(is.na(dep_time)). Since desc(is.na(dep_time)) is either TRUE when dep_time is missing, or FALSE, when it is not, the rows with missing values of dep_time will come first, since TRUE &gt; FALSE.\nSort flights to find the most delayed flights. Find the flights that left earliest.\nSort flights to find the fastest flights."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#seelct-variables-with-select",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#seelct-variables-with-select",
+    "title": "NYC flights",
+    "section": "Seelct variables with select()",
+    "text": "Seelct variables with select()\n\nWhat does the one_of() function do? Why might it be helpful in conjunction with this vector?"
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#add-new-variables-with-mutate",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#add-new-variables-with-mutate",
+    "title": "NYC flights",
+    "section": "Add new variables with mutate()",
+    "text": "Add new variables with mutate()\n\nCompare air_time with arr_time - dep_time. What do you expect to see? What do you see? What do you need to do to fix it?\nCome up with another approach that will give you the same output as not_cancelled %&gt;% count(dest) and not_cancelled %&gt;% count(tailnum, wt = distance) (without using count()).\nLook at the number of cancelled flights per day. Is there a pattern? Create a plot to visualize your answers.\nFor each destination, compute the total minutes of delay. For each flight, compute the proportion of the total delay for its destination.\nDelays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using lag() to explore how the delay of a flight is related to the delay of the immediately preceding flight. Use a plot to visualize this."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#more-viz",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#more-viz",
+    "title": "NYC flights",
+    "section": "More Viz",
+    "text": "More Viz\n\nVisualize the distribution of on time departure rate across the three airports using a segmented bar plot. Hint: Remove NA’s and suppose that a flight that is delayed for less than 5 minutes is basically “on time”."
+  },
+  {
+    "objectID": "material/types-classes-ws/nyc-flights-ws.html#advanced-exercises",
+    "href": "material/types-classes-ws/nyc-flights-ws.html#advanced-exercises",
+    "title": "NYC flights",
+    "section": "Advanced Exercises:",
+    "text": "Advanced Exercises:\n\nImagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables from the package you loaded would you need to combine?\nThis plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. Hint: you can create a layer of map borders using borders(state).\nWe know that some days of the year are “special”, and fewer people than usual fly on them. Since it is US data for 2013 we will consider: New Years Day, Independence Day, Thanksgiving Day, Christmas Day.\n\nHow might you represent that data as a data frame? What would be the primary keys of that table? How would it connect to the existing tables?\nWe can add a table of special dates, similar to the following table.\n\nspecial_days &lt;- tribble(\n  ~year, ~month, ~day, ~holiday,\n  2013, 01, 01, \"New Years Day\",\n  2013, 07, 04, \"Independence Day\",\n  2013, 11, 29, \"Thanksgiving Day\",\n  2013, 12, 25, \"Christmas Day\"\n)\n\nThe primary key of the table would be the (year, month, day) columns. The (year, month, day) columns could be used to join special_days with other tables.\n\nCreate a visualization fo your own to illustrate if indeed fewer people than usual fly on the above special days.\nCompute the average delay by destination, then join on the airports data frame so you can show the spatial distribution of delays. Here’s an easy way to draw a map of the United States (can you understand why we choose semi-join?):\n\n\nairports %&gt;%\n  semi_join(flights, c(\"faa\" = \"dest\")) %&gt;%\n  ggplot(aes(lon, lat)) +\n  borders(\"state\") +\n  geom_point() +\n  coord_quickmap() + \n  theme_void()\n\nHint: You might want to use the size or color of the points to display the average delay for each airport.\n\nWhat weather conditions make it more likely to see a delay? Use the variable precip (precipitation) from the weather dataset to answer this.\nWhat happened on June 13, 2013? Reproduce the following plot which displays the spatial pattern of delays, and then use Google to cross-reference with the weather. Hint: use library(viridis) to get the same colors."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html",
+    "href": "material/nyc-flights-ws.html",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#packages-and-data",
+    "href": "material/nyc-flights-ws.html#packages-and-data",
+    "title": "NYC flights",
+    "section": "",
+    "text": "For the below exercies we use the tidyverse package for much of the data wrangling and visualisation and the data lives in the nycflights13 package. This is data a dataset of flights departing from New York City (NYC) airports in the year 2013.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\nThe data sets available in the package can be viewed using the following syntax:\nYou will need one or combinations of these to solve the following exercises. These tables are organized as the figure below shows."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#familiarizing-ourselves-with-the-dataset",
+    "href": "material/nyc-flights-ws.html#familiarizing-ourselves-with-the-dataset",
+    "title": "NYC flights",
+    "section": "Familiarizing ourselves with the dataset",
+    "text": "Familiarizing ourselves with the dataset\n\nWhat variables are included in the flights dataset? How many rows are there?\nWhat variables are included in the airports dataset? How many rows are there?\nWhich variables are included in the airlines dataset? How many rows are there?"
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#focusing-on-atlanta",
+    "href": "material/nyc-flights-ws.html#focusing-on-atlanta",
+    "title": "NYC flights",
+    "section": "Focusing on Atlanta",
+    "text": "Focusing on Atlanta\n\nLet’s focus on flights from NYC area airports to Atlanta GA (FAA code ATL). Create a new object atlanta that includes only these flights. Hint: use filter()). How many flights to Atlanta were there in 2013?"
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#seasonality",
+    "href": "material/nyc-flights-ws.html#seasonality",
+    "title": "NYC flights",
+    "section": "Seasonality",
+    "text": "Seasonality\n\nIs there a difference in the number of flights per month?\nSummarize the number of flights for each month and provide a sorted list with the months with the most flights first. Hint: use group_by() in combination with summarize())."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#use-filter",
+    "href": "material/nyc-flights-ws.html#use-filter",
+    "title": "NYC flights",
+    "section": "Use filter()",
+    "text": "Use filter()\n\nFind all flights that\n\n\nHad an arrival delay of two or more hours.\nFlew to Houston (IAH or HOU)\nWere operated by United, American, or Delta. Hint: In the flights dataset, the column carrier indicates the airline, but it uses two-character carrier codes. You can find the carrier codes for the airlines in the airlines dataset. Since the carrier code dataset only has 16 rows, and the names of the airlines in that dataset are not exactly “United”, “American”, or “Delta”, it is easiest to manually look up their carrier codes in that data.\nDeparted in summer (July, August, and September). Hint: the summer flights are those that departed in months 7 (July), 8 (August), and 9 (September).\nArrived more than two hours late, but didn’t leave late. Hint: Flights that arrived more than two hours late, but didn’t leave late will have an arrival delay of more than 120 minutes (arr_delay &gt; 120) and a non-positive departure delay (dep_delay &lt;=0)\nWere delayed by at least an hour, but made up over 30 minutes in flight. Hint: If a flight was delayed by at least an hour, then dep_delay &gt;= 60. If the flight didn’t make up any time in the air, then its arrival would be delayed by the same amount as its departure, meaning dep_delay == arr_delay, or alternatively, dep_delay - arr_delay == 0. If it makes up over 30 minutes in the air, then the arrival delay must be at least 30 minutes less than the departure delay, which is stated as dep_delay - arr_delay &gt; 30.\nDeparted between midnight and 6 am (inclusive). Hint: In dep_time, midnight is represented by 2400, not 0. You can verify this by checking the minimum and maximum of dep_time."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#arrange-rows-with-arrange",
+    "href": "material/nyc-flights-ws.html#arrange-rows-with-arrange",
+    "title": "NYC flights",
+    "section": "Arrange rows with arrange()",
+    "text": "Arrange rows with arrange()\n\nHow could you use arrange() to sort all missing values to the start? Hint: use is.na()) and add an indicator of whether the column has a missing value, the flights will first be sorted by desc(is.na(dep_time)). Since desc(is.na(dep_time)) is either TRUE when dep_time is missing, or FALSE, when it is not, the rows with missing values of dep_time will come first, since TRUE &gt; FALSE.\nSort flights to find the most delayed flights. Find the flights that left earliest.\nSort flights to find the fastest flights."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#seelct-variables-with-select",
+    "href": "material/nyc-flights-ws.html#seelct-variables-with-select",
+    "title": "NYC flights",
+    "section": "Seelct variables with select()",
+    "text": "Seelct variables with select()\n\nWhat does the one_of() function do? Why might it be helpful in conjunction with this vector?"
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#add-new-variables-with-mutate",
+    "href": "material/nyc-flights-ws.html#add-new-variables-with-mutate",
+    "title": "NYC flights",
+    "section": "Add new variables with mutate()",
+    "text": "Add new variables with mutate()\n\nCompare air_time with arr_time - dep_time. What do you expect to see? What do you see? What do you need to do to fix it?\nCome up with another approach that will give you the same output as not_cancelled %&gt;% count(dest) and not_cancelled %&gt;% count(tailnum, wt = distance) (without using count()).\nLook at the number of cancelled flights per day. Is there a pattern? Create a plot to visualize your answers.\nFor each destination, compute the total minutes of delay. For each flight, compute the proportion of the total delay for its destination.\nDelays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using lag() to explore how the delay of a flight is related to the delay of the immediately preceding flight. Use a plot to visualize this."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#more-viz",
+    "href": "material/nyc-flights-ws.html#more-viz",
+    "title": "NYC flights",
+    "section": "More Viz",
+    "text": "More Viz\n\nVisualize the distribution of on time departure rate across the three airports using a segmented bar plot. Hint: Remove NA’s and suppose that a flight that is delayed for less than 5 minutes is basically “on time”."
+  },
+  {
+    "objectID": "material/nyc-flights-ws.html#advanced-exercises",
+    "href": "material/nyc-flights-ws.html#advanced-exercises",
+    "title": "NYC flights",
+    "section": "Advanced Exercises:",
+    "text": "Advanced Exercises:\n\nImagine you wanted to draw (approximately) the route each plane flies from its origin to its destination. What variables would you need? What tables from the package you loaded would you need to combine?\nThis plots the approximate flight paths of the first 100 flights in the flights dataset. Try reproducing it. Hint: you can create a layer of map borders using borders(state).\nWe know that some days of the year are “special”, and fewer people than usual fly on them. Since it is US data for 2013 we will consider: New Years Day, Independence Day, Thanksgiving Day, Christmas Day.\n\nHow might you represent that data as a data frame? What would be the primary keys of that table? How would it connect to the existing tables?\nWe can add a table of special dates, similar to the following table.\n\nspecial_days &lt;- tribble(\n  ~year, ~month, ~day, ~holiday,\n  2013, 01, 01, \"New Years Day\",\n  2013, 07, 04, \"Independence Day\",\n  2013, 11, 29, \"Thanksgiving Day\",\n  2013, 12, 25, \"Christmas Day\"\n)\n\nThe primary key of the table would be the (year, month, day) columns. The (year, month, day) columns could be used to join special_days with other tables.\n\nCreate a visualization fo your own to illustrate if indeed fewer people than usual fly on the above special days.\nCompute the average delay by destination, then join on the airports data frame so you can show the spatial distribution of delays. Here’s an easy way to draw a map of the United States (can you understand why we choose semi-join?):\n\n\nairports %&gt;%\n  semi_join(flights, c(\"faa\" = \"dest\")) %&gt;%\n  ggplot(aes(lon, lat)) +\n  borders(\"state\") +\n  geom_point() +\n  coord_quickmap() + \n  theme_void()\n\n\n\n\n\n\n\n\nHint: You might want to use the size or color of the points to display the average delay for each airport.\n\nWhat weather conditions make it more likely to see a delay? Use the variable precip (precipitation) from the weather dataset to answer this.\nWhat happened on June 13, 2013? Reproduce the following plot which displays the spatial pattern of delays, and then use Google to cross-reference with the weather. Hint: use library(viridis) to get the same colors."
+  },
+  {
+    "objectID": "material/sales-excel-ws.html",
+    "href": "material/sales-excel-ws.html",
+    "title": "Sales",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(readxl)\n\n\nRead in the Excel file called sales.xlsx from the data-raw/ folder such that it looks like the following.\n\n\n\n\n\n\n\n\n\n\n\nStretch goal: Manipulate the sales data such such that it looks like the following."
+  },
+  {
+    "objectID": "material/type-coercion-ws.html",
+    "href": "material/type-coercion-ws.html",
+    "title": "Type coercion",
+    "section": "",
+    "text": "c(1, 1L, \"C\")\n\n\nc(1, 1L, \"C\")\n\n[1] \"1\" \"1\" \"C\"\n\n\n\n1\n\n[1] 1\n\n1L\n\n[1] 1\n\n\"C\"\n\n[1] \"C\"\n\n\n\n#typeof(c(1, 1L, \"C\"))\n\n\nc(1L / 0, \"A\")\n\n\nc(1L / 0, \"A\")\n\n[1] \"Inf\" \"A\"  \n\n\n\ntypeof(1L)\n\n[1] \"integer\"\n\ntypeof(0)\n\n[1] \"double\"\n\ntypeof(1L/0)\n\n[1] \"double\"\n\ntypeof(\"A\")\n\n[1] \"character\"\n\n\n\n#typeof(c(1L / 0, \"A\"))\n\n\nc(1:3, 5)\n\n\nc(1:3, 5)\n\n[1] 1 2 3 5\n\n\n\ntypeof(1:3)\n\n[1] \"integer\"\n\ntypeof(5)\n\n[1] \"double\"\n\n\n\n#typeof(c(1:3, 5))\n\n\nc(3, \"3+\")\n\n\nc(3, \"3+\")\n\n[1] \"3\"  \"3+\"\n\n\n\ntypeof(3)\n\n[1] \"double\"\n\ntypeof(\"3+\")\n\n[1] \"character\"\n\n\n\n#typeof(c(3, \"3+\"))\n\n\nc(NA, TRUE)\n\n\nc(NA, TRUE)\n\n[1]   NA TRUE\n\n\n\ntypeof(NA)\n\n[1] \"logical\"\n\ntypeof(TRUE)\n\n[1] \"logical\"\n\n\n\n#typeof(c(NA, TRUE))"
+  },
+  {
+    "objectID": "material/hotels-forcats-ws.html",
+    "href": "material/hotels-forcats-ws.html",
+    "title": "Hotel bookings - factors",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(skimr)\n\nLoad the hotels data set we used in a previous practical. Render and view the following visualisation. How are the months ordered? What would be a better order? Then, reorder the months on the x-axis (levels of arrival_date_month) in a way that makes more sense. You will want to use a function from the forcats package, see https://forcats.tidyverse.org/reference/index.html for inspiration and help.\nStretch goal: If you finish the above task before time is up, change the y-axis label so the values are shown with dollar signs, e.g. $80 instead of 80. You will want to use a function from the scales package, see https://scales.r-lib.org/reference/index.html for inspiration and help.\n\nhotels %&gt;%\n  group_by(hotel, arrival_date_month) %&gt;%   # group by hotel type and arrival month\n  summarise(mean_adr = mean(adr)) %&gt;%       # calculate mean adr for each group\n  ggplot(aes(\n    x = arrival_date_month,                 # x-axis = arrival_date_month\n    y = mean_adr,                           # y-axis = mean_adr calculated above\n    group = hotel,                          # group lines by hotel type\n    color = hotel)                          # and color by hotel type\n    ) +\n  geom_line() +                             # use lines to represent data\n  theme_minimal() +                         # use a minimal theme\n  labs(\n    x = \"Arrival month\",                 # customize labels\n    y = \"Mean ADR (average daily rate)\",\n    title = \"Comparison of resort and city hotel prices across months\",\n    subtitle = \"Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year\",\n    color = \"Hotel type\"\n    )"
   }
 ]

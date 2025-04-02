@@ -1,0 +1,17 @@
+{
+  "hash": "f87d6a038a531b990f488349eba46e5e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Hotel bookings - factors\"\nauthor: \"[insert your name here]\"\nformat:\n  html:\n    embed-resources: true\neditor: visual\nexecute:\n  warning: false\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(skimr)\n```\n:::\n\n\n\n\nLoad the `hotels` data set we used in a previous practical. Render and view the following visualisation. How are the months ordered? What would be a better order? Then, reorder the months on the x-axis (levels of `arrival_date_month`) in a way that makes more sense. You will want to use a function from the **forcats** package, see <https://forcats.tidyverse.org/reference/index.html> for inspiration and help.\n\n**Stretch goal:** If you finish the above task before time is up, change the y-axis label so the values are shown with dollar signs, e.g. \\$80 instead of 80. You will want to use a function from the **scales** package, see <https://scales.r-lib.org/reference/index.html> for inspiration and help.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nhotels %>%\n  group_by(hotel, arrival_date_month) %>%   # group by hotel type and arrival month\n  summarise(mean_adr = mean(adr)) %>%       # calculate mean adr for each group\n  ggplot(aes(\n    x = arrival_date_month,                 # x-axis = arrival_date_month\n    y = mean_adr,                           # y-axis = mean_adr calculated above\n    group = hotel,                          # group lines by hotel type\n    color = hotel)                          # and color by hotel type\n    ) +\n  geom_line() +                             # use lines to represent data\n  theme_minimal() +                         # use a minimal theme\n  labs(\n    x = \"Arrival month\",                 # customize labels\n    y = \"Mean ADR (average daily rate)\",\n    title = \"Comparison of resort and city hotel prices across months\",\n    subtitle = \"Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year\",\n    color = \"Hotel type\"\n    )\n```\n\n::: {.cell-output-display}\n![](hotels-forcats-ws_files/figure-html/plot-1.png){width=960}\n:::\n:::\n",
+    "supporting": [
+      "hotels-forcats-ws_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
