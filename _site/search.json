@@ -1748,5 +1748,12 @@
     "title": "What should I major in?",
     "section": "Further exploration",
     "text": "Further exploration\n\nAsk a question of interest to you, and answer it using summary statistic(s) and/or visualization(s)."
+  },
+  {
+    "objectID": "teaching/sna/index.html",
+    "href": "teaching/sna/index.html",
+    "title": "Social Network Analysis",
+    "section": "",
+    "text": "The course text book can be found here: R4SNA\nSchedule\n\n\n\n\nslides\npractical\ndata\nworksheet\n\n\n\n\n1: Introduction\n\n\n\n.qmd"
   }
 ]
