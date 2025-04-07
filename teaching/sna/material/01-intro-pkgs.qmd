@@ -1,0 +1,113 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 1: Introduction"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+## R packages for network analysis 
+
+Throughout the course we will use a variety of different packages of doing network analysis, modeling and visualization. Make sure to install them all and have them ready to load when needed:
+
+```{r install_packages}
+#| eval: FALSE
+install.packages("igraph")   
+install.packages("statnet")  #installs ergm, network, and sna
+install.packages("snahelper")
+install.packages("netUtils")
+install.packages("ggraph")
+install.packages("backbone")
+install.packages("netrankr")
+install.packages("signnet")
+install.packages("intergraph")
+install.packages("graphlayouts")
+install.packages("visNetwork")
+install.packages("patchwork")
+install.packages("edgebundle")
+install.packages("ggplot2")
+install.packages("gganimate")
+install.packages("ggforce")
+install.packages("rsiena")
+
+install.packages("remotes")
+remotes::install_github("schochastics/networkdata")
+```
+
+### Load Packages
+We will strat with loading the following packages:
+```{r load_packages}
+#| code-fold: false
+#| warning: false
+library(igraph)
+library(networkdata)
+library(netUtils)
+```
+
+
+### Exploring packages and functions
+*(Interactive Session)*
+
+### Handling package conflicts
+
+**never load sna and igraph at the same time**
+```{r load_sna}
+#| code-fold: false
+#| warning: false
+library(sna)
+```
+
+```{r error}
+#| error: true
+#| code-fold: false
+data("flo_marriage")
+degree(flo_marriage)
+```
+
+If for any reason you have to load both, you can circumvent the error by explicitly stating package first 
+```{r solution}
+igraph::degree(flo_marriage)
+```
+
+The package `intergraph` can be used to transform an `igraph` object into a network object and vice versa.
+
+```{r transform_i}
+#| code-fold: false
+#install.packages("intergraph")
+library(intergraph)
+asNetwork(flo_marriage)
+degree(asNetwork(flo_marriage))
+```
+
+
+You can unload a package without restarting R/RStudio.
+```{r detach_sna}
+detach("package:sna", unload = TRUE)
+```
+
+## Handling network data
+
+### Inbuilt network data
+
+The `networkdata` package includes around 1000 datsets and more than 2000 networks.
+Throughout the course will use several examples using data from this package. Spend some time exploring datasets in this package (you will be asked to choose and work on one of them for you empirical study).
+
+```{r show_data}
+#| code-fold: false
+data(package = "networkdata")
+```
+
+- Freeman’s datasets from <http://moreno.ss.uci.edu/data> (not available anymore)
+- Movie networks from <https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/T4HBA3>
+- Covert networks from <https://sites.google.com/site/ucinetsoftware/datasets/covert-networks>
+- Animal networks from <https://bansallab.github.io/asnr/>
+- Shakespeare’s plays networks build with data from <https://github.com/mallaham/Shakespeare-Plays>
+- Some networks from <http://konect.uni-koblenz.de/>
+- Tennis networks compiled from <https://github.com/JeffSackmann> (please give credit to him if you use this data)
+- Star Wars Character Interactions (Episode 1-7) from <https://github.com/evelinag/StarWars-social-network>
+

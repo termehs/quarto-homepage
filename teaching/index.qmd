@@ -6,6 +6,7 @@ listing:
   fields: [title, subtitle]
   contents: 
     - "math-ss/index.qmd"
+    - "sna/index.qmd"
     - "stat-learn/index.qmd"
     - "tidyverse-I/index.qmd"
     - "tidyverse-II/index.qmd"

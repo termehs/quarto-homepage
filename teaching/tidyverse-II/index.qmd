@@ -24,7 +24,7 @@ library(tidymodels)
 |                                                    | slides  | worksheets  
 |----------------------------------------------------|:------:|:---------
 | |    | |
-| **Introduction** | [{{< fa display >}}]() | 
+| **Introduction** | [{{< fa display >}}](https://termehs.github.io/tidy-II-intro) | 
 | **Part I** |   [{{< fa display >}}]()  | 1.Your Data Budget  [{{< fa file >}}]() 
 | |    | 2. Build a Model [{{< fa file >}}]()  
 | |    | 3. Evaluate the Model [{{< fa file >}}]() 
