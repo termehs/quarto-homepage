@@ -1,0 +1,178 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 2: Graph Theory"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+## Graph Theory in R with `igraph`
+
+We'll use the `igraph` package to explore key graph-theoretical concepts.
+
+```{r setup}
+#| message: FALSE
+library(igraph)
+```
+
+## Undirected Graph
+
+We'll use an undirected graph with 8 nodes.
+
+```{r}
+g <- graph_from_literal(
+  1 -- 2, 
+  1 -- 3,
+  2 -- 4,
+  3 -- 5,
+  4 -- 5,
+  5 -- 6,
+  6 -- 7,
+  6 -- 8,
+  7 -- 8
+)
+
+plot(g, vertex.label.cex = 1.2, vertex.size = 20)
+```
+
+------------------------------------------------------------------------
+
+###  Degree & Degree Distribution
+
+```{r}
+deg <- degree(g)
+deg
+
+# Degree distribution
+dist <- degree_distribution(g)
+plot(dist, type = "h", main = "Degree Distribution", xlab = "Degree", ylab = "Frequency")
+```
+
+Identify nodes with the highest and lowest degree. How does the distribution look?
+
+------------------------------------------------------------------------
+
+
+### Graph Diameter
+
+```{r}
+diameter(g)
+```
+
+What is the longest shortest path in the graph?
+
+------------------------------------------------------------------------
+
+### Shortest Paths
+
+Find shortest paths from node 1 to all others:
+
+```{r}
+sp <- distances(g, v = 1)
+sp
+```
+
+ Do you understand the output? What is the shortest path from node 1 to node 6?
+
+------------------------------------------------------------------------
+
+
+### Adjacency Matrix
+
+```{r}
+adj_matrix <- as_adjacency_matrix(g, sparse = FALSE)
+adj_matrix
+```
+
+Use the adjacency matrix to compute the degree of each node. Compare with `degree(g)`.
+
+------------------------------------------------------------------------
+
+
+### Cutpoints (Articulation Points)
+
+```{r}
+articulation_points <- articulation_points(g)
+articulation_points
+```
+
+### Bridges (Critical Edges)
+
+```{r}
+bridge_edges <- which(is.na(edge_connectivity(g)))
+E(g)[bridge_edges]
+
+# Alternatively use:
+bridges(g)
+```
+
+### Visualize Cutpoints and Bridges
+
+```{r}
+V(g)$color <- ifelse(V(g) %in% articulation_points, "red", "skyblue")
+E(g)$color <- ifelse(E(g) %in% bridges(g), "red", "black")
+
+plot(g, vertex.size = 20, vertex.label.cex = 1.2)
+```
+
+ Which nodes and edges are critical to keeping the graph connected?
+
+------------------------------------------------------------------------
+
+## Directed Graph
+
+Now let’s work with a **directed graph**.
+
+```{r}
+g_dir <- graph_from_literal(
+  A -+ B, A -+ C,
+  B -+ D,
+  C -+ D,
+  D -+ E,
+  E -+ F,
+  F -+ C
+)
+
+plot(g_dir, vertex.label.cex = 1.2, vertex.color = "lightcoral", edge.arrow.size = 0.5)
+```
+
+
+### In-Degree and Out-Degree
+
+```{r}
+degree(g_dir, mode = "in")   # incoming links
+degree(g_dir, mode = "out")  # outgoing links
+```
+
+### Strongly Connected Components
+
+```{r}
+components(g_dir, mode = "strong")
+```
+
+### Directed Paths and Diameter
+
+```{r}
+diameter(g_dir, directed = TRUE)
+```
+
+Explore how cycles and direction affect path lengths.
+
+------------------------------------------------------------------------
+
+
+## Exercises
+
+- Create some other small unidrected and directed graphs and see how the above measure vary on them
+
+- import the Florentine marriage and business network from the `networkdata` package and compute the appropriate measures from above on it
+```{r}
+library(networkdata)
+data("flo_marriage")
+data("flo_business")
+```

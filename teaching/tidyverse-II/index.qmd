@@ -25,10 +25,10 @@ library(tidymodels)
 |----------------------------------------------------|:------:|:---------
 | |    | |
 | **Introduction** | [{{< fa display >}}](https://termehs.github.io/tidy-II-intro) | 
-| **Part I** |   [{{< fa display >}}]()  | 1.Your Data Budget  [{{< fa file >}}]() 
-| |    | 2. Build a Model [{{< fa file >}}]()  
-| |    | 3. Evaluate the Model [{{< fa file >}}]() 
-| |    | 4. Model Tuning [{{< fa file >}}]() 
+| **Part I** |   [{{< fa display >}}](https://termehs.github.io/tidy-II-part1)  | 1.Your Data Budget  [{{< fa file >}}](material/1-data-budget.zip) 
+| |    | 2. Build a Model [{{< fa file >}}](material/2-what-makes-a-model.zip)
+| |    | 3. Evaluate the Model [{{< fa file >}}](material/3-evaluate-model.zip)   
+| |    | 4. Model Tuning [{{< fa file >}}](material/4-tuning-models.zip)
 | |    | |
 | **Part II** |   [{{< fa display >}}]()  | 1.  [{{< fa file >}}]() |
 | |    | 2. [{{< fa file >}}]() 

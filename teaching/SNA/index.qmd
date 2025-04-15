@@ -9,6 +9,29 @@ toc: false
  
 The course text book can be found here: [R4SNA](https://schochastics.github.io/R4SNA/) (work in progress)
 
+
+
+## Schedule
+
+|                                                    | slides  | practical | data | worksheet | 
+|----------------------------------------------------|:------:|:---------:|:---------:|:---------:|
+| **1**: Introduction | [{{< fa display >}}](https://termehs.github.io/sna01-intro)  |  [{{< fa file >}}](material/01-intro-pkgs.qmd)    |  |  [.qmd](material/01-intro-pkgs-ws.zip)  |
+| **2**: The Language of Networks| [{{< fa display >}}](https://termehs.github.io/sna02-graph-theory)  |  [{{< fa file >}}](material/02-graph-theory.qmd)    |  |  [.qmd](material/02-graph-theory-ws.zip)  |
+
+
+<br>
+
+
+<br>
+
+
+<br>
+
+<br>
+
+
+## R Packages
+
 Throughout the course we will use a variety of different packages of doing network analysis, modeling and visualization. Make sure to install them all and have them ready to load when needed:
 
 ```{r install_packages}
@@ -34,10 +57,3 @@ install.packages("rsiena")
 install.packages("remotes")
 remotes::install_github("schochastics/networkdata")
 ```
-
-
-## Schedule
-
-|                                                    | slides  | practical | data | worksheet | 
-|----------------------------------------------------|:------:|:---------:|:---------:|:---------:|
-| **1**: Introduction | [{{< fa display >}}](https://termehs.github.io/sna01-intro)  |  [{{< fa file >}}](material/01-intro-pkgs.qmd)    |  |  [.qmd](material/01-intro-pkgs-ws.zip)  |
