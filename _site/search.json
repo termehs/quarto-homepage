@@ -1463,6 +1463,13 @@
     "text": "Handling network data\n\nInbuilt network data\nThe networkdata package includes around 1000 datsets and more than 2000 networks. Throughout the course will use several examples using data from this package. Spend some time exploring datasets in this package (you will be asked to choose and work on one of them for you empirical study).\n\ndata(package = \"networkdata\")\n\n\nFreeman’s datasets from http://moreno.ss.uci.edu/data (not available anymore)\nMovie networks from https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/T4HBA3\nCovert networks from https://sites.google.com/site/ucinetsoftware/datasets/covert-networks\nAnimal networks from https://bansallab.github.io/asnr/\nShakespeare’s plays networks build with data from https://github.com/mallaham/Shakespeare-Plays\nSome networks from http://konect.uni-koblenz.de/\nTennis networks compiled from https://github.com/JeffSackmann (please give credit to him if you use this data)\nStar Wars Character Interactions (Episode 1-7) from https://github.com/evelinag/StarWars-social-network"
   },
   {
+    "objectID": "teaching/intro-stats/index.html",
+    "href": "teaching/intro-stats/index.html",
+    "title": "Introductory Statistics",
+    "section": "",
+    "text": "The lecture notes can be found in the following bookdown:\nFoundational Statistics (work in progress)"
+  },
+  {
     "objectID": "teaching/tidyverse-II/material/4-tuning-models.html",
     "href": "teaching/tidyverse-II/material/4-tuning-models.html",
     "title": "Worksheet 4 - Tuning models",
@@ -1558,7 +1565,7 @@
     "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nData Science with Tidyverse I\n\n\nData Wrangling & Visualization\n\n\n\n\nData Science with Tidyverse II\n\n\nTidymodeling\n\n\n\n\nMathematics for Social Scientists\n\n\nMSc course\n\n\n\n\nSocial Network Analysis\n\n\nMSc course\n\n\n\n\nStatistical Learning\n\n\nMSc course\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nData Science with Tidyverse I\n\n\nData Wrangling & Visualization\n\n\n\n\nData Science with Tidyverse II\n\n\nTidymodeling\n\n\n\n\nIntroductory Statistics\n\n\nBSc course\n\n\n\n\nMathematics for Social Scientists\n\n\nMSc course\n\n\n\n\nSocial Network Analysis\n\n\nMSc course\n\n\n\n\nStatistical Learning\n\n\nMSc course\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "teaching/stat-learn/material/10_SVM.html",

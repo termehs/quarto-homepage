@@ -1,9 +1,12 @@
 ---
-title: Statistics
+title: Introductory Statistics
 subtitle: BSc course 
 description: |
-  An introductory course to statistics and specifically focusing on linear models.
+ This course provides you with an opportunity to develop a deeper understanding of statistical theory and inference. The overarching aim is to build statistical literacy. Furthermore, the aims of this course unit are to increase students’ awareness of the ways in which statistical ideas are used in the social sciences and the challenges faced by social statisticians.
 section-divs: false
 toc: false
 ---
  
+ The lecture notes can be found in the following bookdown:  
+ [Foundational Statistics](https://termehs.github.io/found-stats/) (work in progress)
+
