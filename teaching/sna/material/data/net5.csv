@@ -1,0 +1,11 @@
+"Arya"	"Tyrion"	"Daenerys"	"Cersei"	"Jon"	"Littlefinger"	"Sansa"	"Jaime"	"Sam"	"Stannis"
+"Arya"	0	0	0	0	0	0	0	0	0	0
+"Tyrion"	0	0	1	0	0	0	0	0	0	0
+"Daenerys"	0	1	0	0	0	0	0	0	0	0
+"Cersei"	0	0	0	0	0	1	1	1	0	0
+"Jon"	0	0	0	0	0	0	0	0	1	1
+"Littlefinger"	0	0	0	0	0	0	1	1	0	1
+"Sansa"	1	0	0	1	0	1	0	0	0	1
+"Jaime"	0	1	0	0	0	1	0	0	0	0
+"Sam"	0	0	0	0	1	0	0	0	0	1
+"Stannis"	0	0	0	0	1	1	0	0	0	0

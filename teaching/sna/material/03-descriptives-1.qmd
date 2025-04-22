@@ -1,0 +1,254 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 3: Network Concepts and Descriptives I"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+### Load Packages
+```{r load_packages}
+#| code-fold: false
+#| warning: false
+library(igraph)
+library(networkdata)
+library(netUtils)
+```
+
+### To start off...
+Load the following two datasets
+
+```{r load_data}
+data("tailor_social")
+data("tailor_work")
+```
+
+**Which of the two networks is directed and how can you verify this?** 
+
+**Solution**
+```{r solution_dir}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+# print both and check for `--` and `->` edges or "UN" and "DN"
+tailor_social
+tailor_work
+
+#str from netUtils prints the type explicitly
+str(tailor_social)
+str(tailor_work)
+
+is_directed(tailor_social)
+is_directed(tailor_work)
+```
+
+### Exercise: Reading network data
+
+- load all network files in `data.zip` into R and create appropriate igraph objects
+- calculate the density of the networks
+- calculate local and global transitivity (if possible)
+- check if the global transitivity differs from a random graph (see slide 60; choose one network or all)  
+
+**Solution**
+```{r solution_reading}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: true
+#net1
+tab <- read.csv("data/net1.csv",header = TRUE,row.names = 1,sep = " ")
+class(tab)
+A <- as.matrix(tab)
+graph_from_adjacency_matrix(A)
+#check if the matrix is symmetric
+A == t(A)
+
+net1 <- graph_from_adjacency_matrix(A,mode = "undirected",weighted = TRUE,diag = FALSE)
+
+#net2
+tab <- read.csv("data/net2.csv",header = TRUE, sep = ",")
+#graph_from_edgelist(tab)
+el <- as.matrix(tab)
+net2 <- graph_from_edgelist(el,directed = FALSE)
+
+#net3
+tab <- read.csv("data/net3.csv",header = TRUE, sep="\t")
+el <- as.matrix(tab)
+net3 <- graph_from_edgelist(el[,1:2],directed = FALSE)
+
+E(net3)$weight <- tab[,3]
+net3 <- set_edge_attr(net3,name = "weight",value = tab[,3])
+
+#net4
+tab <- read.csv("data/net4.csv",header = TRUE,row.names = 1,sep = ",")
+class(tab)
+A <- as.matrix(tab)
+#check if the matrix is symmetric
+A == t(A)
+net4 <- graph_from_adjacency_matrix(A,mode = "directed",weighted = TRUE,diag = FALSE)
+
+#net5
+tab <- read.csv("data/net5.csv",header = TRUE,row.names = 1,sep = "\t")
+class(tab)
+A <- as.matrix(tab)
+
+#check if the matrix is symmetric
+A == t(A)
+net5 <- graph_from_adjacency_matrix(A,mode = "directed",weighted = TRUE,diag = FALSE)
+```
+
+
+### Netreader Addin
+*(Interactive Session)*
+
+### Exercise: Create networks
+
+Try to create igraph objects for the following networks:
+
+```{r examples_to_built_sols}
+#| echo: false
+#| message: false
+#| fig.width: 15
+#| fig.height: 5
+library(patchwork)
+library(ggraph)
+g1 <- make_full_graph(5)
+V(g1)$name <- LETTERS[1:5]
+#g1 <- graph_from_literal(A:B:C:D:E -- A:B:C:D:E)
+
+p1 <- ggraph(g1,"stress")+
+   geom_edge_link0()+
+   geom_node_point(shape=21,fill="grey66",size=10)+
+   geom_node_text(aes(label=name), size = 7)
+
+g2 <- make_graph(edges = c("A","B","B","C"))
+#g2 <- graph_from_literal( A -+ B -+ C )
+#g2 <- make_ring(3,directed = TRUE,circular = FALSE)
+
+p2 <- ggraph(g2,"stress")+
+   geom_edge_link(arrow = arrow(angle = 15, length = unit(0.15, "inches"), ends = "last", type = "closed"),end_cap=circle(12,"pt"),n=2)+
+   geom_node_point(shape=21,fill="grey66",size=10)+
+   geom_node_text(aes(label=name), size= 7)
+
+g3 <- make_star(5,"undirected",center = 3)
+V(g3)$name <- 1:5
+p3 <- ggraph(g3,"stress")+
+   geom_edge_link0()+
+   geom_node_point(shape=21,fill="grey66",size=10)+
+   geom_node_text(aes(label=name), size = 7)
+
+p1 + p2 + p3
+```
+
+
+
+Choose one network (you can also do more) and do the following:
+
+- add `names` as a node attribute
+- add an edge attribute `weight` and assign it values of your choice
+- find a way to extract the edgelist and the adjacency matrix of the networks
+
+
+**Solution**
+
+```{r examples_to_built}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: false
+library(patchwork)
+library(ggraph)
+g1 <- make_full_graph(5)
+V(g1)$name <- LETTERS[1:5]
+#g1 <- graph_from_literal(A:B:C:D:E -- A:B:C:D:E)
+
+p1 <- ggraph(g1,"stress")+
+   geom_edge_link0()+
+   geom_node_point(shape=21,fill="grey66",size=10)+
+   geom_node_text(aes(label=name), size = 7)
+
+g2 <- make_graph(edges = c("A","B","B","C"))
+#g2 <- graph_from_literal( A -+ B -+ C )
+#g2 <- make_ring(3,directed = TRUE,circular = FALSE)
+
+p2 <- ggraph(g2,"stress")+
+   geom_edge_link(arrow = arrow(angle = 15, length = unit(0.15, "inches"), ends = "last", type = "closed"),end_cap=circle(12,"pt"),n=2)+
+   geom_node_point(shape=21,fill="grey66",size=10)+
+   geom_node_text(aes(label=name), size= 7)
+
+g3 <- make_star(5,"undirected",center = 3)
+V(g3)$name <- 1:5
+p3 <- ggraph(g3,"stress")+
+   geom_edge_link0()+
+   geom_node_point(shape=21,fill="grey66",size=10)+
+   geom_node_text(aes(label=name), size = 7)
+
+p1 + p2 + p3
+```
+
+
+
+## Structural features 
+
+### Exercise: Degree Distribution
+
+```{r create_rnets}
+pa <- sample_pa(1500, power = 1.5, m = 3, directed = FALSE)
+er <- sample_gnp(1500, p = 0.003)
+```
+
+- Verify that the networks have approximately the same density
+- Plot the degree distributions of both networks and check for skewness
+- calculate the degrees (`degree()`) and order the sequence decreasingly (`order()`) 
+- For both networks, create a loop (i=1,..., 50) which deletes the top i vertices (`delete_vertices()`) in the ordered degree sequence and compute the diameter of the resulting networks
+- What can you observe?
+
+**Solution**
+```{r diam_exercise}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: false
+
+#calculate the density (edge_density is the same as graph.density)
+edge_density(pa)
+edge_density(er)
+
+# for the preferential attachment network, 
+# we plot the degree distribution on a log-log scale
+# a straight-ish line should appear 
+plot(degree_distribution(pa), log="xy")
+plot(degree_distribution(er))
+
+#calculate the degrees explicitly
+deg_er <- order(degree(er),decreasing = TRUE)
+deg_pa <- order(degree(pa),decreasing = TRUE)
+
+# iterate through the top 50 nodes, delete them and calculate the diameter
+res_er <- rep(0,50)
+res_pa <- rep(0,50)
+
+for(i in 1:50){
+  g1 <- delete_vertices(er,deg_er[1:i])
+  g2 <- delete_vertices(pa,deg_pa[1:i])
+  res_er[i] <- diameter(g1)
+  res_pa[i] <- diameter(g2)
+}
+
+plot(res_pa,type = "l", col="red",ylab="diameter")
+lines(res_er,col="black")
+
+```
+
+You'll notice that the diameter increases very quickly for a preferential attachment network. The diameter of the random network on the other hand remains constant. If you would redo the analysis for the preferential attachment network and remove random nodes, you'll notice that the diameter also remains constant. A preferential network is thus said to be **fragile to targeted attacks** but **robust to random attacks**. 
+
+### Exercise: Density, Transitivity, Distances
+
+Real world networks tend to have a high transitivity (`transitivity(type="global")`), low average distance (`mean_distance()`) and a low density (`graph.density()`). 
+
+- Experiment with `sample_pa()` and `sample_gnp()` and compute the three stats. Can all three criteria be fullfiled? Why/why not?

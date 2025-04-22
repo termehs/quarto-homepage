@@ -17,6 +17,7 @@ The course text book can be found here: [R4SNA](https://schochastics.github.io/R
 |----------------------------------------------------|:------:|:---------:|:---------:|:---------:|
 | **1**: Introduction | [{{< fa display >}}](https://termehs.github.io/sna01-intro)  |  [{{< fa file >}}](material/01-intro-pkgs.qmd)    |  |  [.qmd](material/01-intro-pkgs-ws.zip)  |
 | **2**: The Language of Networks| [{{< fa display >}}](https://termehs.github.io/sna02-graph-theory)  |  [{{< fa file >}}](material/02-graph-theory.qmd)    |  |  [.qmd](material/02-graph-theory-ws.zip)  |
+| **3**:  Network Concepts and Descriptives I | [{{< fa display >}}](https://termehs.github.io/sna03-descriptives-I)  |  [{{< fa file >}}](material/03-descriptives-1.qmd)    |  [.zip](material/data.zip)  |  [.qmd](material/03-descriptives-1-ws.zip)  | 
 
 
 <br>

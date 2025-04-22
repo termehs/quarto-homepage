@@ -907,7 +907,7 @@
     "href": "teaching/sna/index.html",
     "title": "Social Network Analysis",
     "section": "",
-    "text": "The course text book can be found here: R4SNA (work in progress)\nSchedule\n\n\n\n\nslides\npractical\ndata\nworksheet\n\n\n\n\n1: Introduction\n\n\n\n.qmd\n\n\n2: The Language of Networks\n\n\n\n.qmd\n\n\n\n\n\n\n\nR Packages\nThroughout the course we will use a variety of different packages of doing network analysis, modeling and visualization. Make sure to install them all and have them ready to load when needed:\n\ninstall.packages(\"igraph\")   \ninstall.packages(\"statnet\")  #installs ergm, network, and sna\ninstall.packages(\"snahelper\")\ninstall.packages(\"netUtils\")\ninstall.packages(\"ggraph\")\ninstall.packages(\"backbone\")\ninstall.packages(\"netrankr\")\ninstall.packages(\"signnet\")\ninstall.packages(\"intergraph\")\ninstall.packages(\"graphlayouts\")\ninstall.packages(\"visNetwork\")\ninstall.packages(\"patchwork\")\ninstall.packages(\"edgebundle\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"gganimate\")\ninstall.packages(\"ggforce\")\ninstall.packages(\"rsiena\")\n\ninstall.packages(\"remotes\")\nremotes::install_github(\"schochastics/networkdata\")"
+    "text": "The course text book can be found here: R4SNA (work in progress)\nSchedule\n\n\n\n\nslides\npractical\ndata\nworksheet\n\n\n\n\n1: Introduction\n\n\n\n.qmd\n\n\n2: The Language of Networks\n\n\n\n.qmd\n\n\n3: Network Concepts and Descriptives I\n\n\n.zip\n.qmd\n\n\n\n\n\n\n\nR Packages\nThroughout the course we will use a variety of different packages of doing network analysis, modeling and visualization. Make sure to install them all and have them ready to load when needed:\n\ninstall.packages(\"igraph\")   \ninstall.packages(\"statnet\")  #installs ergm, network, and sna\ninstall.packages(\"snahelper\")\ninstall.packages(\"netUtils\")\ninstall.packages(\"ggraph\")\ninstall.packages(\"backbone\")\ninstall.packages(\"netrankr\")\ninstall.packages(\"signnet\")\ninstall.packages(\"intergraph\")\ninstall.packages(\"graphlayouts\")\ninstall.packages(\"visNetwork\")\ninstall.packages(\"patchwork\")\ninstall.packages(\"edgebundle\")\ninstall.packages(\"ggplot2\")\ninstall.packages(\"gganimate\")\ninstall.packages(\"ggforce\")\ninstall.packages(\"rsiena\")\n\ninstall.packages(\"remotes\")\nremotes::install_github(\"schochastics/networkdata\")"
   },
   {
     "objectID": "project/nexus/index.html",
@@ -2098,5 +2098,19 @@
     "title": "What should I major in?",
     "section": "Further exploration",
     "text": "Further exploration\n\nAsk a question of interest to you, and answer it using summary statistic(s) and/or visualization(s)."
+  },
+  {
+    "objectID": "teaching/sna/material/03-descriptives-1.html",
+    "href": "teaching/sna/material/03-descriptives-1.html",
+    "title": "Social Network Analysis",
+    "section": "",
+    "text": "library(igraph)\nlibrary(networkdata)\nlibrary(netUtils)"
+  },
+  {
+    "objectID": "teaching/sna/material/03-descriptives-1.html#structural-features",
+    "href": "teaching/sna/material/03-descriptives-1.html#structural-features",
+    "title": "Social Network Analysis",
+    "section": "Structural features",
+    "text": "Structural features\n\nExercise: Degree Distribution\n\npa &lt;- sample_pa(1500, power = 1.5, m = 3, directed = FALSE)\ner &lt;- sample_gnp(1500, p = 0.003)\n\n\nVerify that the networks have approximately the same density\nPlot the degree distributions of both networks and check for skewness\ncalculate the degrees (degree()) and order the sequence decreasingly (order())\nFor both networks, create a loop (i=1,…, 50) which deletes the top i vertices (delete_vertices()) in the ordered degree sequence and compute the diameter of the resulting networks\nWhat can you observe?\n\nSolution\n\n\nShow solution\n#calculate the density (edge_density is the same as graph.density)\nedge_density(pa)\nedge_density(er)\n\n# for the preferential attachment network, \n# we plot the degree distribution on a log-log scale\n# a straight-ish line should appear \nplot(degree_distribution(pa), log=\"xy\")\nplot(degree_distribution(er))\n\n#calculate the degrees explicitly\ndeg_er &lt;- order(degree(er),decreasing = TRUE)\ndeg_pa &lt;- order(degree(pa),decreasing = TRUE)\n\n# iterate through the top 50 nodes, delete them and calculate the diameter\nres_er &lt;- rep(0,50)\nres_pa &lt;- rep(0,50)\n\nfor(i in 1:50){\n  g1 &lt;- delete_vertices(er,deg_er[1:i])\n  g2 &lt;- delete_vertices(pa,deg_pa[1:i])\n  res_er[i] &lt;- diameter(g1)\n  res_pa[i] &lt;- diameter(g2)\n}\n\nplot(res_pa,type = \"l\", col=\"red\",ylab=\"diameter\")\nlines(res_er,col=\"black\")\n\n\nYou’ll notice that the diameter increases very quickly for a preferential attachment network. The diameter of the random network on the other hand remains constant. If you would redo the analysis for the preferential attachment network and remove random nodes, you’ll notice that the diameter also remains constant. A preferential network is thus said to be fragile to targeted attacks but robust to random attacks.\n\n\nExercise: Density, Transitivity, Distances\nReal world networks tend to have a high transitivity (transitivity(type=\"global\")), low average distance (mean_distance()) and a low density (graph.density()).\n\nExperiment with sample_pa() and sample_gnp() and compute the three stats. Can all three criteria be fullfiled? Why/why not?"
   }
 ]
