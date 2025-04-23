@@ -252,3 +252,42 @@ You'll notice that the diameter increases very quickly for a preferential attach
 Real world networks tend to have a high transitivity (`transitivity(type="global")`), low average distance (`mean_distance()`) and a low density (`graph.density()`). 
 
 - Experiment with `sample_pa()` and `sample_gnp()` and compute the three stats. Can all three criteria be fullfiled? Why/why not?
+
+```{r  random-g-comparison}
+#| code-fold: true
+#| code-summary: "Hint"
+#| output: false
+#| eval: false
+# Parameters
+n <- 1000       # number of nodes
+m <- 5          # edges per new node in PA
+p <- 0.01       # connection probability for GNP
+
+# Preferential Attachment 
+g_pa <- sample_pa(n, power = 1, m = m, directed = FALSE)
+
+# Erdős–Rényi (GNP)
+g_gnp <- sample_gnp(n, p, directed = FALSE)
+
+# Compute statistics
+compute_stats <- function(graph) {
+  trans <- transitivity(graph, type = "global")
+  dist <- mean_distance(graph, directed = FALSE, unconnected = TRUE)
+  dens <- edge_density(graph)
+  return(c(transitivity = trans, mean_distance = dist, density = dens))
+}
+
+# Get stats
+stats_pa <- compute_stats(g_pa)
+stats_gnp <- compute_stats(g_gnp)
+
+# Combine into a data frame
+results <- data.frame(
+  Model = c("Preferential Attachment", "Erdős–Rényi (GNP)"),
+  Transitivity = c(stats_pa["transitivity"], stats_gnp["transitivity"]),
+  Mean_Distance = c(stats_pa["mean_distance"], stats_gnp["mean_distance"]),
+  Density = c(stats_pa["density"], stats_gnp["density"])
+)
+
+results
+```
