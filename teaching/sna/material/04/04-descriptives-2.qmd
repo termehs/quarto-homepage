@@ -1,0 +1,165 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 4b: Network Concepts and Descriptives II"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+
+```{r load_libs}
+#| warning: false
+#| message: false
+library(igraph)
+library(networkdata)
+library(netUtils)
+library(netrankr)
+```
+
+# Directed networks
+
+## Reciprocity
+Load the "Hightech manager" dataset
+
+```{r ht_managers_load}
+data("ht_advice")
+data("ht_friends")
+data("ht_reports")
+```
+
+These data were collected from the managers of a high-tech company. Each manager was asked "To whom do you go to for advice?" and "Who is your friend?". Data for the item "To whom do you report?" was taken from company documents. 
+
+### Exercise 1: 
+
+- Before computing the reciprocity, think about where you expect high and where low reciprocity 
+- Compute the reciprocity of each network. Does it fit you intuition? 
+
+```{r reciprocity}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: true
+reciprocity(ht_advice)
+reciprocity(ht_friends)
+reciprocity(ht_reports)
+```
+
+## Triad census
+![](triad_census.png){width=350}
+
+One of the many applications of the triad census is to compare a set of networks. Networks with a similar triad census profile are said to be structurally similar. 
+
+### Exercise 2: 
+Compute the triad census for each of the three "Hightech manager" dataset and interpret the results.
+```{r triadcensus}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: true
+triad_census(ht_advice)
+triad_census(ht_friends)
+triad_census(ht_reports)
+```
+
+## Centrality
+
+### Exploring implemented indices
+*(interactive session)*
+
+igraph contains the following 10 indices:
+
+- degree (`degree()`)
++ weighted degree (`strength()`)
++ betweenness (`betweenness()`)
++ closeness (`closeness()`)
++ eigenvector (`eigen_centrality()`)
++ alpha centrality (`alpha_centrality()`)
++ power centrality (`power_centrality()`)
++ PageRank (`page_rank()`)
++ eccentricity (`eccentricity()`)
++ hubs and authorities (`authority_score()` and `hub_score()`)
++ subgraph centrality (`subgraph_centrality()`)
+
+To illustrate some of the indices, we use the “dbces11” graph which is part of the `netrankr` package.
+```{r}
+data("dbces11")
+```
+
+###  Rise of the Medici
+
+```{r load_florentine}
+data("flo_marriage")
+```
+The figure below shows part of the marriage network of Florentine families around 1430. The node size corresponds to the number of prior seats and the size of the label to their wealth.
+![](florentine_marriage.png)
+
+The network includes families who were locked in a struggle for political control of the city of Florence. Two factions were dominant in this struggle: one revolved around the infamous Medicis, the other around the powerful Strozzis.
+
+The network is frequently used to illustrate how a central position in a network can have beneficial outcomes for actors. 
+
+### Exercise 3
+- Calculate degree, betweenness, closeness, and eigenvector centrality
+- Argue for each index, why it might be beneficial to have a high rank in this particular network and setting 
+
+```{r cent_medici}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: true
+sort(degree(flo_marriage), decreasing = TRUE)
+sort(betweenness(flo_marriage), decreasing = TRUE)
+sort(closeness(flo_marriage), decreasing = TRUE)
+sort(eigen_centrality(flo_marriage)$vector, decreasing = TRUE)
+```
+
+Extra: Choose one index and with the help of SNAhelper visualize the network such that the node sizes are proportional to centrality values.
+
+### PageRank
+load the ATP or WTA dataset from the networkdata package. Both contain a list of igraph objects of tennis results from 1968 to 2021. The last season (2021) can be accessed via 
+`atp[[54]]` or `wta[[54]]`.
+
+```{r atp_ex}
+data(atp)
+str(atp[[54]])
+```
+A directed edge points from the loser to the winner of a match. The network is weighted and a weight corresponds to the number of times a player lost to another on a specific surface.  
+
+### Exercise 4
+- What do weighted in- and out-degree, and degree measure mean in the network?
+- Why could Page Rank be a good index to measure player strength?
+- Who was the best player in 2021 according to Page Rank?
+- Plot the relation between matches won and Page rank. What can you observe?
+- Try to redo the analysis for a specific surface (Clay, Hard, Grass)  
+
+:::{.callout-tip}
+the igraph functions you need are `page_rank()` and `strength()`. Check the help for how they handle weights and direction. 
+
+To extract the network for a specific surface, check out `subgraph_from_edges()`
+:::
+
+```{r atp}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: false
+g <- atp[[54]]
+#top ten in 2021
+sort(page_rank(g)$vector,decreasing = TRUE)[1:10]
+plot(degree(g, mode = "in"),page_rank(g)$vector)
+# example: extract clay networks
+g1 <- subgraph_from_edges(g,which(E(g)$surface=="Clay"))
+#top ten in 2021
+sort(page_rank(g1)$vector,decreasing = TRUE)[1:10]
+```
+
+
+
+## Exercise: Clustering
+
+Practice the clustering workflow with (a) network(s) from the networkdata package. When choosing a directed and/or weighted network, make sure to set parameters appropriately.
+
