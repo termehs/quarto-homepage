@@ -1,0 +1,15 @@
+{
+  "hash": "ad8061960190784eaa4b7917c2e662cd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor:  Termeh Shafie\ntitle: \"Social Network Analysis\"\nsubtitle: \"Worksheet 5b: Beyond 'Standard' Networks\"\nlightbox: auto\ntoc: true\nformat:\n  html:\n    embed-resources: true\n    fig-width: 10\n    fig-height: 10\n---\n\n\n# Signed Network and Two-Mode Networks\n\n### Exercise 1: Correlates of War\nLoad the \"Correlates of War\" dataset from the `signnet` package. The “cowList” dataset contains a list of 52 signed networks of inter-state relations over time (1946-1999). Two countries are connected by a positive tie if they form an alliance or have a peace treaty. A negative tie exists between countries who are at war or in other kinds of conflicts. \n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(signnet)\ndata(\"cowList\")\n```\n:::\n\n\nThe dataset includes 51 networks of international relations between nations (aggregated on 3 year time windows). A positive tie indicates some form of alliance between countries and a negative tie conflict or war. \n\nExcept for the first and last task, you can either do the exercises for all networks or choose one specific time window\n\n- Did the number of conflicts increase or decrease over time?\n- Before computing any balance scores: What would you expect in terms of structural balance?\n- Calculate the triangle based balance score. Does it mach your intuition?\n- Visualize a network using `ggsigned()` and decide whether it makes sense to estimate a regular blockmodel or if you need to specify a general one and compute the blockmodel\n\n\n### Exercise 2: Two Mode Projections\n\nThe file `senate15.csv` contains all bill cosponsorships of the US Senate from 2015 to 2017. \n\n- read the file `dat <- read.csv(\"senate15.csv\")`\n- Create a data frame of the senators  \n  `senators <- unique(dat[,1:2])`\n- Construct the two mode network of senators and bills with  \n  `g <- bipartite_from_data_frame(dat,\"bill\",\"name\")`\n- print the igraph object and check how the two modes are distinguished\n- check `?bipartite.projection` and **only** create the weighted projection between senators. Call the network `proj`. What does the weight indicate?\n- Inspect the plot. Can you see any structure?\n- delete edges with a weight less than x, where you should try different values for x. What do you think are \"good\" values for x? Does a structure emerge for any x? \n\n\n:::{.callout-tip}\nFor the exploratory part of the exercise you can do the following:\n\n::: {.cell}\n\n```{.r .cell-code}\nV(proj)$party <- senators$party[match(V(proj)$name,senators$name)]\nV(proj)$color <- ifelse(V(proj)$party==\"D\",\"blue\",\n                 ifelse(V(proj)$party==\"R\",\"red\",\"yellow\"))\n\nplot(proj,layout = layout_with_kk,vertex.label = NA,vertex.size = 3)\n```\n:::\n\n\nto delete edges, use `delete_edges()` \n\n:::\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

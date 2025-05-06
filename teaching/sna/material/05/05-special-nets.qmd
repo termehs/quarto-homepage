@@ -1,0 +1,66 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 5b: Beyond 'Standard' Networks"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+
+# Signed Network and Two-Mode Networks
+
+### Exercise 1: Correlates of War
+Load the "Correlates of War" dataset from the `signnet` package. The “cowList” dataset contains a list of 52 signed networks of inter-state relations over time (1946-1999). Two countries are connected by a positive tie if they form an alliance or have a peace treaty. A negative tie exists between countries who are at war or in other kinds of conflicts. 
+
+```{r load_signnet}
+library(signnet)
+data("cowList")
+```
+
+The dataset includes 51 networks of international relations between nations (aggregated on 3 year time windows). A positive tie indicates some form of alliance between countries and a negative tie conflict or war. 
+
+Except for the first and last task, you can either do the exercises for all networks or choose one specific time window
+
+- Did the number of conflicts increase or decrease over time?
+- Before computing any balance scores: What would you expect in terms of structural balance?
+- Calculate the triangle based balance score. Does it mach your intuition?
+- Visualize a network using `ggsigned()` and decide whether it makes sense to estimate a regular blockmodel or if you need to specify a general one and compute the blockmodel
+
+
+### Exercise 2: Two Mode Projections
+
+The file `senate15.csv` contains all bill cosponsorships of the US Senate from 2015 to 2017. 
+
+- read the file `dat <- read.csv("senate15.csv")`
+- Create a data frame of the senators  
+  `senators <- unique(dat[,1:2])`
+- Construct the two mode network of senators and bills with  
+  `g <- bipartite_from_data_frame(dat,"bill","name")`
+- print the igraph object and check how the two modes are distinguished
+- check `?bipartite.projection` and **only** create the weighted projection between senators. Call the network `proj`. What does the weight indicate?
+- Inspect the plot. Can you see any structure?
+- delete edges with a weight less than x, where you should try different values for x. What do you think are "good" values for x? Does a structure emerge for any x? 
+
+
+:::{.callout-tip}
+For the exploratory part of the exercise you can do the following:
+```{r}
+#| eval: false
+V(proj)$party <- senators$party[match(V(proj)$name,senators$name)]
+V(proj)$color <- ifelse(V(proj)$party=="D","blue",
+                 ifelse(V(proj)$party=="R","red","yellow"))
+
+plot(proj,layout = layout_with_kk,vertex.label = NA,vertex.size = 3)
+```
+
+to delete edges, use `delete_edges()` 
+
+:::
+
+
+

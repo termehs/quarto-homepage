@@ -1,0 +1,391 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 5a: Beyond 'Standard' Networks ^[This worksheet is inspired and adapted from [this source](https://inarwhal.github.io/NetworkAnalysisR-book/ch6-Ego-Network-Data-R.html)]"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+# Ego Networks
+
+
+```{r load_libs}
+#| warning: false
+#| message: false
+library(egor)
+library(igraph)
+library(tidyverse)
+library(patchwork)
+```
+
+In this practical we will
+
+- begin by covering the basics of ego network data, utilizing the `egor` package  to manipulate, construct and visualize ego networks  
+- focus on analyzing substantive questions related to homophily, the tendency for similar actors to interact at higher rates than dissimilar actors, on different demographic dimensions.
+-  consider an example where the ego network properties are used to predict other outcomes of interest, like happiness
+
+## Data 
+The example ego network data come from the 1985 General Social Survey (GSS), a national survey of American adults done face-to-face. The aim of the surveys are to 
+
+- track changes in social attitudes, behaviors, and attributes over time
+- measure opinions on a wide range of social issues like race, religion, politics, crime, work, and family.
+- provide data for social science research 
+
+We work with ego network data from the GSS that has been preprocessed into three different files: 
+
+- a file with the ego attributes
+- a file with the alter attributes
+- a file with the alter-alter ties (1 means that the alters know each other, 2 means they are especially close)
+
+Let's go ahead and read in the three files, starting with the ego attribute data.
+
+Read in the three data file:
+
+```{r read_data}
+ego_dat <- read.csv(file = "data/gss1985_ego_dat.csv" , stringsAsFactors = F) 
+alter_dat <- read.csv(file = "data/gss1985_alter_dat.csv", stringsAsFactors = F)
+alteralter_dat <- read.csv(file = "data/gss1985_alteralter_dat.csv")
+```
+
+
+### Exercise 1: 
+Explore the three different data sets. Do you understand the structure and content of each one? Can you see similarities and differences between the data sets? Focus specifically on these columns:
+```{r tip}
+#| eval: false
+ c("CASEID", "AGE", "EDUC", "RACE", "SEX", "HAPPY", "NUMGIVEN")
+```
+
+```{r exercise1}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: true
+nrow(ego_dat)
+nrow(alter_dat)
+ego_dat[1:10, c("CASEID", "AGE", "EDUC", "RACE", "SEX", "HAPPY", "NUMGIVEN")]
+
+# CASEID, is the unique id for each respondent
+# for example: we can see that respondent 1 (CASEID = 19850001) names 5 alters. 
+# The first alter (ALTERID = 1) is 32, has 18 years of education, and is not kin to ego. 
+# NUMGIVEN is the number of alters given, there are NA's here that need to be removed
+# Note that the number of rows in the two data frames is not the same
+
+alter_dat[1:10, c("CASEID", "ALTERID", "AGE", "EDUC", "RACE", "SEX", "KIN")] 
+# Each row corresponds to a different named alter. 
+# Each alter is denoted by an alter id (ALTERID), unique to that respondent (based on CASEID). 
+# We see similar attributes as with the ego data.
+# There is also information on the relationship between ego and each alter. 
+
+alteralter_dat[1:10, ]
+# this data frame captures the ties between the named alters (as reported on by the respondent)
+# We see four columns. The first column defines the relevant ego using CASEID. 
+# ALTER1 defines the first alter in the dyad and ALTER2 defines the second. 
+```
+
+
+As noted above, there are missing values above that need to be removed:
+```{r remove-nas}
+ego_dat <- ego_dat[!is.na(ego_dat$NUMGIVEN), ]
+```
+
+## Creating the network using `egor`
+First challenge in analyzing ego network data is that we must transform traditional survey data into something that has the structure of a network, so that we can then utilize packages like `igraph` and `sna`. Our survey data will not look like traditional network inputs (matrices, edgelists, etc.) and each survey is likely to be different, complicating the task of putting together the ego networks. 
+
+Luckily, the `egor` package has made the task of constructing ego networks from survey data much easier. We will utilize the basic functionality of this package throughout the tutorial. 
+
+The `egor` function assumes that you are inputting the data using three separate files. The main arguments are:
+
+ - alters = alter attributes data frame
+ - egos = ego attributes data frame
+ - aaties = alter-alter tie data frame
+ - alter_design = list of arguments to specify nomination information from survey
+ - ego_design = list of arguments to specify survey design of study
+ - ID.vars = list of variable names corresponding to key columns:
+    - ego = variable name for id of ego
+    - alter = variable name for id of alter (in alter data)
+    - source = variable name for 'sender' of tie in alter-alter data
+    - target = variable name for 'receiver' of tie in alter-alter data
+
+We will use the three data frames read in above as the main inputs. We will also tell R that CASEID is the ego id variable and ALTERID is the id variable for alters, while ALTER1 and ALTER2 are the source/target variables in the alter-alter data frame. We also note that the maximum number of alters was set to 5:
+
+```{r read-data-egor}
+egonetlist <-  egor(alters = alter_dat, egos = ego_dat, 
+                    aaties = alteralter_dat, alter_design = list(max = 5), 
+                    ID.vars = list(ego = "CASEID", alter ="ALTERID", 
+                                   source = "ALTER1", target = "ALTER2")) 
+egonetlist
+```
+
+egor objects are constructed as tibbles, which are data frames built using the tidyverse logic. For those versed in the tidyverse, one can take advantage of all the functions, calls, etc. that go along with those kinds of objects. It is, however, not strictly necessary to know the syntax of the tidyverse to work with these objects. Let's take a look at the egor object. 
+
+```{r}
+names(egonetlist) 
+```
+
+We see that the elements are made up of our three data frames. For example, we take the first five columns of the ego data and alter attributes, extracted from the egor object:
+
+```{r}
+egonetlist[["ego"]][, 1:5]
+egonetlist[["alter"]][, 1:5]
+```
+
+Note that the id variable for ego has been renamed to `.egoID` (it was `CASEID` on the original data). We also see see that the alter id has been renamed `.altID` (from `ALTERID` on the original data). 
+
+And now we look at the alter-alter ties where we can see that the column names for the alter-alter ties have also been renamed from the input data. The variables are now `.srcID` and `.tgtID` (rather than `ALTER1` and `ALTER2`, as on the original data).
+ 
+```{r}
+egonetlist[["aatie"]]
+```
+
+
+### Exercise 2:
+Calculate density on the egor object using the function `ego_density()`. Note that all ego networks of size 0 or 1 will have NAs for density).
+```{r exercise2}
+#| code-fold: true
+#| code-summary: "Show solution"
+#| output: false
+#| eval: true
+
+dens <- ego_density(egonetlist)
+head(dens)
+
+# For example, respondent 1 (19850001) has 5 alters and all 10 possible ties exist 
+# (density = 1), 
+# while respondent 2 (1950002) has 5 alters but only 8 ties exist (density = .8). 
+# To check this you can run the following:
+alteralter_dat[alteralter_dat$CASEID == 19850001, ]
+alteralter_dat[alteralter_dat$CASEID == 19850002, ]
+```
+
+##  Plotting the Ego Nets
+We not plot the networks using `igraph`. First step is to convert the information in the egor object to igraph objects. We do this using the `as_igraph()` function. Let’s take a look at the first three ego networks. 
+
+```{r}
+ego_nets <- as_igraph(egonetlist)
+ego_nets[1:3] 
+```
+Note that we would use  `as_network()` function if we wanted to construct networks in the network format. 
+
+We have a list of ego networks (in the igraph format), with each ego network in a different element in the list. We can see that the information on the alters was automatically passed to the igraph objects, as was the information on the weights for the alter-alter ties. Note that by default the igraph objects will not include ego. Ego is often (but not always) excluded from visualizations and calculations because ego is, by definition, tied to all alters. Including ego thus offers little additional structural information. We will consider measures below that incorporate both ego and alter information.
+
+As with all igraph objects, we can extract useful information, like the attributes of the nodes. As an example, let's extract information on sex of alters from the first ego network.
+
+```{r}
+vertex_attr(ego_nets[[1]], "SEX")
+# Note that this is the same information as:
+# alter_dat[alter_dat$CASEID == 19850001, "SEX"]
+```
+
+Now let's plot a few networks focusing on the first 6 ego networks:
+
+```{r results='hide'}
+#| fig-height: 5
+#| fig-width: 8
+
+# lapply() will perform a given function, here plot(), 
+# over every element of an input list, here the first 6 elements of ego_nets.
+# note that you also can use purrr::walk()
+par(mfrow = c(2, 3))
+lapply(ego_nets[1:6], plot)
+```
+
+## Descriptives on all ego nets
+Now that we have a list of networks, we can apply the same function to each network using a single line of code, again with the help of `lapply()`. 
+
+### Exercise 3:
+Find the mean number of nodes and ties using `vcount()`  and `ecount()` function for all networks. Try reproducing the plots shown below. Hint: You can use `lapply()` again here.
+
+```{r exercise-plot}
+#| echo: false
+#| fig-height: 4
+#| fig-width: 8
+# nodes
+network_sizes <- lapply(ego_nets, vcount)
+network_sizes <- unlist(network_sizes)
+
+# ties
+network_edge_counts <- lapply(ego_nets, ecount)
+network_edge_counts <- unlist(network_edge_counts)
+
+# Create data frames
+df1 <- data.frame(NetworkSize = network_sizes)
+df2 <- data.frame(EdgeCount = network_edge_counts)
+
+# Create histograms (ggplot approach)
+p1 <- ggplot(df1, aes(x = NetworkSize)) +
+  geom_histogram(binwidth = 1, color = "black", fill = "skyblue") +
+  ggtitle("Histogram of Network Sizes") +
+  xlab("# of Nodes") +
+  theme_minimal()
+
+p2 <- ggplot(df2, aes(x = EdgeCount)) +
+  geom_histogram(binwidth = 1, color = "black", fill = "tan2") +
+  ggtitle("Histogram of Edge Counts") +
+  xlab("# of Edges") +
+  theme_minimal()
+
+p1 + p2
+```
+
+```{r exercise3}
+#| eval: false
+#| code-fold: true
+#| code-summary: Show solution
+#| output: false
+
+# nodes
+network_sizes <- lapply(ego_nets, vcount)
+network_sizes <- unlist(network_sizes)
+mean(network_sizes, na.rm = T)
+
+# ties
+network_edge_counts <- lapply(ego_nets, ecount)
+network_edge_counts <- unlist(network_edge_counts)
+mean(network_edge_counts, na.rm = T)
+
+# Create data frames
+df1 <- data.frame(NetworkSize = network_sizes)
+df2 <- data.frame(EdgeCount = network_edge_counts)
+
+# Create histograms (ggplot approach)
+p1 <- ggplot(df1, aes(x = NetworkSize)) +
+  geom_histogram(binwidth = 1, color = "black", fill = "skyblue") +
+  ggtitle("Histogram of Network Sizes") +
+  xlab("# of Nodes") +
+  theme_minimal()
+
+p2 <- ggplot(df2, aes(x = EdgeCount)) +
+  geom_histogram(binwidth = 1, color = "black", fill = "tan2") +
+  ggtitle("Histogram of Edge Counts") +
+  xlab("# of Edges") +
+  theme_minimal()
+
+p1 + p2 # needs patchwork
+```
+
+### Exercise 4:
+Use `edge_density` and apply to every ego network in the data to find the density of all networks. Create a histogram of these densities as in exercise 3.
+
+```{r exercise4}
+#| eval: false
+#| code-fold: true
+#| code-summary: Show solution
+#| output: false
+densities <- lapply(ego_nets, edge_density)
+densities <- unlist(densities)
+hist(densities)
+```
+
+### Exercise 5:
+There are also inbuilt functions in the `egor` package that can be used to analyze the ego networks, for example `ego_density`, `composition`, `alts_diversity_count`, `count_dyads`, and `comp_ei`. Explore these functions by yourself. Note that you then need to work with the egor object and not the igraph object.
+
+
+## Homophily: Ego-Alter Attributes
+The EI index (External-Internal index) in ego network compositional analysis is a measure of homophily (similarity) or heterophily (difference) in ego networks. It tells you whether ego’s alters are more similar or dissimilar to the ego based on a categorical attribute (e.g., gender, ethnicity, etc.). The formula is given as: 
+$$EI = \frac{E - I}{E + I}$$
+where:
+
+  - E = Number of external ties (alters with a different attribute value than ego)
+  - I = Number of internal ties (alters with the same attribute value as ego)
+
+The measure is interpreted as follows:
+
+  - +1: all alters are different from ego (maximum heterophily)
+  - 0: equal number of similar and different alters (neutral)
+  - –1: all alters are the same as ego (maximum homophily)
+
+Let's start by looking at the level of homophily based on the attribute `SEX`:
+```{r ei-sex}
+comp_ei(egonetlist, alt.attr = "SEX", ego.attr = "SEX")
+```
+
+For each ego, you know have an index that tells you the level of homophily based on the attribute "SEX". For example, the first ego `19850001` tends to have slightly more homophilious ties compared to heterophilous ties. To get a better idea of this measure over all networks you can compute the proportion of negative/positive values or condition on (group by) another attribute. For example:
+```{r ei-sex2}
+comp_ei(egonetlist, alt.attr = "SEX", ego.attr = "SEX") %>% count(ei < 0)
+```
+Note that the NA's are cause because of some missing values in the alter data set.
+
+### Exercise 6:
+Do the same thing, but only consider ties that are based on variable `RACE`. What can you conclude?
+
+```{r exercise5}
+#| eval: false
+#| code-fold: true
+#| code-summary: Show solution
+#| output: false
+comp_ei(egonetlist, alt.attr = "RACE", ego.attr = "RACE")
+```
+
+Homphily based on `SEX` and `RACE` offers very different stories. We see that race is a much more salient dimension than gender, with many respondents matching perfectly with all members of their network along racial lines, but much less so with gender, where differences between ego and alter are more common.
+
+## Ego Networks as Predictors
+Above we examined the properties of the ego networks, focusing mostly on racial and gender homophily. There are a number of other properties we could explore in more detail, like density or network size. For example, we might want to predict network size as a function of race, gender or other demographic characteristics.
+
+We can also use properties of the ego networks as predictors of other outcomes of interest. For example, let's try and predict the variable `HAPPY` using the features of the ego networks. Are individuals with larger ego networks happier? 
+
+`HAPPY` is coded as a 1 (very happy), 2 (pretty happy), 3 (not too happy). Let's add a label to the variable and reorder it to run from not happy to happy:
+```{r}
+ego_dat$HAPPY_FACTOR <- factor(ego_dat$HAPPY, levels = c(3, 2, 1), 
+                            labels = c("not too happy", "pretty happy", 
+                                     "very happy"))
+```
+
+We also turn our race and sex variables into factors. We set white as the first category in our race variable.
+```{r}
+ego_dat$RACE_FACTOR <- factor(ego_dat$RACE, levels = c("white", "asian", 
+                                                       "black", "hispanic", 
+                                                       "other")) 
+ego_dat$SEX_FACTOR <- factor(ego_dat$SEX)
+```
+
+Let's also save density 
+```{r}
+dens <- ego_density(egonetlist)
+ego_dat$DENSITY <- dens[["density"]] #  getting values out of tibble format
+```
+
+`HAPPY` is an ordinal variable. With ordinal outcome variables, it is best to utilize ordered logistic regression (or a similar model). We will need the `polr()` function in the `MASS` package to run these models.
+
+```{r}
+library(MASS)
+dens <- ego_density(egonetlist)
+ego_dat$DENSITY <- dens[["density"]] #  getting values out of tibble format
+```
+Let's create a data frame that has no missing data on any of the variables we want to include in the full model. The outcome of interest is `HAPPY_FACTOR` and the main predictors are ego network size (`NUMGIVEN`) and density (`DENSITY`) . We also include a number of demographic controls:
+```{r}
+ego_dat_nomiss <- na.omit(ego_dat[, c("HAPPY_FACTOR", "NUMGIVEN", "DENSITY", 
+                                     "EDUC", "AGE", "RACE_FACTOR", 
+                                     "SEX_FACTOR")])
+
+```
+
+Now we run the ordered logistic regression predicting happiness. For our first model we will predict happiness as a function of our two structural network features, ego network size and density.
+
+```{r}
+summary(happy_mod1 <- polr(HAPPY_FACTOR ~ NUMGIVEN + DENSITY, 
+                           data = ego_dat_nomiss)) 
+```
+
+The results suggest that respondents with dense networks report higher levels of happiness, while ego network size (`NUMGIVEN`) is not a significant predictor of happiness, controlling for density. The initial results would suggest that it is less about the number of people in your ego network that matters for happiness, and more about whether they know each other.
+
+### Exercise 7
+Add the control variables into the model and interpret the results.
+
+```{r exercise7}
+#| eval: false
+#| code-fold: true
+#| code-summary: Show solution
+#| output: false
+summary(happy_mod2 <- polr(HAPPY_FACTOR ~ NUMGIVEN + DENSITY + EDUC + AGE + 
+                             RACE_FACTOR + SEX_FACTOR, 
+                           data = ego_dat_nomiss))
+
+```
+To summarize the final model fit: density is still a significant predictor of happiness. 
+Individuals with alters who are interconnected consistently report higher levels of happiness, showing the potential benefits of being part of an integrated social group. 
+We also see that individuals with higher education tend to report higher levels of happiness, while those individuals identifying as black report lower levels of happiness. 
