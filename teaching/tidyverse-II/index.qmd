@@ -29,8 +29,8 @@ library(tidymodels)
 | |    | 2. Build a Model [{{< fa file >}}](material/2-what-makes-a-model.zip)
 | |    | 3. Evaluate the Model [{{< fa file >}}](material/3-evaluate-model.zip)   
 | |    | 4. Model Tuning [{{< fa file >}}](material/4-tuning-models.zip)
-| **Part II** |   [{{< fa display >}}]()  | 1.  [{{< fa file >}}]() |
-| |    | 2. [{{< fa file >}}]() 
+| **Part II** |    [{{< fa display >}}](https://termehs.github.io/tidy-II-part2) | 1. Feature Engineering [{{< fa file >}}](material/1-feature-engineering.zip)  |
+| |    | 2. Tuning Hyperparameters [{{< fa file >}}](material/2-tuning-hyperparameters.zip)
 | |    | 3. [{{< fa file >}}]() 
 | |    | 4. [{{< fa file >}}]() 
 | **Case Study** |   to be added |

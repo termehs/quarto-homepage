@@ -1,0 +1,363 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 7: Network Visualization II"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+## Load Packages
+```{r load_packages}
+#| warning: false
+library(igraph)
+library(graphlayouts)
+library(ggraph)
+library(networkdata)
+```
+
+
+## Dynamic layouts
+
+```{r load_dyn_pkg}
+library(gganimate)
+library(ggplot2)
+library(patchwork)
+# also install package 'gifski' to create gifs
+```
+
+```{r s50_load}
+# downloaded from https://www.stats.ox.ac.uk/~snijders/siena/siena_datasets.htm
+data("s50")
+s50
+```
+
+The dataset consists of three networks with 50 actors each and a vertex attribute for the smoking behaviour of students. As a first step, we need to create a layout for all three networks. You can basically use any type of layout for each network, but I’d recommend layout_as_dynamic() from the package {{graphlayouts}}. The algorithm calculates a reference layout which is a layout of the union of all networks and individual layouts based on stress minimization and combines those in a linear combination which is controlled by the alpha parameter. For alpha=1, only the reference layout is used and all graphs have the same layout. For alpha=0, the stress layout of each individual graph is used. Values in-between interpolate between the two layouts.
+
+```{r s50_layout}
+# Try other values for alpha
+xy <- layout_as_dynamic(s50, alpha = 0.2)
+pList <- vector("list", length(s50))
+```
+
+```{r s50_static}
+#| fig.height: 6
+#| fig.width: 12
+#static plots
+for (i in 1:length(s50)) {
+  pList[[i]] <- ggraph(s50[[i]], layout = "manual", x = xy[[i]][, 1], y = xy[[i]][, 2]) +
+    geom_edge_link0(edge_width = 0.6, edge_colour = "grey66") +
+    geom_node_point(shape = 21, aes(fill = as.factor(smoke)), size = 6) +
+    geom_node_text(label = 1:50, repel = FALSE, color = "white", size = 4) +
+    scale_fill_manual(
+      values = c("forestgreen", "grey25", "firebrick"),
+      guide = ifelse(i != 2, "none", "legend"),
+      name = "smoking",
+      labels = c("never", "occasionally", "regularly")
+    ) +
+    theme_graph() +
+    theme(legend.position = "bottom") +
+    labs(title = paste0("Wave ", i))
+}
+# Reduce("+", pList)
+pList[[1]] + pList[[2]] + pList[[3]]
+```
+
+This is nice but of course we want to animate the changes. This is where we say goodbye to ggraph and hello to good-old ggplot2. First, we create a list of data frames for all nodes and add the layout to it.
+
+```{r create_node_lst}
+# create a list which contains all nodes and layout
+nodes_lst <- lapply(1:length(s50), function(i) {
+  cbind(igraph::as_data_frame(s50[[i]], "vertices"),
+    x = xy[[i]][, 1], y = xy[[i]][, 2], frame = i
+  )
+})
+```
+
+
+
+```{r}
+edges_lst <- lapply(1:length(s50), function(i) {
+  cbind(igraph::as_data_frame(s50[[i]], "edges"), frame = i)
+})
+
+edges_lst <- lapply(1:length(s50), function(i) {
+  edges_lst[[i]]$x <- nodes_lst[[i]]$x[match(edges_lst[[i]]$from, nodes_lst[[i]]$name)]
+  edges_lst[[i]]$y <- nodes_lst[[i]]$y[match(edges_lst[[i]]$from, nodes_lst[[i]]$name)]
+  edges_lst[[i]]$xend <- nodes_lst[[i]]$x[match(edges_lst[[i]]$to, nodes_lst[[i]]$name)]
+  edges_lst[[i]]$yend <- nodes_lst[[i]]$y[match(edges_lst[[i]]$to, nodes_lst[[i]]$name)]
+  edges_lst[[i]]$id <- paste0(edges_lst[[i]]$from, "-", edges_lst[[i]]$to)
+  edges_lst[[i]]$status <- TRUE
+  edges_lst[[i]]
+})
+
+head(edges_lst[[1]])
+```
+
+We have expanded the edge data frame in a way that also includes the coordinates of the endpoints from the layout that we calculated earlier.
+
+Now we create a helper matrix which includes all edges that are present in any of the networks.
+
+```{r all_network_edges}
+all_edges <- do.call("rbind", lapply(s50, get.edgelist))
+all_edges <- all_edges[!duplicated(all_edges), ]
+all_edges <- cbind(all_edges, paste0(all_edges[, 1], "-", all_edges[, 2]))
+```
+
+This is used to impute the edges into all networks. So any edge that is not present in time frame two and three gets added to time frame one. But to keep track of these, we set there status to FALSE.
+```{r}
+edges_lst <- lapply(1:length(s50), function(i) {
+  idx <- which(!all_edges[, 3] %in% edges_lst[[i]]$id)
+  if (length(idx != 0)) {
+    tmp <- data.frame(from = all_edges[idx, 1], to = all_edges[idx, 2], id = all_edges[idx, 3])
+    tmp$x <- nodes_lst[[i]]$x[match(tmp$from, nodes_lst[[i]]$name)]
+    tmp$y <- nodes_lst[[i]]$y[match(tmp$from, nodes_lst[[i]]$name)]
+    tmp$xend <- nodes_lst[[i]]$x[match(tmp$to, nodes_lst[[i]]$name)]
+    tmp$yend <- nodes_lst[[i]]$y[match(tmp$to, nodes_lst[[i]]$name)]
+    tmp$frame <- i
+    tmp$status <- FALSE
+    edges_lst[[i]] <- rbind(edges_lst[[i]], tmp)
+  }
+  edges_lst[[i]]
+})
+```
+
+Why are we doing this? After a lot of experimenting, I came to the conclusion that it is always best to draw all edges, but use zero opacity if status = FALSE. In that way, one gets a smoother transition for edges that (dis)appear. There are probably other workarounds though.
+
+In the last step, we create a data frame out of the lists.
+
+```{r}
+edges_df <- do.call("rbind", edges_lst)
+nodes_df <- do.call("rbind", nodes_lst)
+
+head(edges_df)
+head(nodes_df)
+```
+
+And that’s it in terms of data wrangling. All that is left is to plot/animate the data.
+
+
+```{r s50_anim}
+#| eval: false
+ggplot() +
+  geom_segment(
+    data = edges_df,
+    aes(x = x, xend = xend, y = y, yend = yend, group = id, alpha = status),
+    show.legend = FALSE
+  ) +
+  geom_point(
+    data = nodes_df, aes(x, y, group = name, fill = as.factor(smoke)),
+    shape = 21, size = 4, show.legend = FALSE
+  ) +
+  scale_fill_manual(values = c("forestgreen", "grey25", "firebrick")) +
+  scale_alpha_manual(values = c(0, 1)) +
+  ease_aes("quadratic-in-out") +
+  transition_states(frame, state_length = 0.5, wrap = FALSE) +
+  labs(title = "Wave {closest_state}") +
+  theme_void()
+```
+
+![](s50.gif)
+
+
+## Interactive plots with visNetwork
+
+```{r load_visNetwork}
+library(visNetwork)
+data("karate")
+```
+
+
+```{r visIgraph}
+visIgraph(karate)
+```
+
+
+```{r toVisNetworkData1}
+karate_df <- toVisNetworkData(karate)
+visNetwork(nodes = karate_df$nodes, 
+           edges = karate_df$edges, height = "300px")
+```
+
+
+## Gimmicks
+The `ggforce` package works pretty nicely with `ggraph`. You can, for instance, use
+the `geom_mark_*()` functions to highlight clusters.
+
+```{r load_ggforce}
+library(ggforce)
+```
+
+
+```{r network_grps}
+set.seed(665)
+
+#create network with a group structure
+g <- sample_islands(9, 40, 0.4, 15)
+g <- simplify(g)
+V(g)$grp <- as.character(rep(1:9, each = 40))
+```
+
+```{r network_grps_sol}
+ggraph(g, layout = "backbone", keep = 0.4) +
+  geom_edge_link0(edge_color = "grey66", edge_width = 0.2) +
+  geom_node_point(aes(fill = grp), shape = 21, size = 3) +
+  geom_mark_hull(
+    aes(x, y, group = grp, fill = grp),
+    concavity = 4,
+    expand = unit(2, "mm"),
+    alpha = 0.25
+  ) +
+  scale_color_brewer(palette = "Set1") +
+  scale_fill_brewer(palette = "Set1") +
+  theme_graph()+
+  theme(legend.position = "none")
+```
+
+Of course you can also add a label to your clusters.
+
+```{r network_grps_label_sol}
+ggraph(g, layout = "backbone", keep = 0.4) +
+  geom_edge_link0(edge_color = "grey66", edge_width = 0.2) +
+  geom_node_point(aes(fill = grp), shape = 21, size = 3) +
+  geom_mark_hull(
+    aes(x, y, group = grp, fill = grp, label=grp),
+    concavity = 4,
+    expand = unit(2, "mm"),
+    alpha = 0.25
+  ) +
+  scale_color_brewer(palette = "Set1") +
+  scale_fill_brewer(palette = "Set1") +
+  theme_graph()+
+  theme(legend.position = "none")
+```
+
+> "How can I achieve that my directed edges stop at the node border, independent from the node size?" 
+
+Out of the box you will probably end up with something like this
+
+```{r arrow_size}
+# create a random network
+set.seed(1071)
+g <- sample_pa(30, 1)
+V(g)$degree <- degree(g, mode = "in")
+
+ggraph(g, "stress") +
+  geom_edge_link(
+    aes(end_cap = circle(node2.degree + 2, "pt")),
+    edge_colour = "black",
+    arrow = arrow(
+      angle = 10,
+      length = unit(0.15, "inches"),
+      ends = "last",
+      type = "closed"
+    )
+  ) +
+  geom_node_point(aes(size = degree), col = "grey66", show.legend = FALSE) +
+  scale_size(range = c(3, 11)) +
+  theme_graph()
+```
+
+The overlap can be avoided by using the `I()` function from base R, which
+treats the entries of a vector "as is". So we know that if a node has degree 5, it will be mapped to
+a circle with radius (or diameter?) "5pt". Since this means, that you have no control over the scaling, you need to do that beforehand.
+
+```{r arrows_size_sol}
+normalise <- function(x, from = range(x), to = c(0, 1)) {
+  x <- (x - from[1]) / (from[2] - from[1])
+  if (!identical(to, c(0, 1))) {
+    x <- x * (to[2] - to[1]) + to[1]
+  }
+  x
+}
+
+# map to the range you want
+V(g)$degree <- normalise(V(g)$degree, to = c(3, 11))
+
+ggraph(g, "stress") +
+  geom_edge_link(
+    aes(end_cap = circle(node2.degree + 2, "pt")),
+    edge_colour = "grey25",
+    arrow = arrow(
+      angle = 10,
+      length = unit(0.15, "inches"),
+      ends = "last",
+      type = "closed"
+    )
+  ) +
+  geom_node_point(aes(size = I(degree)), col = "grey66") +
+  theme_graph()
+```
+
+> "How can I lower the opacity of nodes without making edges visible underneath?"
+
+One of the rules you should try to follow is that edges should not be visible on top of nodes. Usually that is easy to achieve by drawing the edges before the nodes. But if you  want to lower the opacity of nodes, they do become visible again.
+
+```{r alpha_nodes}
+
+g <- sample_gnp(20, 0.5)
+V(g)$degree <- degree(g)
+
+ggraph(g, "stress") +
+  geom_edge_link(edge_colour = "grey66") +
+  geom_node_point(
+    size = 8,
+    aes(alpha = degree),
+    col = "red",
+    show.legend = FALSE
+  ) +
+  theme_graph()
+```
+
+The solution is rather simple. Just add a node layer with the same aesthetics below with
+`alpha=1` (default) and `color="white"` (or the background color of the plot).
+```{r alpha_nodes_sol}
+ggraph(g, "stress") +
+  geom_edge_link(edge_colour = "grey66") +
+  geom_node_point(size = 8, col = "white") +
+  geom_node_point(
+    aes(alpha = degree),
+    size = 8,
+    col = "red",
+    show.legend = FALSE
+  ) +
+  theme_graph()
+```
+
+Of course you could also use `start_cap` and `end_cap` here, but you may have to fiddle again as in the last example. 
+
+> "How can I enhance readability of node labels in hairball graphs?"
+
+Sometimes it is really hard to make labels readable when the network is very cluttered
+
+```{r unreadable_labels,fig.width = 8, fig.height = 8}
+g <- sample_gnp(50, 0.7)
+V(g)$name <- sapply(1:50, function(x) paste0(sample(LETTERS, 4), collapse = ""))
+E(g)$weight <- runif(ecount(g))
+
+ggraph(g) +
+  geom_edge_link0(aes(edge_color = weight, edge_width = weight), show.legend = FALSE) +
+  geom_node_point(size = 8, color = "#44a6c6") +
+  geom_node_text(aes(label = name), fontface = "bold") +
+  scale_edge_color_continuous(low = "grey66", high = "black") +
+  scale_edge_width(range = c(0.1, 0.5)) +
+  theme_graph() +
+  coord_fixed()
+```
+
+Here you can make use of the fact that the layout of the nodes are stored in a "hidden" data frame when a `ggraph` object is constructed (this is what we made use of with `geom_mark_hull()` too). That means you can use other geoms from other packages. In this case, the `shadowtext` package as shown below.
+
+```{r shadowtext_labels,fig.width = 8, fig.height = 8}
+ggraph(g,"stress") +
+  geom_edge_link0(aes(edge_color = weight, edge_width = weight), show.legend = FALSE) +
+  geom_node_point(size = 8, color = "#44a6c6") +
+  shadowtext::geom_shadowtext(aes(x, y, label = name), color = "black", size = 4, bg.colour = "white") +
+  scale_edge_color_continuous(low = "grey66", high = "black") +
+  scale_edge_width(range = c(0.1, 0.5)) +
+  theme_graph() +
+  coord_fixed()
+```

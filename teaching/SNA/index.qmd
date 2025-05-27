@@ -20,6 +20,9 @@ The course text book can be found here: [R4SNA](https://schochastics.github.io/R
 | **3**:  Network Concepts and Descriptives I | [{{< fa display >}}](https://termehs.github.io/sna03-descriptives-I)  |  [{{< fa file >}}](material/03/03-descriptives-1.qmd)    |  [.zip](material/03/data.zip)  |  [.qmd](material/03/03-descriptives-1-ws.zip)  | 
 | **4**:  Network Concepts and Descriptives II | [{{< fa display >}}](https://termehs.github.io/sna04-descriptives-II)  |  [{{< fa file >}}](material/04/04-descriptives-2-bm.qmd)    [{{< fa file >}}](material/04/04-descriptives-2.qmd)  |  |  [.qmd](material/04/04-descriptives-II-ws.zip)  | 
 | **5**:  Beyond 'Standard' Networks | [{{< fa display >}}](https://termehs.github.io/sna05-beyond-standard-nets)  |  [{{< fa file >}}](material/05/05-ego-nets.qmd)    [{{< fa file >}}](material/05/05-special-nets.qmd)  |  [.zip](material/05/data.zip)  |  [.qmd](material/05/beyond-standard-nets-ws.zip)  | 
+| **6**:  Network Visualization I | [{{< fa display >}}](https://termehs.github.io/sna06-netviz-I)  |   [{{< fa file >}}](material/06/06-netviz-1.qmd)  |  |  [.qmd](material/06/06-netviz-1-ws.zip)  | 
+| **7**:  Network Visualization II | [{{< fa display >}}](https://termehs.github.io/sna07-netviz-II)  |   [{{< fa file >}}](material/07/07-netviz-2.qmd)  |  |  [.qmd](material/07/07-netviz-2-ws.zip)  |
+| **8**:  Network Modelling: Introduction| [{{< fa display >}}](material/08/08-intro_netmod.pdf)  |  [{{< fa file >}}](material/08/08-cugd.qmd)  |    |  [.qmd](material/08/08-cugd.zip)  | 
 
 <br>
 

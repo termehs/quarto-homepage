@@ -1,0 +1,228 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 6: Network Visualization I"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+---
+
+## Load Packages
+```{r load_packages}
+#| warning: false
+library(igraph)
+library(graphlayouts)
+library(ggraph)
+library(networkdata)
+```
+
+## Prepare data
+```{r prepare_data}
+# load the game of thrones dataset
+data(got)
+gotS1 <- got[[1]]
+
+```
+
+
+## Basic plotting
+
+```{r igraph_plot}
+plot(gotS1)
+```
+
+:::{.callout-note}
+This plot is not representative for the capabilities of igraph.
+Check out [this tutorial](https://kateto.net/netscix2016.html)
+:::
+
+```{r ggraph_quickplot}
+# quick plot function of ggraph
+autograph(gotS1)
+```
+
+`autograph()` allows you to specify node/edge colours too but it really is only meant to 
+give you a quick overview without writing a massive amount of code. Think of it as the
+`plot()` function for `ggraph`.
+
+Before we continue, we add some more node attributes to the GoT network that can be used during visualization.
+```{r prep_got}
+# define a custom color palette
+got_palette <- c(
+  "#1A5878", "#C44237", "#AD8941", "#E99093",
+  "#50594B", "#8968CD", "#9ACD32"
+)
+
+# compute a clustering for node colors
+V(gotS1)$clu <- as.character(membership(cluster_louvain(gotS1)))
+
+# compute degree as node size
+V(gotS1)$size <- degree(gotS1)
+```
+
+### Aesthetics and scales examples 
+
+```{r gotS1_1}
+ggraph(gotS1, layout = "stress") +
+  geom_edge_link0(aes(edge_width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  geom_node_text(aes(filter = (size >= 25), label = name), size = 6) +
+  scale_fill_manual(values = got_palette) +
+  scale_edge_width(range = c(0.2, 3)) +
+  scale_size(range = c(3, 12)) +
+  theme_graph() +
+  theme(legend.position = "none")+
+  coord_fixed()
+```
+
+Using geom_edge_link instead of geom_edge_link0 for gradients along edges
+```{r gotS1_2}
+ggraph(gotS1, layout = "stress") +
+  geom_edge_link(aes(alpha = after_stat(index)), edge_colour = "black") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  scale_fill_manual(values = got_palette) +
+  scale_edge_width_continuous(range = c(0.2, 3)) +
+  scale_size_continuous(range = c(1, 6)) +
+  theme_graph() +
+  theme(legend.position = "none")+
+  coord_fixed()
+```
+ 
+ Using geom_edge_link2 instead of geom_edge_link0 for more advanced gradients along edges
+```{r gotS1_3}
+ggraph(gotS1, layout = "stress") +
+  geom_edge_link2(aes(edge_colour = node.clu),edge_width = 0.5)+
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  scale_fill_manual(values = got_palette) +
+  scale_edge_color_manual(values = got_palette) +
+  scale_edge_width_continuous(range = c(0.2, 3)) +
+  scale_size_continuous(range = c(1, 6)) +
+  theme_graph() +
+  theme(legend.position = "none")+
+  coord_fixed()
+```
+
+Using a different geom
+```{r gotS1_4}
+ggraph(gotS1, layout = "stress") +
+  geom_edge_arc0(aes(edge_width = weight), edge_colour = "grey66",strength = 0.1) +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  scale_fill_manual(values = got_palette) +
+  scale_edge_width(range = c(0.2, 3)) +
+  scale_size(range = c(1, 6)) +
+  theme_graph() +
+  theme(legend.position = "none")+
+  coord_fixed()
+```
+
+Not specifying any scales:
+```{r gotS1_5}
+#| warning: false
+
+ggraph(gotS1, layout = "stress") +
+  geom_edge_link0(aes(edge_width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  theme_graph() +
+  theme(legend.position = "none")+
+  coord_fixed()
+```
+
+```{r gotS1_6}
+ggraph(gotS1, layout = "stress") +
+  geom_edge_link0(aes(edge_width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  scale_fill_brewer(palette = "Dark2") +
+  scale_edge_width_continuous(range = c(0.2, 3)) +
+  scale_size_continuous(range = c(1, 6)) +
+  theme_graph() +
+  theme(legend.position = "none")+
+  coord_fixed()
+```
+
+```{r gotS1_7}
+ggraph(gotS1, layout = "stress") +
+  geom_edge_link0(aes(edge_width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  scale_fill_manual(values = got_palette) +
+  scale_edge_width_continuous(range = c(0.2, 3), guide = "none") +
+  scale_size_continuous(range = c(1, 6), guide = "none") +
+  theme_graph() +
+  theme(legend.position = "bottom") +
+  coord_fixed()
+```
+
+## Contentric layouts
+
+Plot that focuses on Ned Stark:
+```{r gotS1_8}
+ggraph(gotS1, layout = "focus", focus = 1) +
+  geom_edge_link0(aes(edge_width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  geom_node_text(aes(filter = (name == "Ned"), size = size, label = name),
+    family = "serif"
+  ) +
+  scale_edge_width_continuous(range = c(0.2, 1.2)) +
+  scale_size_continuous(range = c(1, 5)) +
+  scale_fill_manual(values = got_palette) +
+  theme_graph() +
+  theme(legend.position = "none") + 
+  coord_fixed()
+
+```
+ 
+Adding `draw_circle`:
+```{r gotS1_9}
+ggraph(gotS1, layout = "focus", focus = 2) +
+  draw_circle(col = "#00BFFF", use = "focus", max.circle = 3) +
+  geom_edge_link0(aes(width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  geom_node_text(aes(filter = (name == "Daenerys"), size = size, label = name),
+    family = "serif"
+  ) +
+  scale_edge_width_continuous(range = c(0.2, 1.2)) +
+  scale_size_continuous(range = c(1, 5)) +
+  scale_fill_manual(values = got_palette) +
+  theme_graph() +
+  theme(legend.position = "none") + 
+  coord_fixed()
+
+```
+
+Concentric layout based on a centrality index:
+```{r gotS1_10}
+ggraph(gotS1, layout = "centrality", cent = strength(gotS1)) +
+  geom_edge_link0(aes(edge_width = weight), edge_colour = "grey66") +
+  geom_node_point(aes(fill = clu, size = size), shape = 21) +
+  geom_node_text(aes(size = size, label = name), family = "serif") +
+  scale_edge_width_continuous(range = c(0.2, 0.9)) +
+  scale_size_continuous(range = c(1, 8)) +
+  scale_fill_manual(values = got_palette) +
+  theme_graph() +
+  theme(legend.position = "none") + 
+  coord_fixed()
+```
+
+
+## Exercise 1
+Use the network of a different season to produce a plot by yourself  
+OR choose a dataset from the networkdata package 
+`data(package = "networkdata")`
+
+There are no constrains, just try out and play around
+
+
+
+## Exercise 2
+
+Recreate the iconic "polblogs" network visualization
+![](polblogs_orig.png)  
+
+The network shows the linking between political blogs during the 2004 election in the US. Red nodes are conservative leaning blogs and blue ones liberal.
+
+```{r load_polblogs}
+data("polblogs")
+```
