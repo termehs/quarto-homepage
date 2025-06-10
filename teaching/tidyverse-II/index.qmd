@@ -31,8 +31,8 @@ library(tidymodels)
 | |    | 4. Model Tuning [{{< fa file >}}](material/4-tuning-models.zip)
 | **Part II** |    [{{< fa display >}}](https://termehs.github.io/tidy-II-part2) | 1. Feature Engineering [{{< fa file >}}](material/1-feature-engineering.zip)  |
 | |    | 2. Tuning Hyperparameters [{{< fa file >}}](material/2-tuning-hyperparameters.zip)
-| |    | 3. [{{< fa file >}}]() 
-| |    | 4. [{{< fa file >}}]() 
+| |    | 3. Grid Search via Racing [{{< fa file >}}](material/3-grid-search-via-racing.zip)
+| |    | 4. Iterative Search [{{< fa file >}}](material/4-iterative-search.zip) 
 | **Case Study** |   to be added |
 <br>
 
