@@ -1,0 +1,396 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 10: ERGMs I"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+execute: 
+  cache: true
+---
+
+# Introduction
+
+We're going to follow the ERGM modelling outline:
+
+-   specify and estimate model parameters that should govern evolution of network
+-   simulate other random networks based on specified models
+-   compare the goodness of fit of observed to model networks.
+
+The following resource is useful for looking up different model terms: [ERGM terms](https://cran.r-project.org/web/packages/ergm/vignettes/ergm-term-crossRef.html).
+
+Note that we now are performing stochastic simulation -- in some of the cases, your output will differ slightly from mine and between different runs (you can however use `set.seed()` to get exactly the same results).
+
+
+
+## Packages needed
+
+```{r}
+#| message: false
+library(statnet) # also loads the ERGM package
+library(igraph)
+library(ggraph)
+library(intergraph)
+library(patchwork)
+library(networkdata)
+```
+
+## Object types
+
+We will be primarily be working with matrix, network and graph objects. Note that `ergm` primarily requires network and adjacency matrices, but since we will be using `ggraph` to visualize networks we also need graph objects. We try to keep it clear here by using suffix *g*, *net* and *mat* to clarify object assignment.
+
+# Florentine marriage network
+
+We start by loading the Florentine marriage network (available in the `statnet` package) and create the adjacency matrix from the loaded network object. This is done with the below code. Note that we have some available node attributes: priorates, totalties, vertex.names and wealth. We'll be using these attributes later for modeling ERGMs.
+
+```{r}
+#| output: false
+data(florentine) # loads flomarriage and flobusiness data
+flom_net <- flomarriage # look at the flomarriage network data
+flom_mat <- as.matrix(flomarriage)
+```
+
+To visualize the network we create a graph object (note that using `geom_node_text` includes the vertex/family names but you can exclude this if you prefer):
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5
+flom_g <- asIgraph(flom_net)
+flom_p <- ggraph(flom_g, layout = "stress") + 
+  geom_edge_link0(edge_colour = "#666060", 
+                  edge_width = 0.8, edge_alpha = 1) +
+  geom_node_point(fill = "#808080", colour = "#808080",  
+                  size = 7, shape = 21, stroke = 0.9) +
+  theme_graph() + 
+  theme(legend.position = "none") +
+  geom_node_text(aes(label = vertex.names), colour = "#000000",
+    size = 5, family = "sans") +
+  ggtitle("Florentine marriage network")
+flom_p
+```
+
+## Model 1: Dyadic independence/Bernoulli graph
+
+### Estimation
+
+We begin by specifying a Bernoulli model using the `ergm` function. This is done by only including number of edges as a term in the model (recall from lecture that this implies dyadic independence). Run the model and print out summary of model fit using below code:
+
+```{r}
+#| message: false
+flom_mod1 <- ergm(flom_net ~ edges) # fit the model
+summary(flom_mod1) # get a summary of model
+```
+
+You can also just print the estimated coefficient using only `flom_mod1`.
+
+**Q1**. How can you interpret the parameter estimate?
+
+The log-odds of any tie occurring is: $$ -1.609 \times \textrm{change in the number of ties} = -1.609 \times 1 $$ for all ties, since the addition of any tie to the network changes the number of ties by 1. Corresponding probability is: $$\frac{\exp{(-1.609)}}{1+\exp{(-1.609)}}=0.1667$$ which is what you would expect, since there are 20/120 ties.
+
+## Model 2: Transitivity effect added
+
+### Estimation
+
+Next, we add a term the number of completed triangles/triads (which would indicate **transitivity**).
+
+```{r}
+#| message: false
+set.seed(1) #include if you want the same results shown here
+flom_mod2 <- ergm(flom_net ~ edges + triangle)
+summary(flom_mod2) 
+```
+
+**Q2** How can you interpret the parameter estimates?
+
+**Q3** What do the parameter estimates tell us about the configurations specified in the model?
+
+Conditional log-odds of two actors forming a tie is:
+
+-   $-1.644\times$ change in the number of ties + $0.134 \times$ change in number of triangles
+-   if the tie will not add any triangles to the network, its log-odds is: -1.644
+-   if it will add one triangle to the network, its log-odds is: -1.644 + 0.134
+-   if it will add two triangles to the network, its log-odds is: -1.644 + 0.134 $\times$ 2
+
+### MCMC diagnostics
+
+You can use `mcmc.diagnostics(flom_mod2)` to observe the behavior of the MCMC estimation algorithm and check for degeneracy. What you want to see in the MCMC diagnostics: the MCMC sample statistics varying randomly around the observed values at each step in the trace plots (which means the chain is mixing well) and the difference between the observed and simulated values of the sample statistics should have a roughly bell-shaped distribution, centered at 0 (which means no difference):
+
+```{r}
+#| fig-width: 7
+#| fig-height: 10
+mcmc.diagnostics(flom_mod2, center = TRUE)
+```
+
+**Q4** How would you interpret these results?
+
+### Simulation
+
+When we have estimated the coefficients of an ERGM, we have defined a probability distribution across all networks of the same size. If the model is a good fit to the observed data, networks drawn from this distribution resemble the observed data. To draw networks from this distribution we use the `simulate()` function. We draw ten networks from the specified model and use the below command to get a summary of what the network statistics `edges` and `triangles` are for each of the ten sampled networks.
+
+```{r}
+flom_mod2.sim <- simulate(flom_mod2, nsim = 10)
+summary(flom_mod2.sim)
+```
+
+This should give you a list over the ten networks and columns representing how many edges and triangles are apparent in each simulated case. Since you have listed all the simulated networks, you can simply call each one of them individually. For example, in the below, we call simulated networks 1 and 2:
+
+```{r}
+#| output: false
+flom_mod2.sim[[1]]
+flom_mod2.sim[[2]]
+```
+
+You can also choose one of the networks to visualize, below is an example for the tenth, i.e. last on the list of, simulated network:
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5
+flom.sim_g <-asIgraph(flom_mod2.sim[[10]])
+flom.sim_p <- ggraph(flom.sim_g, layout = "stress") + 
+  geom_edge_link0(edge_colour = "#666060", 
+                  edge_width = 0.8, edge_alpha = 1) +
+  geom_node_point(fill = "#808080", colour = "#808080",  
+                  size = 7, shape = 21, stroke = 0.9) +
+  theme_graph() + 
+  theme(legend.position = "none") +
+  ggtitle("Simulated network")
+flom.sim_p
+```
+
+These simulations are crucial for examining the goodness of fit which we will do next.
+
+### 3. Goodness of Fit
+
+The MCMC algorithm draws a dyad at random at each step, and evaluates the probability of a tie from the perspective of these two nodes. That probability is governed by the ergm-terms specified in the model, and the current estimates of the coefficients on these terms. Once the estimates converge, simulations from the model will produce networks that are centered on the observed model statistics i.e. those we control for (otherwise it is a sign that something has gone wrong in the estimation process). The networks will also have other emergent global properties that are not represented by explicit terms in the model. Thus, goodness of fit can be done in two ways, where the first is to be preferred:
+
+-   evaluate the fit to the specified terms in the model (done by default)
+
+-   evaluate the fit of terms not specified in the model to emergent global network properties
+
+If the first does not indicate something off in the estimation process, you can use the second where three terms that can be used to evaluate the fit to emergent global network properties:
+
+1.  the node level (degree)
+
+2.  the edge level (esp: edgewise share partners)
+
+3.  the dyad level (geodesic distances)
+
+We check now whether the specified model above fits the observed data and how well it reproduces it. We do this by choosing a network statistic (that is not specified in the model), and comparing the value of this statistic to the distribution of values we get in simulated networks from our model. We use the `gof()` function.
+
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+flom_mod2.gof <- gof(flom_mod2) # this will produce 4 plots
+par(mfrow=c(2,2)) # figure orientation with 2 rows and 2 columns
+plot(flom_mod2.gof) # gof plots
+```
+
+To get an output containing the summary of the gof:
+
+```{r}
+#| output: false
+flom_mod2.gof # summary output of gof
+```
+
+**Q5** How would you interpret the goodness of fit here?
+
+# Lazega's lawyers (from lecture)
+
+We will use the same subset of this network as in the previous lab: we want to check whether or not the *partners* of the firm more frequently work together with other partners having the same practice. We import the data as a graph object from the `networkdata` package:
+
+```{r}
+data("law_cowork")
+```
+
+We then create an adjacency matrix from the directed graph for the first 36 lawyers in the network corresponding to the partners of the firm (see attribute 'status'). To test homophily now, we only consider the reciprocal ties so we need to symmetrize the matrix to create and undirected graph:
+
+```{r}
+law_mat_cwdir <- as_adjacency_matrix(law_cowork, sparse = FALSE)
+law_mat_cwdir <- law_mat_cwdir[1:36,1:36]
+law_mat_cw <- (law_mat_cwdir == t(law_mat_cwdir) & law_mat_cwdir ==1) + 0
+```
+
+Next we save the binary attribute 'practice' (1 = litigation, 2 = corporate) from the graph object as a vector, which is then in turn converted into a data frame (again only for the first 36 lawyers who are partners):
+
+```{r}
+law_attr.pract <- vertex_attr(law_cowork)$pract[1:36] - 1
+```
+
+Since observed attribute values are 1/2, we subtract 1 to get a 0/1 variable which is easier to interpret in an ERGM context.
+
+We create a network object and add the node attribute 'practice':
+
+```{r}
+law_net <- as.network(law_mat_cw, directed = FALSE) 
+law_net %v% "practice" <- law_attr.pract
+law_net
+```
+
+## Model 1: homophily and clustering
+
+### Estimation
+
+We are interested in running an ERGM with the following statistics (as done during lecture)
+
+-   nodecov("practice")
+
+-   match("practice")
+
+-   gwesp(decay = 0.693)
+
+**Q6** Can you recall what these statistics represent? To run the ERGM:
+
+```{r}
+#| message: false
+#| warning: false
+law_mod1 <- ergm(law_net ~ edges
+  + nodecov("practice") + match("practice")
+  + gwesp(0.693, fixed = TRUE)
+)
+summary(law_mod1)
+```
+
+See lecture slides for the interpretation of these coefficients.
+
+### MCMC diagnostics
+
+Check the model by running MCMC diagnostics to observe what is happening with the simulation algorithm:
+
+```{r}
+#| fig-width: 7
+#| fig-height: 15
+mcmc.diagnostics(law_mod1, center = TRUE)
+```
+
+**Q6** Do you see any problems with model degeneracy here? Is the estimation process working as it should?
+
+### Goodness of Fit
+
+Goodness of fit can be checked as done earlier:
+
+```{r}
+#| fig-width: 7
+#| fig-height: 7
+#| message: false
+#| warning: false
+law_mod1.gof <- gof(law_mod1) # this will produce 4 plots
+par(mfrow = c(2, 2)) # figure orientation with 2 rows and 2 columns
+plot(law_mod1.gof)
+```
+
+Note that you should not use `esp` to assess goodness of fit since it was explicitly modeled via the `gwesp` term in the specified model.
+
+# Knecht's Friendship Network
+
+For the last part, we will fir an ERGM to a directed network to check for reciprocity. We use a friendship network (Knecht,2008) which can be loaded using the `networkdata` package. You can read about the network by typing `?knecht`. Note that the network is longitudinal and observed over four time periods. We will here focus on the last time period. To load the wave 4 data and to visualize it:
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5
+data("knecht")
+knecht4_g <- knecht[[4]]
+knecht4_p <- ggraph(knecht4_g, layout = "stress") + 
+  geom_edge_link(edge_colour = "#666060", end_cap = circle(9,"pt"), 
+                         n = 2, edge_width = 0.4, edge_alpha = 1, 
+                         arrow = arrow(angle = 15, 
+                         length = unit(0.1, "inches"), 
+                         ends = "last", type = "closed"))  +
+  geom_node_point(fill = "#000000", colour = "#000000", 
+                  size = 7, shape = 21, stroke = 0.9) +
+  theme_graph() + 
+  theme(legend.position = "none") +
+  ggtitle("Observed network (wave 4)")
+knecht4_p
+```
+
+Next we create the network object to fit ERGMs:
+
+```{r}
+  # to create network objects
+knecht4_net <- asNetwork(knecht[[4]])
+```
+
+## Model 1: Reciprocity effect
+
+### Estimation
+
+```{r}
+#| message: false
+knecht4_mod1 <- ergm(knecht4_net ~ edges + mutual)
+summary(knecht4_mod1) 
+```
+
+**Q7** How do you interpret these results?
+
+### MCMC diagnostics
+
+```{r}
+#| fig-width: 7
+#| fig-height: 10
+mcmc.diagnostics(knecht4_mod1)
+```
+
+**Q8** How do you interpret these results?
+
+### Goodness of fit
+
+Note that since we now are considering a directed network, we need to separate in- and out-degree when assessing the goodness of fit:
+
+```{r}
+#| fig-width: 7
+#| fig-height: 10
+#| message: false
+#| warning: false
+knecht4_mod1.gof <- gof(knecht4_mod1) # this will produce 4 plots
+par(mfrow = c(3,2)) # figure orientation with 2 rows and 2 columns
+plot(knecht4_mod1.gof)
+```
+
+**Q9** How do you interpret these results?
+
+## Model 2: Reciprocity and homophily effect
+
+Now we also include a homophily effect, i.e. do students tend to befriend others of the same gender?
+
+**Q10** Run the usual steps of fitting and ERGM, checking the estimation algorithm and assessing the goodness of fit. The ERGM syntax is shown below. What can you conclude?
+
+```{r}
+#| message: false
+knecht4_mod2 <- ergm(knecht4_net ~ edges +  nodecov("gender") + 
+                       nodematch("gender") + mutual)
+summary(knecht4_mod2) 
+```
+
+# Exercises
+
+**Exercise 1** Use the undirected cowork network of the lawyer data.
+
+**(a)** Focus on the attribute 'gender' now. Fit an ERGM that potentially could answer whether or not the *partners* of the firm more frequently work together with other partners of the same gender.
+
+**(b)** Focus now instead on *all* 71 lawyers of the data and fit an ERGM that potentially could answer whether or not the *partners* of the firm more frequently work together with other partners of the firm.
+
+**(c)** Can you understand why maximum pseudolikelihood estimation (MPLE) is used when only including `nodecov()` and `match()` terms?
+
+**Exercise 2:** Import the data on Kapferer's Tailors from the package `networkdata`. You can read about the data by typing `?mine`. Note that the data is imported as graph objects so to convert it to a network object, type the following:
+
+```{r}
+mine_net <- asNetwork(mine)
+```
+
+Perform the following tasks:
+
+**(a)** Fit en ERGM with edges and triangles included. How do you interpret the coefficients?
+
+**(b)** Run MCMC diagnostics on the model in (a). Do you not any problems in the estimation process?
+
+**(c)** Perform a goodness of fit assessment on the model in (a). What can you conclude?
+
+**Exercise 3:** Use the directed Knecht friendship networks for this exercise.
+
+**(a)** We wish to compare the reciprocity effect from wave 1 to wave 4. We fitted the ERGM for wave 4 above. Run the same ERGM for wave 1 and run the usual checks of the fitted model. Can you notice a difference in reciprocity over time?
+
+**(b)** Run the same comparison as in (a) but also include gender homophily in your model specification. Can you notice a difference in the effects from wave 1 to wave 4?

@@ -24,6 +24,7 @@ The course text book can be found here: [R4SNA](https://schochastics.github.io/R
 | **7**:  Network Visualization II | [{{< fa display >}}](https://termehs.github.io/sna07-netviz-II)  |   [{{< fa file >}}](material/07/07-netviz-2.qmd)  |  |  [.qmd](material/07/07-netviz-2-ws.zip)  |
 | **8**:  Network Modelling: Introduction| [{{< fa display >}}](material/08/08-intro_netmod.pdf)  |  [{{< fa file >}}](material/08/08-cugd.qmd)  |    |  [.qmd](material/08/08-cugd.zip)  | 
 | **9**:  Random Graph Models| [{{< fa display >}}](material/09/09-rgm.pdf)  |  [{{< fa file >}}](material/09/09-rgm.qmd)  |    |  [.qmd](material/09/09-rgm.zip)  | 
+| **10**: Exponential Random Graph Models (ERGMs)| [{{< fa display >}}](material/10/10-ergms.pdf)  |  [{{< fa file >}}](material/10/10-ergms1.qmd)  |    |  [.qmd](material/10/10-ergms1.zip)  | 
 
 <br>
 
