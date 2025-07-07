@@ -33,7 +33,7 @@ library(tidymodels)
 | |    | 2. Tuning Hyperparameters [{{< fa file >}}](material/2-tuning-hyperparameters.zip)
 | |    | 3. Grid Search via Racing [{{< fa file >}}](material/3-grid-search-via-racing.zip)
 | |    | 4. Iterative Search [{{< fa file >}}](material/4-iterative-search.zip) 
-| **Case Study** |   to be added |
+| **Case Study: Chicago L-Train** |   [{{< fa display >}}](https://termehs.github.io/tidy-II-case)  |
 <br>
 
 
@@ -42,6 +42,8 @@ library(tidymodels)
 |----------------------------------------------------|:------:|:---------
 **K-means** |  [{{< fa file >}}](material/case-studies/k-means.qmd)  | [{{< fa file >}}](material/case-studies/k-means-ws.zip) |
 **Bootstrapping** |  [{{< fa file >}}](material/case-studies/bootstrap.qmd)  |  [{{< fa file >}}](material/case-studies/bootstrap-ws.zip)   |
+**Coefficients** |  [{{< fa file >}}](material/case-studies/coefficients.qmd)  |  [{{< fa file >}}](material/case-studies/coefficients-ws.zip)   |
+**Inference** |  [{{< fa file >}}](material/case-studies/infer.qmd)  [{{< fa file >}}](material/case-studies/xtabs.qmd) |   [{{< fa file >}}](material/case-studies/infer-ws.zip)  [{{< fa file >}}](material/case-studies/xtabs-ws.zip)   |
 
 <br><br>
 

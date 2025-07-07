@@ -1,0 +1,224 @@
+---
+author: Termeh Shafie (adapted from Craig et al., Chap 13)
+title: "Social Network Analysis"
+subtitle: "Worksheet 10: ERGMs II (Two-Mode Networks)"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+execute: 
+  cache: true
+---
+
+# Introduction
+Following the same modeling outline as before, we will here fit ERGMs on two-mode networks. Here, the model terms are slightly different than for the case of one-mode data. We will use the data used [here](https://inarwhal.github.io/NetworkAnalysisR-book/ch13-Two-mode-Network-Models-ERGM-STERGM-R.html), but I have already cleaned the data so you can import it as an .RDS file. 
+
+The data is on students joining clubs in a high school and we have basic information about the students, the clubs, and which students are members of which clubs. Familiarize yourself with this data set.
+
+Recall that this page is useful for looking up different model terms: [ERGM terms](https://cran.r-project.org/web/packages/ergm/vignettes/ergm-term-crossRef.html).
+
+## Packages needed
+
+```{r}
+#| message: false
+library(statnet) # also loads the ERGM package
+library(igraph)
+library(ggraph)
+library(intergraph)
+library(patchwork)
+library(networkdata)
+
+# download data (network object):
+bnet96 <- readRDS("bnet96.rds")
+```
+
+
+## Model 1: Only Edge Term
+We start with a simple model and just include a term for edges. The edges term is directly analogous to the edges term for one mode networks, except here we must remember that edges can only exist between actors of different modes, i.e. edges are only possible between women and dates for social events. 
+```{r}
+#| message: false
+mod1 <- ergm(bnet96 ~ edges)
+summary(mod1)
+```
+**Q1** How do you interpret the coefficient here? Recall that the probability of a tie is then given by  `exp(-3.44427) / (1 + exp(-3.44427)) = .0309402`.
+
+
+## Model 2: Gender and Grade Specific Clubs
+We have some structural conditions to consider: some student-club combinations cannot occur, or occur at extremely low rates. We need to adjust our model for these cases, or run the risk of biasing the estimates. For example, girls are very unlikely to join boys sports teams (e.g., wrestling or football), while boys are unlikely to join girls sports teams (volleyball). There are similar structural issues with grade, as some clubs are restricted to certain grades. For example, students in grade 9, 10, 11 or 12 do not join eighth grade sports teams (e.g., 8th grade football).
+
+We will include `nodemix` terms in the model for gender and grade, capturing the student-club combinations that are unlikely to exist. The two attributes of interest are `studentgender_clubgender` and `studentgrade96_clubgrad`.
+
+We will start with gender. Remember that student gender is measured as `male` or `female`, while club gender is measured as `boys`, `boys_girls`, or `girls`. We want to print out the combinations of student-club genders (e.g., "male.boys"). By default, `nodemix` will print the terms sorted alphabetically, first by the second level (clubs) and then by the first level (students). Let's create our vector of names (student-club combinations) with that ordering in mind.
+
+```{r}
+#| message: false
+student_gender <- sort(as.character(c("female", "male")))
+club_gender <- sort(c("boys", "boys_girls", "girls"))
+
+gender_levels <- paste(rep(student_gender, times = length(club_gender)), 
+                      rep(club_gender, each = length(student_gender)),
+                      sep = "." )
+data.frame(gender_levels)
+```
+
+The terms of interest are `female.boys` and `male.girls`; as these are the rare events we want to adjust for, girls joining boys clubs and boys joining girls clubs. This corresponds to spots 1 and 6 from the summary statistics, so let's create a vector holding that information.
+
+```{r}
+gender_terms <- c(1, 6)
+```
+
+And now we look at the grade attribute, `studentgrade96_clubgrade`. Student grade is measured as 8, 9, 10, 11 or 12. Club grade is measured as: `eighth` (just eighth graders), `ninth` (just ninth graders), `ninth_tenth_eleventh` (just ninth, tenth or eleventh graders), and `ninth+` (no eighth graders). The value is `all_grades` if there are no restrictions on membership, in terms of grade. Let's get all student-club combinations for grade and put them together to be consistent with the `nodemix` term (sorted by the second level and then by the first level):
+```{r}
+#| message: false
+student_grades <- sort(as.character(c(8:12)))
+club_grades <- sort(c("all_grades", "eight", "ninth", "ninth_tenth_eleventh", "ninth+"))
+
+grade_levels <- paste(rep(student_grades, times = length(club_grades)), 
+                      rep(club_grades, each = length(student_grades)),
+                      sep = "." )
+data.frame(grade_levels)
+```
+
+We want to include terms for any student-club combination that should not exist; like 12th graders in a ninth grade club, `12.ninth`. Based on the order from the summary statistics, this corresponds to: 6 (`10.eighth`), 7 (`11.eighth`), 8 (`12.eighth`), 10 (`9.eighth`), 11 (`10.ninth`), 12 (`11.ninth`), 13 (`12.ninth`), 14 (`8.ninth`), 18 (`12.ninth_tenth_eleventh`), 19 (`8.ninth_tenth_eleventh`) and 24 (`8.ninth+`).
+```{r}
+grade_terms <- c(6, 7, 8, 10, 11, 12, 13, 14, 18, 19, 24)
+```
+
+We an now estimate our model, including `nodemix` terms for `studentgender_clubgender` and `studentgrade96_clubgrade`. We will specify which terms to include using the `levels2` argument, setting it to the vectors defined above. To simplify the estimation of the model, we will specify these terms using an `Offset()` function (although we could have estimated the coefficients within the model). When using `Offset()`, the coefficients are not estimated and are instead set using the values supplied in the coef argument. This is appropriate in our case as the coefficients are based on logical conditions (e.g., 12th graders do not join 9th grade clubs) and can be set a priori by the researcher. Here, we set the coefficients to -10 for every term. We set the coefficients to -10 as we want to estimate the models conditioned on the fact that these student-club combinations are very rare.
+```{r}
+#| message: false
+offset_coefs_gender <- rep(-10, length(gender_terms))
+offset_coefs_grade <- rep(-10, length(grade_terms))
+
+mod2 <- ergm(bnet96 ~ edges + 
+               Offset(~ nodemix("studentgender_clubgender", 
+                              levels2 = gender_terms), 
+                      coef = offset_coefs_gender) + 
+               Offset(~ nodemix("studentgrade96_clubgrade", 
+                              levels2 = grade_terms), 
+                      coef = offset_coefs_grade))
+summary(mod2)
+```
+
+All of the offset terms are set to -10, although they are not printed out here. We see that the edge coefficient is different than with mod1, suggesting the importance of adjusting our model for structural/logical constraints. Note also that the model fit should only be compared to other models with the same set of offset terms.
+
+We used `nodemix` terms to capture structural conditions in the data, but we could imagine using `nodemix` terms to answer more substantive questions. We could test if certain types of students (e.g., girls) are more likely to join certain types of clubs (academic, leadership, etc.), and this is left as an **exercise**.
+
+
+## Second Mode Terms: Node Factor & Homphily
+We now add `nodefactor` and `homophily` terms to our model. With two-mode networks, these terms can take two forms, with different terms for the first and second mode. Here we focus on the second mode, the clubs.
+
+
+### Model 3: Node Factor
+ `nodefactor ` terms capture differences in degree across nodes, here clubs, with different attributes. We are interested in the main effect of club type (sports, academic, etc.) and club profile (low, moderate, high, very high) on membership. For example, do high profile clubs have more members than low profile clubs?
+
+The term of interest is  `b2factor ` (b2 indicating the second mode of a bipartite network). We will include  `b2factor ` terms for each club attribute of interest,  `club_type_detailed` and  `club_profile `. We include a levels argument for club_profile to set the order that the results are printed. By default, the results are printed in alphabetical order. In this case, that would correspond to high (1), low (2), moderate (3), very high (4), with high excluded as the reference. But we want the results to run from moderate (3) to high (1) to very high (4), with low (2) excluded (as this is easier to interpret). For  `club_type_detailed `, we use the levels argument to set the second category, academic interest, as the reference. We set levels to -2 to exclude only the second category.
+
+```{r}
+#| message: false
+mod3 <- ergm(bnet96 ~ edges + 
+               Offset(~nodemix("studentgender_clubgender", 
+                              levels2 = gender_terms), 
+                      coef = offset_coefs_gender) + 
+               Offset(~nodemix("studentgrade96_clubgrade", 
+                              levels2 = grade_terms), 
+                      coef = offset_coefs_grade) + 
+                b2factor("club_type_detailed", levels = -2) + 
+                b2factor("club_profile", levels = c(3, 1, 4)))
+summary(mod3)
+```
+
+We see, for example, that competitive academic clubs and individual sports tend to have fewer members than academic interest clubs (the reference), while service clubs (like National Honors Society) and team sports tend to be large. We also see that high profile clubs have, if anything, fewer members than low profile clubs. 
+
+More formally, we can interpret the coefficient on individual sports (for example) as follows: the odds of a student being part of an individual sports team is exp(-0.41835) times lower than the odds of being part of an academic interest club. It is worth emphasizing that `b2factor` is based only on club attributes, and is thus different from `nodemix` (see above), which incorporates attributes from both modes.
+
+### Model 4: Homophily
+Homophily is more complicated with two-mode networks than with one-mode networks. This is the case as there are no direct ties from nodes of the same type; in our case, there are no ties from students to students or from clubs to clubs. So, if we are interested in homophily on a club attribute, say club type, we cannot ask if team sports are tied to other team sports, as there are no ties between clubs. Instead, we must ask if similar clubs are linked together through students; e.g., do students in team sports tend to be members of other team sports?
+
+We must counts two-paths, based on homophily on the attribute of interest. The basic idea is to sum up the number of times that we see A-$i$-B, where A and B are clubs with the same attribute (e.g., both team sports) and $i$ is a student in both A and B. The count is technically over half the number of two-paths, to avoid double counting (as A-$i$-B is substantively the same as B-$i$-A). The term is `b2nodematch`. A positive coefficient on `b2nodematch` would indicate that students are members of similar kinds of clubs, above what can be explained by other terms in the model.
+
+But how do we sum up the homophilous two-paths? In the simplest case, we can sum up all of the two-paths that match on the attribute of interest. This is the default specification. We may, however, have good reason to incorporate some discounting, so that adding one more two-path (for a given edge) only marginally increases the count, once we reach a certain threshold. For example, if student $i$ is a member of the football team, ($i$-football edge), then if $i$ is also a member of the wrestling team, that would be a strong signal of matching on club type (both team sports). But adding another team sport membership, say $i$ is also a member of the baseball team, may not offer quite as much information; as we already know that $i$ joins team sports. We may then want to count the second two-path less than the first.
+
+We can control the discounting using a `beta` parameter, which raises the count of two-paths (for a given edge) to beta. Setting `beta` to 1 would yield the number of two-paths (for an edge) where there is a match on the club attribute of interest (so the $i$-football edge would contribute a count of 2). Setting `beta` to 0 gives us the other extreme: showing if the given edge is involved in at least one homophilous two-path (so the $i$-football edge would contribute a count of 1). The count of two-paths, raised to `beta`, is then summed over all edges and divided by 2. 
+
+
+We set `beta` to .25, but we could imagine using a range of values (estimating the model each time), using model fit statistics to evaluate the choice of `beta`.
+
+```{r}
+#| message: false
+set.seed(1007)
+
+mod4 <- ergm(bnet96 ~ edges + 
+                Offset(~nodemix("studentgender_clubgender", 
+                              levels2 = gender_terms), 
+                      coef = offset_coefs_gender) + 
+                Offset(~nodemix("studentgrade96_clubgrade", 
+                              levels2 = grade_terms), 
+                      coef = offset_coefs_grade) + 
+                b2factor("club_type_detailed", levels = -2) + 
+                b2nodematch("club_type_detailed", beta = .25) + 
+                b2factor("club_profile", levels = c(3, 1, 4)) + 
+                b2nodematch("club_profile", beta = .25), 
+              control = control.ergm(MCMC.burnin = 20000,
+                                     MCMC.samplesize = 3000))
+```
+
+The model is now being fit using MCMC techniques. This means that we should check if the model is fitting well. Use the `mcmc.diagnostics()` function.
+
+**Q2** How would you intepret the below results (not plotted here)?
+```{r}
+#| message: false
+#| eval: false
+mcmc.diagnostics(mod4)
+```
+Go ahead a summarize model 4:
+```{r}
+summary(mod4)
+```
+
+
+## First Mode Terms: Node Factor & Homphily
+We now add the analogous terms (`nodefactor` and `nodematch`) for the first mode, students. Here we focus on student attributes, specifically for race. We will add `b1factor` and `b1nodematch` terms to the model (b1 indicating the first mode of a bipartite network). For b1factor, we test if there are differences in degree by racial groups (do white students join clubs at lower rates than Asian students?). 
+
+For `b1nodematch`, we test if clubs are segregated along racial lines. We will count the number of two paths, $i$-A-$j$, where $i$ and $j$ are students of the same race and A is a club that both $i$ and $j$ are members of. Again, we can use the `beta` argument to set the discounting when summing up the two-paths that match on the attribute of interest. We will set `beta` to .15. 
+
+To help with estimation convergence, we will also set the reference category for the `b1factor` term to include Asian (1), Hispanic (3) and Native American (4) (basically collapsing some of the smaller categories into a single 'other' category). Finally, we will tweak the control parameters, increasing the `burnin` and `sample size. This can take a little while to run, so we might want to include parallel processing options to speed things up (here we set the number of processors to 4).
+
+```{r}
+#| message: false
+#| warning: false
+mod5 <- ergm(bnet96 ~ edges + 
+               Offset(~nodemix("studentgender_clubgender", 
+                              levels2 = gender_terms), 
+                      coef = offset_coefs_gender) + 
+                Offset(~nodemix("studentgrade96_clubgrade", 
+                              levels2 = grade_terms), 
+                      coef = offset_coefs_grade) + 
+               b2factor("club_type_detailed", levels = -2) + 
+               b2nodematch("club_type_detailed", beta = .25) + 
+               b2factor("club_profile", levels = c(3, 1, 4)) + 
+               b2nodematch("club_profile", beta = .25) +
+               b1factor("race", levels = -c(1, 3, 4)) + 
+               b1nodematch("race", beta = .15), 
+             control = control.ergm(MCMC.burnin = 30000, 
+                                    MCMC.samplesize = 5000, 
+                                    parallel = 4, 
+                                    parallel.type = "PSOCK"))
+summary(mod5)
+```
+
+**Interpretation**: 
+It looks like black and white students are members of fewer clubs than Asian, Native American or Hispanic students (the reference), while there is segregation along racial lines (looking at the `b1nodematch` term). Students are unlikely to find themselves in clubs where there are few (or even no) students of the same race. For example, by chance we might expect Asian students (a small racial group) to often be in clubs with few other Asian students, but empirically this rarely happens. Looking at AIC and BIC, we see that the model fit is improved quite a bit from the previous model.
+
+## Exercise 
+1. Download the same darta for 1997 and perform a similar analysis, i.e. fitting ERGMs with the same first and second mode terms. Can you note differences between the two years?
+```{r}
+#| eval: false
+bnet97 <- readRDS("bnet97.rds")
+```
+
+
+2. Perform MCMC and GoF assessment on the models fitted for both years.
