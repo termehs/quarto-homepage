@@ -12,19 +12,19 @@ margin-footer: licence.html
 
 ## Schedule
 
-|                                                    | date       |slides  | handout| practical | data | 
-|----------------------------------------------------|------------|:------:|:------:|:---------:|:---------:|
-| **1**:  Introduction: What is Statistical Learning? | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn01-intro)  | [{{<fa file-pdf >}}](material/01-intro-ho.pdf)| [{{< fa file >}}](material/01-R-you-ready.qmd)   |  [.zip](material/01-data.zip)|
-| **2**: Linear Regression I | 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn02-linreg-I) |  [{{<fa file-pdf >}}](material/02-linregI-ho.pdf) |  [{{< fa file >}}](material/02-linear-regression-I.qmd)   |  |
-| **3**: Linear Regression II | 05.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn03-linreg-II) |  [{{<fa file-pdf >}}](material/03-linregII-ho.pdf) |  [{{< fa file >}}](material/03-linear-regression-II.qmd)   | [.zip](material/03-data.zip) |
-| **4**: Classification I | 12.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn04-class-I) |  [{{<fa file-pdf >}}](material/04-class-I-ho.pdf) |  [{{< fa file >}}](material/04-classification-I.qmd)   | |
-| **5**: Classification II | 19.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn05-class-II) |  [{{<fa file-pdf >}}](material/05-class-II-ho.pdf) |  [{{< fa file >}}](material/05-knn-reg-class.qmd)   [{{< fa file >}}](material/05_Class-II.qmd)| |
-| **6**: Model Validation| 26.11.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn06-mod-val) |  [{{<fa file-pdf >}}](material/06-model-validation-ho.pdf) |  [{{< fa file >}}](material/06-model-validation-1.qmd)  [{{< fa file >}}](material/06_Model_Validation_Resampling.qmd)  |
-| **7**: Model Selection & Regularization| 03.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn07-mod-sel-regul) |  [{{<fa file-pdf >}}](material/07-model-selection-regularization-ho.pdf) |   [{{< fa file >}}](material/07_model_selection_regularization.qmd)  | 
-| **8**: "Non-linear" Linear Regression | 10.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn08-non-linearity) |  [{{<fa file-pdf >}}](material/08-non-linearity-ho.pdf) |   [{{< fa file >}}](material/08-nonlinearity.qmd)  [{{< fa file >}}](material/08_nonlinear_modeling.qmd) | 
-| **9**: Tree Based Methods| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/statlearn09-tree-based-methods) |  [{{<fa file-pdf >}}](material/09-tree-based-methods-ho.pdf) |   [{{< fa file >}}](material/09_Trees.qmd)  | 
-| **10**: Support Vector Machines| 07.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn10-support-vector-machines) |  [{{<fa file-pdf >}}](material/10-support-vector-machines-ho.pdf) |    [{{< fa file >}}](material/10_SVM.qmd)  | 
-| **11**: Neural Networks| 14.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn11-neural-networks) |  [{{<fa file-pdf >}}](material/11-neural-networks-ho.pdf) |     | 
-| **12**: Clustering | 21.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn12-clustering) |  [{{<fa file-pdf >}}](material/12-clustering-ho.pdf) |    [{{< fa file >}}](material/12_Clustering.qmd)   | [.zip](material/12-data.zip)|
-| **13**: Principal Component Analysis| 28.01.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn13-pca) |  [{{<fa file-pdf >}}](material/13-pca-ho.pdf) |    [{{< fa file >}}](material/13-pca.qmd)  [{{< fa file >}}](material/13_PCA.qmd)  | [.zip](material/13-data.zip)|
-| **14**: Review | 04.02.2025 | [{{< fa display >}}](https://termehs.github.io/statlearn14-review) |  [{{<fa file-pdf >}}](material/14-review-ho.pdf) |     | |
+|                                                    | slides  | handout| practical | data | 
+|----------------------------------------------------|:------:|:------:|:---------:|:---------:|
+| **1**:  Introduction: What is Statistical Learning? |  
+| **2**: Linear Regression I | 
+| **3**: Linear Regression II | 
+| **4**: Classification I |  
+| **5**: Classification II |
+| **6**: Model Validation|
+| **7**: Model Selection & Regularization|  
+| **8**: "Non-linear" Linear Regression |
+| **9**: Tree Based Methods| 
+| **10**: Support Vector Machines | 
+| **11**: Neural Networks| 
+| **12**: Clustering | 
+| **13**: Principal Component Analysis| 
+| **14**: Review |

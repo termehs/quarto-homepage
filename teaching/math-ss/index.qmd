@@ -14,19 +14,19 @@ margin-footer: licence.html
 
 ## Schedule
 
-|                                                    | date       |slides |  handout  | 
-|----------------------------------------------------|------------|:------:|:------:|
-| **1**: Preliminaries | 22.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss01-prel)  |  [{{< fa file-pdf >}}](material/01-prel-ho.pdf)  | |
-| **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 29.10.2024 | [{{< fa display >}}](https://termehs.github.io/mathss02-algebra)  |  [{{< fa file-pdf >}}](material/02-algebra-ho.pdf)  | |
-| **3**: Functions & Relations| 05.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss03-functions-relations)  |  [{{< fa file-pdf >}}](material/03-functions-relations-ho.pdf)  | |
-| **4**: Sequences & Series, Limits & Continuity | 12.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss04-seq-series-lim-cont)  |  [{{< fa file-pdf >}}](material/04-seq-series-lim-cont-ho.pdf)  | |
-| **5**: Calculus Fundamentals: Differentiation| 19.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss05-calc-fund)  |  [{{< fa file-pdf >}}](material/05-calc-fund-ho.pdf)  | |
-| **6**: Calculus Fundamentals: The Integral| 26.11.2024 | [{{< fa display >}}](https://termehs.github.io/mathss06-the-integral)  |  [{{< fa file-pdf >}}](material/06-the-integral-ho.pdf)  | |
-| **7**:Extrema in One Dimension| 03.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss07-extrema)  |  [{{< fa file-pdf >}}](material/07-extrema-ho.pdf)  | |
-| **8**: Introduction to Probability| 10.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss08-prob-intro)  |  [{{< fa file-pdf >}}](material/08-prob-intro-ho.pdf)  | |
-| **9**: Discrete Distributions| 17.12.2024 | [{{< fa display >}}](https://termehs.github.io/mathss09-discrete-dists)  |  [{{< fa file-pdf >}}](material/09-discrete-dists-ho.pdf)  | |
-| **10**: Continuous Distributions| 07.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss10-cont-dists)  |  [{{< fa file-pdf >}}](material/10-cont-dists-ho.pdf)  | |
-| **11**: Introduction Linear Algebra| 14.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss11-intro-lin-alg)  |  [{{< fa file-pdf >}}](material/11-intro-lin-alg-ho.pdf)  | |
-| **12**: Vector Spaces and Systems of Equations| 21.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss12-vec-space-soe)  |  [{{< fa file-pdf >}}](material/12-vec-space-soe-ho.pdf)  | |
-| **13**: Eigenvalues and Eigenvectors | 28.01.2025 | [{{< fa display >}}](https://termehs.github.io/mathss13-eigenvalues-eigenvectors)  |  [{{< fa file-pdf >}}](material/13-eigenvalues-eigenvectors-ho.pdf)  | |
-| **14**: Multivariate Calculus and Optimization| 04.02.2025 | [{{< fa display >}}](https://termehs.github.io/mathss14-multivar-calc-opt)  |  [{{< fa file-pdf >}}](material/14-multivar-calc-opt-ho.pdf)  | |
+|                                                    | slides |  handout  | 
+|----------------------------------------------------|:------:|:------:|
+| **1**: Preliminaries | 
+| **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 
+| **3**: Functions & Relations |
+| **4**: Sequences & Series, Limits & Continuity  | 
+| **5**: Calculus Fundamentals: Differentiation|
+| **6**: Calculus Fundamentals: The Integral|
+| **7**: Extrema in One Dimension |
+| **8**: Introduction to Probability| 
+| **9**: Discrete &  Continuous Distributions|
+| **10**: Introduction Linear Algebra| 
+| **11**: Vector Spaces and Systems of Equations |
+| **12**: Eigenvalues and Eigenvectors |
+| **13**: Multivariate Calculus and Optimization| 
+| **14**: Multivariate Calculus and Constrained Optimization| 
