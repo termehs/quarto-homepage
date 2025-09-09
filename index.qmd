@@ -205,16 +205,8 @@ No matching items
 
 
 ## GitHub Activity
-<!-- GOES INTO HEAD -->
-<link rel="stylesheet" href="http://lengthylyova.pythonanywhere.com/static/gh-contrib-graph/gh.css">
 
-<!-- GOES INTO BODY -->
-<div id="gh" data-login="termehs"></div>
-
-<!-- GOES INTO THE END OF BODY -->
-<script src="http://lengthylyova.pythonanywhere.com/static/gh-contrib-graph/gh.js"></script>
-
-
+<iframe src="https://jandee.vercel.app/termehs" width="700" height="130" frameborder="0"></iframe>
 :::
 :::
 ::::
@@ -228,6 +220,32 @@ No matching items
 <div class="wrapper">
  &nbsp; 
  
+### &nbsp; &nbsp; Bluesky
+
+ <!-- Paste in your CSS to avoid layout shift -->
+<style>
+bsky-widget {
+  min-height: 275px;
+  width: 350px;
+}
+</style>
+
+
+<!-- Paste wherever you want to render the card -->
+<bsky-widget 
+  handle="termehs.bsky.social"
+  show-description="false"
+>
+</bsky-widget>
+
+<!-- Paste before end of body -->
+<script 
+  src="https://unpkg.com/bsky-widget@~0.1/dist/index.js" 
+  type="module"
+>
+</script>
+
+
 ### &nbsp; &nbsp; Toots {{< mastodon https://fosstodon.org/@termehs >}}
 <iframe allowfullscreen sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox" width="350" height="500" src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffosstodon.org%2Fusers%2Ftermehs&theme=dark&size=100&header=true&replies=false&boosts=false"></iframe>
 </div>

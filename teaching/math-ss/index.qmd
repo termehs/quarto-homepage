@@ -24,9 +24,9 @@ margin-footer: licence.html
 | **6**: Calculus Fundamentals: The Integral|
 | **7**: Extrema in One Dimension |
 | **8**: Introduction to Probability| 
-| **9**: Discrete &  Continuous Distributions|
+| **9**: Discrete & Continuous Distributions|
 | **10**: Introduction Linear Algebra| 
 | **11**: Vector Spaces and Systems of Equations |
 | **12**: Eigenvalues and Eigenvectors |
-| **13**: Multivariate Calculus and Optimization| 
-| **14**: Multivariate Calculus and Constrained Optimization| 
+| **13**: Multivariate Calculus & Optimization| 
+| **14**: Multivariate Calculus & Constrained Optimization| 

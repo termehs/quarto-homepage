@@ -484,14 +484,8 @@ May 5, 2022
 </section>
 <section id="github-activity" class="level2">
 <h2 data-anchor-id="github-activity">GitHub Activity</h2>
-<!-- GOES INTO HEAD -->
-<p><link rel="stylesheet" href="http://lengthylyova.pythonanywhere.com/static/gh-contrib-graph/gh.css"></p>
-<!-- GOES INTO BODY -->
-<div id="gh" data-login="termehs">
-
-</div>
-<!-- GOES INTO THE END OF BODY -->
-<script src="http://lengthylyova.pythonanywhere.com/static/gh-contrib-graph/gh.js"></script>
+<iframe src="https://jandee.vercel.app/termehs" width="700" height="130" frameborder="0">
+</iframe>
 </section>
 </div>
 </div>
@@ -504,6 +498,21 @@ May 5, 2022
 <h2 data-anchor-id="social-media">Social Media</h2>
 <div class="wrapper">
 <p>&nbsp;</p>
+<section id="bluesky" class="level3">
+<h3 data-anchor-id="bluesky">&nbsp; &nbsp; Bluesky</h3>
+<!-- Paste in your CSS to avoid layout shift -->
+<style>
+bsky-widget {
+  min-height: 275px;
+  width: 350px;
+}
+</style>
+<!-- Paste wherever you want to render the card -->
+<p><bsky-widget handle="termehs.bsky.social" show-description="false"> </bsky-widget></p>
+<!-- Paste before end of body -->
+<script src="https://unpkg.com/bsky-widget@~0.1/dist/index.js" type="module">
+</script>
+</section>
 <section id="toots" class="level3">
 <h3 data-anchor-id="toots">&nbsp; &nbsp; Toots <a rel="me" href="https://fosstodon.org/@termehs"><i class="bi bi-mastodon"></i></a></h3>
 <iframe allowfullscreen="" sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox" width="350" height="500" src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Ffosstodon.org%2Fusers%2Ftermehs&amp;theme=dark&amp;size=100&amp;header=true&amp;replies=false&amp;boosts=false">
