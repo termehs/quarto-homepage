@@ -809,7 +809,7 @@
     "href": "index.html#recent-publications",
     "title": "Termeh Shafie",
     "section": "Recent Publications",
-    "text": "Recent Publications\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nThe interplay of structural features and observed dissimilarities among centrality indices\n\n\nDec 6, 2023\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\n\n\nNo matching items\n\n\nall publications"
+    "text": "Recent Publications\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nA complex systems view on physical activity with actionable insights for behaviour change\n\n\nAug 4, 2025\n\n\n\n\n\n\nThe interplay of structural features and observed dissimilarities among centrality indices\n\n\nDec 6, 2023\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nJul 21, 2022\n\n\n\n\n\n\nNo matching items\n\n\nall publications"
   },
   {
     "objectID": "index.html#latest-talks",
@@ -931,81 +931,18 @@
     "text": "Abstract\nThis article describes families of finite multigraphs with labeled or unlabeled edges and vertices. It shows how size and complexity vary for different types of equivalence classes of graphs defined by ignoring only edge labels or ignoring both edge and vertex labels. Complexity is quantified by the distribution of edge multiplicities, and different complexity measures are discussed. Basic occupancy models for multigraphs are used to illustrate different graph distributions on isomorphism and complexity. The loss of information caused by ignoring edge and vertex labels is quantified by entropy and joint information that provide tools for studying properties of and relations between different graph families.\nIn 2012 JSM Proceedings: Papers Presented at the Joint Statistical Meetings, San Diego, California, July 28-August 2, 2012, and Other ASA-sponsored Conferences, American Statistical Association, 2012"
   },
   {
-    "objectID": "publications/index.html",
-    "href": "publications/index.html",
-    "title": "Publications",
+    "objectID": "publications/gof_multigraph/index.html",
+    "href": "publications/gof_multigraph/index.html",
+    "title": "Goodness of fit tests for random multigraph models",
     "section": "",
-    "text": "The interplay of structural features and observed dissimilarities among centrality indices\n\n\nThe association of network topology with dissimilarities of indices is assessed\n\n\n\n\n\n\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nGoodness of fit tests for different probability models for random multigraphs.\n\n\n\n\n\n\n\n\n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nA method for performing multiplexity analysis in social networks with several node covariates is presented.\n\n\n\n\n\n\n\n\n\n\n\n\nSocial Network Analysis\n\n\nA review chapter on social network analysis aimed towards undergraduate students.\n\n\n\n\n\n\n\n\n\n\n\n\nA Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms for network formation.\n\n\n\n\n\n\n\n\n\n\n\n\nReconstructing Archaeological Networks with Structural Holes\n\n\nWe consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt’s arguments on closure and structural holes.\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges.\n\n\n\n\n\n\n\n\n\n\n\n\nHypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700\n\n\nWe perform a centrality analysis of a directed hypergraph representing attacks by indigenous peoples from the Lesser Antilles on European colonial settlements, 1509-1700.\n\n\n\n\n\n\n\n\n\n\n\n\nInvestigating Human Geographic Origins using Dual-Isotope (87Sr/86Sr, d18O) Assignment approaches\n\n\nWe develop and test more standardized and quantitative approaches to geographic assignment of individual origins using multivariate isotopic data.\n\n\n\n\n\n\n\n\n\n\n\n\nAnalyzing Local and Global Properties of Multigraphs\n\n\nThe local and global structures of undirected multigraphs under two random multigraph models are analyzed and compared.\n\n\n\n\n\n\n\n\n\n\n\n\nNation Building and Social Signaling in Southern Ontario AD 1350-1650\n\n\nSocial network analysis is used to demonstrates the signaling practices reflecting regional patterns.\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate Entropy Analysis of Network Data\n\n\nWe show how it is possible to systematically check for tendencies in data, such as independencies or conditional independencies, using multivariate entropies.\n\n\n\n\n\n\n\n\n\n\n\n\nData Protection for Online Social Networks and P-Stability for Graphs\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\n\n\n\n\n\n\nA Multigraph Approach to Social Network Analysis\n\n\nThe theoretical background for analyzing multivariate social networks using multigraph representations is introduced.\n\n\n\n\n\n\n\n\n\n\n\n\nComplexity of Families of Multigraphs\n\n\nComplexity measured for multigraphs are specified and their applicability is discussed.\n\n\n\n\n\nNo matching items"
+    "text": "Termeh Shafie\n\n2022-07-21"
   },
   {
-    "objectID": "publications/aggregated_triads/index.html",
-    "href": "publications/aggregated_triads/index.html",
-    "title": "Random Multigraphs and Aggregated Triads with Fixed Degrees",
-    "section": "",
-    "text": "Ove Frank, Termeh Shafie\n\n2018-01-25"
-  },
-  {
-    "objectID": "publications/aggregated_triads/index.html#abstract",
-    "href": "publications/aggregated_triads/index.html#abstract",
-    "title": "Random Multigraphs and Aggregated Triads with Fixed Degrees",
+    "objectID": "publications/gof_multigraph/index.html#abstract",
+    "href": "publications/gof_multigraph/index.html#abstract",
+    "title": "Goodness of fit tests for random multigraph models",
     "section": "Abstract",
-    "text": "Abstract\nRandom multigraphs with fixed degrees are obtained by the configuration model or by so called random stub matching. New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs. Relationships between entropy and complexity are given and numerically illustrated for multigraphs with different number of vertices and specified average and variance for the degrees.\nNetwork Science 6(2), 232-250"
-  },
-  {
-    "objectID": "publications/interplay_str_cent/index.html",
-    "href": "publications/interplay_str_cent/index.html",
-    "title": "The interplay of structural features and observed dissimilarities among centrality indices",
-    "section": "",
-    "text": "David Schoch, Termeh Shafie\n\n2023-12-06"
-  },
-  {
-    "objectID": "publications/interplay_str_cent/index.html#abstract",
-    "href": "publications/interplay_str_cent/index.html#abstract",
-    "title": "The interplay of structural features and observed dissimilarities among centrality indices",
-    "section": "Abstract",
-    "text": "Abstract\nAn abundance of centrality indices has been proposed which capture the importance of nodes in a network based on different structural features. While there remains a persistent belief that similarities in outcomes of indices is contingent on their technical definitions, a growing body of research shows that structural features affect observed similarities more than technicalities. We conduct a series of experiments on artificial networks to trace the influence of specific structural features on the similarity of indices which confirm previous results in the literature. Our analysis on 1163 real-world networks, however, shows that little of the observations on synthetic networks convincingly carry over to empirical settings. Our findings suggest that although it seems clear that (dis)similarities among centralities depend on structural properties of the network, using correlation type analyses do not seem to be a promising approach to uncover such connections.\nSocial Networks"
-  },
-  {
-    "objectID": "publications/reconstructing_arch_nets/index.html",
-    "href": "publications/reconstructing_arch_nets/index.html",
-    "title": "Reconstructing Archaeological Networks with Structural Holes",
-    "section": "",
-    "text": "Viviana Amati, Termeh Shafie, Ulrik Brandes\n\n2018-03-25"
-  },
-  {
-    "objectID": "publications/reconstructing_arch_nets/index.html#abstract",
-    "href": "publications/reconstructing_arch_nets/index.html#abstract",
-    "title": "Reconstructing Archaeological Networks with Structural Holes",
-    "section": "Abstract",
-    "text": "Abstract\nModel-based reconstruction is an approach to infer network structures where they cannot be observed. For archaeological networks, several models based on assumptions concerning distance among sites, site size, or costs and benefits have been proposed to infer missing ties. Since these assumptions are formulated at a dyadic level, they do not provide means to express dependencies among ties and therefore include less plausible network scenarios. In this paper we investigate the use of network models that explicitly incorporate tie dependence. In particular, we consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt’s arguments on closure and structural holes (Burt 2001). The approach is illustrated on data from the Middle Bronze Age in the Aegean. authors:\nJournal of Archaeological Method and Theory 25(1), 226-253"
-  },
-  {
-    "objectID": "publications/multivariate_entropy_analysis/index.html",
-    "href": "publications/multivariate_entropy_analysis/index.html",
-    "title": "Multivariate Entropy Analysis of Network Data",
-    "section": "",
-    "text": "Over Frank, Termeh Shafie\n\n2016-01-02"
-  },
-  {
-    "objectID": "publications/multivariate_entropy_analysis/index.html#abstract",
-    "href": "publications/multivariate_entropy_analysis/index.html#abstract",
-    "title": "Multivariate Entropy Analysis of Network Data",
-    "section": "Abstract",
-    "text": "Abstract\nMultigraphs with numerical or qualitative attributes defined on vertices and edges can benefit from systematic methods based on multivariate entropies for describing and analysing the interdependencies that are present between vertex and edge attributes. This is here illustrated by application of these tools to a subset of data on the social relations among Renaissance Florentine families collected by John Padgett. Using multivariate entropies we show how it is possible to systematically check for tendencies in data that can be described as independencies or conditional independencies, or as dependencies allowing certain combinations of variables to predict other variables. We also show how different structural models can be tested by divergence measures obtained from the multivariate entropies.\nBulletin of Sociological Methodology/Bulletin de Méthodologie Sociologique 120(1), 45-63"
-  },
-  {
-    "objectID": "publications/multiplexity/index.html",
-    "href": "publications/multiplexity/index.html",
-    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
-    "section": "",
-    "text": "Termeh Shafie, David Schoch\n\n2021-09-30"
-  },
-  {
-    "objectID": "publications/multiplexity/index.html#abstract",
-    "href": "publications/multiplexity/index.html#abstract",
-    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
-    "section": "Abstract",
-    "text": "Abstract\nMultivariate networks comprising several compositional and structural variables can be represented as multigraphs by various forms of aggregations based on vertex attributes. We propose a framework to perform exploratory and confirmatory multiplexity analysis of aggregated multigraphs in order to find relevant associations between vertex and edge attributes. The exploration is performed by comparing frequencies of the different edges within and between aggregated vertex categories, while the confirmatory analysis is performed using derived complexity or multiplexity statistics under different random multigraph models. These statistics are defined by the distribution of edge multiplicities and provide information on the covariation and dependencies of different edges given vertex attributes. The presented approach highlights the need to further analyse and model structural dependencies with respect to edge entrainment. We illustrate the approach by applying it on a well known multivariate network dataset which has previously been analysed in the context of multiplexity.\npublication: Statistical Methods & Applications 30, 1425–1444"
+    "text": "Abstract\nGoodness of fit tests for two probabilistic multigraph models are presented. The first model is random stub matching given fixed degrees (RSM) so that edge assignments to vertex pair sites are dependent, and the second is independent edge assignments (IEA) according to a common probability distribution. Tests are performed using goodness of fit measures between the edge multiplicity sequence of an observed multigraph, and the expected one according to a simple or composite hypothesis. Test statistics of Pearson type and of likelihood ratio type are used, and the expected values of the Pearson statistic under the different models are derived. Test performances based on simulations indicate that even for small number of edges, the null distributions of both statistics are well approximated by their asymptotic χ2-distribution. The non-null distributions of the test statistics can be well approximated by proposed adjusted χ2-distributions used for power approximations. The influence of RSM on both test statistics is substantial for small number of edges and implies a shift of their distributions towards smaller values compared to what holds true for the null distributions under IEA. Two applications on social networks are included to illustrate how the tests can guide in the analysis of social structure.\nJournal of Applied Statistics"
   },
   {
     "objectID": "publications/hypergraph/index.html",
@@ -1022,18 +959,95 @@
     "text": "Abstract\nNetwork data consisting of recorded historical events can be represented as hyper-graphs where the ties or events can connect any number of nodes or event related attributes. In this paper, we perform a centrality analysis of a directed hypergraph representing attacks by indigenous peoples from the Lesser Antilles on European colonial settlements, 1509-1700. The results of central attacks with respect to at- tacked colonial force, member of attack alliances, and year and location of attack are discussed and compared to a non-relational exploratory analysis of the data. This comparison points to the importance of a mixed methods approach to enhance the analysis and to obtain a complementary understanding of a network study.\npublication: ‘Journal of Historical Network Research 1(1), 52-70’"
   },
   {
-    "objectID": "publications/gof_multigraph/index.html",
-    "href": "publications/gof_multigraph/index.html",
-    "title": "Goodness of fit tests for random multigraph models",
+    "objectID": "publications/multiplexity/index.html",
+    "href": "publications/multiplexity/index.html",
+    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
     "section": "",
-    "text": "Termeh Shafie\n\n2022-07-21"
+    "text": "Termeh Shafie, David Schoch\n\n2021-09-30"
   },
   {
-    "objectID": "publications/gof_multigraph/index.html#abstract",
-    "href": "publications/gof_multigraph/index.html#abstract",
-    "title": "Goodness of fit tests for random multigraph models",
+    "objectID": "publications/multiplexity/index.html#abstract",
+    "href": "publications/multiplexity/index.html#abstract",
+    "title": "Multiplexity Analysis of Networks using Multigraph Representations",
     "section": "Abstract",
-    "text": "Abstract\nGoodness of fit tests for two probabilistic multigraph models are presented. The first model is random stub matching given fixed degrees (RSM) so that edge assignments to vertex pair sites are dependent, and the second is independent edge assignments (IEA) according to a common probability distribution. Tests are performed using goodness of fit measures between the edge multiplicity sequence of an observed multigraph, and the expected one according to a simple or composite hypothesis. Test statistics of Pearson type and of likelihood ratio type are used, and the expected values of the Pearson statistic under the different models are derived. Test performances based on simulations indicate that even for small number of edges, the null distributions of both statistics are well approximated by their asymptotic χ2-distribution. The non-null distributions of the test statistics can be well approximated by proposed adjusted χ2-distributions used for power approximations. The influence of RSM on both test statistics is substantial for small number of edges and implies a shift of their distributions towards smaller values compared to what holds true for the null distributions under IEA. Two applications on social networks are included to illustrate how the tests can guide in the analysis of social structure.\nJournal of Applied Statistics"
+    "text": "Abstract\nMultivariate networks comprising several compositional and structural variables can be represented as multigraphs by various forms of aggregations based on vertex attributes. We propose a framework to perform exploratory and confirmatory multiplexity analysis of aggregated multigraphs in order to find relevant associations between vertex and edge attributes. The exploration is performed by comparing frequencies of the different edges within and between aggregated vertex categories, while the confirmatory analysis is performed using derived complexity or multiplexity statistics under different random multigraph models. These statistics are defined by the distribution of edge multiplicities and provide information on the covariation and dependencies of different edges given vertex attributes. The presented approach highlights the need to further analyse and model structural dependencies with respect to edge entrainment. We illustrate the approach by applying it on a well known multivariate network dataset which has previously been analysed in the context of multiplexity.\npublication: Statistical Methods & Applications 30, 1425–1444"
+  },
+  {
+    "objectID": "publications/multivariate_entropy_analysis/index.html",
+    "href": "publications/multivariate_entropy_analysis/index.html",
+    "title": "Multivariate Entropy Analysis of Network Data",
+    "section": "",
+    "text": "Over Frank, Termeh Shafie\n\n2016-01-02"
+  },
+  {
+    "objectID": "publications/multivariate_entropy_analysis/index.html#abstract",
+    "href": "publications/multivariate_entropy_analysis/index.html#abstract",
+    "title": "Multivariate Entropy Analysis of Network Data",
+    "section": "Abstract",
+    "text": "Abstract\nMultigraphs with numerical or qualitative attributes defined on vertices and edges can benefit from systematic methods based on multivariate entropies for describing and analysing the interdependencies that are present between vertex and edge attributes. This is here illustrated by application of these tools to a subset of data on the social relations among Renaissance Florentine families collected by John Padgett. Using multivariate entropies we show how it is possible to systematically check for tendencies in data that can be described as independencies or conditional independencies, or as dependencies allowing certain combinations of variables to predict other variables. We also show how different structural models can be tested by divergence measures obtained from the multivariate entropies.\nBulletin of Sociological Methodology/Bulletin de Méthodologie Sociologique 120(1), 45-63"
+  },
+  {
+    "objectID": "publications/reconstructing_arch_nets/index.html",
+    "href": "publications/reconstructing_arch_nets/index.html",
+    "title": "Reconstructing Archaeological Networks with Structural Holes",
+    "section": "",
+    "text": "Viviana Amati, Termeh Shafie, Ulrik Brandes\n\n2018-03-25"
+  },
+  {
+    "objectID": "publications/reconstructing_arch_nets/index.html#abstract",
+    "href": "publications/reconstructing_arch_nets/index.html#abstract",
+    "title": "Reconstructing Archaeological Networks with Structural Holes",
+    "section": "Abstract",
+    "text": "Abstract\nModel-based reconstruction is an approach to infer network structures where they cannot be observed. For archaeological networks, several models based on assumptions concerning distance among sites, site size, or costs and benefits have been proposed to infer missing ties. Since these assumptions are formulated at a dyadic level, they do not provide means to express dependencies among ties and therefore include less plausible network scenarios. In this paper we investigate the use of network models that explicitly incorporate tie dependence. In particular, we consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt’s arguments on closure and structural holes (Burt 2001). The approach is illustrated on data from the Middle Bronze Age in the Aegean. authors:\nJournal of Archaeological Method and Theory 25(1), 226-253"
+  },
+  {
+    "objectID": "publications/interplay_str_cent/index.html",
+    "href": "publications/interplay_str_cent/index.html",
+    "title": "The interplay of structural features and observed dissimilarities among centrality indices",
+    "section": "",
+    "text": "David Schoch, Termeh Shafie\n\n2023-12-06"
+  },
+  {
+    "objectID": "publications/interplay_str_cent/index.html#abstract",
+    "href": "publications/interplay_str_cent/index.html#abstract",
+    "title": "The interplay of structural features and observed dissimilarities among centrality indices",
+    "section": "Abstract",
+    "text": "Abstract\nAn abundance of centrality indices has been proposed which capture the importance of nodes in a network based on different structural features. While there remains a persistent belief that similarities in outcomes of indices is contingent on their technical definitions, a growing body of research shows that structural features affect observed similarities more than technicalities. We conduct a series of experiments on artificial networks to trace the influence of specific structural features on the similarity of indices which confirm previous results in the literature. Our analysis on 1163 real-world networks, however, shows that little of the observations on synthetic networks convincingly carry over to empirical settings. Our findings suggest that although it seems clear that (dis)similarities among centralities depend on structural properties of the network, using correlation type analyses do not seem to be a promising approach to uncover such connections.\nSocial Networks"
+  },
+  {
+    "objectID": "publications/aggregated_triads/index.html",
+    "href": "publications/aggregated_triads/index.html",
+    "title": "Random Multigraphs and Aggregated Triads with Fixed Degrees",
+    "section": "",
+    "text": "Ove Frank, Termeh Shafie\n\n2018-01-25"
+  },
+  {
+    "objectID": "publications/aggregated_triads/index.html#abstract",
+    "href": "publications/aggregated_triads/index.html#abstract",
+    "title": "Random Multigraphs and Aggregated Triads with Fixed Degrees",
+    "section": "Abstract",
+    "text": "Abstract\nRandom multigraphs with fixed degrees are obtained by the configuration model or by so called random stub matching. New combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges. The number of multigraphs on triads is determined for arbitrary degrees, and aggregated triads are shown to be useful for analyzing regular and almost regular multigraphs. Relationships between entropy and complexity are given and numerically illustrated for multigraphs with different number of vertices and specified average and variance for the degrees.\nNetwork Science 6(2), 232-250"
+  },
+  {
+    "objectID": "publications/index.html",
+    "href": "publications/index.html",
+    "title": "Publications",
+    "section": "",
+    "text": "A complex systems view on physical activity with actionable insights for behaviour change\n\n\nA perspective that takes a complex systems view on physical activity.\n\n\n\n\n\n\n\n\n\n\n\n\nThe interplay of structural features and observed dissimilarities among centrality indices\n\n\nThe association of network topology with dissimilarities of indices is assessed\n\n\n\n\n\n\n\n\n\n\n\n\nGoodness of fit tests for random multigraph models\n\n\nGoodness of fit tests for different probability models for random multigraphs.\n\n\n\n\n\n\n\n\n\n\n\n\nMultiplexity Analysis of Networks using Multigraph Representations\n\n\nA method for performing multiplexity analysis in social networks with several node covariates is presented.\n\n\n\n\n\n\n\n\n\n\n\n\nSocial Network Analysis\n\n\nA review chapter on social network analysis aimed towards undergraduate students.\n\n\n\n\n\n\n\n\n\n\n\n\nA Framework for Reconstructing Archaeological Networks using Exponential Random Graph Models\n\n\nWe present a general framework in which we combine exponential random graph models with archaeological substantiations of mechanisms for network formation.\n\n\n\n\n\n\n\n\n\n\n\n\nReconstructing Archaeological Networks with Structural Holes\n\n\nWe consider exponential random graph models, and show how they can be applied to reconstruct networks coherent with Burt’s arguments on closure and structural holes.\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Multigraphs and Aggregated Triads with Fixed Degrees\n\n\nNew combinatorial results are given for the global probability distribution of edge multiplicities and its marginal local distributions of loops and edges.\n\n\n\n\n\n\n\n\n\n\n\n\nHypergraph Representations: A Study of Carib Attacks on Colonial Forces, 1509-1700\n\n\nWe perform a centrality analysis of a directed hypergraph representing attacks by indigenous peoples from the Lesser Antilles on European colonial settlements, 1509-1700.\n\n\n\n\n\n\n\n\n\n\n\n\nInvestigating Human Geographic Origins using Dual-Isotope (87Sr/86Sr, d18O) Assignment approaches\n\n\nWe develop and test more standardized and quantitative approaches to geographic assignment of individual origins using multivariate isotopic data.\n\n\n\n\n\n\n\n\n\n\n\n\nAnalyzing Local and Global Properties of Multigraphs\n\n\nThe local and global structures of undirected multigraphs under two random multigraph models are analyzed and compared.\n\n\n\n\n\n\n\n\n\n\n\n\nNation Building and Social Signaling in Southern Ontario AD 1350-1650\n\n\nSocial network analysis is used to demonstrates the signaling practices reflecting regional patterns.\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate Entropy Analysis of Network Data\n\n\nWe show how it is possible to systematically check for tendencies in data, such as independencies or conditional independencies, using multivariate entropies.\n\n\n\n\n\n\n\n\n\n\n\n\nData Protection for Online Social Networks and P-Stability for Graphs\n\n\nWe consider different approaches for data privacy in online social networks and for developing graph protection.\n\n\n\n\n\n\n\n\n\n\n\n\nA Multigraph Approach to Social Network Analysis\n\n\nThe theoretical background for analyzing multivariate social networks using multigraph representations is introduced.\n\n\n\n\n\n\n\n\n\n\n\n\nComplexity of Families of Multigraphs\n\n\nComplexity measured for multigraphs are specified and their applicability is discussed.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publications/pa_complexsystems/index.html",
+    "href": "publications/pa_complexsystems/index.html",
+    "title": "A complex systems view on physical activity with actionable insights for behaviour change",
+    "section": "",
+    "text": "Julia Schüler, Matti T. J. Heino, Natàlia Balagué, Angel M. Chater, Markus Gruber, Martina Kanning, Daniel Keim, Daniela Mier, Maria Moreno-Villanueva, Fridtjof W. Nussbeck, Jens Pruessner, Termeh Shafie, Michael Schwenk, Maik Bieleke\n\n2025-08-04"
+  },
+  {
+    "objectID": "publications/pa_complexsystems/index.html#abstract",
+    "href": "publications/pa_complexsystems/index.html#abstract",
+    "title": "A complex systems view on physical activity with actionable insights for behaviour change",
+    "section": "Abstract",
+    "text": "Abstract\nPhysical inactivity and its associated health and economic burdens continue to rise despite decades of interdisciplinary research aimed at promoting physical activity. This Perspective takes a complex systems view on physical activity, proposing that at least two layers of complexity should be considered: (1) interactions between various physiological, psychological, social and environmental systems; and (2) their dynamic interactions across time. To address this complexity, all stages of the research process—from theory and measurement to study design, analysis and interventions—must be aligned with a complex systems perspective. This alignment requires intensive interdisciplinary collaboration and an integration of basic and applied research beyond current research practices to create transdisciplinary solutions. We offer actionable insights that bridge the gap between abstract theoretical approaches (for example, complex systems and attractor landscape frameworks of behaviour change) and practical research on physical activity, thereby laying a foundation for more effective behaviour change interventions.\nNature Human Behaviour"
   },
   {
     "objectID": "publications/global_local_multigraphs/index.html",

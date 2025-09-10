@@ -16,6 +16,7 @@ listing:
     - multiplexity
     - multivariate_entropy_analysis
     - ontario_sna
+    - pa_complexsystems
     - reconstructing_arch_nets
     - sna_chapter
   type: grid

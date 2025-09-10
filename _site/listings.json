@@ -15,6 +15,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/publications/pa_complexsystems/index.html",
       "/publications/interplay_str_cent/index.html",
       "/publications/gof_multigraph/index.html",
       "/talks/SUNBELT2024/index.html",
@@ -26,6 +27,7 @@
   {
     "listing": "/publications/index.html",
     "items": [
+      "/publications/pa_complexsystems/index.html",
       "/publications/interplay_str_cent/index.html",
       "/publications/gof_multigraph/index.html",
       "/publications/multiplexity/index.html",

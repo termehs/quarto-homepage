@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/index.html</loc>
-    <lastmod>2025-09-09T12:54:40.032Z</lastmod>
+    <lastmod>2025-09-10T07:46:58.554Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/talks/SUNBELT2024/index.html</loc>
@@ -165,36 +165,40 @@
     <lastmod>2024-02-19T11:49:58.689Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/publications/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/publications/aggregated_triads/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.686Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/publications/interplay_str_cent/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.699Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/publications/reconstructing_arch_nets/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.726Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/publications/multivariate_entropy_analysis/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.707Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrs.schochastics.net/publications/multiplexity/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.703Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/gof_multigraph/index.html</loc>
+    <lastmod>2024-02-19T11:49:58.695Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/hypergraph/index.html</loc>
     <lastmod>2024-02-19T11:49:58.697Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/publications/gof_multigraph/index.html</loc>
-    <lastmod>2024-02-19T11:49:58.695Z</lastmod>
+    <loc>https://mrs.schochastics.net/publications/multiplexity/index.html</loc>
+    <lastmod>2024-02-19T11:49:58.703Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/multivariate_entropy_analysis/index.html</loc>
+    <lastmod>2024-02-19T11:49:58.707Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/reconstructing_arch_nets/index.html</loc>
+    <lastmod>2024-02-19T11:49:58.726Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/interplay_str_cent/index.html</loc>
+    <lastmod>2024-02-19T11:49:58.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/aggregated_triads/index.html</loc>
+    <lastmod>2024-02-19T11:49:58.686Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/index.html</loc>
+    <lastmod>2025-09-09T13:38:19.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/publications/pa_complexsystems/index.html</loc>
+    <lastmod>2025-09-09T13:38:43.630Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/publications/global_local_multigraphs/index.html</loc>

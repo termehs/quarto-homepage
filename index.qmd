@@ -11,6 +11,7 @@ listing:
   - id: publication
     fields: [title,date]
     contents: 
+    - publications/pa_complexsystems
     - publications/interplay_str_cent
     - publications/gof_multigraph
     type: table
