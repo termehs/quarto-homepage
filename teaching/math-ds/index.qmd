@@ -1,10 +1,8 @@
 ---
-title: Mathematics for Social Scientists
+title: Mathematical Foundations of Data Science 
 subtitle: MSc course 
 description: |
-  This course aims to provide students with the mathematical foundations, with respect to both
-  language and concepts, which are required for analysis using both basic and advanced
-  quantitative and computational methods in social science.
+ This course provides students with the mathematical foundations, both in language and in concepts, needed to apply quantitative and computational methods in the social sciences.
 section-divs: false
 toc: false
 margin-footer: licence.html

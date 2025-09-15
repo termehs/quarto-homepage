@@ -5,7 +5,7 @@ listing:
   id: teaching
   fields: [title, subtitle]
   contents: 
-    - "math-ss/index.qmd"
+    - "math-ds/index.qmd"
     - "sna/index.qmd"
     - "stat-learn/index.qmd"
     - "tidyverse-I/index.qmd"
