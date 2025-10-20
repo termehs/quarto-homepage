@@ -1,5 +1,5 @@
 ---
-title: Mathematical Foundations of Data Science 
+title: Mathematics for Social Scientists
 subtitle: MSc course 
 description: |
  This course provides students with the mathematical foundations, both in language and in concepts, needed to apply quantitative and computational methods in the social sciences.
@@ -10,19 +10,19 @@ margin-footer: licence.html
 
 
 
-## Schedule
+### Schedule
 
-|                                                    | slides |  handout  | 
-|----------------------------------------------------|:------:|:------:|
+|                    | slides | 
+|--------------------|------:|
 | **1**: Preliminaries | 
-| **2**: Algebra Review, Modular Arithmetic & Boolean Algebra| 
-| **3**: Functions & Relations |
-| **4**: Sequences & Series, Limits & Continuity  | 
-| **5**: Calculus Fundamentals: Differentiation|
-| **6**: Calculus Fundamentals: The Integral|
-| **7**: Extrema in One Dimension |
-| **8**: Introduction to Probability| 
-| **9**: Discrete & Continuous Distributions|
+| **2**: Algebra Review, Modular Arithmetic, Boolean Algebra| 
+| **3**: Functions & Relations, Sequences & Series, Limits & Continuity |
+| **4**: Calculus Fundamentals: Differentiation|
+| **5**: Calculus Fundamentals: The Integral|
+| **6**: Extrema in One Dimension |
+| **7**: Introduction to Probability| 
+| **8**: Discrete Distributions |
+| **9**: Continuous Distributions|
 | **10**: Introduction Linear Algebra| 
 | **11**: Vector Spaces and Systems of Equations |
 | **12**: Eigenvalues and Eigenvectors |
