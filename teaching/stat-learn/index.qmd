@@ -10,11 +10,11 @@ margin-footer: licence.html
 
 
 
-## Schedule
+### Schedule
 
-|                                                    | slides  | handout| practical | data | 
+|                                                    | slides  | practical | data |  worksheet |
 |----------------------------------------------------|:------:|:------:|:---------:|:---------:|
-| **1**:  Introduction: What is Statistical Learning? |  
+| **1**:  Introduction: What is Statistical Learning? |  [{{< fa display >}}](material/01/01-intro-ho.pdf)|[{{< fa file >}}](material/01/01-R-you-ready.qmd) | [.zip](material/01/01-data.zip)| [.qmd](material/01/01-R-you-ready.zip) |
 | **2**: Linear Regression I | 
 | **3**: Linear Regression II | 
 | **4**: Classification I |  

@@ -302,7 +302,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/stat-learn/index.html</loc>
-    <lastmod>2025-09-08T08:01:48.080Z</lastmod>
+    <lastmod>2025-10-21T08:20:47.090Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/falls-inf-stats/index.html</loc>
@@ -359,5 +359,9 @@
   <url>
     <loc>https://mrs.schochastics.net/rpackage/netropy/index.html</loc>
     <lastmod>2024-02-19T11:49:58.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/stat-learn/material/01/01-R-you-ready.html</loc>
+    <lastmod>2025-10-21T08:17:07.281Z</lastmod>
   </url>
 </urlset>
