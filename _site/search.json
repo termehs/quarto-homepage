@@ -305,7 +305,7 @@
     "href": "teaching/math-ds/index.html",
     "title": "Mathematics for Social Scientists",
     "section": "",
-    "text": "Schedule\n\n\n\n\n\n\n\n\nslides\n\n\n\n\n1: Preliminaries\n\n\n\n2: Algebra Review, Modular Arithmetic, Boolean Algebra\n\n\n\n3: Functions & Relations, Sequences & Series, Limits & Continuity\n\n\n\n4: Calculus Fundamentals: Differentiation\n\n\n\n5: Calculus Fundamentals: The Integral\n\n\n\n6: Extrema in One Dimension\n\n\n\n7: Introduction to Probability\n\n\n\n8: Discrete Distributions\n\n\n\n9: Continuous Distributions\n\n\n\n10: Introduction Linear Algebra\n\n\n\n11: Vector Spaces and Systems of Equations\n\n\n\n12: Eigenvalues and Eigenvectors\n\n\n\n13: Multivariate Calculus & Optimization\n\n\n\n14: Multivariate Calculus & Constrained Optimization"
+    "text": "Schedule\n\n\n\n\nslides\n\n\n\n\n1: Preliminaries\n\n\n\n2: Algebra Review, Modular Arithmetic, Boolean Algebra\n\n\n\n3: Functions & Relations, Sequences & Series, Limits & Continuity\n\n\n\n4: Calculus Fundamentals: Differentiation\n\n\n\n5: Calculus Fundamentals: The Integral\n\n\n\n6: Extrema in One Dimension\n\n\n\n7: Introduction to Probability\n\n\n\n8: Discrete Distributions\n\n\n\n9: Continuous Distributions\n\n\n\n10: Introduction Linear Algebra\n\n\n\n11: Vector Spaces and Systems of Equations\n\n\n\n12: Eigenvalues and Eigenvectors\n\n\n\n13: Multivariate Calculus & Optimization\n\n\n\n14: Multivariate Calculus & Constrained Optimization"
   },
   {
     "objectID": "teaching/stat-learn/index.html",
