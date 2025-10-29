@@ -15,7 +15,7 @@ margin-footer: licence.html
 |                    | slides | 
 |--------------------|------:|
 | **1**: Preliminaries |  [{{< fa display >}}](material/01-prel-ho.pdf)
-| **2**: Algebra Review, Modular Arithmetic, Boolean Algebra| 
+| **2**: Algebra Review, Modular Arithmetic, Boolean Algebra| [{{< fa display >}}](material/02-algebra-ho.pdf)
 | **3**: Functions & Relations, Sequences & Series, Limits & Continuity |
 | **4**: Calculus Fundamentals: Differentiation|
 | **5**: Calculus Fundamentals: The Integral|
