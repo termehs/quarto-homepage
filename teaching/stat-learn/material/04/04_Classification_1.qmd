@@ -1,0 +1,480 @@
+---
+title: "Classification I"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  false
+---
+
+
+
+
+# Logistic Regression
+In our Linear Regression lectures, we talked about adding non-linearity through **Feature Engineering**, but that's not the only way! We can also use **link functions** to add non-linearity.
+
+Link functions are just algebra we do to the linear prediction ($\mathbf{X}\beta$) in order to get the predicted value we *actually* want (e.g a probability). 
+
+$$\underbrace{y = \mathbf{X}\beta}_\text{Linear Model}$$
+$$\underbrace{y = g^{-1}(\mathbf{X}\beta)}_\text{Generalized Linear Model}$$
+
+Oddly, we often specify our link function using it's *inverse*, hence the $g^{-1}()$ instead of $g()$. $g^{-1}()$ takes the linear prediction and transforms it into our desired predicted value. $g()$ takes our desired predicted value and transforms it back into our linear prediction.
+
+
+In logistic regression, our goal is to predict a *probability* that a data point is in group `1`. We talked about using:
+
+- Linear Probability Models $g^{-1}: y = x$
+- Odds Models $g^{-1}: y = e^x$
+- Logistic Regression: $g^{-1}: y = \frac{e^x}{1 + e^x}$
+
+Logistic Regression using the link function $g(x) = log{\frac{x}{1-x}}$ and inverse link $g^{-1}: y = \frac{e^x}{1 + e^x}$ gave us a great sigmoid shape that takes linear predictions ($y = \mathbf{X}\beta$) and turns them into predicted probabilities ($p = \frac{e^{\mathbf{X}\beta}}{1 + e^{\mathbf{X}\beta}}$).
+
+## Maximum Likelihood Estimation
+
+Just like with Linear Regression, we can use **Maximum Likelihood Estimation** to choose the parameters (intercept and coefficients) of the model. But we have a different likelihood.
+
+In a linear regression, we assumed that our *errors* are *normally* distributed around the regression line. For logistic regression, we assume that our *errors* are *Bernoulli* distributed. The Bernoulli distribution is a discrete distribution (since our outcome is *discrete*, a.k.a categorical) that tells you the proability of being `0` or `1`.
+
+## Bernoulli Likelihood
+The formula for a Bernoulli distribution for a single data point $x$ is:
+
+$$ f(y;p(x)) = p(x)^{y} * (1-p(x))^{1-y}$$
+
+where $y$ is the group the data point belongs to (either `0` or `1`), and $p(x)$ is the predicted probability of that data point being a `1`.
+
+For example, let's say we're looking at the probability that it's sunny tomorrow. The predicted probability, according to the weather channel is $p(x) = 0.8$. The likelihood of it being sunny ($k = 1$) is:
+
+
+
+$$ f(1;0.8) = 0.8^1 * (1-0.8)^{1-1} = 0.8$$
+
+The likelihood of it not being sunny ($k = 0$) is: 
+$$ f(0;0.8) = 0.8^0 * (1-0.8)^{1-0} = 0.2$$
+
+## Likelihood Function
+But we don't just have a SINGLE data point when fitting a logistic regression, we have MANY. So, we multiply the likelihood of each data point together to get the likelihood of the dataset: 
+
+$$\prod_{i = 1}^n p(x_i)^{y_i} * (1-p(x_i))^{1-y_i}$$
+
+We want to choose parameters (e.g. $\beta_0$, or $\beta_1$) that *maximize* this likelihood function. And how to we maximize it? We take it's (partial) derivatives and set them equal to zero!
+
+However, it turns out that its much easier to work with the *log* of this likelihood function, so we're often working with the *log* likelihood and taking it's derivatives (this will still find the optimal parameters for the model as the values that maximize the *log* likelihood will also maximize the likelihood):
+
+$$\sum_{i = 1}^n y_i * log(p(x_i)) + (1-y_i) * log(1-p(x_i))$$
+
+## Loss Function
+Now it turns out, if we multiply the log loss by $-\frac{1}{N}$, this log-loss is a really great **loss function** for logistic regression. Loss functions are metrics that
+
+1. measure the performance of your model, and
+2. have lower scores indicate better performing models
+
+$$-\frac{1}{N} \sum_{i = 1}^n y_i * log(p(x_i)) + (1-y_i) * log(1-p(x_i))$$
+
+Log-Loss (also called **Binary Cross Entropy**) does just that! Thus we often use it as a loss function for Logistic Regression. 
+
+
+## Logistic Regression in R
+
+Let's build a Logistic Regression model in **R**. We’ll follow a similar workflow to what we used for linear models:
+
+1. Separate your data into predictors (`X`) and outcome (`y`), and optionally set up a train/test split.
+2. Create a model formula and initialize the logistic regression model using `glm()` with `family = binomial`.
+3. Fit the model to the training data.
+4. Use `predict()` on new data to obtain predicted probabilities or class predictions.
+5. Assess the model’s performance (e.g., accuracy, confusion matrix, ROC curve).
+
+```{r}
+#| label: example-setup
+#| eval: false
+
+# Split data (example dataset)
+set.seed(123)
+idx <- sample(seq_len(nrow(df)), size = 0.8*nrow(df))
+train <- df[idx, ]
+test  <- df[-idx, ]
+
+# 1. Define model formula
+formula <- outcome ~ predictor1 + predictor2
+
+# 2 & 3. Fit logistic regression model
+log_model <- glm(formula, data = train, family = binomial)
+
+# 4. Predict probabilities
+pred_probs <- predict(log_model, test, type = "response")
+
+# Convert to class prediction (optional threshold = 0.5)
+pred_class <- ifelse(pred_probs > 0.5, 1, 0)
+
+# 5. Assess model
+table(Predicted = pred_class, Actual = test$outcome)
+```
+
+
+## Breast Cancer Data
+Let's do an example with logistic regression to classify cancer diagnosis. 
+We will:
+1. Load and lightly clean the dataset.  
+2. Select predictors whose names end with `"mean"`.  
+3. Split the data into training and testing sets (80/20).  
+4. Fit a logistic regression (`glm`, binomial family).  
+5. Predict class probabilities on the test set.  
+6. Evaluate performance using **binary cross-entropy (log loss)**.
+
+
+We import the Breast Cancer dataset and drop any rows with missing values to ensure the model can be fit without errors.
+
+```{r}
+#| label: load-bcdata
+
+bc <- read.csv(
+  "04-Data/BreastCancer.csv",
+  stringsAsFactors = FALSE
+)
+
+bc <- na.omit(bc)
+nrow(bc)
+```
+
+The outcome is diagnosis (Benign B vs Malignant M). As predictors we only use columns whose names end in "mean".
+
+```{r}
+#| label: bc-vars
+# columns ending with "mean"
+predictors <- grep("mean$", names(bc), value = TRUE)
+
+# modeling frame: outcome + predictors
+df <- data.frame(
+  diagnosis = factor(bc$diagnosis, levels = c("B","M")), # B=0, M=1
+  bc[, predictors]
+)
+
+
+str(df[, c("diagnosis", predictors[1:5])])
+```
+
+We split once and keep a fixed seed for reproducibility. The model will train on train and be evaluated on test.
+
+```{r}
+#| label: bc-split
+set.seed(123)
+n <- nrow(df)
+idx_train <- sample.int(n, size = floor(0.8 * n))
+train <- df[idx_train, ]
+test  <- df[-idx_train, ]
+c(n_train = nrow(train), n_test = nrow(test))
+```
+
+
+We specify a formula that uses all "mean" predictors and fit a logistic regression using the binomial family.
+```{r}
+#| label: bc-model
+formula <- as.formula(paste("diagnosis ~", paste(predictors, collapse = " + ")))
+log_model <- glm(formula, data = train, family = binomial)
+
+summary(log_model)$coefficients[1:6, , drop = FALSE]  # peek at a few coefficients
+```
+
+We obtain predicted probabilities of **malignancy** for each test observation.
+```{r}
+#| label: bc-pred
+p_test <- predict(log_model, newdata = test, type = "response")
+head(p_test)
+```
+
+Lower log loss indicates better calibrated probability predictions. We map B -> 0 and M -> 1 and compute the average cross-entropy.
+```{r}
+#| label: bc-logloss
+# Binary cross-entropy / log loss helper
+log_loss <- function(y, p, eps = 1e-15) {
+  p <- pmin(pmax(p, eps), 1 - eps)    # avoid log(0)
+  -mean(y * log(p) + (1 - y) * log(1 - p))
+}
+
+y_test <- ifelse(test$diagnosis == "M", 1, 0)
+
+loss <- log_loss(y_test, p_test)
+loss
+```
+
+A log loss of **0.119** indicates strong model performance. Log loss measures how well the model's predicted probabilities match the true outcomes where lower is better. A value close to 0 means the model is making accurate and well-calibrated predictions, showing high confidence when it is correct and low confidence when uncertain.
+
+::: callout-note
+- Diagnosis is encoded with levels c("B","M") so that M corresponds to the positive class (1) for log-loss computation.
+- No feature scaling is required for logistic regression to work, but standardization can sometimes help convergence or interpretability.
+- Log loss evaluates the quality of probabilities, not just the final class labels.
+:::
+	
+
+
+Logistic Regression coefficients are by default in terms of *log odds* meaning that they tell you how much the *predicted log odds* of being in group 1 will change when the *predictor* increases by 1-unit.
+We grab the coefficients for the model above:
+
+```{r}
+#| label: bc-coeff
+#| message: false
+#| warning: false
+
+# ---- Extract Coefficients ----
+coefs <- summary(log_model)$coefficients   # from glm()
+
+# Convert to a data frame with names
+coef_df <- data.frame(
+  Name = rownames(coefs),
+  Coef = coefs[, "Estimate"],
+  row.names = NULL
+)
+
+# ---- Add Odds Ratios ----
+coef_df$Odds <- exp(coef_df$Coef)
+
+coef_df
+```
+
+
+## Question
+How do you interpret the results?
+
+::: {.callout-tip collapse="true"}
+### Interpreting the Coefficients
+
+- **Positive coefficients (Odds > 1)** increase the likelihood of a **malignant** diagnosis.  
+  Variables like `texture_mean`, `area_mean`, `concavity_mean`, `concave.points_mean`, and `symmetry_mean` strongly raise the probability of cancer, with very large odds ratios indicating powerful predictors.
+
+- **Negative coefficients (Odds < 1)** decrease the likelihood of malignancy.  
+  Higher `radius_mean`, `perimeter_mean`, `compactness_mean`, and `fractal_dimension_mean` values point more toward **benign** tumors.
+
+- The **intercept** represents the baseline log-odds when predictors are zero (not directly interpretable on its own).
+
+ Overall, features related to **concavity, smoothness, and symmetry** strongly increase cancer risk, while higher **compactness, radius, and fractal dimension** values are associated with benign masses.
+:::
+
+## The Problem with Logistic Regression Coefficients
+When you're presenting your Logistic Regression Models to non-data people, you might want to be able to tell them which variables have the biggest impact on the predicted value. Typically, we might use coefficients for this because they give us a single number that summarizes the relationship between our *predictors* and our *predicted value*. 
+
+However, log odds are difficult to understand intuitively, especially if you're not a data person. Thus, we might want a different way to present our results. Luckily, if we *exponentiate* our **log odds** coefficients, we get **odds** coefficients. These are easier to understand, as most people understand intuitively what **odds** are. 
+
+Remember, for **odds** the important threshold value is $1$. So any **odds** coefficient $>1$ has a direct/positive relationship with the outcome and anything with an **odds** coefficient $< 1$ has an inverse/negative relationship with the outcome. 
+
+You can also use the **odds** coefs to give people an intuitive understanding of the relationship. If the odds coef is $2$ then increasing the predictor by 1-unit causes your predicted odds to *double*. Similarly, if the odds coef is $0.5$ then increasing the predictor by 1-unit causes your predicted odds to *halve*. If the odds coef is $1.25$ then increasing the predictor by 1-unit causes your predicted odds to increase by $25\%$.
+
+
+# KNN
+KNN is a simple, distance based algorithm that let's us CLASSIFY data points based on what class the data points around them are. Birds of a feather...
+
+Despite it being distance based, KNN is a *classification* algorithm. In other words, it is supervised machine learning, as it requires truth labels (the actual class/group). However it does share characteristics with clustering algorithms we will see later.
+
+KNN *can* work with binary/categorical variables, but not without some tweaking which we do not cover here.
+
+## Hyperparameters
+
+Hyperparameters are parameters in our model that are NOT chosen by the algorithm (we must supply them). We can either choose them:
+
+- based on domain expertise (knowledge about the data)
+- based on the data (hyperparameter tuning)
+
+Why do we have to use a validation set when hyperparameter tuning?
+
+
+In this classwork we'll use ggplot to plot the boundaries of knn, and see how the size, shape, and overlap of clusters affect these boundries.
+
+> Note: this will only work with specific 2D data, if you wanted to use it for your own data you'd need to change the code to do so
+
+
+```{r}
+#| label: knn-fnc
+plotKNN2D <- function(Xdf, y, k = 5) {
+  # Xdf: data frame with exactly 2 numeric features
+  # y: factor labels
+  
+  if (ncol(Xdf) != 2) stop("Xdf must have exactly 2 columns (2D only)")
+  if (!is.factor(y)) y <- factor(y)
+  
+  library(class)
+  library(ggplot2)
+  
+  # Feature names
+  f1 <- colnames(Xdf)[1]
+  f2 <- colnames(Xdf)[2]
+  
+  # Create grid range
+  x0_range <- seq(min(Xdf[[f1]]) - sd(Xdf[[f1]]),
+                  max(Xdf[[f1]]) + sd(Xdf[[f1]]),
+                  length.out = 100)
+  
+  x1_range <- seq(min(Xdf[[f2]]) - sd(Xdf[[f2]]),
+                  max(Xdf[[f2]]) + sd(Xdf[[f2]]),
+                  length.out = 100)
+  
+  grid <- expand.grid(
+    f1 = x0_range,
+    f2 = x1_range
+  )
+  colnames(grid) <- c(f1, f2)
+  
+  # Predict using KNN
+  pred <- knn(train = Xdf, test = grid, cl = y, k = k)
+  grid$pred <- pred
+  
+  # Plot using tidy eval with .data
+  p <- ggplot() +
+    geom_point(
+      data = grid,
+      aes(x = .data[[f1]], y = .data[[f2]], color = pred),
+      alpha = 0.25, size = 0.6
+    ) +
+    geom_point(
+      data = Xdf,
+      aes(x = .data[[f1]], y = .data[[f2]], color = y),
+      size = 2
+    ) +
+    theme_minimal() +
+    labs(color = "Class",
+         title = paste("KNN Decision Boundary (k =", k, ")")) +
+    scale_color_manual(values = c("#E69F00", "#0072B2"))
+  
+  p
+}
+```
+
+## Let's Explore
+Let's test this function with some fake data:
+
+
+```{r}
+#| label: knn-1
+# --- Generate Fake Data (two blobs) ---
+set.seed(1)
+n <- 200
+n_per <- n / 2
+
+# centers: (-5, -5) and (5, 5); cluster_std = 1
+X1 <- cbind(rnorm(n_per, mean = -5, sd = 1),
+            rnorm(n_per, mean = -5, sd = 1))
+X2 <- cbind(rnorm(n_per, mean =  5, sd = 1),
+            rnorm(n_per, mean =  5, sd = 1))
+
+X <- rbind(X1, X2)
+colnames(X) <- c("X1", "X2")
+X <- as.data.frame(X)
+
+# labels 0/1 as a factor
+y <- factor(c(rep(0, n_per), rep(1, n_per)))
+
+# --- Plot KNN decision boundary (k = 1) ---
+# assumes plotKNN2D(Xdf, y, k) is already defined
+plotKNN2D(X, y, k = 1)
+```
+
+
+Using the dataset `knnclasswork.csv` and using the `plotKNN2d()` function, build KNN models with K = 1, 3, 5, 20, 50, 100.
+
+**How does the decision boundary change as K changes?**
+
+```{r}
+#| label: KNN-varK
+#| eval: true
+
+dd <- read.csv(
+  "04-Data/KNNclasswork.csv"
+)
+# k = 1
+plotKNN2D(dd[, c("X1", "X2")], dd$y, 1)
+
+# k = 3
+
+# k = 5
+
+# k = 20
+
+# k = 50
+
+# k = 100
+```
+
+##  How does changing k affect the decision boundary (imbalanced classes)?
+
+Now let's see how changing k affects the boundary when the groups have different numbers of samples. Using the `plotKNN2d()` function, and the data loaded below (`dd2`), examine what happens to the decision boundaries as you try different k's (try 1,3,5,10, 25, 50, and **100**).
+
+**How does changing k affect the decision boundary when the groups are imbalanced?**
+```{r}
+#| label: KNN-varK-imb
+#| eval: true
+
+dd2 <- read.csv(
+  "04-Data/KNNclasswork2.csv"
+)
+# k = 1
+plotKNN2D(dd2[, c("X1", "X2")], dd2$y, 1)
+
+# k = 3
+
+# k = 5
+
+# k = 20
+
+# k = 50
+
+# k = 100
+```
+
+::: {.callout-tip collapse="true"}
+# Answers
+In balanced data, increasing k shifts the boundary from very wiggly and noise-sensitive to smooth and generalized.
+
+- Too small k = overfitting
+- too large k = underfitting.
+
+For imbalanced case, as k increases, the decision boundary becomes smoother and shifts toward the majority class, eventually overwhelming the minority class and reducing its predicted region, especially at very high k.
+
+- Small k = preserves minority class but noisy
+- Large k = smooth but biased toward majority
+:::
+
+# Exercises
+
+## Logistic Regression
+
+Practice building Logistic Regression models. Using the `purchases` dataset, build a Logistic Regression model that predicts whether or not customers signed up for a rewards program based on their age, income, and whether they had made a previous purchase. Use an 80/20 Train-Test-Split. Note that logistic regression is not scale-based (it’s a linear model, not a distance-based one), so it doesn’t need standardization to function correctly. However, standardizing can improve training stability and interpretation consistency, especially when variables differ wildly in scale. Interpret the coefficients in terms of log-odds, odds and probability.
+
+## Recommendation Systems (KNN)
+
+"If you like _________________ you should listen to ___________________ by Taylor Swift."
+
+We're going to build a **Recommendation System** to recommend Taylor Swift songs for people by letting users select a song, and then recommending the most similar songs (according to `danceability`, `energy`, `instrumentalness`, `valence`, `loudness`, `liveness`, `speechiness`, `acousticness`).
+
+To do this, we're going to load in our **training data** called `04-Data/TaylorSwiftSpotify.csv`, fit a `NearestNeighbors()` model, and then for each song in our **new data** called `04-Data/Data/KNNCompareSpotify.csv)` we'll find the 10 most similar songs and recommend them!
+
+Below you have some code to get you started, note that you will nedd to install the package `FNN`. Fill in the missing parts!
+
+```{r}
+#| label: rec-syst
+#| eval: false
+
+# --- Read data ---
+training_data <- read.csv(
+  "04-Data/TaylorSwiftSpotify.csv",
+  stringsAsFactors = FALSE
+)
+new_data <- read.csv(
+  "04-Data//KNNCompareSpotify.csv",
+  stringsAsFactors = FALSE
+)
+
+# --- Features ---
+feat <- c("danceability", "energy", "instrumentalness", "valence",
+          "loudness", "liveness", "speechiness", "acousticness")
+
+# --- Z-score using TRAINING stats only (avoid division by zero) ---
+
+# --- Nearest Neighbors (k = 10) ---
+
+# --- Attach neighbors to new_data ---
+# Store neighbor indices as a semicolon-separated string for each row (CSV-friendly)
+
+# --- Write as CSV file
+
+```
