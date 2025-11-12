@@ -446,7 +446,7 @@ Practice building Logistic Regression models. Using the `purchases` dataset, bui
 
 We're going to build a **Recommendation System** to recommend Taylor Swift songs for people by letting users select a song, and then recommending the most similar songs (according to `danceability`, `energy`, `instrumentalness`, `valence`, `loudness`, `liveness`, `speechiness`, `acousticness`).
 
-To do this, we're going to load in our **training data** called `04-Data/TaylorSwiftSpotify.csv`, fit a `NearestNeighbors()` model, and then for each song in our **new data** called `04-Data/Data/KNNCompareSpotify.csv)` we'll find the 10 most similar songs and recommend them!
+To do this, we're going to load in our **training data** called `TaylorSwiftSpotify.csv`, fit a `NearestNeighbors()` model, and then for each song in our **new data** called `KNNCompareSpotify.csv` we'll find the 10 most similar songs and recommend them!
 
 Below you have some code to get you started, note that you will nedd to install the package `FNN`. Fill in the missing parts!
 
