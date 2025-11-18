@@ -18,7 +18,7 @@ margin-footer: licence.html
 | **2**: Linear Regression I |  [{{< fa display >}}](material/02/02-linear-regression-I-ho.pdf)|[{{< fa file >}}](material/02/02-linear-regression-I.qmd) | [.zip](material/02/02-data.zip)| [.qmd](material/02/02-linear-regression-I.zip) 
 | **3**: Linear Regression II |  [{{< fa display >}}](material/03/03-linear-regression-II-ho.pdf)|[{{< fa file >}}](material/03/03-linear-regression-II.qmd) | [.zip](material/03/03-data.zip)| [.qmd](material/03/03-linear-regression-II.zip) 
 | **4**: Classification I |   [{{< fa display >}}](material/04/04-Classification-I-ho.pdf)|[{{< fa file >}}](material/04/04_Classification_1.qmd) | [.zip](material/04/04-data.zip)| [.qmd](material/04/04_Classification_1.zip) 
-| **5**: Classification II |
+| **5**: Classification II | [{{< fa display >}}](material/05/05-Classification-II-ho.pdf)|[{{< fa file >}}](material/05/05_Classification_2.qmd) | [.zip](material/05/05-data.zip)| [.qmd](material/05/05_Classification_2.zip) 
 | **6**: Model Validation|
 | **7**: Model Selection & Regularization|  
 | **8**: "Non-linear" Linear Regression |

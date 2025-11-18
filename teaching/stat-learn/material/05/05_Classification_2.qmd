@@ -1,0 +1,395 @@
+---
+title: "Classification II"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+
+
+
+# Metrics
+
+Once we build a classification model, it's important to make sure that we know how it performs! We talked about a few metrics you can calculate to help you assess how well your model is doing.
+
+-   Accuracy: $\frac{TP + TN}{TP + TN + FP + FN}$
+-   Confusion Matrix Patterns
+
+|                 | **Actually 1**          | **Actually 0**          |
+|-----------------|-------------------------|-------------------------|
+| **Predicted 1** | True Positive **(TP)**  | False Positive **(FP)** |
+| **Predicted 0** | False Negative **(FN)** | True Negative **(TN)**  |
+
+-   **Precision**: $\frac{TP}{TP + FP}$, how many of the predicted positives are true positives?
+
+-   **Recall/Sensitivity**: $\frac{TP}{TP + FN}$, how many of the actual positives did we accurately predict?
+
+-   **Specificity**: $\frac{TN}{TN + FP}$, how many of the actual negatives did we accurately predict?
+
+-   **F1 Score**: $\frac{2 * Precision * Recall}{Precision + Recall}$, a combination of precision and recall.
+
+-   **ROC AUC**: The area under the ROC curve which puts the False Positive Rate (FPR) on the x-axis, and the True Positive Rate on the y-axis.
+
+## Question
+
+If you were designing a Flu test, which of these metrics would be most important to you (there's no one right answer) and why?
+
+# Naive Bayes
+
+## Naive
+
+Naive Bayes is **Naive** because it makes the assumption of **conditional independence**. This means that within classes (the groups we're trying to predict), we assume the predictors are *independent*. However we know that's not true, so it's a *Naive* assumption to make.
+
+However, it simplifies our computation. When events are *independent* we can calculate their joint probability just by multiplying them:
+
+$$\underbrace{P(A,B,C)}_\text{probability of A, B, and C} = P(A) * P(B) * P(C)$$
+
+Rather than calculating the joint probability $P(A,B,C)$ by taking into account any relationships between the predictors.
+
+## Bayes
+
+When classifying a data point, we use Bayes' Theorem (at least the numerator of it) to calculate the *score* for each potential category. Then we choose the category with the highest score. Because we're comparing scores that have the same denominator, we can ignore it (which is nice, as it's difficiult to calculate).
+
+$$ \overbrace{P(\text{group}_i | \mathbf{X}) = \frac{P(\mathbf{X} | \text{group}_i) * P(\text{group}_i)}{P(\mathbf{X})}}^\text{Bayes' Theorem}$$
+
+-   $P(\text{group}_i | \mathbf{X})$ is the probability of our data point being in group $i$ based on their predictor values $\mathbf{X}$
+-   $P(\mathbf{X} | \text{group}_i)$ is the likelihood of seeing features like $\mathbf{X}$ in group $i$ (if our features are commonly seen in group $i$, we're more likely to predict you're in group $i$)
+-   $P(\text{group}_i)$ is the probability of being in group $i$ overall (if a group is very rare, we don't want to predict it often)
+-   $P(\mathbf{X})$ is the probability of seeing features like $\mathbf{X}$ overall, in any group (but we ignore this term)
+
+## Naive Bayes in R
+
+From a training collection of sms text messages, that are labeled Spam or Ham, a set of used words can be extracted. After a couple of data cleaning operations (see below) it is counted how often words occur in the text messages in the training set. Words with a frequency equal or higher than a chosen threshold, e.g. five, are collected in a dictionary. Only these words are used to distinguish Spam from Ham. As the next step, each word is converted into a binary variable with the length of the number of messages in the training set, with value 1 in cell $j$ if the word occurs one or more times in the $j$th text message and 0 otherwise. These binary variables are mutated into factor variables which can be used to generate NaiveBayes model that distinguishes Spam from Ham.
+
+### Packages needed
+
+```{r}
+#| label: load-pckgs
+#| message: false
+library(tidyverse)
+library(flextable) # install if not on your machine
+library(tm) # install if not on your machine
+library(e1071) # install if not on your machine
+library(caret) # install if not on your machine
+library(pROC) # install if not on your machine
+```
+
+### Analysis
+
+```{r}
+#| label: load-data
+
+
+df <- read.csv("05-data/sms_spam.csv")
+
+#transform df$type into a factor variable
+df$type <- factor(df$type, levels = c("ham", "spam"),
+                       labels=c("ham", "spam"))
+
+flextable(head(df)) %>% autofit()
+```
+
+The R package `tm` (text mining) comes with a couple of helpful functions for Text Mining. In order to use the text mining functions, the data to be investigated must be in a so-called Corpus of text documents. The first step in this analysis is to convert the set of SMS messages into such a corpus. First the text messages are transformed into a vector source this is an R vector that interprets every element as a text document.
+
+First Five Elements of SMS message in a Vector Source and create a Corpus with all the sms messages as text documents. This is in fact a list of lists, every list contains the text of the document and metadata about the document.
+
+```{r}
+#| label: corpus
+sms_vector_source <- VectorSource(df$text)
+sms_vector_source[1:5]
+
+sms_corpus <- Corpus(sms_vector_source)
+```
+
+Now it is time to perform a couple of text cleaning preparation steps. The `tm` package has functions for these actions:
+
+(1) Because it is assumed that capitalised letters will not be used to distinguish Ham from Spam, replace all uppercase letters by lowercase letters.
+
+(2) Remove numbers from the text messages. If it is assumed that numbers in the messages can be helpful to diferentiate between Spam and Ham, a more advanced way to deal with numbers is required
+
+(3) Lots of short words, like and, or, if, on, to etc. are not useful to distinct Ham from Spam; they can be removed from the texts before generating a model.
+
+(4) Remove punctuation.
+
+(5) Remove unnecessary spaces.
+
+```{r}
+#| label: clean-data
+#| warning: false
+
+#transform to lower case text messages
+#the tm::tm_map function applies a function on a corpus object
+corpus_clean <- tm_map(sms_corpus, tolower) %>% 
+#remove numbers
+  tm_map(removeNumbers) %>% 
+#remove stopwords
+  tm_map(removeWords, stopwords()) %>% 
+#remove punctuation
+  tm_map(removePunctuation) %>% 
+#remove additional spaces
+  tm_map(stripWhitespace)
+
+corpus_clean[1]$content
+```
+
+Assuming that splitting the data in a training and a test set will be used to assess the Naive Bayes model, the next step is splitting the data, e.g. 70% in the training set and 30% in the test set.
+
+```{r}
+#| label: split-data
+set.seed(123)
+train <- sample(1:length(corpus_clean),
+                size = .7*length(corpus_clean),
+                replace=FALSE)
+
+sms_train <- df[train,]
+sms_test <- df[-train,]
+
+corpus_train <- corpus_clean[train]
+corpus_test <- corpus_clean[-train]
+
+sum(train)
+```
+
+Let's now create a document term matrix:
+
+```{r}
+#| label: dtm
+dtm_train <- DocumentTermMatrix(corpus_train)
+inspect(dtm_train)
+```
+
+To distinguish Ham from Spam not every word in the corpus are useful. Words must appear in a couple of messages to be useful. A choice must be made for the threshold of the number of messages in which a word appears to be used in the model, e.g. 5 times.
+
+First construct a vector with words with a frequency of at least 5:
+
+```{r}
+#| label: frq-threshold
+frequent_terms_5 <- findFreqTerms(dtm_train, lowfreq=5)
+frequent_terms_5[1:10]
+```
+
+The Naive Bayes model uses as features not the number of times a term appears in a message, but only whether a term appears in a message.
+
+It is possible to construct a Binary DTM in which the cells indicate whether a document contains the term (cell value = 1) or not (cell value = 0). It is this Binary DTM that is used in the Naive Bayes model. The Binary DTM is constructed for the words with frequency at least.
+
+```{r}
+#| label: binary-dtm
+#Binary DTM for training data
+dtm_train_bin <- DocumentTermMatrix(
+                      corpus_train,
+                      control=list(weighting=weightBin,
+                                   dictionary=frequent_terms_5))
+
+#Binary DTM for test data; needed to asses the model
+dtm_test_bin <- DocumentTermMatrix(
+                      corpus_test,
+                      control=list(weighting=weightBin,
+                                   dictionary=frequent_terms_5))
+inspect(dtm_train_bin)
+```
+
+The columns in the Binary DTM must be transformed into factor variables to use them in a Naive Bayes model. Then the Binary DTM is ready to generate a Naive Bayes model.
+
+```{r}
+#| label: model-train
+#first use as matrix() to convert DTM matrix from a list into a matrix 
+dtm_train_bin_matrix <- as.matrix(dtm_train_bin)
+dtm_test_bin_matrix <- as.matrix(dtm_test_bin)
+
+#convert the columns into factor
+dtm_train_bin_matrix <- apply(dtm_train_bin_matrix, 2, factor)
+dtm_test_bin_matrix <- apply(dtm_test_bin_matrix, 2, factor)
+
+#generate model
+nb_model <- naiveBayes(x=dtm_train_bin_matrix,
+                       y=sms_train$type)
+
+summary(nb_model)
+```
+
+Nest we are assessing the model:
+
+(1) Use the model to make predictions on the test data
+
+(2) Assess the model using a confusion matrix
+
+```{r}
+#| label: model-fit
+preds <- predict(nb_model, dtm_test_bin_matrix)
+
+cf <- table(preds, sms_test$type)
+
+cf
+```
+
+As can be seen in the Confusion Matrix, the model makes a good distinction between Spam and Ham. Only 3 of the 1451 Ham messages are classified as Spam while 24 of the 198 Spam messages are classified as Ham.
+
+The `caret::confusionMatrix()` function gives a lot of metrics which can be used to assess a classification model. Which metric is most applicable depends on the context of the problem in question.
+
+```{r}
+#| label: conf-mat
+confusionMatrix(preds, sms_test$type)
+```
+
+### Question
+
+Which metric would you choose to evaluate the model here?
+
+# Classwork
+
+## Lizzo
+
+Build a Logistic Regression Model to predict the `mode` of different Lizzo songs. Then check the performance of the model. Fill int he msising parts in the code below:
+
+```{r}
+#| label: Lizzo-data
+# Read data
+d <- read.csv("05-Data/Lizzo_data.csv")
+
+# Convert boolean/logical TRUE/FALSE to 1/0
+# (works even if column is already logical)
+d$explicit <- as.integer(d$explicit)
+
+# View first rows
+flextable(head(d)) %>% autofit()
+```
+
+Fit the model:
+
+```{r}
+#| label: Lizzo-model
+#| eval: false
+
+# --- 1. Define predictors and outcome ---
+
+predictors <- c("danceability", "energy", "instrumentalness", "explicit")
+contin     <- c("danceability", "energy", "instrumentalness")
+
+# Make sure outcome is a factor (binary classification)
+d$mode <- as.factor(d$mode)
+
+# --- 2. Train / test split (80/20, seed = 123) ---
+set.seed(123)
+train_index <- createDataPartition(d$mode, p = 0.8, list = FALSE) # from caret
+
+train <- 
+test  <- 
+
+
+# --- 3. Scale only continuous predictors ---
+# fit preprocessing on training data only
+preproc <- preProcess(train[, contin], method = c("center", "scale"))
+
+# apply to train and test
+train_scaled <- train
+train_scaled[, contin] <- predict(preproc, train[, contin])
+
+test_scaled <- test
+test_scaled[, contin] <- predict(preproc, test[, contin])
+
+# --- 4. Fit logistic regression model  ---
+
+# formula: mode ~ danceability + energy + instrumentalness + explicit
+model <- glm(  
+                
+              )
+
+  
+# --- 5. Predictions: class and probabilities ---
+
+# Training set
+train_prob <- predict(model, newdata = train_scaled, type = "response")
+# glm with factor response: prob is for the *second* level of mode
+# assume "1" is the positive class:
+train_pred <- ifelse(train_prob > 0.5, "1", "0")
+train_pred <- factor(train_pred, levels = levels(train$mode))
+
+# Test set
+test_prob <- predict(model, newdata = test_scaled, type = "response")
+test_pred <- ifelse(test_prob > 0.5, "1", "0")
+test_pred <- factor(test_pred, levels = levels(test$mode))
+
+  
+# --- 6. Metrics: accuracy, precision, recall, F1, ROC AUC ---
+
+# helper to compute metrics
+metrics_fun <- function(y_true, y_pred, y_prob) {
+  cm <- table(truth = y_true, pred = y_pred)
+  
+  TP <- cm["1", "1"]
+  TN <- cm["0", "0"]
+  FP <- cm["0", "1"]
+  FN <- cm["1", "0"]
+  
+  acc  <- (TP + TN) / sum(cm)
+  prec <- TP / (TP + FP)
+  rec  <- TP / (TP + FN)
+  f1   <- 2 * prec * rec / (prec + rec)
+  
+  # ROC AUC
+  roc_obj <- roc(response = y_true, predictor = y_prob, levels = c("0", "1"))
+  auc_val <- auc(roc_obj)
+  
+  c(Accuracy = acc,
+    Precision = prec,
+    Recall = rec,
+    F1 = f1,
+    ROC_AUC = as.numeric(auc_val))
+}
+
+# Train metrics
+train_metrics <- 
+test_metrics  <- 
+
+
+
+
+```
+
+Visualize a confusion matrix:
+
+```{r}
+#| label: cm-plot
+#| eval: false
+# Build confusion matrix table to visualize
+cm <- table(Predicted = train_pred, Actual = train$mode)
+
+ggplot(cm_df, aes(x = Predicted, y = Actual, fill = Freq)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = Freq), size = 6) +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  labs(title = "Confusion Matrix (Train Set)", fill = "Count") +
+  theme_minimal(base_size = 14)
+```
+
+or create a direct table:
+
+```{r}
+#| label: cm-tab
+#| eval: false
+# table
+table(Actual = train$mode, Predicted = train_pred)
+```
+
+Finally plot a ROC curve:
+
+```{r}
+#| label: roc
+#| eval: false
+roc_train <- roc(response = train$mode,
+                 predictor = train_prob,
+                 levels   = c("0", "1"))   # "0" = negative, "1" = positive
+
+# Basic ROC plot with AUC
+plot(roc_train, print.auc = TRUE, main = "ROC Curve (Train)")
+
+```
+
+### Question
+
+Grab and diplay the coefficients fromt he above model. How do you interpret them?
