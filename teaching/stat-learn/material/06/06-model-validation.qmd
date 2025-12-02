@@ -1,0 +1,881 @@
+---
+title: "Model Validation"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+
+# Review: Model Validation {.unnumbered}
+
+We learned about 3 types of model validation that help us estimate how well our model might do on data it has never seen before.
+
+-   **Train Test Split (TTS)** (aka validation vet approach): We take our data and break it up into two groups, training (used to fit model) and testing (used to see how the model does on data it has never seen before)
+-   **K-Fold Cross Validation (KF)**: We take our data and break it up into K groups. We train K different models using a different group as the test set each time. The other K-1 groups are used to train the model.
+-   **Leave One Out Cross Validation (LOOCV)**: Like K-Fold but each data point is it's own fold. This means we fit N models (where N is the number of data points) using N-1 data points to train, and 1 data point to test.
+
+Remember the purpose of a test set is to be UNSEEN data. We should NEVER fit ANYTHING on the test set. In fact we should not even TOUCH the test set until our model is completely done training.
+
+# Part I: Iris Data
+
+-   `iris` data is a built-in data set in R that contains measurements for 50 flowers in 3 different species and 4 different attributes.
+-   `caret` package is short for Classification And Regression Training. This is a useful tool for data splitting, pre-processing, feature selection and model tuning. In this simple example I will use this package to illustrate cross validation methods.
+-   `dplyr` package is a commonly used tool for data manipulation.
+-   `tidyverse` package is for data manipulation and visualization (with `dplyr` included).
+
+```{r}
+#| label: load-pckgs
+#| message: false
+library(caret)
+library(Metrics) # install if not on your machine
+library(tidyverse)
+# Load data
+data(iris)
+
+# Take a look at data 
+str(iris)
+```
+
+To determine whether the designed model is performing well, we need to use the observations that are not being used during the training of the model. Therefore the test set will serve as the unseen data, then the values of the dependent variables are predicted and model accuracy will be evaluated based on the difference between actual values and predicted values of the dependent variable. We use following model performance metrics (consult lecture slides for more information):
+
+-   $R^2$
+-   Rooted Mean Squared Error (RMSE)
+-   Mean Absolute Error (MAE)
+
+Each methods below will be conducted in four steps:
+
+-   **Data splitting**: split the data set into different subsets.
+-   **Training**: build the model on the training data set.
+-   **Testing**: apply the resultant model to the unseen data (testing data set) to predict the outcome of new observations.
+-   **Evaluating**: calculate prediction error using the model performance metrics.
+
+## Test-Train-split
+
+In this approach, the available data is divided into two subsets: a training set and a validation set. The training set is used to train the model, and the validation set is used to evaluate its performance. Predictions done by this method could be largely affected by the subset of observations used in testing set. If the test set is not representative of the entire data, this method may lead to overfitting.
+
+```{r}
+#| label: data-split-tts
+#| message: false
+### Data splitting
+
+# set seed to generate a reproducible random sample
+set.seed(123)
+
+# create training and testing data set using index, training data contains 80% of the data set
+# 'list = FALSE' allows us to create a matrix data structure with the indices of the observations in the subsets along the rows.
+train.index.vsa <- createDataPartition(iris$Species, p= 0.8, list = FALSE)
+train.vsa <- iris[train.index.vsa,]
+test.vsa <- iris[-train.index.vsa,]
+
+# see how the the subsets are randomized
+role = rep('train',nrow(iris))
+role[-train.index.vsa] = 'test'
+ggplot(data = cbind(iris,role)) + 
+  geom_point(aes(x = Sepal.Length,
+                 y = Petal.Width,
+                 color = role)) +
+  theme_minimal()
+```
+
+```{r}
+#| label: model-fit
+#| message: false
+### Training: linear model is fit using all availbale predictors
+model.vsa <- lm(Petal.Width ~., data = train.vsa)
+
+
+### Testing
+predictions.vsa <- model.vsa %>% predict(test.vsa)
+
+
+### Evaluating
+data.frame(RMSE = RMSE(predictions.vsa, test.vsa$Petal.Width),
+           R2 = R2(predictions.vsa, test.vsa$Petal.Width),
+           MAE = MAE(predictions.vsa, test.vsa$Petal.Width))
+```
+
+## Leave-One-Out Cross Validation
+
+```{r}
+#| label: data-split-loocv
+# Data splitting: leave one out
+train.loocv <- trainControl(method = "LOOCV")
+
+# Training
+model.loocv <- train(Petal.Width ~.,
+                     data = iris,
+                     method = "lm",
+                     trControl = train.loocv)
+
+#  Present results
+print(model.loocv)
+```
+
+## K-Fold Cross Validation
+
+```{r}
+#| label: data-split-kf
+#| message: false
+
+# Data splitting
+
+# set seed to generate a reproducible random sample
+set.seed(123)
+# the number of K is set to be 5
+train.kfold <- trainControl(method = "cv", number = 5)
+
+# Training
+model.kfold <- train(Petal.Width ~.,
+                     data = iris,
+                     method = "lm",
+                     trControl = train.kfold)
+
+# Present results
+print(model.kfold)
+```
+
+## Repeated K-Fold Cross Validation
+
+### Data splitting
+
+```{r}
+#| label: iris-results
+#| message: false
+
+# set seed to generate a reproducible random sample
+set.seed(123)
+# the number of K is set to be 5
+train.rkfold <- trainControl(method = "repeatedcv", number = 5, repeats = 3)
+
+### Training
+model.rkfold <- train(Petal.Width ~.,
+                     data = iris,
+                     method = "lm",
+                     trControl = train.rkfold)
+
+# Present results
+model.rkfold
+model.kfold
+```
+
+## Let's summarize the results
+
+| CV method      | RMSE   |     R2 |  MAE   |
+|----------------|:-------|-------:|:------:|
+| Validation Set | 0.1675 | 0.9498 | 0.1288 |
+| LOOCV          | 0.1706 | 0.9496 | 0.1268 |
+| K-Fold         | 0.1704 | 0.9514 | 0.1289 |
+| K-Fold repeat  | 0.1704 | 0.9514 | 0.1289 |
+
+### Question
+
+> What do you note?
+
+# Part II: KNN Regression Simulation
+
+## KNN classifier algorithm (for univariate $x$'s and binary $y$'s)
+
+We create a function called `KNN`⁠ for performing KNN regression using the following arguments:
+
+-   $x_0$ as the new point at which we wish to predict $y$
+-   ${\bf x} = (x_1,x_2, \dots, x_n)$ as the vector of training $x$'s
+-   ${\bf y} = (y_1,y_2, \dots, y_n)$ as the vector of training $y$'s
+-   $K$ as number of neighbors to use
+-   $\hat{y}_0$ as the predicted value of $y$ at $x_0$
+
+The function calculates the Euclidean distance between $x_0$ and each of the $x_i$'s in the training set $(x_1, x_2, \dots, x_n)$. Then we order them from nearest to furthest away and takes the mean of the $y$ values of the $K$ nearest points yielding the predicted value of $y$:
+
+```{r}
+#| label: KNNreg-fnct
+#   x0 = new point at which to predict y
+#   x = (x_1,...,x_n) = vector of training x's
+#   y = (y_1,...,y_n) = vector of training y's
+#   K = number of neighbors to use
+#   y0_hat = predicted value of y at x0
+
+KNN = function(x0, x, y, K) {
+  distances = abs(x - x0) 
+  o = order(distances) 
+  y0_hat = mean(y[o[1:K]]) 
+  return(y0_hat)  
+}
+```
+
+## Simulate data
+
+We simulate training vector $\bf{x}$ from a uniform distribution on the interval $[0,5]$ and simulate training vector $\bf{y}$ by assuming $$y = f(x) + \varepsilon$$ where $f(x) = \cos(x)$ and $\varepsilon \sim N(0, \sigma^2)$ and $\sigma = 0.3$.
+
+```{r}
+#| label: sim-data
+set.seed(1)  # set random number generator
+n = 20  # number of samples
+x = 5*runif(n)  
+sigma = 0.3  
+f = function(x) { cos(x) }  
+y = f(x) + sigma*rnorm(n)  
+```
+
+Let's plot of the training data
+
+```{r}
+#| label: plot-sim-data
+#| message: false
+#| warning: false
+#| fig-height: 7
+#| fig-width: 9
+plot(x,y,col=2,pch=20,cex=2)  # plot training data
+x_grid = seq(from=0, to=5, by=0.01)  # grid of x values for plotting f(x) values
+lines(x_grid,f(x_grid))  # plot true f(x) values for the grid
+```
+
+Now we run the `KNN` function to predict $y$ at each point on the grid of $x$ values. For that we need to define $K$, that is number of nearest neighbors to use. We start with setting it equal to 1 but this can be changed later as an exercise.
+
+```{r}
+#| label: KNN-5
+K = 5 
+y_grid_hat = sapply(x_grid, function(x0) { KNN(x0, x, y, K) })
+```
+
+Next we add the predicted values to our plot:
+
+```{r}
+#| label: plot-KNN-5
+#| message: false
+#| warning: false
+#| fig-height: 7
+#| fig-width: 9
+plot(x,y,col=2,pch=20,cex=2)  # plot training data
+title(paste("K =",K))
+lines(x_grid,f(x_grid))  # plot true f(x) values
+lines(x_grid,y_grid_hat,col=4)  # plot predicted y values 
+```
+
+### Question
+
+> What happens to predicted curve when you change the value of $K$?
+
+## K-Fold Cross Validation
+
+Now we are going to use cross validation to estimate test performance of the KNN classifier. We set number of neighbors as $K=1$ and use the 10-fold cross validation. We do a random ordering of all the available data, and initialize a vector to hold MSE for each fold. For each fold, we then create a training and test (hold one out/validation) set, run KNN at each $x$ in this test set (the one left out), and compute MSE on this test set. Then we average the MSE over all folds to obtain the CV estimate of test MSE:
+
+```{r}
+#| label: Kfolds
+K = 1  
+nfolds = 10 
+permutation = sample(1:n)  
+MSE_fold = rep(0,nfolds)  
+for (j in 1:nfolds) {
+    test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+    train = setdiff(1:n, test)  
+    y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) }) 
+    MSE_fold[j] = mean((y[test] - y_hat)^2) 
+}
+MSE_cv = mean(MSE_fold)  
+MSE_cv
+```
+
+Next we compare with the ground truth estimate of test performance, given this training set. Because this is a simulation example, we can generate lots of test data. We simulate $x$'s and $y$'s from the true data generating process. Then we run the KNN classifier at each $x$ in the test set and compute the MSE on the test set:
+
+```{r}
+#| label: test-set-sims
+n_test = 100000
+x_test = 5*runif(n_test)  
+y_test = f(x_test) + sigma*rnorm(n_test)  
+y_test_hat = sapply(x_test, function(x0) { KNN(x0, x, y, K) })  
+MSE_test = mean((y_test - y_test_hat)^2)  
+```
+
+Let's compare the two values:
+
+```{r}
+MSE_test
+MSE_cv
+```
+
+Be careful when calculating the *root* MSE (RMSE) since it corresponds to root mean squared error or square root of MSE: Let's try with
+
+```{r}
+sqrt(MSE_test)  # test RMSE
+sqrt(mean(MSE_fold))  # sqrt of MSE_cv
+mean(sqrt(MSE_fold))  # can we use this?
+```
+
+## Leave-One Out Cross Validation
+
+Use the leave-one out cross validation (LOOCV) in the above example and report the CV estimate of test MSE and the MSE given ground truth.
+
+```{r}
+#| label: loocv-sim
+K = 1  
+nfolds = n
+permutation = sample(1:n)  
+MSE_fold = rep(0,nfolds)  
+for (j in 1:nfolds) {
+    test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+    train = setdiff(1:n, test)  
+    y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) }) 
+    MSE_fold[j] = mean((y[test] - y_hat)^2) 
+}
+MSE_loocv = mean(MSE_fold)  
+MSE_test = mean((y_test - y_test_hat)^2)  
+MSE_loocv
+MSE_test
+```
+
+## Hyperparameter Tuning: Choosing Model Settings
+
+With the following example, we will illustrate how to use cross validation to choose the optimal number of neighbors $K$ in KNN. We start with a rather high number of $K$ to try for KNN ($K=30$) and use 10 folds for each of these cases in the cross validation. Then we do a random ordering of data and initialize vector for holding MSE's. For each number of folds in the range, we compute the training and test set as before (this is again the validation set). For each $K$ up to 30, we then run KNN at each $x$ in the test set (the one left out), and compute MSE on the this test set. We average across folds to obtain CV estimate of test MSE for each $K$ and plot the results:
+
+```{r}
+#| label: plot-cvfolds
+#| message: false
+#| warning: false
+#| fig-height: 7
+#| fig-width: 9
+K_max = 30 
+nfolds = 10  
+permutation = sample(1:n)  
+MSE_fold = matrix(0,nfolds,K_max)  
+for (j in 1:nfolds) {
+    test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+    train = setdiff(1:n, test) 
+    for (K in 1:K_max) {
+        y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) })
+        MSE_fold[j,K] = mean((y[test] - y_hat)^2)  
+    }
+}
+MSE_cv = colMeans(MSE_fold)  
+```
+
+We plot CV estimate of test MSE against number of neighbors $K=1,2,\dots,30$, and choose the value of $K$ that minimizes estimated test MSE. Compare with a ground truth estimate of test performance by using the chosen number of $K$ and running KNN on each $x$ in the test set (denoted `x_test` above).
+
+```{r}
+#| label: plot-MSE-K
+plot(1:K_max, MSE_cv, pch=19)  # plot CV estimate of test MSE for each K
+
+# Choose the value of K that minimizes estimated test MSE
+K_cv = which.min(MSE_cv)
+K_cv
+```
+
+### Question?
+
+> Why do you think the test performance estimate for the chosen $K$ tend to be smaller than the ground truth estimate of test performance in this example?
+
+::: {.callout-tip collapse="true"}
+### Answer
+
+$MSE_{cv}(K_{cv})$ may systematically underestimate or overestimate test MSE! There are two sources of bias: $K_{cv}$ is the minimum, and the pseudo-training set is smaller than $n$.
+:::
+
+## Choosing the number of folds
+
+We start by simulating training data as before:
+
+```{r}
+#| label: sim-data-again
+set.seed(1) 
+n = 20
+x = 5*runif(n)  
+sigma = 0.3 
+y = f(x) + sigma*rnorm(n)  
+```
+
+We then compute "ground truth" estimate of test performance, given this training set. We set $K=10$, and run KNN at each $x$ in the test set and compute MSE on the test set:
+
+```{r}
+#| label: ground-truth-mse
+K = 10
+y_test_hat = sapply(x_test, function(x0) { KNN(x0, x, y, K) })  
+MSE_test = mean((y_test - y_test_hat)^2)  
+```
+
+Next, we repeatedly run CV for a range of number of folds `nfolds` up to maximum $n=20$ (same as $n$ above in our simulated data). We repeat the simulation 200 times, and for each repetition and number of folds, we split the training data into training and test (hold one out/validation set). We run KNN at each $x$ in this test set and compute MSE. We then average the MSE's for each case with a different number of folds:
+
+```{r}
+#| label: mse-cvfolds
+nfolds_max = n  # maximum value of nfolds to use for CV
+nreps = 200  # number of times to repeat the simulation
+MSE_cv = matrix(0,nreps,nfolds_max)  
+for (r in 1:nreps) {  
+    for (nfolds in 1:nfolds_max) {
+        permutation = sample(1:n) 
+        MSE_fold = rep(0,nfolds)  
+        for (j in 1:nfolds) {
+            test = permutation[floor((j-1)*n/nfolds+1) : floor(j*n/nfolds)]  
+            train = setdiff(1:n, test)  
+            y_hat = sapply(x[test], function(x0) { KNN(x0, x[train], y[train], K) }) 
+            MSE_fold[j] = mean((y[test] - y_hat)^2) 
+        }
+        MSE_cv[r,nfolds] = mean(MSE_fold)
+    }
+}
+```
+
+We compute the MSE, bias, and variance of the CV estimate of test MSE, for each value of nfolds and plot MSE, bias\^2, and variance of the CV estimate, for each value of nfolds.
+
+```{r}
+#| label: plot-performance
+#| message: false
+#| warning: false
+#| fig-height: 7
+#| fig-width: 9
+mse = colMeans((MSE_cv - MSE_test)^2)
+bias = colMeans(MSE_cv) - MSE_test
+variance = apply(MSE_cv,2,var)
+
+# plot of MSE, bias^2 and variance against number of folds
+plot(1:nfolds_max, type="n", ylim=c(0,max(mse[2:nfolds_max])*1.1), xlab="nfolds", ylab="mse", main="MSE of the CV estimates")
+lines(1:nfolds_max, mse, col=1, lty=2, lwd=2, ylim=c(0,0.2))
+lines(1:nfolds_max, bias^2, col=2, lwd=2)
+lines(1:nfolds_max, variance, col=4, lwd=2)
+legend("topright", legend=c("mse","bias^2","variance"), col=c(1,2,4), lwd=2)
+
+# plot bias against number of folds
+plot(1:nfolds_max, bias)
+lines(1:nfolds_max, bias, col=2, lwd=2)
+```
+
+### Question
+
+In the above plot below, why do you think the bias of the CV estimate of test MSE is always positive?
+
+::: {.callout-tip collapse="true"}
+### Answer
+
+Because the "pseudo"-training set (each fold) is smaller than the training set.
+:::
+
+# Part III: Amazon Books
+
+Let's continue with our example from our earlier practical 2, where we fit a linear regression model to predict `Amazon Price`on books. We now include model validation. Read the data as before:
+
+```{r}
+#| label: lm-fit
+
+# Load the readr package (comes with tidyverse)
+# library(readr)
+
+# Read the Amazon data (tab-separated)
+ama <- read_tsv("06-data/amazon-books.txt")
+
+# Drop missing values
+ama <- ama %>% drop_na()
+
+# Clean column names
+
+colnames(ama) <- c(
+  "Title",
+  "Author",
+  "List.Price",
+  "Amazon.Price",
+  "Hard.Paper",
+  "NumPages",
+  "Publisher",
+  "Pub.year",
+  "ISBN.10",
+  "Height",
+  "Width",
+  "Thick",
+  "Weight.oz"
+)
+
+# Drop missing values
+ama <- ama %>% drop_na() # using pipes from magrittr in tidyverse
+
+# Set up X and y
+predictors <- c("List.Price", "NumPages", "Weight.oz", "Thick", "Height", "Width")
+
+X <- ama[, predictors]
+y <- ama$Amazon.Price
+
+```
+
+## K-Fold Cross Validation
+
+Now we cross validate as follows: - 5-fold CV - z-score predictors inside each fold - Train/test split per fold - Fit linear regression - Compute train & test MSE/MAE - Print per-fold metrics + averages - returns clean summary tables
+
+Note also that we the package called `Metrics` here (which you loaded earlier):
+
+```{r}
+#| label: cv-kfold5
+
+set.seed(123)
+
+# Set up 5-fold cross validation indices
+set.seed(123)
+folds <- createFolds(y, k = 5, returnTrain = TRUE)
+
+mse_train <- c()
+mse_test  <- c()
+mae_train <- c()
+mae_test  <- c()
+
+
+# Perform 5-fold CV
+for (i in 1:5) {
+
+  train_idx <- folds[[i]]
+  test_idx  <- setdiff(seq_len(nrow(X)), train_idx)
+
+  X_train <- X[train_idx, ]
+  X_test  <- X[test_idx, ]
+  y_train <- y[train_idx]
+  y_test  <- y[test_idx]
+
+  # z-score within this fold
+  preproc <- preProcess(X_train, method = c("center", "scale"))
+  X_train_scaled <- predict(preproc, X_train)
+  X_test_scaled  <- predict(preproc, X_test)
+
+  # fit
+  model <- lm(y_train ~ ., data = X_train_scaled)
+
+  # predict
+  y_pred_train <- predict(model, newdata = X_train_scaled)
+  y_pred_test  <- predict(model, newdata = X_test_scaled)
+
+  # metrics
+  mse_train[i] <- mse(y_train, y_pred_train)
+  mse_test[i]  <- mse(y_test, y_pred_test)
+
+  mae_train[i] <- mae(y_train, y_pred_train)
+  mae_test[i]  <- mae(y_test, y_pred_test)
+}
+
+# results using tidyverse tibble
+cv_results <- tibble(
+  Fold      = 1:5,
+  Train_MSE = mse_train,
+  Test_MSE  = mse_test,
+  Train_MAE = mae_train,
+  Test_MAE  = mae_test
+)
+
+cv_results
+
+# averaged over all folds
+kfold_summary <- tibble(
+  Mean_Train_MSE = mean(mse_train),
+  Mean_Test_MSE  = mean(mse_test),
+  Mean_Train_MAE = mean(mae_train),
+  Mean_Test_MAE  = mean(mae_test)
+)
+
+kfold_summary
+```
+
+## Leave-One-Out Cross Validation
+
+The below code does the following: loads & cleans the data - extracts predictors and response - performs LOOCV manually - z-scores inside each fold - computes train/test MSE & MAE - returns clean summary tables
+
+```{r}
+#| label: cv-loo
+
+set.seed(123)
+
+
+# Set up predictors & response as before
+
+predictors <- c("List.Price", "NumPages", "Weight.oz", "Thick", "Height", "Width")
+
+X <- ama[, predictors]
+y <- ama$Amazon.Price
+n <- nrow(X)
+
+# LOOCV: Leave-One-Out Cross Validation
+
+mse_train <- numeric(n)
+mse_test  <- numeric(n)
+mae_train <- numeric(n)
+mae_test  <- numeric(n)
+
+for (i in 1:n) {
+
+  # train/test split
+  test_idx  <- i
+  train_idx <- setdiff(1:n, test_idx)
+
+  X_train <- X[train_idx, ]
+  X_test  <- X[test_idx, , drop = FALSE]
+  y_train <- y[train_idx]
+  y_test  <- y[test_idx]
+
+  # Z-score within fold 
+  train_means <- apply(X_train, 2, mean)
+  train_sds   <- apply(X_train, 2, sd)
+
+  X_train_scaled <- scale(X_train, center = train_means, scale = train_sds)
+  X_test_scaled  <- sweep(sweep(X_test, 2, train_means), 2, train_sds, "/")
+
+  # Fit linear model
+
+  model <- lm(y_train ~ ., data = as.data.frame(X_train_scaled))
+
+  # Predictions
+  y_pred_train <- predict(model, newdata = as.data.frame(X_train_scaled))
+  y_pred_test  <- predict(model, newdata = as.data.frame(X_test_scaled))
+
+  # Metrics
+  mse_train[i] <- mse(y_train, y_pred_train)
+  mse_test[i]  <- mse(y_test, y_pred_test)
+
+  mae_train[i] <- mae(y_train, y_pred_train)
+  mae_test[i]  <- mae(y_test, y_pred_test)
+}
+
+# Results
+results <- tibble(
+  Train_MSE = mse_train,
+  Test_MSE  = mse_test,
+  Train_MAE = mae_train,
+  Test_MAE  = mae_test
+)
+
+
+# averaged over all folds
+loo_summary <- tibble(
+  Mean_Train_MSE = mean(mse_train),
+  Mean_Test_MSE  = mean(mse_test),
+  Mean_Train_MAE = mean(mae_train),
+  Mean_Test_MAE  = mean(mae_test)
+)
+
+loo_summary
+```
+
+Now visualize the results:
+
+```{r}
+#| label: plot-results
+#| fig-height: 7
+#| fig-width: 9
+
+# Put into a single tibble
+results <- bind_rows(
+  kfold_summary %>%  mutate(Method = "K-Fold (K=5)"),
+  loo_summary   %>%  mutate(Method = "LOO")
+)
+
+# Convert to long format
+results_long <- results |> 
+  pivot_longer(cols = starts_with("Mean"),
+               names_to = "Metric",
+               values_to = "Value")
+
+# Nice readable metric labels
+results_long$Metric <- recode(results_long$Metric,
+  "Mean_Train_MSE" = "Train MSE",
+  "Mean_Test_MSE"  = "Test MSE",
+  "Mean_Train_MAE" = "Train MAE",
+  "Mean_Test_MAE"  = "Test MAE"
+)
+
+# Plot
+ggplot(results_long, aes(x = Metric, y = Value, fill = Method)) +
+  geom_col(position = "dodge") +
+  labs(title = "K-Fold vs LOOCV: Average Performance Metrics",
+       x = "",
+       y = "Error") +
+  theme_minimal(base_size = 14) +
+  scale_fill_brewer(palette = "Set2")
+```
+
+### Questions
+
+Using the above plot, what can you conclude about:
+
+1.  How well the linear regression model generalizes to new data, and
+2.  Which validation method you would use to estimate the linear regression model’s test error, and why?
+3.  Using these results, explain how the bias–variance tradeoff helps us understand why K-Fold CV and LOOCV give slightly different test errors, even though both methods fit the same model on nearly the same data. What do your results suggest about how bias and variance differ between K-Fold CV and LOOCV for this problem?
+
+::: {.callout-tip collapse="true"}
+### Answer
+
+Both K-Fold CV and LOOCV are applied to *the same* linear regression model; the only thing that changes is how we estimate its out-of-sample error, not the model itself.
+
+From the plot:
+
+-   **Train MSE/MAE** are almost identical for K-Fold and LOOCV, which indicates that the fitted `lm` model itself is behaving the same in both setups (as expected, since it’s the same model and same data).
+-   **Test MSE** is *slightly lower* for K-Fold than for LOOCV, and **Test MAE** is essentially the same. This suggests that, for this `lm` model, K-Fold gives an estimate of test error that is at least as good as (and in this case a bit better than) LOOCV.
+
+1.  The `lm` model’s **generalization performance** appears very similar under both methods, with K-Fold showing marginally better test MSE, and\
+2.  **LOOCV is far more computationally expensive** (it refits `lm` once per observation, versus only 5 times for 5-fold CV),
+
+The reasonable choice is to use **K-Fold CV** to evaluate this linear regression model. It provides a practically equivalent (or slightly better) estimate of the `lm` model’s test error at a much lower computational cost.
+
+3.  The bias–variance tradeoff explains the small differences we observe between K-Fold CV and LOOCV in the plot.
+
+-   **LOOCV** uses almost the full dataset for every training fold, so its estimates have
+    -   **lower bias** (its training sets closely mimic the full dataset)\
+    -   **higher variance** (each fold differs by only one observation, making the fitted model extremely sensitive to individual points)
+-   **K-Fold CV**, in contrast, uses smaller training sets and reshuffles data more substantially between folds, leading to
+    -   **slightly higher bias**\
+    -   **lower variance**
+
+In our results, the test MSE for LOOCV is only slightly lower than K-Fold’s, which is consistent with LOOCV’s lower bias.\
+However, the difference is small, and K-Fold’s lower variance means it typically provides a more stable estimate of true generalization error.
+
+Thus, the bias–variance tradeoff helps explain why LOOCV and K-Fold CV produce similar but not identical estimates: LOOCV trades stability (higher variance) for slightly lower bias, whereas K-Fold provides a more reliable, lower-variance estimate of the model’s test error.
+:::
+
+## Assumption Checks with TTS, KFold, LOO
+
+When checking assumptions AND using model validation, when do we check assumptions?
+
+Creating a residual plot requires we have residuals, which requires a model. Check assumptions *after* fitting the model by making residual plot(s).
+
+### TTS
+
+We need a model to check residuals, so do it AFTER the model is built. This is done using an "assumption" plot (residuals vs fitted):
+
+```{r}
+#| label: tts-assump
+#| fig-height: 7
+#| fig-width: 9
+
+
+# Train/Test Split (80/20)
+set.seed(123)
+train_index <- createDataPartition(y, p = 0.8, list = FALSE)
+
+X_train <- X[train_index, ]
+X_test  <- X[-train_index, ]
+
+y_train <- y[train_index]
+y_test  <- y[-train_index]
+
+
+# Z-scores
+preproc <- preProcess(X_train, method = c("center", "scale"))
+
+X_train_scaled <- predict(preproc, X_train)
+X_test_scaled  <- predict(preproc, X_test)
+
+# Fit linear regression
+model <- lm(y_train ~ ., data = X_train_scaled)
+
+
+# Predict
+y_pred_train <- predict(model, newdata = X_train_scaled)
+y_pred_test  <- predict(model, newdata = X_test_scaled)
+
+
+# Assumption plot (residuals vs predictions)
+assump_train <- tibble(
+  predicted = y_pred_train,
+  errors = y_train - y_pred_train
+)
+
+ggplot(assump_train, aes(x = predicted, y = errors)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(title = "Residuals vs Fitted (Train Data)")
+```
+
+### K-Fold
+
+Same check now but for K-fold CV used earlier with K=5.
+
+```{r}
+#| label: kfold-assump
+#| fig-height: 7
+#| fig-width: 9
+library(patchwork) # to have several panes next to each other
+
+set.seed(123)
+
+# K-fold setup
+folds <- createFolds(y, k = 5, returnTrain = TRUE)
+
+mse_train <- c()
+mse_test  <- c()
+
+all_assump <- list()  # store residuals per fold
+
+for (i in seq_along(folds)) {
+  train_idx <- folds[[i]]
+  test_idx  <- setdiff(seq_len(nrow(X)), train_idx)
+
+  X_train <- X[train_idx, ]
+  X_test  <- X[test_idx, ]
+  y_train <- y[train_idx]
+  y_test  <- y[test_idx]
+
+  # z-score within fold
+  preproc <- preProcess(X_train, method = c("center", "scale"))
+  X_train_scaled <- predict(preproc, X_train)
+  X_test_scaled  <- predict(preproc, X_test)
+
+  # fit model
+  model <- lm(y_train ~ ., data = X_train_scaled)
+
+  # predict
+  y_pred_train <- predict(model, newdata = X_train_scaled)
+  y_pred_test  <- predict(model, newdata = X_test_scaled)
+
+  # store residuals with fold id
+  all_assump[[i]] <- tibble(
+    Fold = paste0("Fold ", i),
+    predicted = y_pred_train,
+    errors = y_train - y_pred_train
+  )
+
+  # metrics
+  mse_train[i] <- mse(y_train, y_pred_train)
+  mse_test[i]  <- mse(y_test,  y_pred_test)
+}
+
+# Bind all residuals into one data frame
+assump_df <- bind_rows(all_assump)
+
+# 1) Residual plots faceted by fold 
+
+p_resid <- ggplot(assump_df, aes(x = predicted, y = errors)) +
+  geom_point(alpha = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  facet_wrap(~ Fold) +
+  theme_minimal() +
+  labs(
+    title = "Residuals vs Fitted by Fold",
+    x = "Predicted (Train)",
+    y = "Residuals"
+  )
+
+# 2) MSE barplot per fold
+
+mse_df <- tibble(
+  Fold = paste0("Fold ", seq_along(mse_train)),
+  Train_MSE = mse_train,
+  Test_MSE  = mse_test
+) %>% 
+  pivot_longer(cols = c(Train_MSE, Test_MSE),
+               names_to = "Set",
+               values_to = "MSE")
+
+p_mse <- ggplot(mse_df, aes(x = Fold, y = MSE, fill = Set)) +
+  geom_col(position = "dodge") +
+  theme_minimal() +
+  labs(
+    title = "Train/Test MSE by Fold",
+    x = "",
+    y = "MSE"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# 3) Combine with patchwork 
+
+p_resid / p_mse
+```
+
+The residual plots across the five folds show that the linear regression model behaves consistently regardless of how the data is split. Residuals remain centered around zero with a similar spread in each fold, suggesting that the model does not exhibit major bias and performs stably across training subsets. There is some mild heteroscedasticity, as errors tend to increase for higher predicted values, and a few outliers appear in each fold, which is expected in real-world price data.
+
+The train and test MSE values show the expected pattern: training error is slightly lower than test error in every fold. Most folds have test MSE values in a similar range, indicating that the model generalizes reliably. Fold 1 exhibits a noticeably higher test MSE than the others, which likely reflects sampling variability rather than a structural issue with the model.
+
+Overall, the K-Fold results suggest that the linear regression model fits reasonably well, generalizes consistently across folds, and does not appear to be severely overfitting, although prediction accuracy decreases somewhat for higher-priced books.

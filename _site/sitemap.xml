@@ -58,7 +58,11 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/math-ds/index.html</loc>
-    <lastmod>2025-11-12T10:44:06.930Z</lastmod>
+    <lastmod>2025-11-26T10:39:50.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/stat-learn/material/01/01-R-you-ready.html</loc>
+    <lastmod>2025-10-21T08:17:07.281Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/stat-learn/material/02/02-linear-regression-I.html</loc>
@@ -70,7 +74,7 @@
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/stat-learn/index.html</loc>
-    <lastmod>2025-11-18T08:49:22.255Z</lastmod>
+    <lastmod>2025-12-02T08:20:53.649Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/tidyverse-II/material/case-studies/k-means.html</loc>
@@ -321,8 +325,12 @@
     <lastmod>2025-11-18T08:57:26.265Z</lastmod>
   </url>
   <url>
-    <loc>https://mrs.schochastics.net/teaching/stat-learn/material/01/01-R-you-ready.html</loc>
-    <lastmod>2025-10-21T08:17:07.281Z</lastmod>
+    <loc>https://mrs.schochastics.net/teaching/stat-learn/material/07/07-model-selection-regularization.html</loc>
+    <lastmod>2025-12-01T13:36:19.592Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrs.schochastics.net/teaching/stat-learn/material/06/06-model-validation.html</loc>
+    <lastmod>2025-11-25T08:31:38.496Z</lastmod>
   </url>
   <url>
     <loc>https://mrs.schochastics.net/teaching/falls-inf-stats/index.html</loc>

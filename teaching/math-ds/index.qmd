@@ -18,8 +18,8 @@ margin-footer: licence.html
 | **2**: Algebra Review, Modular Arithmetic, Boolean Algebra| [{{< fa display >}}](material/02-algebra-ho.pdf)
 | **3**: Functions & Relations, Sequences & Series, Limits & Continuity | [{{< fa display >}}](material/03-functions-relations-ho.pdf) 
 | **4**: Calculus Fundamentals: Differentiation| [{{< fa display >}}](material/04-differentiation-ho.pdf)
-| **5**: Calculus Fundamentals: The Integral|
-| **6**: Extrema in One Dimension |
+| **5**: Calculus Fundamentals: The Integral|[{{< fa display >}}](material/05-the-integral-ho.pdf)
+| **6**: Extrema in One Dimension |[{{< fa display >}}](material/06-extrema-ho.pdf)
 | **7**: Introduction to Probability| 
 | **8**: Discrete Distributions |
 | **9**: Continuous Distributions|
