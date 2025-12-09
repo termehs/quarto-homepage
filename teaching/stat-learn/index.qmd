@@ -21,7 +21,7 @@ margin-footer: licence.html
 | **5**: Classification II | [{{< fa display >}}](material/05/05-Classification-II-ho.pdf)|[{{< fa file >}}](material/05/05_Classification_2.qmd) | [.zip](material/05/05-data.zip)| [.qmd](material/05/05_Classification_2.zip) 
 | **6**: Model Validation| [{{< fa display >}}](material/06/06-model-validation-ho.pdf)|[{{< fa file >}}](material/06/06-model-validation.qmd) | [.zip](material/06/06-data.zip)| [.qmd](material/06/06-model-validation.zip) 
 | **7**: Model Selection & Regularization|  [{{< fa display >}}](material/07/07-model-selection-regularization-ho.pdf)|[{{< fa file >}}](material/07/07-model-selection-regularization.qmd) | [.zip](material/07/07-data.zip)| [.qmd](material/07/07-model-selection-regularization.zip) 
-| **8**: "Non-linear" Linear Regression |
+| **8**: "Non-linear" Linear Regression | [{{< fa display >}}](material/08/08-non-linearity-ho.pdf)|[{{< fa file >}}](material/08/08-nonlinearity.qmd) | | [.qmd](material/08/08-nonlinearity.zip) 
 | **9**: Tree Based Methods| 
 | **10**: Support Vector Machines | 
 | **11**: Neural Networks| 
