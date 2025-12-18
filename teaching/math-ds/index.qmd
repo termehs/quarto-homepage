@@ -22,7 +22,7 @@ margin-footer: licence.html
 | **6**: Extrema in One Dimension |[{{< fa display >}}](material/06-extrema-ho.pdf)
 | **7**: Introduction to Probability| [{{< fa display >}}](material/07-prob-intro-ho.pdf)
 | **8**: Discrete Distributions |[{{< fa display >}}](material/08-discrete-dists-ho.pdf)
-| **9**: Continuous Distributions|
+| **9**: Continuous Distributions||[{{< fa display >}}](material/09-cont-dists-ho.pdf)
 | **10**: Introduction Linear Algebra| 
 | **11**: Vector Spaces and Systems of Equations |
 | **12**: Eigenvalues and Eigenvectors |

@@ -1,0 +1,10 @@
+readr
+ggplot2
+DiagrammeR
+lattice
+caret
+rpart
+randomForest
+gbm
+patchwork
+rpart.plot

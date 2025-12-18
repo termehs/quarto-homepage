@@ -1,0 +1,901 @@
+---
+title: "Tree Based Methods"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+# Review
+
+## Models
+
+|                     | **Decision Tree**         | **Random Forest**                  | **Gradient Boosting Tree** |
+|---------------------|---------------------------|------------------------------------|----------------------------|
+| _num trees_         | one                       | many                               | many                       |
+| _make predictions_  | mode or mean of leaf node | each tree votes                    | sum of tree outputs        |
+| _tree independence_ | NOT applicable            | independent                        | dependent                  |
+| _Data Used_         | all                       | bagging + random feature selection | all                        |
+
+
+## Decision Trees, Graphically
+
+Let's load the [penguin data set](https://github.com/allisonhorst/palmerpenguins), and plot the bill length and bill depth for our three species:
+
+
+```{r}
+#| label: load-plot-data
+#| message: false
+#| warning: false
+#| fig-height: 7
+#| fig-width: 7
+# Load libraries
+library(readr)
+library(ggplot2)
+
+# Read the data
+pengwing <- read_csv("09-data/penguins.csv")
+
+# View first few rows (equivalent to .head())
+head(pengwing)
+
+# Create the plot
+ggplot(pengwing, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(
+    x = "Bill Length (in mm)",
+    y = "Bill Depth (in mm)",
+    title = "Bill Length vs. Bill Depth by Species"
+  )
+```
+
+We could use a decision tree based on bill length and bill depth to classify penguins as different species. First, we could split on Bill Depth and decide that any penguin with a depth less than 16.5 mm, should be classified as a Gentoo penguin.
+
+```{r}
+#| label: split-ex1
+# Choose a split value
+split1 <- 16.5
+
+ggplot(pengwing, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(
+    x = "Bill Length (in mm)",
+    y = "Bill Depth (in mm)",
+    title = "Bill Length vs. Bill Depth by Species"
+  ) +
+  geom_hline(yintercept = split1, linewidth = 1, linetype = "dashed")
+```
+
+That bottom group looks GREAT. Now let's look at the top group. Most of the Chinstrap penguins have longer bill lengths. Let's say that if a penguin has a bill depth > 16.5mm, then we will split on bill length at 44 to separate the Adelie and Chinstrap penguins.
+
+```{r}
+#| label: split-ex2
+# Choose a split value 
+split2 <- 44
+
+ggplot(pengwing, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(
+    x = "Bill Length (in mm)",
+    y = "Bill Depth (in mm)",
+    title = "Bill Length vs. Bill Depth by Species"
+  ) +
+  geom_hline(yintercept = split1, linewidth = 1, linetype = "dashed") +
+  geom_segment(
+    x = split2, xend = split2,
+    y = split1, yend = 22,
+    linewidth = 0.6, linetype = "dashed", color = "black"
+  )
+```
+
+Voila! We've built a (very short) decision tree! It would look like this:
+```{r}
+#| label: tree-viz
+
+# Install if needed
+# install.packages("DiagrammeR")
+
+library(DiagrammeR)
+
+grViz("
+digraph penguin_tree {
+
+  graph [layout = dot, rankdir = TB]
+
+  node [
+    shape = box,
+    style = rounded,
+    fontname = Helvetica,
+    fontsize = 14
+  ]
+
+  # Decision nodes
+  node1 [label = 'bill_depth < 16.5']
+  node2 [label = 'bill_length < 44']
+
+  # Leaf nodes
+  gentoo    [label = 'Gentoo', fillcolor = '#dbe9f6', style = 'rounded,filled']
+  chinstrap[label = 'Chinstrap', fillcolor = '#e3f0dd', style = 'rounded,filled']
+  adelie   [label = 'Adelie', fillcolor = '#f4d6d6', style = 'rounded,filled']
+
+  # Edges
+  node1 -> gentoo     [label = 'yes']
+  node1 -> node2      [label = 'no']
+
+  node2 -> adelie     [label = 'yes']
+  node2 -> chinstrap  [label = 'no']
+}
+")
+```
+
+## Entropy 
+Entropy is a measure of disorder/chaos. We want ordered and organized data in the leaf nodes of our decision trees. So we want LOW entropy. **Entropy** is defined as:
+
+$$ E = -\sum_1^N p_i* log_2(p_i) $$
+
+Where $N$ is the number of categories or labels in our outcome variable.
+
+This is compared to **gini impurity** which is:
+
+$$GI = 1 - \sum_1^N p_i^2$$
+
+### Question
+
+WHY do we want the leaf nodes of our tree to be ordered (have low entropy or impurity?)?
+
+## Measures of Chaos for a Split
+
+When you split a node, we now have two new nodes. In order to calculate the chaos (entropy or gini impurity) of the split, we have to calculate the chaos (entropy or gini impurity) for EACH of the new nodes and then calculate the weighted average chaos (entropy or gini impurity).  
+
+The reason we weight each node differently in this calculation, is because if a node has more data in it, than it has more impact, and therefore its measure of chaos (entropy or gini impurity) should count more.
+
+In general, once you've calculated the chaos (entropy or gini impurity) for each of the new nodes, you'll use this formula to calculate the weighted average:
+
+
+$$ WC = (\frac{N_L}{Total}* C_L) + (\frac{N_R}{Total}* C_R)$$
+
+Where $N_L$ is the number of data points in the Left Node, $N_R$ is the number of data points in the Right Node, and $Total$ is the total number of data points in that split. $C_R$ and $C_L$ are the chaos measure (entropy of gini impurity) for the right and left nodes, respectively.
+
+## Decision Trees
+
+Let's first build a Decision Tree to **classify** patients as diabetic or not diabetic.
+
+Gini impurity is probability of misclassifying a random data point from that node.
+
+
+```{r}
+#| label: diab-trees
+
+# Packages
+library(readr)
+library(caret)
+library(rpart)
+
+# Read data + peek
+d <- read_csv("09-data/diabetes2.csv")
+head(d)
+
+# Predictors / outcome
+predictors <- c("Pregnancies","Glucose","BloodPressure","SkinThickness",
+                "Insulin","BMI","DiabetesPedigreeFunction","Age")
+
+X <- d[, predictors]
+y <- d$Outcome   # should be 0/1
+
+# Train/test split (80/20), like random_state=1234
+set.seed(1234)
+idx_train <- createDataPartition(y, p = 0.8, list = FALSE)
+X_train <- X[idx_train, , drop = FALSE]
+X_test  <- X[-idx_train, , drop = FALSE]
+y_train <- y[idx_train]
+y_test  <- y[-idx_train]
+
+# Standardize using TRAIN stats only, then apply to both
+pp <- preProcess(X_train, method = c("center", "scale"))
+X_train_sc <- predict(pp, X_train)
+X_test_sc  <- predict(pp, X_test)
+
+# Fit decision tree (classification)
+train_df <- data.frame(X_train_sc, Outcome = factor(y_train))
+test_df  <- data.frame(X_test_sc,  Outcome = factor(y_test))
+
+set.seed(1234)
+tree <- rpart(Outcome ~ ., data = train_df, method = "class")
+
+# Predict classes
+pred_test  <- predict(tree, newdata = test_df, type = "class")
+pred_train <- predict(tree, newdata = train_df, type = "class")
+
+# Confusion matrices (test + train), like ConfusionMatrixDisplay
+confusionMatrix(pred_test,  test_df$Outcome)
+confusionMatrix(pred_train, train_df$Outcome)
+```
+
+
+### Limiting Max_Depth
+We talked about different ways to "prune" or limit the depth of a tree, both directly and indirectly via `max_depth` and `min_samples_leaf`. Run the following code, what does it tell you:
+
+```{r}
+#| label: sim-pruning
+
+# Function to run repeated train/test evaluation for a given maxdepth
+eval_depth <- function(data, depth = NULL, reps = 50, test_prop = 0.2, seed = 1234) {
+  set.seed(seed)
+  n <- nrow(data)
+
+  out <- data.frame(rep = integer(0), split = character(0), acc = numeric(0))
+
+  for (r in 1:reps) {
+    idx_test <- sample.int(n, size = floor(test_prop * n))
+    train_df <- data[-idx_test, c(predictors, "Outcome")]
+    test_df  <- data[idx_test,  c(predictors, "Outcome")]
+
+    ctrl <- rpart.control(cp = 0, xval = 0)
+    if (!is.null(depth)) ctrl$maxdepth <- depth
+
+    fit <- rpart(Outcome ~ ., data = train_df, method = "class", control = ctrl)
+
+    pred_train <- predict(fit, newdata = train_df, type = "class")
+    pred_test  <- predict(fit, newdata = test_df,  type = "class")
+
+    acc_train <- mean(pred_train == train_df$Outcome)
+    acc_test  <- mean(pred_test  == test_df$Outcome)
+
+    out <- rbind(out,
+                 data.frame(rep = r, split = "Test",  acc = acc_test),
+                 data.frame(rep = r, split = "Train", acc = acc_train))
+  }
+  out
+}
+
+# Run across depths 2-9 and "none"
+depths <- 2:9
+all_res <- data.frame()
+
+for (dep in depths) {
+  tmp <- eval_depth(d, depth = dep, reps = 60, test_prop = 0.2, seed = 1234)
+  tmp$depth <- as.character(dep)
+  all_res <- rbind(all_res, tmp)
+}
+
+# "none" = no maxdepth cap (use rpart default maxdepth)
+tmp_none <- eval_depth(d, depth = NULL, reps = 60, test_prop = 0.2, seed = 1234)
+tmp_none$depth <- "none"
+all_res <- rbind(all_res, tmp_none)
+
+all_res$depth <- factor(all_res$depth, levels = c(as.character(2:9), "none"))
+all_res$split <- factor(all_res$split, levels = c("Test", "Train"))
+
+# Plot 
+ggplot(all_res, aes(x = depth, y = acc, fill = split)) +
+  geom_boxplot(width = 0.7, position = position_dodge(width = 0.8)) +
+  scale_fill_manual(values = c("Test" = "#D76B63", "Train" = "#78D7E6")) +
+  labs(
+    x = "Restriction of Depth of Tree",
+    y = "Accuracy"
+  ) +
+  theme_minimal()
+```
+
+### Random Forests and Gradient Boosting Trees
+
+Now let's copy and paste the code from above and build a **Random Forest** to predict diabetes instead of a single tree, and then using a **Gradient Boosting Tree**.
+
+
+```{r}
+#| label: RF
+#| message: false
+
+library(randomForest)
+
+
+# Predictors and outcome
+predictors <- c(
+  "Pregnancies","Glucose","BloodPressure","SkinThickness",
+  "Insulin","BMI","DiabetesPedigreeFunction","Age"
+)
+
+X <- d[, predictors]
+y <- d$Outcome
+
+# Train/test split (80/20)
+set.seed(1234)
+train_idx <- createDataPartition(y, p = 0.8, list = FALSE)
+
+X_train <- X[train_idx, , drop = FALSE]
+X_test  <- X[-train_idx, , drop = FALSE]
+y_train <- y[train_idx]
+y_test  <- y[-train_idx]
+
+# Standardize predictors (z-score using TRAIN stats)
+pp <- preProcess(X_train, method = c("center", "scale"))
+X_train_sc <- predict(pp, X_train)
+X_test_sc  <- predict(pp, X_test)
+# z scoring not important, because none of the variables are influencing/compared to each other directly scale doesn't matter here. But z scoring wont hurt.
+
+
+# Combine into data frames for modeling
+train_df <- data.frame(X_train_sc, Outcome = factor(y_train))
+test_df  <- data.frame(X_test_sc,  Outcome = factor(y_test))
+
+# Fit Random Forest
+set.seed(1234)
+rf_model <- randomForest(
+  Outcome ~ .,
+  data = train_df,
+  ntree = 500,        # number of trees
+  mtry = 3,           # variables tried at each split (default ~ sqrt(p))
+  importance = TRUE
+)
+
+# Predictions
+pred_train <- predict(rf_model, train_df)
+pred_test  <- predict(rf_model, test_df)
+
+# Confusion matrices
+confusionMatrix(pred_train, train_df$Outcome)
+confusionMatrix(pred_test,  test_df$Outcome)
+```
+
+```{r}
+#| message: false
+#| label: GB
+library(gbm)
+
+# Predictors and outcome
+predictors <- c(
+  "Pregnancies","Glucose","BloodPressure","SkinThickness",
+  "Insulin","BMI","DiabetesPedigreeFunction","Age"
+)
+
+X <- d[, predictors]
+y <- d$Outcome # must be numeric 0/1 and not factor as earlier
+
+
+# Train/test split (80/20)
+set.seed(1234)
+train_idx <- createDataPartition(y, p = 0.8, list = FALSE)
+
+X_train <- X[train_idx, , drop = FALSE]
+X_test  <- X[-train_idx, , drop = FALSE]
+y_train <- y[train_idx]
+y_test  <- y[-train_idx]
+
+# Standardize predictors (z-score using TRAIN stats)
+pp <- preProcess(X_train, method = c("center", "scale"))
+X_train_sc <- predict(pp, X_train)
+X_test_sc  <- predict(pp, X_test)
+# z scoring not important, because none of the variables are influencing/compared to each other directly scale doesn't matter here. But z scoring wont hurt.
+
+
+# Combine into data frames for modeling
+train_df <- data.frame(X_train_sc, Outcome = y_train) 
+test_df  <- data.frame(X_test_sc,  Outcome = y_test)
+
+# Fit Gradient Boosting model
+set.seed(1234)
+gb_model <- gbm(
+  Outcome ~ .,
+  data = train_df,
+  distribution = "bernoulli",   # binary classification
+  n.trees = 300,
+  interaction.depth = 3,        # tree depth
+  shrinkage = 0.05,              # learning rate
+  n.minobsinnode = 10,
+  bag.fraction = 0.8,
+  verbose = FALSE
+)
+
+# Predict probabilities
+prob_train <- predict(gb_model, train_df, n.trees = 300, type = "response")
+prob_test  <- predict(gb_model, test_df,  n.trees = 300, type = "response")
+
+# Convert probabilities to class labels (0.5 threshold)
+pred_train <- factor(ifelse(prob_train > 0.5, 1, 0))
+pred_test  <- factor(ifelse(prob_test  > 0.5, 1, 0))
+
+# Convert truth to factor with matching levels
+train_truth <- factor(train_df$Outcome, levels = c(0, 1))
+test_truth  <- factor(test_df$Outcome,  levels = c(0, 1))
+
+pred_train <- factor(pred_train, levels = c(0, 1))
+pred_test  <- factor(pred_test,  levels = c(0, 1))
+
+# Confusion matrices
+confusionMatrix(pred_train, train_truth)
+confusionMatrix(pred_test,  test_truth)
+```
+
+### Using Trees for Regression
+Lastly, let's take a quick look at what we'd need to change if we wanted to predict a *continuous* value instead of a categorical one. Let's look at this data set that measures risk propensity. We're going to predict BART Scores (a score where higher values mean you're riskier), based on a bunch of different measures. 
+
+These are the variables in the data set:
+
+BART: Balloon Analogue Risk Task
+ - Measures risk-taking behavior
+ - Higher scores means more willingness to take risks
+ - This is the outcome (target variable)
+  
+BIS/BAS: Behavioral Inhibition / Behavioral Activation Scales
+	-	BISmeans sensitivity to punishment / avoidance
+	-	BAS means sensitivity to reward / approach behavior
+
+Female
+	- Binary variable (0/1)
+	
+	
+Goal of the model is to use psychological traits (BIS/BAS + gender) to predict risk-taking behavior (BART score) using linear regression, evaluated with 5-fold cross-validation.
+
+
+```{r}
+#| label: BART-lm
+
+# read and clean data----
+bart <- read_csv(
+  "09-data/bart.csv"
+)
+
+# Drop missing values
+bart <- na.omit(bart)
+
+# Reset row names 
+rownames(bart) <- NULL
+
+# Define predictors and outcome----
+# Outcome
+y <- bart$BART
+
+# Predictors
+predictors <- setdiff(colnames(bart), "BART")
+
+# Continuous predictors (everything except Female)
+contin <- setdiff(predictors, "Female")
+
+X <- bart[, predictors]
+
+# set up CV with 5 folds-----
+set.seed(1234)
+kf <- createFolds(y, k = 5, returnTrain = TRUE)
+
+# Storage for metrics ----
+mse  <- list(train = c(), test = c())
+mae  <- list(train = c(), test = c())
+mape <- list(train = c(), test = c())
+r2   <- list(train = c(), test = c())
+
+
+# Cross-validation loop
+for (i in seq_along(kf)) {
+
+  train_idx <- kf[[i]]
+  test_idx  <- setdiff(seq_len(nrow(X)), train_idx)
+
+  X_train <- X[train_idx, ]
+  X_test  <- X[test_idx, ]
+  y_train <- y[train_idx]
+  y_test  <- y[test_idx]
+
+  # Z-score continuous predictors only
+  pp <- preProcess(X_train[, contin], method = c("center", "scale"))
+
+  X_train_sc <- X_train
+  X_test_sc  <- X_test
+
+  X_train_sc[, contin] <- predict(pp, X_train[, contin])
+  X_test_sc[, contin]  <- predict(pp, X_test[, contin])
+
+  # Fit linear regression
+  train_df <- data.frame(X_train_sc, BART = y_train)
+  test_df  <- data.frame(X_test_sc,  BART = y_test)
+
+  lm_fit <- lm(BART ~ ., data = train_df)
+
+  # Predictions
+  pred_train <- predict(lm_fit, train_df)
+  pred_test  <- predict(lm_fit, test_df)
+
+  # Metrics
+  mse$train  <- c(mse$train, mean((y_train - pred_train)^2))
+  mse$test   <- c(mse$test,  mean((y_test  - pred_test)^2))
+
+  mae$train  <- c(mae$train, mean(abs(y_train - pred_train)))
+  mae$test   <- c(mae$test,  mean(abs(y_test  - pred_test)))
+
+  mape$train <- c(mape$train, mean(abs((y_train - pred_train) / y_train)))
+  mape$test  <- c(mape$test,  mean(abs((y_test  - pred_test)  / y_test)))
+
+  r2$train   <- c(r2$train, cor(y_train, pred_train)^2)
+  r2$test    <- c(r2$test,  cor(y_test,  pred_test)^2)
+}
+
+
+# Create summary table-----
+results_table <- data.frame(
+  Metric = c("MSE", "MAE", "MAPE", "R²"),
+  Train = c(
+    mean(mse$train),
+    mean(mae$train),
+    mean(mape$train),
+    mean(r2$train)
+  ),
+  Test = c(
+    mean(mse$test),
+    mean(mae$test),
+    mean(mape$test),
+    mean(r2$test)
+  )
+)
+
+# Print table
+results_table
+```
+
+We can interpret the results as follows:
+The linear regression model shows poor predictive performance, explaining only 5–6% of the variance in BART scores. Train and test errors were nearly identical, indicating no overfitting but substantial underfitting. These results suggest that BIS/BAS traits and gender alone are insufficient predictors of risk-taking behavior as measured by the BART.
+
+Next step would be to try non-linear models (Random Forest, Gradient Boosting).
+
+```{r}
+#| label: BART-RF
+
+set.seed(1234)
+folds <- createFolds(y, k = 5, returnTrain = TRUE)
+
+mse  <- list(train = c(), test = c())
+mae  <- list(train = c(), test = c())
+mape <- list(train = c(), test = c())
+r2   <- list(train = c(), test = c())
+
+for (i in seq_along(folds)) {
+  tr <- folds[[i]]
+  te <- setdiff(seq_len(nrow(X)), tr)
+
+  X_train <- X[tr, , drop = FALSE]
+  X_test  <- X[te, , drop = FALSE]
+  y_train <- y[tr]
+  y_test  <- y[te]
+
+  # z-score continuous predictors using TRAIN stats
+  pp <- preProcess(X_train[, contin, drop = FALSE], method = c("center", "scale"))
+  X_train_sc <- X_train; X_test_sc <- X_test
+  X_train_sc[, contin] <- predict(pp, X_train[, contin, drop = FALSE])
+  X_test_sc[, contin]  <- predict(pp, X_test[, contin, drop = FALSE])
+
+  train_df <- data.frame(X_train_sc, BART = y_train)
+  test_df  <- data.frame(X_test_sc,  BART = y_test)
+
+  set.seed(1234)
+  rf_fit <- randomForest(
+    BART ~ .,
+    data = train_df,
+    ntree = 500,
+    mtry = max(1, floor(sqrt(length(predictors))))
+  )
+
+  pred_train <- predict(rf_fit, train_df)
+  pred_test  <- predict(rf_fit, test_df)
+
+  mse$train  <- c(mse$train, mean((y_train - pred_train)^2))
+  mse$test   <- c(mse$test,  mean((y_test  - pred_test)^2))
+
+  mae$train  <- c(mae$train, mean(abs(y_train - pred_train)))
+  mae$test   <- c(mae$test,  mean(abs(y_test  - pred_test)))
+
+  mape$train <- c(mape$train, mean(abs((y_train - pred_train) / y_train)))
+  mape$test  <- c(mape$test,  mean(abs((y_test  - pred_test)  / y_test)))
+
+  r2$train   <- c(r2$train, cor(y_train, pred_train)^2)
+  r2$test    <- c(r2$test,  cor(y_test,  pred_test)^2)
+}
+
+rf_results <- data.frame(
+  Model = "Random Forest",
+  Metric = c("MSE", "MAE", "MAPE", "R^2"),
+  Train = c(mean(mse$train), mean(mae$train), mean(mape$train), mean(r2$train)),
+  Test  = c(mean(mse$test),  mean(mae$test),  mean(mape$test),  mean(r2$test))
+)
+
+rf_results
+```
+
+
+```{r}
+#| label: BART-GB
+set.seed(1234)
+folds <- createFolds(y, k = 5, returnTrain = TRUE)
+
+mse_g  <- list(train = c(), test = c())
+mae_g  <- list(train = c(), test = c())
+mape_g <- list(train = c(), test = c())
+r2_g   <- list(train = c(), test = c())
+
+for (i in seq_along(folds)) {
+  tr <- folds[[i]]
+  te <- setdiff(seq_len(nrow(X)), tr)
+
+  X_train <- X[tr, , drop = FALSE]
+  X_test  <- X[te, , drop = FALSE]
+  y_train <- y[tr]
+  y_test  <- y[te]
+
+  # z-score continuous predictors using TRAIN stats
+  pp <- preProcess(X_train[, contin, drop = FALSE], method = c("center", "scale"))
+  X_train_sc <- X_train; X_test_sc <- X_test
+  X_train_sc[, contin] <- predict(pp, X_train[, contin, drop = FALSE])
+  X_test_sc[, contin]  <- predict(pp, X_test[, contin, drop = FALSE])
+
+  train_df <- data.frame(X_train_sc, BART = y_train)
+  test_df  <- data.frame(X_test_sc,  BART = y_test)
+
+  set.seed(1234)
+  gb_fit <- gbm(
+    BART ~ .,
+    data = train_df,
+    distribution = "gaussian",     # regression
+    n.trees = 1500,
+    interaction.depth = 3,
+    shrinkage = 0.01,
+    n.minobsinnode = 10,
+    bag.fraction = 0.8,
+    verbose = FALSE
+  )
+
+  pred_train <- predict(gb_fit, train_df, n.trees = 1500)
+  pred_test  <- predict(gb_fit, test_df,  n.trees = 1500)
+
+  mse_g$train  <- c(mse_g$train, mean((y_train - pred_train)^2))
+  mse_g$test   <- c(mse_g$test,  mean((y_test  - pred_test)^2))
+
+  mae_g$train  <- c(mae_g$train, mean(abs(y_train - pred_train)))
+  mae_g$test   <- c(mae_g$test,  mean(abs(y_test  - pred_test)))
+
+  mape_g$train <- c(mape_g$train, mean(abs((y_train - pred_train) / y_train)))
+  mape_g$test  <- c(mape_g$test,  mean(abs((y_test  - pred_test)  / y_test)))
+
+  r2_g$train   <- c(r2_g$train, cor(y_train, pred_train)^2)
+  r2_g$test    <- c(r2_g$test,  cor(y_test,  pred_test)^2)
+}
+
+gb_results <- data.frame(
+  Model = "Gradient Boosting",
+  Metric = c("MSE", "MAE", "MAPE", "R^2"),
+  Train = c(mean(mse_g$train), mean(mae_g$train), mean(mape_g$train), mean(r2_g$train)),
+  Test  = c(mean(mse_g$test),  mean(mae_g$test),  mean(mape_g$test),  mean(r2_g$test))
+)
+
+gb_results
+```
+
+Let's combine the results to compare:
+
+
+```{r}
+#| label: restults
+all_results <- rbind(rf_results, gb_results)
+all_results
+```
+
+What do you conclude?
+
+::: {.callout-note collapse="true"}
+#### Interpretation
+
+While Random Forest achieved excellent training performance, it substantially overfit and failed to generalize. Gradient Boosting produced slightly better test performance and more stable behavior, though overall predictive power remained modest. These results suggest that nonlinear relationships exist but that BIS/BAS measures and gender alone account for only a small portion of variance in BART risk-taking behavior.
+
+:::
+
+### Feature Importance
+
+```{r}
+#| label: imp-rf
+
+# Assuming rf_fit was trained on train_df
+rf_imp <- importance(rf_fit)
+
+# Convert to data frame
+rf_imp_df <- data.frame(
+  Feature = rownames(rf_imp),
+  Importance = rf_imp[, "IncNodePurity"]
+)
+
+# Sort by importance
+rf_imp_df <- rf_imp_df[order(rf_imp_df$Importance, decreasing = TRUE), ]
+
+rf_imp_df
+```
+
+```{r}
+#| label: imp-gb
+# Relative influence from gbm
+gb_imp <- summary(gb_fit, plotit = FALSE)
+
+gb_imp
+```
+
+
+
+```{r}
+#| label: plot-imp
+library(patchwork)
+
+# Random Forest plot
+p_rf <- ggplot(rf_imp_df, aes(x = reorder(Feature, Importance), y = Importance)) +
+  geom_col(fill = "#2F6F73") +
+  coord_flip() +
+  labs(
+    title = "Random Forest",
+    x = "Feature",
+    y = "Importance (IncNodePurity)"
+  ) +
+  theme_minimal()
+
+# Gradient Boosting plot
+p_gb <- ggplot(gb_imp, aes(x = reorder(var, rel.inf), y = rel.inf)) +
+  geom_col(fill = "#F28E2B") +
+  coord_flip() +
+  labs(
+    title = "Gradient Boosting",
+    x = "Feature",
+    y = "Relative Influence"
+  ) +
+  theme_minimal()
+
+p_rf / p_gb
+```
+
+Feature importance analyses from both Random Forest and Gradient Boosting consistently identified BAS-related traits, particularly Drive and Fun Seeking, as the most influential predictors of BART risk-taking behavior. In contrast, BIS, age, and gender showed relatively weak influence. Although these findings suggest that reward sensitivity plays a central role in risk-taking, the overall predictive power of the models remained modest, indicating substantial unexplained variability.
+
+
+
+# Classwork
+Using the `bmd.csv`, fit a tree to predict bone mineral density (BMD) based on AGE.
+
+```{r}
+#| label: load-data
+#libraries that we will need
+set.seed(1234) #fix the random generator seed 
+
+library(rpart)  #library for CART
+library(rpart.plot) # plotting
+#read the dataset
+bmd.data     <-  read.csv(
+  "09-data/bmd.csv", stringsAsFactors = TRUE
+)
+```
+
+
+```{r}
+#| label: t1
+
+t1 <- rpart(bmd ~ age,
+            data = bmd.data, 
+            method = "anova",         #indicates the outcome is continuous
+            control = rpart.control(
+                       minsplit = 1,  # min number of observ for a split 
+                       minbucket = 1, # min nr of obs in terminal nodes
+                       cp=0)          #decrease in complex for a split 
+)
+
+#the rpart.plot() may take a long time to plot
+#the complete tree
+#if you cannot run it, just try plot(t1); text(t1, pretty=1)
+#and you will see just the structure of the tree
+rpart.plot(t1)     
+```
+
+
+We can now prune the tree using a limit for the complexity parameter CP. This will indicate that only a split with CP higher than the limit is worth it. 
+
+```{r}
+#| label: t1-prune
+printcp(t1)                      #CP for the complete tree
+prune.t1 <- prune(t1, cp=0.02)   #prune the tree with cp=0.02
+
+printcp(prune.t1)
+
+rpart.plot(prune.t1)              #pruned tree   
+```
+
+The `printcp()` function is used to examine the complexity parameter table and identify an appropriate pruning threshold. The tree is then pruned using cp = 0.02, which removes splits that do not sufficiently reduce prediction error, resulting in a simpler and more generalizable model.
+
+In summary:  CP controls tree size, i.e.
+
+  -	It penalizes adding splits that don’t improve the model enough
+  -	A split is kept only if it reduces error by at least CP
+
+
+Let’s use the pruned tree from aboved to predict the BMD for an individual 70 years old and compare it with the predictions from a linear model. We plot the predictions from the tree for ages 40 through 90 together with the predictions from the linear model:
+```{r}
+#| label: lm-comp
+lm1 <- lm(bmd ~ age,
+           data = bmd.data)
+
+predict(prune.t1,                       #prediction using the tree
+        newdata = data.frame(age=70))
+
+predict(lm1,                           #prediction using the linear model
+        newdata = data.frame(age=70))
+
+# Create prediction grid
+age_grid <- data.frame(age = seq(40, 90, 1))
+
+# Get predictions
+age_grid$tree <- predict(prune.t1, newdata = age_grid)
+age_grid$linear <- predict(lm1, newdata = age_grid)
+
+# Convert to long format for ggplot
+plot_df <- data.frame(
+  age = rep(age_grid$age, 2),
+  bmd = c(age_grid$tree, age_grid$linear),
+  model = factor(
+    rep(c("Tree", "Linear Model"), each = nrow(age_grid))
+  )
+)
+
+# Plot
+ggplot(plot_df, aes(x = age, y = bmd, color = model)) +
+  geom_line(linewidth = 1) +
+  scale_color_manual(
+    values = c(
+      "Tree" = "blue",
+      "Linear Model" = "red"
+    )
+  ) +
+  labs(
+    x = "Age",
+    y = "BMD",
+    color = "Model"
+  ) +
+  theme_minimal()
+```
+
+Let’s fit now a tree to predict bone mineral density (BMD) based on AGE, SEX and BMI (BMI has to be computed) and compute the MSE.
+
+Notice that the caret will prune the tree based on the cross-validated cp.
+```{r}
+#| label: tree2
+
+#compute BMI
+bmd.data$bmi <- bmd.data$weight_kg / (bmd.data$height_cm/100)^2
+
+trctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10)
+t2.caret  <-  train(bmd ~ age + sex + bmi, 
+                        data = bmd.data, 
+                        method = "rpart",
+                        trControl=trctrl,
+                        tuneGrid = expand.grid(cp=seq(0.001, 0.1, 0.001))
+                        )
+
+#Plot the RMSE versus the CP
+plot(t2.caret)
+
+#Plot the tree with the optimal CP
+rpart.plot(t2.caret$finalModel)
+```
+
+We can compare the RMSE and R2 of the tree above with the linear model:
+  
+```{r}
+#| label: loss 
+trctrl <- trainControl(method = "repeatedcv", number = 5, repeats = 10)
+lm2.caret<-  train(bmd ~ age + sex + bmi, 
+                        data = bmd.data, 
+                        method = "lm",
+                        trControl=trctrl
+                        )
+
+lm2.caret$results
+t2.caret$finalModel$cptable
+#extracts the row with the RMSE and R2 from the table of results
+#corresponding to the cp with lowest RMSE  (best tune)
+t2.caret$results[t2.caret$results$cp==t2.caret$bestTune[1,1], ]
+```
+
+Now by yourselves try to fit random forests and gradient boosting trees. Compare the results from these fits, and to the fit ofd the linear model.
