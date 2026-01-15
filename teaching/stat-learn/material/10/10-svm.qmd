@@ -1,0 +1,476 @@
+---
+title: "Support Vector Machines"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+
+# Support Vector Machines
+Support vector machines (SVMs) offer a direct approach to binary classification: try to find a hyperplane in some feature space that “best” separates the two classes. In practice, however, it is difficult (if not impossible) to find a hyperplane to perfectly separate the classes using just the original features. SVMs overcome this by extending the idea of finding a separating hyperplane in two ways: 
+
+(1) loosen what we mean by “perfectly separates”, 
+(2) use the so-called kernel trick to enlarge the feature space to the point that perfect separation of classes is (more) likely.
+
+SVMs are quite versatile and have been applied to a wide variety of domains ranging from chemistry to pattern recognition. They are best used in binary classification scenarios. This brings up a question as to where SVMs are to be preferred to other binary classification techniques such as logistic regression. The honest response is, “it depends”,  but here are some points to keep in mind when choosing between the two. A general point to keep in mind is that SVM algorithms tend to be expensive both in terms of memory and computation, issues that can start to hurt as the size of the dataset increases.
+
+
+We use the `e1071` library in `R` to demonstrate the support vector classifier and the SVM. Another option is the `LiblineaR` library, which is useful for very large linear problems.
+
+
+##  Warm-Up: SVM on `iris` dataset
+###  Training and test datasets
+```{r}
+#| label: data
+#| message: false
+#load required library
+library(e1071)
+
+#load built-in iris dataset
+data(iris)
+
+#set seed to ensure reproducible results
+set.seed(42)
+
+#split into training and test sets
+iris[, "train"] <- ifelse(runif(nrow(iris)) < 0.8, 1, 0)
+
+#separate training and test sets
+trainset <- iris[iris$train == 1,]
+testset <- iris[iris$train == 0,]
+
+#get column index of train flag
+trainColNum <- grep("train", names(trainset))
+
+#remove train flag column from train and test sets
+trainset <- trainset[,-trainColNum]
+testset <- testset[,-trainColNum]
+
+dim(trainset)
+dim(testset)
+```
+
+### Build the SVM model
+```{r}
+#| label: svm-1
+#| message: false
+#get column index of predicted variable in dataset
+typeColNum <- grep("Species", names(iris))
+
+#build model – linear kernel and C-classification (soft margin) with default cost (C=1)
+svm_model <- svm(Species~ ., data = trainset, 
+                 method = "C-classification", 
+                 kernel = "linear")
+svm_model
+```
+
+
+
+### Support Vectors
+The output from the SVM model show that there are 24 support vectors. If desired, these can be examined using the SV variable in the model, i.e via `svm_model$SV`.
+
+```{r}
+#| label: sup-vecs
+#| message: false
+# support vectors
+svm_model$SV
+```
+
+
+###  Predictions on training and test model
+```{r}
+#| label: preds
+#| message: false
+# training set predictions
+pred_train <- predict(svm_model, trainset)
+mean(pred_train == trainset$Species)
+
+# test set predictions
+pred_test <-predict(svm_model, testset)
+mean(pred_test == testset$Species)
+```
+
+The test prediction accuracy indicates that the linear performs quite well on this dataset, confirming that it is indeed near linearly separable. To check performance by class, one can create a confusion matri. Another point is that we have used a soft-margin classification scheme with a cost $C=1$. You can experiment with this by explicitly changing the value of $C$. Again, I’ll leave this for you an exercise.
+
+```{r}
+#| label: conf-mat
+#| message: false
+# confusion matrix
+cm <- table(pred_test, testset$Species)
+cm
+
+# accuracy
+sum(diag(cm)) / sum(cm)
+```
+
+
+## SVM on Penguins Data
+```{r}
+#| label: peng-data
+#| message: false
+library(datasets) # penguins data come from here
+library(tidyverse) 
+# plot data
+ggplot(penguins, aes(x = bill_len, y = bill_dep, color = species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(
+    x = "Bill Length (in mm)",
+    y = "Bill Depth (in mm)",
+    title = "Bill Length vs. Bill Depth by Species"
+  )
+```
+
+### Linear, Separable Case
+The penguins data set contains morphological measurements for individual penguins collected in the Palmer Archipelago, Antarctica. It includes observations from three species: Adélie, Chinstrap, and Gentoo—and records key physical characteristics such as bill length, bill depth, flipper length, body mass, sex, and island of origin. The data are commonly used for demonstrating exploratory data analysis, visualization, and classification methods, as the species show both overlap and separation in their physical traits.
+
+Here, we merge the Adélie and Chinstrap groups and restrict the analysis to two dimensions, using bill depth and flipper width as the discriminating variables. A helper function is used to plot an approximate version of the margin. note that we use `ggplot2` here it needs to be loaded.
+
+```{r}
+#| label: helper
+#| message: false
+
+# Helper to reproduce the plot (points, SV squares, margin lines)
+sepLinePlot <- function(svm_fit, data,
+                        xvar = "flipper_len",
+                        yvar = "bill_dep") {
+
+  # response + class colors
+  yname <- all.vars(formula(svm_fit))[1]
+  cls <- factor(data[[yname]])
+  cols <- c("red", "green")[as.integer(cls)]
+
+  plot(data[[xvar]], data[[yvar]],
+       col = cols, pch = 1,
+       xlab = xvar, ylab = yvar)
+
+  # compute w and b from e1071 internals
+  w <- as.numeric(t(svm_fit$coefs) %*% svm_fit$SV)
+  names(w) <- colnames(svm_fit$SV)
+  b <- -svm_fit$rho
+
+  # pull the correct coefficients for the plotted axes
+  wx <- w[[xvar]]
+  wy <- w[[yvar]]
+
+  xseq <- seq(min(data[[xvar]], na.rm = TRUE),
+              max(data[[xvar]], na.rm = TRUE),
+              length.out = 200)
+
+  # if wy ~ 0 => vertical boundary in this coordinate system
+  if (abs(wy) < 1e-12) {
+    x0 <- -b / wx
+    abline(v = x0, col = "cyan", lwd = 2)
+    abline(v = (-b + 1) / wx, col = "cyan", lty = 2)
+    abline(v = (-b - 1) / wx, col = "cyan", lty = 2)
+  } else {
+    y0  <- -(wx * xseq + b) / wy
+    yP1 <- -(wx * xseq + b - 1) / wy
+    yM1 <- -(wx * xseq + b + 1) / wy
+
+    lines(xseq, y0,  col = "cyan", lwd = 2)
+    lines(xseq, yP1, col = "cyan", lty = 2)
+    lines(xseq, yM1, col = "cyan", lty = 2)
+  }
+
+  # support vectors as grey squares
+  points(svm_fit$SV[, xvar],
+         svm_fit$SV[, yvar],
+         pch = 0, cex = 1.6, lwd = 1.2, col = "grey60")
+}
+```
+
+```{r}
+#| label: svm-lin
+#| message: false
+#| fig-height: 7
+#| fig-width: 7
+library(ggplot2)
+
+#merge Adelie & Chinstrap species to make the problem easier
+penguins_12_3 <- penguins %>%
+  mutate(species=dplyr::recode(species,`Adelie`="Adel/Chin",`Chinstrap`="Adel/Chin"))
+
+
+# Fit model, no scaling (important for plotting lines in original units)
+sv.fit.lin0 <- e1071::svm(
+  species ~ bill_dep + flipper_len,
+  data   = penguins_12_3,
+  kernel = "linear",
+  scale  = FALSE
+)
+
+# Plot
+sepLinePlot(sv.fit.lin0, penguins_12_3)
+
+```
+The solid line represents the separating (hyper)plane, while the margins are shown as dashed lines. The margin is constructed by widening the separating line until it just touches points on either side of the boundary, known as support vectors, with the margin edges remaining parallel to the separating plane.
+
+### Non-Separable Case
+As an example, consider the penguins data while ignoring the Gentoo species, which results in a non-separable case with imperfectly separated groups. The analysis is restricted to two dimensions, using bill length and bill depth as the discriminating variables. In this setting there is no clean separating line between the groups; instead, the algorithm accommodates this by allowing slack, permitting a limited amount of crossover within the margin, as will be discussed in more detail later.
+
+```{r}
+#| label: svm-lin2
+#| message: false
+#| fig-height: 7
+#| fig-width: 7
+
+# keep only Adelie and Chinstrap
+penguins_1_2 <- penguins %>% 
+  dplyr::filter(species != "Gentoo")
+
+# fit linear SVM 
+sv.fit.lin <- e1071::svm(
+  species ~ bill_len + bill_dep,
+  data   = penguins_1_2,
+  kernel = "linear",
+  scale  = FALSE
+)
+
+# plot using the helper (bill_len on x, bill_dep on y)
+sepLinePlot(
+  sv.fit.lin,
+  penguins_1_2,
+  xvar = "bill_dep",
+  yvar = "bill_len"
+)
+```
+This plot shows the result of fitting a linear soft-margin support vector machine to the Adélie and Chinstrap penguins using bill depth (horizontal axis) and bill length (vertical axis).
+
+Each point represents an individual penguin, with colour indicating species. The solid cyan line is the estimated separating hyperplane, and the dashed cyan lines indicate the margins on either side. Because the two species overlap substantially in this two-dimensional feature space, there is no clean separating line. As a result, the fitted margin passes through dense regions of both classes.
+
+The square-boxed points are the support vectors. In this non-separable setting, these include not only points lying exactly on the margin, but also points inside the margin and some that are on the wrong side of the separating line. These observations are the ones that determine the position and orientation of the hyperplane.
+
+Many observations fall within the margin and several lie on the “wrong” side of the separating line. This illustrates the role of **slack variables** in a soft-margin SVM: the algorithm allows violations of the margin, and even misclassifications, in order to achieve the best overall trade-off between margin width and classification error. Given the restriction to two variables and a linear decision boundary, this plot represents about as good a separation as can be achieved for these two species.
+
+Each element of the slack vector  
+$$
+\boldsymbol{\varepsilon} = (\varepsilon_1, \ldots, \varepsilon_n)^\top
+$$
+
+is known as the *slack* for a given observation. The slack variables quantify how far each point lies from the margin for its assigned group and can be viewed as allowances for observations that fall on the “wrong side” of the separating plane, playing a role analogous to residuals in regression.
+
+When $\varepsilon_i = 0$, observation $i$ lies on the correct side of the margin. If $0 < \varepsilon_i \leq 1$, observation $i$ is still on the correct side of the separating plane but lies within the margin; such points are classified correctly, although in the case of perfectly separable groups no observations fall within the margin. When $\varepsilon_i > 1$, observation $i$ lies on the wrong side of the separating plane and is therefore misclassified.
+
+The margin width $M$ and the cost parameter $C$ work together to control the use of slack. In this formulation, decreasing the cost $C$ allows more slack, which in turn results in a larger number of support vectors and greater tolerance for margin violations.
+
+### Using e1071 Package
+We have tried to align the above formulation with the implementation of the support vector machine in the `svm` function from the `e1071` package. In particular, we use the cost parameter $C$ to modify the separating plane and illustrate the consequences of this choice. Shown next is the final SVM classification for the second example using the default cost $C = 1$, which results in several misclassified observations.
+
+```{r}
+#| label: svm-alt
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+
+plot(sv.fit.lin,penguins_1_2,formula=bill_dep ~ bill_len)
+```
+
+In this plot, group membership is indicated by the colour of the symbols, from which it can be seen that there are seven misclassified observations. Points are shown with an open circle when they are not support vectors and with a cross when they are support vectors. The plot reveals a relatively large number of support vectors, in contrast to the seven support vectors observed in the completely separable case. We now decrease the cost parameter $C$, forcing the margin $M$ to shrink in order to accommodate the slack associated with the misclassified observations, which in turn increases the number of support vectors used. The advantage of decreasing $C$, and hence increasing the number of support vectors, is that the resulting separating plane becomes less sensitive to a small number of outlying observations. The results for $C = 0.01$ are shown next.
+
+```{r}
+#| label: svm-alt-lowC
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+
+sv.fit.lin.lowCost <- svm(species ~ bill_len+bill_dep, data = penguins_1_2,kernel='linear',cost=0.01)
+plot(sv.fit.lin.lowCost,penguins_1_2,formula=bill_dep ~ bill_len)
+
+summary(sv.fit.lin.lowCost)
+
+```
+
+The summary of the fitted model shows that 129 support vectors were used, and the separating line can be seen to have shifted in an interesting way. There are now more misclassified observations, almost all of which belong to the Chinstrap species. This suggests that some of the original support vectors may have been overly influential; however, the adjustment has also introduced additional classification error.
+
+## The Kernel Trick
+The kernel trick is a concept that underlies a wide range of machine learning techniques and is based on two key ideas. First, groups that are not linearly separable in $p$ dimensions may become separable in a higher-dimensional space of dimension $q > p$ through an appropriate transformation. Second, rather than explicitly computing this transformation, training the model in the higher-dimensional space, and then making predictions on new data, we can instead use a kernel function with a suitable inner product, which leads to an equivalent optimization problem and solution without ever working directly in the higher-dimensional space.
+
+A rather extreme example using two circles helps illustrate the idea. Let one group be defined by the relationship  
+$X_1^2 + X_2^2 = 2^2$,  
+and the other by  
+$X_1^2 + X_2^2 = 1^2$.
+
+If we transform the two-dimensional relationships into three dimensions using the mapping  
+$(X_1, X_2) \mapsto (X_1, X_2, X_1^2 + X_2^2)$,  
+the two groups become clearly separable.
+
+Note that we need an extra package for 3D plots. We also plot the 2D original set of relationships for comparison.
+
+```{r}
+#| label: rad-example
+
+library(plot3D) # install if needed
+
+set.seed(1001)
+x1 <- runif(100, -2, 2); y1 <- sqrt(4 - x1^2)
+x2 <- runif(100, -1, 1); y2 <- sqrt(1 - x2^2)
+df <- data.frame(
+  x1 = c(x1, x1, x2, x2),
+  x2 = c(y1, -y1, y2, -y2)
+)
+df$z <- df$x1^2 + df$x2^2
+plot3D::scatter3D(df$x1, df$x2, df$z)
+
+# 2d correspondence
+plot(x2~x1,data=df,col=c(4,2,2,3)[round(z)]) 
+
+```
+
+
+Before going into details, we run svm on the circle data using several different kernels. First the linear:
+
+```{r}
+#| label: svm-rad1
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+
+sv.circ.lin <- svm(factor(z)~ x1+x2,data = df, kernel='linear')
+plot(sv.circ.lin,df,formula=x2~x1,main="Linear Kernel")
+```
+
+
+Using the Radial Kernel we get:
+
+```{r}
+#| label: svm-rad2
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+
+sv.circ.rad <- svm(factor(z)~ x1+x2,data = df, kernel='radial')
+plot(sv.circ.rad,df,formula=x2~x1)
+```
+
+### Back to the Penguin Data
+Here a support vector machine with a radial kernel is fitted to the penguin data using bill length and bill depth as predictors. The radial kernel implicitly maps the data into a higher-dimensional feature space, allowing the classifier to learn a non-linear decision boundary between the species. The subsequent plot displays this non-linear separating boundary in the original two-dimensional feature space, illustrating how the radial kernel can capture complex class structure that a linear SVM cannot.
+```{r}
+#| label: svm-rad-peng
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+sv.fit.rad <- svm(species ~ bill_len+bill_dep, data = penguins_1_2, kernel='radial')
+plot(sv.fit.rad,penguins_1_2,formula=bill_dep ~ bill_len)
+```
+We can adjust the model parameters to improve classification performance, but care must be taken to avoid overfitting; in practice, methods such as cross-validation should be used to select these parameters. 
+
+Below, the parameter $\gamma$ is increased to 2, which accentuates large differences between points. 
+```{r}
+#| label: svm-rad-gam2
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+sv.fit.rad.gam2 <- svm(species ~ bill_len+bill_dep, data = penguins_1_2,kernel='radial', gamma=2)
+plot(sv.fit.rad.gam2, penguins_1_2, formula=bill_dep ~ bill_len)
+```
+
+
+###  SVM with more than two groups
+The basic idea is to apply the support vector machine recursively, comparing one group against all remaining groups, then comparing the second group against groups three and higher, and so on. As a final example, all species in the penguins data are used, with both linear and radial kernel fits under default settings. 
+
+```{r}
+#| label: svm-lin-cat3
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+sv.fit.lin_all3 <- svm(species ~ bill_len + bill_dep, data = penguins,kernel='linear')
+plot(sv.fit.lin_all3, penguins, formula=bill_dep ~ bill_len)
+```
+
+
+As before, Gentoo is easy to separate from the other species, but this multiclass extension does not substantially improve predictive performance. Distinguishing Adélie from Chinstrap remains difficult near the decision boundary, and the radial kernel provides only a modest improvement.
+
+The radial variant is as follows:
+```{r}
+#| label: svm-rad-cat3
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+
+sv.fit.rad_all3 <- svm(species ~ bill_len + bill_dep, data = penguins, kernel='radial')
+plot(sv.fit.rad_all3,penguins,formula=bill_dep ~ bill_len)
+```
+
+## Cross Validation
+As done previously in this course, the basic idea is to withhold a portion of the training data and use it as a test set. First, one loops over the open tuning parameters, such as $C$ and $\gamma$, fitting the model on the training set while holding these parameters fixed. The fitted model is then evaluated on the test set, and this process is repeated for all parameter combinations. The parameter values that yield the best performance are then selected. We applied this approach to the penguins data, still attempting classification using only two features. 
+
+A grid search is conducted over $C = 0.01, 0.1, 1, 10, 100$ and $\gamma = 0.5, 1, 2, 3, 4$. Somewhat surprisingly, the default parameter values performed best in this case.
+
+```{r}
+#| label: svm-cv
+#| message: false
+set.seed(1001)
+tune.out <- tune(svm, species ~., data=penguins, kernel='radial', ranges = list(cost=c(0.01,0.1,1,10,100),gamma=c(0.5,1,2,3,4)))
+summary(tune.out)
+```
+
+
+::: {.callout-note}
+Dispersion, as shown above, is analogous to a root mean squared error (RMSE),
+$$
+\mathrm{rmse} = \sqrt{\frac{1}{n}\sum_i \left(\hat{y}_i - y_i\right)^2},
+$$
+and is a quantity we seek to minimize. However, it is possible to choose parameter values that yield improved within-sample performance but do not translate into improved out-of-sample performance.
+:::
+
+Our final model is thus:
+```{r}
+#| label: svm-final-peng
+#| message: false
+#| fig-height: 6
+#| fig-width: 8
+sv.fit.rad_all3 <- svm(species ~ bill_len+bill_dep, data= penguins, kernel='radial', cost=1, gamma=.5)
+plot(sv.fit.rad_all3, penguins, formula = bill_dep ~ bill_len)
+```
+
+## Exercise: Radial Kernels and Nonlinear Decision Boundaries
+
+This section explores the use of **radial kernels** to allow decision boundaries to be both non-linear and non-contiguous. As a reminder, the linear and radial (sometimes called Gaussian) kernels are defined as follows.
+
+**Linear kernel:**
+
+$$
+K(\mathbf{X}_i, \mathbf{X}_j) = \langle \mathbf{X}_i, \mathbf{X}_j \rangle,
+$$
+
+where $\langle \cdot \rangle$ denotes the standard vector inner product, as defined in the notes.
+
+**Radial kernel:**
+
+$$
+K(\mathbf{X}_i, \mathbf{X}_j) = \exp\!\left(-\gamma \lVert \mathbf{X}_i - \mathbf{X}_j \rVert^2\right).
+$$
+
+This kernel is based on a distance measure and includes a single tuning parameter $\gamma$, which controls the influence of large distances between observations. Larger values of $\gamma$ emphasize local structure, while smaller values lead to smoother decision boundaries. We briefly explore the effect of this parameter here, with a more detailed discussion deferred to the next class.
+
+For the following exercises, we use the **Australian Crabs** data (`crabs`), a benchmark data set that is notoriously difficult to cluster and relatively challenging to classify. The five primary predictors (measurements) are abbreviated as **FL**, **RW**, **CL**, **CW**, and **BD**. 
+The data needs to be preprocessed so that sex and species are combined into a single categorical variable, `group`, with four levels:
+
+1. Blue Males  
+2. Orange Males  
+3. Blue Females  
+4. Orange Females  
+
+In most analyses, we do not explicitly split the data into training and test sets. Instead, we rely on various forms of cross-validation to properly assess out-of-sample performance.
+
+You are asked to compare and contrast SVM fits using the raw measures.
+
+- Run `svm` with the following formula using all five measures: `group ~ FL + RW + CL + CW + BD`, first with the **linear** kernel and then with the **radial** kernel.
+- Compare the **accuracy** (and optionally the **confusion matrices**) for these two runs.
+- If the radial-kernel fit performs worse, adjust the tuning parameter by setting `gamma` to 2, 4, or even 10, and then compare the accuracy of this updated fit.
+- If you would like to visualize the fits, try plotting **RW vs. CW**, but you must set `slice` to reasonable values for the remaining features.
+
+
+Determine if the following statements are **true/false** based on your output:
+
+1. The crabs data, examined using raw features seems to be divisible into groups using linear 'cuts'
+2. In order to perform well, use of the radial kernel requires higher penalties for large distances between observations
+3. Visualization of the svm solution is hindered by our choice for the slice?
+
+
