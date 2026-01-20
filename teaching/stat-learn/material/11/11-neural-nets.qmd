@@ -1,0 +1,647 @@
+---
+title: "Neural Networks"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+
+# Review
+
+Neural Networks are great. Their flexibility (layers...connections...activation functions...and more!) allows you to build complex models that can accurately model complex relationships between predictors and outcomes. But I want to caution you: Neural Networks aren't magic. I often see people using them unnecessarily, just because they sound cool. If you're going to use NN's, make sure they're the right tool for your problem.
+
+When building a neural network you need to think about 2 (main) things:
+
+1.  The Structure of the model (nodes/connections/activation functions)
+2.  The Loss Function (how do we measure how well our model is doing?)
+
+## Installing necessary packages
+
+When working with neural networks in R, you may encounter two packages: **`keras`** and **`keras3`**. The older **`keras`** package is an R interface to the TensorFlow-specific version of Keras (often called Keras 2), which means it only works with **TensorFlow**. The newer **`keras3`** package connects R to **Keras 3**, the modern version of **Keras**, which is designed to work with multiple backends (such as TensorFlow, JAX, or PyTorch). Because Keras 3 represents the current and future direction of the framework, **`keras3` is the recommended choice for new neural network work**.
+
+When learning neural networks, you should generally use **`keras3` with the TensorFlow backend**. This setup is actively maintained, aligns with up-to-date tutorials, and is well supported in both R and Python ecosystems. You should only use the older **`keras`** package if you are working with legacy code that specifically depends on TensorFlow-only Keras. To get started, first install the R package and then install a backend. If you are new to neural networks, TensorFlow is the recommended backend:
+
+```{r}
+#| label: instruction1
+#| eval: false
+install.packages("keras3")
+keras3::install_keras()
+```
+
+This command automatically sets up a compatible Python environment and installs TensorFlow for you. After completing these steps, you can immediately begin building and training neural networks in R using keras3.
+
+## Simple NN
+
+The code below loads a music dataset, selects four audio features to predict valence, and standardizes the inputs so they are on the same scale. It then builds and trains a simple neural network with one linear output node, equivalent in form to a linear regression model, using mean squared error and stochastic gradient descent over five training epochs.
+
+```{r}
+#| label: load-scale-data
+#| message: false
+#| warning: false
+library(tidyverse)  
+
+# Read the data
+df <- read.csv("11-data/Music_data.csv")
+
+# Define feature columns and target
+feats <- c("danceability", "energy", "loudness", "acousticness")
+predict <- "valence"
+
+# Print the shape of the data frame (rows, columns)
+print(dim(df))
+
+# Select features and target
+X <- df[, feats]
+y <- df[, predict]
+
+# Standardize the features (mean = 0, sd = 1)
+X <- scale(X)
+```
+
+The model below has the same shape as a simple linear regression, like we talked about in lecture. It has an input layer with 4 inputs ("danceability", "energy", "loudness","acousticness"), and 1 output layer for "valence".
+
+We will use the package `keras3`.
+
+```{r}
+#| label: linear-mod-net
+#| message: false
+#| warning: false
+
+library(keras3)
+
+# structure of the model
+nn_model <- keras_model_sequential() %>%
+  layer_dense(
+    units = 1,
+    input_shape = c(4)   # same as input_shape=[4]
+  )
+
+# how to train the model
+nn_model %>% compile(
+  loss = "mean_squared_error",
+  optimizer = optimizer_sgd()
+)
+
+# fit the model (same idea as sklearn / Python Keras)
+nn_model %>% fit(
+  x = X,
+  y = y,
+  epochs = 5
+)
+```
+
+We next fit linear regression model is using the selected features to predict the target variable. The model estimates the relationship between each predictor and the response by finding the coefficients that minimize the sum of squared errors, using the entire dataset without any validation or train–test split.
+
+```{r}
+#| label: linear-mod-lm
+#| message: false
+#| warning: false
+
+# Convert to data frame for lm()
+df_lm <- data.frame(X, y = y)
+
+# Build and fit the linear regression model
+model <- lm(y ~ ., data = df_lm)
+
+# View model summary
+summary(model)
+```
+
+Now we extract the coefficients and intercept from the linear model:
+
+```{r}
+#| label: coeff-lm
+#| message: false
+#| warning: false
+# get coefficients (including intercept)
+coef(model)
+```
+
+We get the weights from the neural net, which for this model with one dense layer will be a list containing:
+
+1.  A weight matrix (coefficients for each input feature)
+2.  A bias term
+
+```{r}
+#| label: weights
+#| message: false
+#| warning: false
+# get weights from Neural Network
+weights <- get_weights(nn_model) 
+
+weights
+```
+
+The output lists the intercept and feature coefficients of the linear regression model, which directly correspond to the learned weights indicating how strongly and in what direction each input feature influences the predicted target value.
+
+> What happens to the weights from our neural net as you **increase** the number of epochs (compare to the coefs from the linear regression model)?
+
+```{r}
+#| label: plus-eopchs
+#| message: false
+#| warning: false
+
+# ----- Linear regression coefficients -----
+lm_model <- lm(y ~ ., data = data.frame(X, y))
+lm_coefs <- coef(lm_model)[-1]   # exclude intercept
+lm_intercept <- coef(lm_model)[1]
+
+# ----- Train neural nets with increasing epochs -----
+epoch_list <- c(1, 5, 20, 100, 200)
+
+nn_weights <- lapply(epoch_list, function(e) {
+  
+  nn_model <- keras_model_sequential() %>%
+    layer_dense(units = 1, input_shape = c(ncol(X)))
+  
+  nn_model %>% compile(
+    loss = "mean_squared_error",
+    optimizer = optimizer_sgd()
+  )
+  
+  nn_model %>% fit(
+    X, y,
+    epochs = e,
+    verbose = 0
+  )
+  
+  # extract weights (matrix) and bias
+  w <- get_weights(nn_model)
+  list(
+    epochs = e,
+    weights = as.vector(w[[1]]),
+    bias = w[[2]]
+  )
+})
+
+# ----- View results -----
+nn_weights
+lm_coefs
+```
+
+Note the following:
+
+-   As epochs increase, the neural network weights stabilize and converge
+-   With a single dense layer and MSE loss, the neural net is effectively learning a linear regression
+-   The final neural network weights become very close to the linear regression coefficients
+-   Differences at low epochs are due to incomplete optimization
+
+## Parameter Bloat
+
+Remember that a densely connected layer is connected to EVERY node in the layer before and after it. The parameters can add up QUICKLY.
+
+> What do you think can happen when you have a ton of parameters and only a little data?
+
+When you have many parameters but very little data, the model is likely to overfit, meaning it learns noise and random fluctuations instead of the true underlying pattern, resulting in poor performance on new, unseen data.
+
+# MNIST
+
+For this part of our practical, we will need some helper mdodeling packages besides `keras3`:
+
+```{r}
+#| label: more-pckgs
+#| message: false
+#| warning: false
+
+# Modeling packages
+library(keras3)         # for fitting DNNs
+
+```
+
+We’ll use the `MNIST` data to illustrate various DNN concepts. With DNNs, it is important to note a few items:
+
+-   Feedforward DNNs require all feature inputs to be numeric. Consequently, if your data contains categorical features they will need to be numerically encoded (e.g., one-hot encoded, integer label encoded, etc.).
+-   Due to the data transformation process that DNNs perform, they are highly sensitive to the individual scale of the feature values. Consequently, we should standardize our features first. Although the MNIST features are measured on the same scale (0–255), they are not standardized (i.e., have mean zero and unit variance); the code chunk below standardizes the MNIST data to resolve this.35
+-   Since we are working with a multinomial response (0–9), keras requires our response to be a one-hot encoded matrix, which can be accomplished with the keras function `to_categorical()`.
+
+```{r}
+#| label: load-scale-mnist
+#| message: false
+#| warning: false
+# Import MNIST training data
+mnist <- dslabs::read_mnist()
+mnist_x <- mnist$train$images
+mnist_y <- mnist$train$labels
+
+# Rename columns and standardize feature values
+colnames(mnist_x) <- paste0("V", 1:ncol(mnist_x))
+mnist_x <- mnist_x / 255
+
+# One-hot encode response
+mnist_y <- to_categorical(mnist_y, 10)
+```
+
+Next we focus on the two features that are needed for the network architecture of a feedforward DNN: (1) layers and nodes, and (2) activation.
+
+First, we initiate our sequential feedforward DNN architecture with `keras_model_sequential()` and then add some dense layers. This example creates two hidden layers, the first with 128 nodes and the second with 64, followed by an output layer with 10 nodes. One thing to point out is that the first layer needs the `input_shape` argument to equal the number of features in your data; however, the successive layers are able to dynamically interpret the number of expected inputs based on the previous layer.
+
+```{r}
+#| label: ffDNN
+#| message: false
+#| warning: false
+model <- keras_model_sequential() %>%
+  layer_dense(units = 128, input_shape = ncol(mnist_x)) %>%
+  layer_dense(units = 64) %>%
+  layer_dense(units = 10)
+```
+
+To control the activation functions used in our layers we specify the `activation` argument. For the two hidden layers we add the ReLU activation function and for the output layer we specify `activation = softmax` (since MNIST is a multinomial classification problem).
+
+```{r}
+#| label: ffDNN-act
+#| message: false
+#| warning: false
+model <- keras_model_sequential() %>%
+  layer_dense(units = 128, activation = "relu", input_shape = ncol(mnist_x)) %>%
+  layer_dense(units = 64, activation = "relu") %>%
+  layer_dense(units = 10, activation = "softmax")
+```
+
+Next, we need to incorporate a feedback mechanism to help our model learn.
+
+## Backpropagation
+
+On the first run (or forward pass), the DNN will select a batch of observations, randomly assign weights across all the node connections, and predict the output. The engine of neural networks is how it assesses its own accuracy and automatically adjusts the weights across all the node connections to improve that accuracy. This process is called **backpropagation**. To perform backpropagation we need two things:
+
+-   An objective function;
+-   An optimizer.
+
+First, you need to establish an objective (loss) function to measure performance. For regression problems this might be mean squared error (MSE) and for classification problems it is commonly binary and multi-categorical cross entropy. DNNs can have multiple loss functions but we’ll just focus on using one.
+
+On each forward pass the DNN will measure its performance based on the loss function chosen. The DNN will then work backwards through the layers, compute the gradient of the loss with regards to the network weights, adjust the weights a little in the opposite direction of the gradient, grab another batch of observations to run through the model,... rinse and repeat until the loss function is minimized. This process is known as mini-batch stochastic gradient descent (mini-batch SGD). There are several variants of mini-batch SGD algorithms; they primarily differ in how fast they descend the gradient (controlled by the learning rate). These different variations make up the different optimizers that can be used.
+
+To incorporate the backpropagation piece of our DNN we include `compile()` in our code sequence. In addition to the optimizer and loss function arguments, we can also identify one or more metrics in addition to our loss function to track and report.
+
+```{r}
+#| label: ffDNN-bp
+#| message: false
+#| warning: false
+model <- keras_model_sequential() %>%
+  
+  # Network architecture
+  layer_dense(units = 128, activation = "relu", input_shape = ncol(mnist_x)) %>%
+  layer_dense(units = 64, activation = "relu") %>%
+  layer_dense(units = 10, activation = "softmax") %>%
+  
+  # Backpropagation
+  compile(
+    loss = 'categorical_crossentropy',
+    optimizer = optimizer_rmsprop(),
+    metrics = c('accuracy')
+  )
+```
+
+We’ve created a base model, now we just need to train it with some data. To do so we feed our model into a `fit()` function along with our training data. We also provide a few other arguments that are worth mentioning:
+
+-   `batch_size`: As we mentioned in the last section, the DNN will take a batch of data to run through the mini-batch SGD process. Batch sizes can be between one and several hundred. Small values will be more computationally burdensome while large values provide less feedback signal. Values are typically provided as a power of two that fit nicely into the memory requirements of the GPU or CPU hardware like 32, 64, 128, 256, and so on.
+-   `epochs`: An epoch describes the number of times the algorithm sees the entire data set. So, each time the algorithm has seen all samples in the data set, an epoch has completed. In our training set, we have 60,000 observations so running batches of 128 will require 469 passes for one epoch. The more complex the features and relationships in your data, the more epochs you’ll require for your model to learn, adjust the weights, and minimize the loss function.
+-   `validation_split`: The model will hold out XX% of the data so that we can compute a more accurate estimate of an out-of-sample error rate.
+-   `verbose`: We set this to FALSE for brevity; however, when TRUE you will see a live update of the loss function in your RStudio IDE.
+
+Plotting the output shows how our loss function (and specified metrics) improve for each epoch. We see that our model’s performance is optimized at 5–10 epochs and then proceeds to overfit, which results in a flatlined accuracy rate.
+
+```{r}
+#| label: ffDNN-fit
+#| message: false
+#| warning: false
+# Train the model
+fit1 <- model %>%
+  fit(
+    x = mnist_x,
+    y = mnist_y,
+    epochs = 25,
+    batch_size = 128,
+    validation_split = 0.2,
+    verbose = FALSE
+  )
+
+# Display output
+fit1
+
+plot(fit1)
+```
+
+This plot shows that as training progresses, training accuracy continues to increase and training loss keeps decreasing, while validation accuracy plateaus and validation loss begins to rise, indicating that the model starts to overfit after a certain number of epochs; learning the training data very well but no longer improving (and even worsening) its performance on unseen data.
+
+## Model Tuning
+
+Now that we have an understanding of producing and running a DNN model, the next task is to find an optimal one by tuning different hyperparameters. There are many ways to tune a DNN. Typically, the tuning process follows these general steps; however, there is often a lot of iteration among these:
+
+-   Adjust model capacity (layers & nodes);
+-   Add batch normalization;
+-   Add regularization;
+-   Adjust learning rate.
+
+### Model Capacity
+
+We aim to maximize predictive performance while keeping model capacity as low as possible, since higher capacity allows a model to learn more patterns but also increases the risk of overfitting. Therefore, we focus on improving validation performance rather than training performance, and compare multiple model capacity settings with different numbers of layers and nodes while keeping all other parameters fixed.
+
+#### Exercise
+
+The table below summarizes different model capacities you should evaluate, defined by the number of hidden layers and nodes per layer.
+
+| Size   | 1 Hidden Layer | 2 Hidden Layers | 3 Hidden Layers |
+|--------|----------------|-----------------|-----------------|
+| Small  | 16             | 16, 8           | 16, 8, 4        |
+| Medium | 64             | 64, 32          | 64, 32, 16      |
+| Large  | 256            | 256, 128        | 256, 128, 64    |
+
+: Model capacities assessed, represented by the number of hidden layers and nodes per layer.
+
+```{r}
+#| label: mod-cap
+#| message: false
+#| warning: false
+#| eval: false
+#| fig-height: 7
+#| fig-width: 10
+
+
+# -------------------------------------------------
+# Table variants to run (size x # hidden layers)
+# -------------------------------------------------
+variants <- tribble(
+  ~size,   ~layers, ~units,
+  "small",  1,      c(16),
+  "small",  2,      c(16, 8),
+  "small",  3,      c(16, 8, 4),
+  "medium", 1,      c(64),
+  "medium", 2,      c(64, 32),
+  "medium", 3,      c(64, 32, 16),
+  "large",  1,      c(256),
+  "large",  2,      c(256, 128),
+  "large",  3,      c(256, 128, 64)
+) %>%
+  mutate(layers_lab = paste(layers, "layer"))
+
+
+### Continue code here.....
+```
+
+::: callout-note
+If your models do not reach a stable (flatlined) validation error, increase the number of training epochs. Conversely, if validation error stabilizes early, continuing to train wastes computational resources without improving performance. To address this, you can use callbacks within `fit()` to automate training decisions. One commonly used callback is early stopping, which halts training when the loss function fails to improve for a specified number of epochs.
+:::
+
+### Batch Normalization
+
+Although we normalized the input data before feeding it into the model, normalization remains important throughout the entire network, not just at the input stage. As data passes through each layer, its distribution can change during training. Batch normalization addresses this issue by adaptively normalizing layer outputs as their mean and variance shift over time. The primary benefit of batch normalization is improved gradient propagation, which makes training deeper neural networks more stable and efficient. As a result, the deeper your network becomes, the more important batch normalization is, and it can lead to better overall performance.
+
+```{r}
+#| label: b-norm
+#| message: false
+#| warning: false
+model_w_norm <- keras_model_sequential() %>%
+  
+  # Network architecture with batch normalization
+  layer_dense(units = 256, activation = "relu", input_shape = ncol(mnist_x)) %>%
+  layer_batch_normalization() %>%
+  layer_dense(units = 128, activation = "relu") %>%
+  layer_batch_normalization() %>%
+  layer_dense(units = 64, activation = "relu") %>%
+  layer_batch_normalization() %>%
+  layer_dense(units = 10, activation = "softmax") %>%
+
+  # Backpropagation
+  compile(
+    loss = "categorical_crossentropy",
+    optimizer = optimizer_rmsprop(),
+    metrics = c("accuracy")
+  )
+```
+
+Now try to add batch normalization to each of the previously assessed models, you should see a couple patterns emerge. One, batch normalization often helps to minimize the validation loss sooner, which increases efficiency of model training. Two, we see that for the larger, more complex models (3-layer medium and 2- and 3-layer large), batch normalization helps to reduce the overall amount of overfitting.
+
+### Regularization
+
+Placing constraints on a model’s complexity through regularization is a common way to reduce overfitting, and deep neural networks are no exception. Two widely used regularization approaches are the (L_1) and (L_2) penalties, which add a cost based on the magnitude of the model’s weights. In practice, the (L_2) norm, often referred to as weight decay in neural networks, is the most commonly used. Weight regularization encourages small, noisy signals to have weights close to zero while allowing consistently strong signals to retain larger weights.
+
+::: callout-note
+As the number of layers and nodes increases, regularization using (L_1) or (L_2) penalties tends to have a greater impact on model performance. Because large models are more prone to overparameterization, these penalties help shrink unnecessary weights toward zero, reducing the risk of overfitting.
+:::
+
+We can apply (L_1), (L_2), or a combination of both penalties by adding `regularizer_XX()` to each layer.
+
+```{r}
+#| label: regul
+#| message: false
+#| warning: false
+
+# L2 (weight decay) regularizer
+l2_reg <- regularizer_l2(0.001)
+
+model_w_reg <- keras_model_sequential()  %>% 
+  layer_dense(
+    units = 256,
+    activation = "relu",
+    input_shape = c(ncol(mnist_x)),
+    kernel_regularizer = l2_reg
+  )  %>% 
+  layer_batch_normalization()  %>% 
+  layer_dense(
+    units = 128,
+    activation = "relu",
+    kernel_regularizer = l2_reg
+  )  %>% 
+  layer_batch_normalization()  %>% 
+  layer_dense(
+    units = 64,
+    activation = "relu",
+    kernel_regularizer = l2_reg
+  )  %>% 
+  layer_batch_normalization()  %>% 
+  layer_dense(units = 10, activation = "softmax")
+
+model_w_reg  %>% 
+  compile(
+    optimizer = optimizer_rmsprop(),
+    loss = "categorical_crossentropy",
+    metrics = "accuracy"
+  )
+
+# Fit (same settings you used)
+fit2 <- model_w_reg  %>% 
+  fit(
+    x = mnist_x,
+    y = mnist_y,
+    epochs = 25,
+    batch_size = 128,
+    validation_split = 0.2,
+    verbose = 0
+  )
+
+fit2
+plot(fit2)
+```
+
+Compared to the model before regularization, this figure shows that regularization reduces overfitting but slightly limits peak performance.
+
+In the unregularized model, training accuracy quickly approaches 100% and training loss goes to near zero, while validation loss begins to increase after several epochs, clear evidence that the model is memorizing the training data. After adding regularization, training improves more gradually and does not reach the same extreme levels, but validation loss stabilizes instead of rising and validation accuracy remains more consistent. This indicates that regularization constrains the model’s complexity, preventing it from fitting noise and leading to better generalization to unseen data.
+
+Dropout is another widely used regularization technique for reducing overfitting in neural networks. During training, dropout randomly sets a proportion of a layer’s output units to zero, which prevents the model from relying too heavily on any single feature or accidental patterns in the data. Typical dropout rates range from 0.2 to 0.5, though the optimal value depends on the dataset and must be tuned. Dropout is applied between layers using `layer_dropout()`.
+
+## Adjust learning rate
+
+Another important consideration is whether the optimization process converges to a global minimum or becomes trapped in a local minimum. Mini-batch stochastic gradient descent updates the model by taking small steps along the loss gradient, and the learning rate controls the size of these steps. If the learning rate is poorly chosen, the optimizer may stall in a local minimum rather than progressing toward the global minimum.
+
+There are two main ways to address this issue. First, different optimizers (such as RMSProp, Adam, and Adagrad) use distinct strategies for adapting the learning rate, so we can either switch optimizers or manually tune the learning rate for a given optimizer. Second, the learning rate can be reduced automatically, often by a factor of 2 to 10, once the validation loss stops improving. Building on an optimal model, we switch to the Adam optimizer and decrease the learning rate by a factor of 0.05 as loss improvements begin to stall, while also incorporating early stopping to avoid unnecessary training time.
+
+```{r}
+#| label: lern-rate
+#| message: false
+#| warning: false
+model_w_adj_lrn <- keras_model_sequential() %>%
+  layer_dense(units = 256, activation = "relu", input_shape = ncol(mnist_x)) %>%
+  layer_batch_normalization() %>%
+  layer_dropout(rate = 0.4) %>%
+  layer_dense(units = 128, activation = "relu") %>%
+  layer_batch_normalization() %>%
+  layer_dropout(rate = 0.3) %>%
+  layer_dense(units = 64, activation = "relu") %>%
+  layer_batch_normalization() %>%
+  layer_dropout(rate = 0.2) %>%
+  layer_dense(units = 10, activation = "softmax") %>%
+  compile(
+    loss = 'categorical_crossentropy',
+    optimizer = optimizer_adam(),
+    metrics = c('accuracy')
+  ) %>%
+  fit(
+    x = mnist_x,
+    y = mnist_y,
+    epochs = 35,
+    batch_size = 128,
+    validation_split = 0.2,
+    callbacks = list(
+      callback_early_stopping(patience = 5),
+      callback_reduce_lr_on_plateau(factor = 0.05)
+      ),
+    verbose = FALSE
+  )
+
+model_w_adj_lrn
+
+# Optimal
+min(model_w_adj_lrn$metrics$val_loss)
+max(model_w_adj_lrn$metrics$val_acc)
+
+# Learning rate
+plot(model_w_adj_lrn)
+```
+
+This plot shows training behavior that is consistent with a well-regularized model using an adaptive optimizer and early stopping. The training loss decreases rapidly and then levels off, while the validation loss follows a similar trajectory and stabilizes without increasing, indicating that the model stops training before overfitting occurs. Training and validation accuracy increase together and converge to nearly the same value, suggesting strong generalization and minimal performance gap between the two. The learning rate remains constant throughout training, implying that learning-rate reduction was either not triggered or stabilized early, which is consistent with steady improvement in validation loss. Overall, the model training appears stable, efficient, and well controlled.
+
+Overall, we observe a modest improvement in performance, and the loss curve shows that training is halted at the point where overfitting begins to emerge.
+
+## Hyperparameter 
+Tuning Hyperparameter tuning for deep neural networks is often more involved than for other machine learning models because of the large number of hyperparameters and the dependencies between them. In practice, this requires deciding in advance on aspects such as the number of hidden layers and then defining a search grid over relevant parameters (e.g., number of units, learning rate, regularization strength). This process is similar in spirit to grid searches used for other models, but typically requires more manual coordination.
+
+In the following example, we demonstrate a grid search by defining a set of hyperparameter combinations and iteratively training models on the MNIST dataset, recording performance metrics for comparison.
+
+> This run takes a very long time so by default `eval:false` and you need to change it when you want to perform the grid search.
+
+```{r}
+#| label: tune
+#| message: false
+#| warning: false
+#| eval: false # change this
+# -----------------------------
+# Hyperparameter grid
+# -----------------------------
+grid <- crossing(
+  nodes1 = c(128, 256),
+  nodes2 = c(64, 128),
+  nodes3 = c(32, 64),
+  dropout1 = c(0.3, 0.4),
+  dropout2 = c(0.2, 0.3),
+  dropout3 = c(0.1, 0.2),
+  lr_annealing = c(0.1, 0.5)
+)
+
+# -----------------------------
+# Model training function
+# -----------------------------
+train_model <- function(nodes1, nodes2, nodes3,
+                        dropout1, dropout2, dropout3,
+                        lr_annealing) {
+
+  model <- keras_model_sequential()  %>% 
+    layer_dense(nodes1, activation = "relu",
+                input_shape = c(ncol(mnist_x)))  %>% 
+    layer_batch_normalization()  %>% 
+    layer_dropout(dropout1)  %>% 
+    layer_dense(nodes2, activation = "relu")  %>% 
+    layer_batch_normalization()  %>% 
+    layer_dropout(dropout2)  %>% 
+    layer_dense(nodes3, activation = "relu")  %>% 
+    layer_batch_normalization()  %>% 
+    layer_dropout(dropout3)  %>% 
+    layer_dense(10, activation = "softmax")
+
+  model  %>% 
+    compile(
+      optimizer = optimizer_rmsprop(),
+      loss = "categorical_crossentropy",
+      metrics = "accuracy"
+    )
+
+  history <- model  %>% 
+    fit(
+      mnist_x,
+      mnist_y,
+      epochs = 35,
+      batch_size = 128,
+      validation_split = 0.2,
+      callbacks = list(
+        callback_early_stopping(patience = 5, restore_best_weights = TRUE),
+        callback_reduce_lr_on_plateau(factor = lr_annealing)
+      ),
+      verbose = 0
+    )
+
+  tibble(
+    best_val_loss = min(history$metrics$val_loss),
+    best_val_acc  = max(history$metrics$val_accuracy),
+    epochs_run    = length(history$metrics$loss)
+  )
+}
+
+# -----------------------------
+# Run grid search
+# -----------------------------
+results <- grid  %>% 
+  mutate(
+    metrics = pmap(
+      list(nodes1, nodes2, nodes3,
+           dropout1, dropout2, dropout3,
+           lr_annealing),
+      train_model
+    )
+  )  %>% 
+  unnest(metrics)
+
+# -----------------------------
+# View best models
+# -----------------------------
+results  %>% 
+  arrange(desc(best_val_acc))  %>% 
+  slice_head(n = 5)
+
+# Best model overall
+results  %>%  arrange(desc(best_val_acc))  %>%  slice(1)
+
+# Plot accuracy vs dropout
+results  %>%  
+  ggplot(aes(dropout1, best_val_acc)) +
+  geom_point()
+```
+
+This plot shows the relationship between the first-layer dropout rate (dropout1) and the best validation accuracy achieved across all combinations of the other hyperparameters (layer sizes, additional dropout rates, and learning-rate annealing). Each point represents a different model configuration from the grid search.
+
+The results indicate that increasing dropout1 from 0.30 to 0.40 does not substantially change overall validation performance, as both values produce models with similar peak accuracies clustered around 98%. However, the models with `dropout1 = 0.30` show slightly less variability and fewer low-performing runs, suggesting more stable learning. In contrast, `dropout1 = 0.40` occasionally leads to reduced performance, likely because stronger regularization removes too much signal early in the network.
+
+Overall, this suggests that the model is not highly sensitive to modest changes in first-layer dropout, but slightly lower dropout provides more consistent results within this hyperparameter range.
