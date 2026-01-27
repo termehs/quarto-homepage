@@ -25,6 +25,6 @@ margin-footer: licence.html
 | **9**: Continuous Distributions|[{{< fa display >}}](material/09-cont-dists-ho.pdf)
 | **10**: Introduction Linear Algebra: Fundamental Vector Operations| [{{< fa display >}}](material/10-intro-lin-alg-ho.pdf)
 | **11**: Matrix Arithmetics & Matrix Properties | [{{< fa display >}}](material/11-matrix-arithm-ho.pdf)
-| **12**: Eigenvalues and Eigenvectors |
+| **12**: System of Equations & All Things 'Eigen'| [{{< fa display >}}](material/12-soe-eigen-ho.pdf)
 | **13**: Multivariate Calculus & Optimization| 
 | **14**: Multivariate Calculus & Constrained Optimization| 

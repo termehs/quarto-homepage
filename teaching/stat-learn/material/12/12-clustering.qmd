@@ -1,0 +1,681 @@
+---
+title: "Clustering"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+
+# Super vs. Unsuper
+Clustering is *unsupervised machine learning*. Based on the definition of *supervised machine learning* we talked about before, what makes k-means unsupervised?
+
+## Supervised ML
+Notice in the above code, our workflow is broadly:
+
+1. load in data, create X's and y's (including model validation)
+2. Create Empty Model + Pipeline
+3. Fit your model
+4. Assess your model
+
+
+## Unsupervised ML
+In Unsupervised ML, we don't HAVE the "correct answers" for our model. Unsupervised ML focuses on finding underlying *structure* in the data, e.g. clusters. There's no "right" answer for these models. 
+
+Because there isn't a "right" answer for us to compare our results to, we usually don't worry about Model Validation, nor do we care about data leakage. So our workflow is a little simpler.
+
+1. load in our data
+2. Create Empty Model + Pipeline
+3. Fit your Model
+4. Assess your model
+
+## K-Means
+
+K-Means is an unsupervised ML algorithm. **Unsupervised ML** does not have "truth labels" for a model to learn. Rather, we use these algorithms to find what we call "latent structure" in our data. The most common form of "structure" we're looking for is groups (aka, clusters). 
+
+K-means is one of the most simple clustering algorithms out there. It has 4 steps:
+
+1. Randomly (or, in order to make convergence quicker, cleverly) choose K centroids in the feature space
+2. Assign each data point to the centroid/cluster closest to it
+3. Recalculate each centroid by taking the mean (for each predictor) of all the data points in each cluster.
+4. Repeat Steps 2 and 3 until convergence
+    - either cluster assignments don't change from step to step OR
+    - the centroid doesn't change much from step to step
+
+
+One thing to keep in mind with K-Means is that is assumes *spherical* variance within each cluster. That means that K-means behaves as if--within each cluster--all predictors have the same variance. Roughly, this means that we could easily draw a sphere (or circle) around each of our clusters, even if it's not perfectly spherical.
+
+### K-Means Math
+
+When building clusters in K-means, we're trying to choose cluster **assignments** and cluster **centers** that minimize the *distortion*: Sum of Squared Distances of samples to their closest cluster center). 
+
+$$ \underbrace{J}_\text{distortion} = \sum_{\color{Red}n=1}^{N}\sum_{\color{Blue}k=1}^{K} {\color{Purple} r}_{{\color{Red} n}{\color{Blue} k}}  \left\| x_{\color{Red}n} - \mu_{\color{Blue}k} \right\|^2 $$
+
+In K-means, we have **hard assignment** meaning data points can only belong to a single cluster, so all ${\color{Purple} r}_{{\color{Red} n}{\color{Blue} k}}$ are `0` or `1` (you either don't belong, or do belong to a cluster).
+
+
+$$ {\color{Purple} r}_{{\color{Red} n}{\color{Blue} k}}=\begin{cases} 1 & \text{if $\hspace{0.2in}{\color{Blue} k} = $ arg min$_{\color{Teal}j}$ $\left\|x_{\color{Red}n} - \mu_{\color{Teal}j} \right\|^2$}\\
+      0 & \text{otherwise}
+\end{cases} $$
+
+
+
+
+Just like with *anything* in this class, if we have a function we want to optimize (in this case minimize), we can do so by taking it's derivatives, setting them to 0, and solving to get the best possible parameters (e.g. the cluster centers, $\mu_k$).
+
+
+**Silhouette scores** are a useful way to measure the performance of a clustering model because they account for both how well observations fit within their assigned clusters and how distinct the clusters are from one another.
+
+For each observation, the silhouette score compares:
+
+- The average distance to other points in the same cluster, which reflects how tightly grouped the cluster is.
+- The average distance to points in the nearest neighboring cluster, which reflects how well separated the clusters are.
+
+Silhouette scores range from −1 to 1:
+
+- Values close to 1 indicate that observations are well matched to their own cluster and far from other clusters.
+- Values around 0 indicate that observations lie near the boundary between clusters.
+- Negative values suggest that an observation may have been assigned to the wrong cluster, as it is closer to another cluster than to its own.
+
+By averaging silhouette scores across all observations, we obtain a single summary measure that balances cluster cohesion and separation, making it especially helpful for comparing clustering models or selecting the number of clusters.
+
+
+### First Example
+
+```{r}
+#| label: kmeans
+#| message: false
+
+library(cluster)
+library(ggplot2)
+bey <- read.csv(
+  "12-data/Beyonce_data.csv"
+)
+
+head(bey)
+
+predictors <- c("energy", "danceability", "valence")
+
+X <- bey[, predictors]
+
+# Standardize only predictor columns
+X_scaled <- X
+X_scaled[, predictors] <- scale(X_scaled[, predictors])
+
+
+set.seed(123)
+km <- kmeans(X_scaled[, predictors, drop = FALSE], centers = 4)
+
+
+labels <- km$cluster
+
+# Silhouette score
+sil <- silhouette(labels, dist(X_scaled[, predictors, drop = FALSE]))
+mean(sil[, 3])
+
+# Add clusters back to original data
+X$clusters <- factor(labels)
+
+# Plots
+
+ggplot(X, aes(x = energy, y = danceability, color = clusters)) +
+    geom_point() +
+    theme_minimal() +
+    labs(
+      x = "Energy",
+      y = "Danceability",
+      title = "KMeans Clustering Results for K = 4",
+      color = "Clusters"
+    )
+
+
+
+ggplot(X, aes(x = energy, y = valence, color = clusters)) +
+    geom_point() +
+    theme_minimal() +
+    labs(
+      x = "Energy",
+      y = "Valence",
+      title = "KMeans Clustering Results for K = 4",
+      color = "Clusters"
+    )
+
+
+
+ggplot(X, aes(x = valence, y = danceability, color = clusters)) +
+    geom_point() +
+    theme_minimal() +
+    labs(
+      x = "Valence",
+      y = "Danceability",
+      title = "KMeans Clustering Results for K = 4",
+      color = "Clusters"
+    )
+
+```
+
+### Another Example (choosing `k` using the data)
+
+```{r}
+#| label: kmeans2
+#| message: false
+
+wine <- read.csv(
+  "12-data/wineLARGE.csv"
+)
+
+# drop rows with NA
+wine <- na.omit(wine)
+
+# reset row names (similar to reset_index)
+rownames(wine) <- NULL
+
+#### grab data we want to cluster ####
+feats <- c("citric.acid", "residual.sugar")
+
+X <- wine[, feats]
+
+#### scale features (StandardScaler equivalent) ####
+X_scaled <- scale(X)
+
+#### create empty metrics storage ####
+metrics <- data.frame(
+  SSE = numeric(),
+  sil = numeric(),
+  k = integer()
+)
+
+#### loop over K ####
+set.seed(123)
+
+for (i in 2:19) {
+  km <- kmeans(X_scaled, centers = i)
+  
+  labels <- km$cluster
+  
+  # silhouette score
+  sil_vals <- silhouette(labels, dist(X_scaled))
+  sil_mean <- mean(sil_vals[, 3])
+  
+  # SSE (within-cluster sum of squares)
+  sse <- km$tot.withinss
+  
+  metrics <- rbind(
+    metrics,
+    data.frame(SSE = sse, sil = sil_mean, k = i)
+  )
+}
+
+#### plots ####
+
+ggplot(metrics, aes(x = k, y = SSE)) +
+    geom_line() +
+    theme_minimal() +
+    labs(
+      x = "K",
+      y = "Within Cluster SSE",
+      title = "Within Cluster SSE for Different Ks"
+    )
+
+
+
+ggplot(metrics, aes(x = k, y = sil)) +
+    geom_line() +
+    theme_minimal() +
+    labs(
+      x = "K",
+      y = "Mean Silhouette Score",
+      title = "Silhouette Scores for Different Ks"
+    )
+```
+
+
+The within-cluster SSE plot shows a sharp decrease in error as $K$ increases from 2 to around 5 or 6, indicating that adding clusters in this range substantially improves how well the data are grouped. After $K = 6$, the rate of decrease slows considerably and the curve begins to flatten, suggesting diminishing returns from adding more clusters. This “elbow” around $K = 5–6$ indicates that increasing $K$ beyond this point does not significantly improve cluster compactness, making $K = 6$ a reasonable choice based on the SSE criterion.
+
+The silhouette plot shows that the average silhouette score is highest around $K = 6$, indicating that this value provides the best balance between cluster cohesion and separation. For smaller values of $K$, clusters may be too broad, while for larger values of $K$ the silhouette score generally decreases, suggesting over-clustering. Although there are small fluctuations at other values of $K$, the overall trend supports choosing $K = 6$ as the most appropriate number of clusters for this data.
+
+## Hierarchical Clustering
+
+Hierarchical clustering (as the name suggests) assumes that the clusters in the data have a hierarchical relationship. 
+
+Hierarchical *Agglomeretive* Clustering (which we perform here), goes bottom up: every datapoint starts as it's own singleton cluster, and at each step, we merge the two closest clusters together until all data points are in one big cluster. In order to decide which clusters are closest, we need to choose two things:
+
+### Distance Metrics and Linkage Critera
+
+* **distance metric**: this is a measure that helps us define how close together two *data points* are. Euclidean distance is a common distance metric that you may be familiar with, but there is also cosine distance, manhattan distance, hamming distance, and even custom distance functions (like [levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between two strings!)
+* **linkage criteria**: this is a measure of how close two *clusters* are. Because (most) clusters have more than one point, we need to define what it means for two clusters to be close.
+    * **Single Linkage**: the distance between two clusters (A and B) as the minimum distance between any point in A and any point in B 
+    * **Average Linkage**: the distance between two clusters (A and B) as the average distance between points in A and points in B. 
+    * **Complete Linkage**: the distance between two clusters (A and B) as the maximum distance between any point in A and any point in B.
+    * **Centroid Method**: the distance between two clusters (A and B) as the distance between their respective mean vectors (centroids).
+    * **Ward's Method** (default): the distance between two clusters (A and B) as the Sum of Squared Errors when combining the two clusters together. 
+    * and MORE! You could technically define this anyway you wanted.
+
+### Example
+We will use the function `hclust()` to build the dendrogram and the function `dist` that computes the distances between observations:
+
+```{r}
+#| label: hac
+#| message: false
+#read the dataset
+bdiag.data <- read.csv(
+  "12-data/BreastCancer.csv"
+)
+
+#select a subset of the variables
+bdiag.2vars <- bdiag.data[,c("radius_mean", "texture_mean")]
+
+
+#distances between the observations
+bdiag.dist <- dist(bdiag.2vars, method = "euclidean")
+      
+#### what is dist() doing?##################################
+  bdiag.dist[1]  #is the distance between obs1 and obs2
+  bdiag.2vars[1:2, ] #obs 1 and 2
+sqrt((bdiag.2vars[1, 1] - bdiag.2vars[2,1 ])^2 + 
+        (bdiag.2vars[1, 2] - bdiag.2vars[2,2 ])^2 )  #Eucl distance
+
+#Dendrogram using the complete linkage method
+bdiag.ddgram <- hclust(bdiag.dist, method="complete")
+#Plot the dendrogram
+#the option hang = -1 will make the
+#labels appear below 0
+plot(bdiag.ddgram, cex=.4, hang = -1)
+```
+
+If we cut the tree at the height of 20, we get 3 clusters adn we can draw a rectangle around the 3 clusters
+
+```{r}
+#| label: hac2
+#| message: false
+plot(bdiag.ddgram, cex=.4, hang = -1)
+abline(a=20, b=0, lty=2)
+
+plot(bdiag.ddgram, cex=.4, hang = -1)
+rect.hclust(bdiag.ddgram, k = 3, border = 2:5)
+```
+
+Then we obtain the cluster for each observation
+```{r}
+#| label: hac3
+#| message: false
+group3 <- cutree(bdiag.ddgram, k = 2)  
+table(group3 )
+```
+
+### Exercises
+
+- Get 2 clusters with hierachical clustering using the variables age, weight, height, adipos, free, neck, chest, abdom, hip, thigh, knee, ankle, biceps, forearm and wrist. and compare the clustering result with the observed diagnosis.
+
+- How does the clustering changes with different linkage methods?
+
+
+## Gaussian Mixture Models
+
+Expectation Maximization with Gaussian Mixture Models (we'll call it EM for short here) is a clustering algorithm that's similar to k-means except it doesn't assume spherical variance within clusters. That means clusters can be ellipses rather than just sphereical. 
+
+The process for fitting EM is similar to k-means except for two main differences:
+
+1. Instead of estimating ONLY cluster means/centers, we also estimate the variance for each predictor.
+2. Instead of hard assignment (where each data point belongs to only 1 cluster), GMMs use soft assignment (where each data point has a probability of being in EACH cluster). 
+    - because there is no hard assignment, the cluster centers/means and variances are calculated using EVERY data point weighted by the probability that the data point belongs to that cluster. Data points that are unlikely to belong to a cluster barely affect the center/mean and variance of that cluster, whereas data points that are very likely to belong to a cluster have a larger influence on the center/mean and variance of that cluster.
+
+This means that when clusters are NOT spherical, EM will be able to accomodate that, while k-means will not.
+
+Distortion is a loss function for K-Means. It measures how far away data points are from their cluster center. We want points to be close to their cluster centers (cohesion).
+
+$$ J = \sum_{n=1}^N \sum_{k=1}^K r_{nk}  \lVert x_n - \mu_k \rVert^2 $$
+
+For K-means, $r_{nk}$ is 0 if the data point is *not* in cluster $k$ and 1 if the data point is in cluster $k$. Let's look at what happens to $J$ in different scenarios:
+
+- if $x_n$ is a good fit for it's cluster, it will be pretty close to $\mu_k$ and the distance $\lVert x_n - \mu_k \rVert^2$ will be **small**.
+- if $x_n$ is a bad fit for it's cluster, it will be far from $\mu_k$ and the distance $\lVert x_n - \mu_k \rVert^2$ will be **big**.
+- for all clusters that $x_n$ is not a member of, $r_{nk}$ will be 0, so it does not matter what the distance $\lVert x_n - \mu_k \rVert^2$ is, because it will be multiplied by 0.
+
+We want to choose cluster **centers** (called **centroids**) and cluster **assignments** that minimize the distortion $J$. 
+
+### Optimizing $J$
+
+Because we want to minimize $J$, we take the **derivative** of $J$ with respect to $\mu_k$, set it to 0, and solve and find that the optimal cluster center is the *mean* of all the points in that cluster.
+
+$$ \mu_k = \frac{\sum_{n = 1}^N r_{nk}x_n}{\sum_{n = 1}^N r_{nk}} = \frac{1}{N_k} \sum_{n=1}^{N} r_{nk}x_n$$
+
+
+### Mixtures
+
+A Mixture Model is a model that assumes our data comes from multiple distributions, all mixed together. Mathematically that looks like:
+
+$$p(x) = \sum_{k=1}^K w_k * p_k(x)$$
+
+Which tells us that each distribution $p_k(x)$ has some weight $w_k$. The higher $w_k$ the more data comes from distribution $k$. Our overall distribution is just a sum of each of these distributions.
+
+As the name implies, **Gaussian** Mixture Models assume that our distributions (i.e. clusters) are Gaussian/Normal Distribitons. So $p_k(x)$ is a normal distribution. We often represent that using this formula:
+
+$$ \mathcal{N}(x | \mu_k, \Sigma_k)$$
+
+Which is just notation meaning a multivariate normal distribution with mean = $\mu_k$ and covariance = $\Sigma_k$. This means our GMM assumes that our clusters are each multivariate normal distributions, and they're all mixed together with different weights $w_k$. The larger $w_k$ the more points are likely to be in that cluster.
+
+$$ p(x) = \sum_{k=1}^K w_k *\mathcal{N}(x | \mu_k, \Sigma_k)$$
+
+
+### Likelihood Function
+
+Just like with Linear and Logistic Regression, we have a likelihood for GMM. The Likelihood measures how *likely* our data points are given the various parameters ($\mu_k$, $w_k$, and $\Sigma_k$) we have. The likelihood for the GMM model is the product of the likelihoods for each individual data point:
+
+$$ \underbrace{p(\mathbf{X} | \mathbf{w}, \mu, \Sigma)}_\text{likelihood} = \prod_{n = 1}^N \sum_{k=1}^K w_k \mathcal{N}(x_n | \mu_k, \Sigma_k)$$
+
+As we discussed in our Logistic Regression Classwork, it's difficult to take the derivative of a product, so we often take the *log* of the likelihood to make the math easier. Logs turn *products* into *sums*, and the optima of the log of a function are the same as the optima of the function. This gives us the **log-likelihood**:
+
+$$log(p(\mathbf{X} | \mathbf{w,\mu, \Sigma})) = \sum_{{\color{Red} n} = 1}^{N}log\left\{ \sum_{{\color{Blue} k} = 1}^{K} w_{{\color{Blue} k}}\hspace{0.1in}\mathcal{N}(x_{{\color{Red} n}} | \mu_{{\color{Blue} k}}, \Sigma_{{\color{Blue} k}})\right\}$$
+
+We want to maximize this function!
+
+### EM
+
+One way to find maximum likelihood solutions is called **Expectation Maximization**, or **EM** for short. Setting the derivative of the log-likelihood with respect to $\mu_k$ to 0, and solving, we find that the optimal value for $\mu_k$ at each step should be:
+
+$$ \mu_k = \frac{1}{N_k}\sum_{n=1}^N r_{nk} x_n $$
+
+Where $N_k$ is the sum of the responsibilities of each point for cluster $k$. Remember, responsibilities tell you how likely it is that a data point $x_n$ is in cluster $k$. If a lot of points are likely to be in cluster $k$, $N_k$ will be big. In that sense, $N_k$ is a proxy for the *size* of cluster $k$. 
+
+Setting the derivative of the log-likelihood with respect to $\Sigma_k$ to 0, and solving, we find that the optimal value for $\Sigma_k$ at each step should be:
+
+$$ \Sigma_k = \frac{1}{N_k}\sum_{n=1}^N r_{nk} (x_n-\mu_k)(x_n-\mu_k)^T $$
+
+and finally, if we set the derivative of the log-likelihood with respect to $w_k$ to zero and solve, we find that the optimal value for the mixing weights $w_k$ is:
+
+$$w_k = \frac{N_k}{N}$$
+
+where $N$ is the number of data points.
+
+### In Summary
+We don't do math just because it's fun, we do it to help you understand the algorithm! So here are some takeaways this math should help you understand: 
+
+- GMM does soft assignment, every data point belongs to every cluster with some probability
+- Data points that are more likely to be in a cluster have more influence over its parameters
+- GMM uses the EM algorithm to iteratively update the cluster distributions. It first assigning a responsibility to each data point (E-step), and then using them to calculate weighted means and variances for each cluster (M-step)
+- Responsibilities measure the probability of a data point being in each cluster (technically the posterior probability).
+- Responsibilities contain information about how common a cluster is as well as the likelihood of a data point belonging to that cluster
+
+### Example
+
+```{r}
+#| label: gmm
+#| message: false
+
+library(mclust) # install 
+library(cluster)
+library(ggplot2)
+
+bey <- read.csv(
+  "12-data/Beyonce_data.csv"
+)
+
+head(bey)
+
+predictors <- c("energy", "danceability", "valence")
+X <- bey[, predictors]
+
+# StandardScaler equivalent
+X_scaled <- scale(X)
+
+# Gaussian Mixture Model with 4 components
+set.seed(123)
+gmm <- Mclust(X_scaled, G = 4)
+
+labels <- gmm$classification
+
+# Silhouette score (average silhouette width)
+sil <- silhouette(labels, dist(X_scaled))
+mean(sil[, 3])
+
+# Add clusters for plotting
+X$clusters <- factor(labels)
+
+ggplot(X, aes(x = energy, y = danceability, color = clusters)) +
+    geom_point() + theme_minimal() +
+    labs(x = "Energy", y = "Danceability",
+         title = "Gaussian Mixtures Clustering Results for K = 4",
+         color = "Clusters")
+
+
+
+ggplot(X, aes(x = energy, y = valence, color = clusters)) +
+    geom_point() + theme_minimal() +
+    labs(x = "Energy", y = "Valence",
+         title = "Gaussian Mixtures Clustering Results for K = 4",
+         color = "Clusters")
+
+
+ggplot(X, aes(x = valence, y = danceability, color = clusters)) +
+    geom_point() + theme_minimal() +
+    labs(x = "Valence", y = "Danceability",
+         title = "Gaussian Mixtures Clustering Results for K = 4",
+         color = "Clusters")
+```
+
+### BIC
+Like with K-Means, sometimes we don't know how many clusters to use! While you can still calculate silhouette scores for GMM clusters, becuase GMM allows oblong clusters (shaped like ellipses), cohesion/separation might not always be the best measure of how good the clusters are (see `d3` below).
+
+Another measure of cluster performance is the **Bayesian Information Criterion**. The BIC measures how well fit your model is, where **lower** values of BIC are better.
+
+$$ BIC = \underbrace{- 2 log(\hat{L})}_\text{goodness of fit} + \underbrace{k*log(N)}_\text{complexity penalty} $$
+
+- $\hat{L}$ is the maximum likelihood of the model ($\prod_{n = 1}^N \sum_{k=1}^K w_k \mathcal{N}(x_n | \mu_k, \Sigma_k)$; from above)
+- $N$ is the number of data points
+- $k$ is the *number of parameters* in the model (just remember, the more clusters, the more parameters)
+
+When a clustering solution is *good* it's likelihood will be *high*. So $-2 log(\hat{L})$ will be *low*. BIC also **penalizes complexity** by adding on the $k*log(N)$ term. The more parameters we have to estimate ($k$) the higher $k*log(N)$ will be, thus BIC *penalizes* models for having a lot of parameters. If adding parameters doesn't improve the fit of the model (measured by $- 2 log(\hat{L})$), we don't want them. This is similar to **LASSO** and **Ridge** penalties, where we have to have things "pull their weight" in order for them to be "worth" the penalty.
+
+
+So in summary, we choose models with lower BIC values. 
+
+> Important note: In `mclust`, BIC is defined so that larger (less negative) is better. 
+
+### Another Example
+```{r}
+#| label: gmm2
+#| message: false
+
+wine <- read.csv(
+  "12-data/wineLARGE.csv"
+)
+
+
+# drop NA rows
+wine <- na.omit(wine)
+
+# reset row names (similar to reset_index)
+rownames(wine) <- NULL
+
+# grab data we want to cluster
+feats <- c("citric.acid", "residual.sugar")
+X <- wine[, feats]
+
+# StandardScaler equivalent
+X_scaled <- scale(X)
+
+# store metrics
+metrics <- data.frame(BIC = numeric(), k = integer())
+
+set.seed(123)
+
+for (i in 2:19) {
+  gmm <- Mclust(X_scaled, G = i)
+  
+  # mclust reports BIC where "higher is better"
+  bic_val <- gmm$bic
+  
+  metrics <- rbind(metrics, data.frame(BIC = bic_val, k = i))
+}
+
+# plot
+  ggplot(metrics, aes(x = k, y = BIC)) +
+    geom_line() +
+    theme_minimal() +
+    labs(
+      x = "K",
+      y = "Cluster BIC",
+      title = "BIC for Different Ks"
+    )
+```
+
+Plot the results:
+
+
+```{r}
+#| label: gmm3
+#| message: false
+
+
+set.seed(123)
+
+# Gaussian Mixture Model with 15 components
+gmm <- Mclust(X_scaled, G = 15)
+
+# Cluster labels
+labels <- gmm$classification
+
+# Add clusters for plotting
+X$cluster <- factor(labels)
+
+ggplot(X, aes(x = citric.acid, y = residual.sugar, color = cluster)) +
+    geom_point() +
+    theme_minimal() +
+    scale_color_discrete(name = "Cluster") +
+    labs(
+      x = "Citric Acid",
+      y = "Residual Sugar",
+      title = "15 Cluster Solution"
+    )
+```
+
+
+## DBSCAN
+
+DBSCAN is a non-parametric clustering algorithm, meaning it does not make any assumptions about the shape of the clusters. This is great news for clusters that look like this:
+
+It also introduces the concept of "Noise": data points that don't really fit into *any* cluster.
+
+In general, the algorithm is iterative, starting with a random core point, and finding all the **density connected/reachable** points from that **core point** and putting them into a cluster. Then it moves on to the next point.
+
+If a data point is **noise**, it marks it as such and moves on. This process repeats until all data points have been categorized.
+
+### Example
+
+```{r}
+#| label: dbscan
+#| message: false
+
+
+library(dbscan) #install
+library(cluster)
+library(ggplot2)
+
+# read some simulated data
+df <- read.csv("12-data/KMEM5.csv")
+
+predictors <- c("x", "y")
+X <- df[, predictors]
+
+# StandardScaler equivalent
+X_scaled <- scale(X)
+
+# DBSCAN (eps = 0.25, minPts = 15)
+db <- dbscan(X_scaled, eps = 0.25, minPts = 15)
+
+
+labels <- db$cluster  # 0 = noise in R's dbscan
+
+X$clusters <- labels
+
+# Silhouette score (exclude noise points: cluster 0)
+keep <- X$clusters != 0
+sil <- silhouette(X$clusters[keep], dist(X_scaled[keep, , drop = FALSE]))
+mean(sil[, 3])
+
+ggplot(X, aes(x = x, y = y, color = factor(clusters))) +
+    geom_point() +
+    theme_minimal() +
+    labs(
+      x = "x",
+      y = "y",
+      title = "DBSCAN Clustering Results for eps = 0.25, minPts = 15",
+      color = "Clusters"
+    )
+```
+The DBSCAN results show two dense clusters and a substantial number of points labeled as noise. One large, dense cluster appears in the upper-left region, while a smaller cluster is identified in the lower-left region. Points that do not belong to any sufficiently dense region are labeled as noise (cluster 0), including the scattered points on the right side of the plot. This indicates that DBSCAN successfully identifies clusters of varying shapes while separating outliers based on density.
+
+We're going to use the elbow method to find out what our neighborhood should be. We do that by looking at how far the $n^{th}$ neighbor for each data point is, and looking for an inflection point. We'll use `NearestNeighbors()` for this.
+
+
+```{r}
+#| label: dbscan2
+#| message: false
+library(FNN)
+library(ggplot2)
+
+# we ask for mins + 1 nearest, because the data point itself (distance = 0) is included
+mins <- 25
+k <- mins + 1
+
+# StandardScaler equivalent (reuse if you already made it above)
+X_scaled <- scale(X[, predictors, drop = FALSE])
+
+# get k nearest neighbors for each point
+knn_res <- get.knn(X_scaled, k = k)
+
+# distance to the mins-th neighbor (because first neighbor is itself at distance 0)
+distances <- sort(knn_res$nn.dist[, mins + 1])
+
+# build data frame for plotting
+distances_df <- data.frame(
+  index = 0:(length(distances) - 1),
+  distances = distances
+)
+
+# plot the distances (k-distance plot)
+plt <- ggplot(distances_df, aes(x = index, y = distances)) +
+  geom_line(linewidth = 2) +
+  theme_minimal() +
+  labs(title = "Elbow Method for Choosing eps") +
+  geom_hline(yintercept = 0.5, linetype = "dashed")
+
+plt
+```
+
+The k-distance plot shows a clear elbow around a distance of approximately 0.5, where the curve begins to increase more sharply. This point represents the transition from dense regions to sparser points, making it a reasonable choice for the eps parameter in DBSCAN. Selecting eps near 0.5 helps capture the core clusters while avoiding the inclusion of noise points.
+
+```{r}
+#| label: dbscan3
+#| message: false
+#| 
+db <- dbscan(X_scaled, eps = 0.5, minPts = 25)
+
+labels <- db$cluster  # 0 = noise in R
+
+
+X$clusters <- labels
+
+# Silhouette score (exclude noise points, since silhouette needs cluster IDs >= 1)
+keep <- X$clusters != 0
+sil <- silhouette(X$clusters[keep], dist(X_scaled[keep, , drop = FALSE]))
+mean(sil[, 3])
+
+ggplot(X, aes(x = x, y = y, color = factor(clusters))) +
+    geom_point() +
+    theme_minimal() +
+    labs(
+      x = "x",
+      y = "y",
+      title = "DBSCAN Clustering Results for eps = 0.5, minPts = 25",
+      color = "Clusters"
+    )
+```
+
+With eps set to 0.5 and minPts equal to 25, DBSCAN identifies three well-defined clusters and a small number of noise points. Compared to the smaller eps value, the clusters are larger and more cohesive, as nearby dense regions are now connected into single clusters. Only a few isolated points remain labeled as noise, indicating that this parameter choice effectively captures the main structure of the data while minimizing over-fragmentation.
+
