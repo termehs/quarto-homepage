@@ -7,17 +7,6 @@
     ]
   },
   {
-    "listing": "/teaching/index.html",
-    "items": [
-      "/teaching/tidyverse-I/index.html",
-      "/teaching/tidyverse-II/index.html",
-      "/teaching/intro-stats/index.html",
-      "/teaching/math-ds/index.html",
-      "/teaching/sna/index.html",
-      "/teaching/stat-learn/index.html"
-    ]
-  },
-  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/test/index.html"
@@ -77,6 +66,17 @@
       "/project/convoys/index.html",
       "/project/movienetworks/index.html",
       "/project/nexus/index.html"
+    ]
+  },
+  {
+    "listing": "/teaching/index.html",
+    "items": [
+      "/teaching/tidyverse-I/index.html",
+      "/teaching/tidyverse-II/index.html",
+      "/teaching/intro-stats/index.html",
+      "/teaching/math-ss/index.html",
+      "/teaching/sna/index.html",
+      "/teaching/stat-learn/index.html"
     ]
   }
 ]

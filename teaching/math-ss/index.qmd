@@ -1,0 +1,30 @@
+---
+title: Mathematics for Social Scientists
+subtitle: MSc course 
+description: |
+ This course provides students with the mathematical foundations, both in language and in concepts, needed to apply quantitative and computational methods in the social sciences.
+section-divs: false
+toc: false
+margin-footer: licence.html
+---
+
+
+
+### Schedule
+
+|                    | slides | 
+|--------------------|------:|
+| **1**: Preliminaries |  [{{< fa display >}}](material/01-prel-ho.pdf)
+| **2**: Algebra Review, Modular Arithmetic, Boolean Algebra| [{{< fa display >}}](material/02-algebra-ho.pdf)
+| **3**: Functions & Relations, Sequences & Series, Limits & Continuity | [{{< fa display >}}](material/03-functions-relations-ho.pdf) 
+| **4**: Calculus Fundamentals: Differentiation| [{{< fa display >}}](material/04-differentiation-ho.pdf)
+| **5**: Calculus Fundamentals: The Integral|[{{< fa display >}}](material/05-the-integral-ho.pdf)
+| **6**: Extrema in One Dimension |[{{< fa display >}}](material/06-extrema-ho.pdf)
+| **7**: Introduction to Probability| [{{< fa display >}}](material/07-prob-intro-ho.pdf)
+| **8**: Discrete Distributions |[{{< fa display >}}](material/08-discrete-dists-ho.pdf)
+| **9**: Continuous Distributions|[{{< fa display >}}](material/09-cont-dists-ho.pdf)
+| **10**: Introduction Linear Algebra: Fundamental Vector Operations| [{{< fa display >}}](material/10-intro-lin-alg-ho.pdf)
+| **11**: Matrix Arithmetics & Matrix Properties | [{{< fa display >}}](material/11-matrix-arithm-ho.pdf)
+| **12**: System of Equations & All Things 'Eigen'| [{{< fa display >}}](material/12-soe-eigen-ho.pdf)
+| **13**: Multivariate Calculus & Optimization| [{{< fa display >}}](material/13-multivar-calc-opt-ho.pdf)
+| **14**: Multivariate Calculus & Constrained Optimization| 
