@@ -1,0 +1,286 @@
+---
+title: "Principal Component Analysis"
+author: "Termeh Shafie"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+toc: true         
+editor: visual
+execute:
+  cache:  true
+---
+
+# PC Regression
+
+Some of the most notable advantages of performing PCA are the following:
+
+-   Dimensionality reduction
+-   Avoidance of multicollinearity between predictors.
+-   Variables are orthogonal, so including, say, PC9 in the model has no bearing on, say, PC3
+-   Variables are ordered in terms of standard error. Thus, they also tend to be ordered in terms of statistical significance
+-   Overfitting mitigation
+
+With principal components regression, the new transformed variables (the principal components) are calculated in a totally unsupervised way:
+
+-   the response Y is not used to help determine the principal component directions).
+-   the response does not supervise the identification of the principal components.
+-   PCR just looks at the x variables
+
+The PCA method can dramatically improve estimation and insight in problems where multicollinearity is a large problem – as well as aid in detecting it.
+
+## Very simple PCA example
+
+Let’s say we asked 16 participants four questions (on a 7 scale) about what they care about when choosing a new computer, and got the results like this:
+
+```{r}
+library(tibble) 
+Price <- c(6,7,6,5,7,6,5,6,3,1,2,5,2,3,1,2)
+Software <- c(5,3,4,7,7,4,7,5,5,3,6,7,4,5,6,3)
+Aesthetics <- c(3,2,4,1,5,2,2,4,6,7,6,7,5,6,5,7)
+Brand <- c(4,2,5,3,5,3,1,4,7,5,7,6,6,5,5,7)
+buy_computer <- tibble(Price, Software, Aesthetics, Brand)
+```
+
+Let’s go on with the PCA. `prcomp` is part of the stats package.
+
+```{r}
+pca_buycomputer <- prcomp(buy_computer, scale = TRUE, center = TRUE)
+names(pca_buycomputer)
+```
+
+```{r}
+print(pca_buycomputer)
+```
+
+```{r}
+summary(pca_buycomputer)
+```
+
+```{r}
+library(ggbiplot)
+g <- ggbiplot(pca_buycomputer, obs.scale = 1, var.scale = 1,
+              ellipse = TRUE, circle = TRUE)
+g <- g + scale_color_discrete(name = '')
+g <- g +  theme_minimal() +
+          theme(legend.direction = 'horizontal', 
+          legend.position = 'top') 
+print(g)
+```
+
+Remember that one of the disadventage of PCA is how difficult it is to interpret the model (ie. what does the PC1 is representing, what does PC2 is representing, etc.). The biplot graph help somehow to overcome that.
+
+In the above graph, one can see that Brandand Aesthetic explain most of the variance in the new predictor PC1 while Software explain most of the variance in the new predictor PC2. It is also to be noted that Brand and Aesthetic are quite highly correlated.
+
+Once you have done the analysis with PCA, you may want to look into whether the new variables can predict some phenomena well, i.e. whether features can classify the data well. Let’s say you have asked the participants one more thing, which OS they are using (Windows or Mac) in your survey, and the results are like this:
+
+```{r}
+OS <- c(0,0,0,0,1,0,0,0,1,1,0,1,1,1,1,1)
+```
+
+Let's first create a biplot with this new variable shown:
+
+```{r}
+g <- ggbiplot(pca_buycomputer, obs.scale = 1, var.scale = 1, groups = as.character(OS),
+              ellipse = TRUE, circle = TRUE)
+g <- g + scale_color_discrete(name = '')
+g <- g +  theme_minimal() +
+          theme(legend.direction = 'horizontal', 
+          legend.position = 'top') 
+
+print(g)
+
+```
+
+What do you note? Let's now test the model (recall this is a toy example so we won't bother with train-test split):
+
+```{r}
+model1 <- glm(OS ~ pca_buycomputer$x[,1] + pca_buycomputer$x[,2], family = binomial)
+summary(model1)
+```
+
+Let’s see how well this model predicts the kind of OS. You can use `fitted()` function to see the prediction.
+
+```{r}
+fitted(model1)
+```
+
+These values represent the probabilities of being 1. For example, we can expect 11% chance that Participant 1 is using OS 1 based on the variable derived by PCA. Thus, in this case, Participant 1 is more likely to be using OS 0, which agrees with the survey response. In this way, PCA can be used with regression models for calculating the probability of a phenomenon or making a prediction.
+
+## Penguins
+
+Here we use the Penguin data set which includes variables on the penguin body features. Import this data and for simplicity, remove the rows that include NA's. Run PCA on the following four predictors:
+
+1.  `bill_length_mm`
+2.  `bill_depth_mm`
+3.  `flipper_length_mm`
+4.  `body_mass_g`
+
+Interpret the results using
+
+-   with a biplot and explain observed patterns
+-   in terms of proportion variance explained (use a scree plot and a cumulative proportion plot)
+
+## We start with the base R way
+
+```{r}
+
+library(readr) # install if not in your library
+penguins = read_csv("13-data/penguins.csv", col_names = T) 
+head(penguins)
+tail(penguins)
+dim(penguins)
+df <- na.omit(penguins)
+dim(df)
+
+reduced_df <-  cbind(df$bill_length_mm, df$bill_depth_mm, df$flipper_length_mm, df$body_mass_g)
+colnames(reduced_df) <- c("bill_L", "bill_D", "flipper", "body")
+
+penguin_pca = prcomp(reduced_df, scale = TRUE)
+biplot(penguin_pca, scale = 0)
+get_PVE = function(pca_out) {
+  pca_out$sdev ^ 2 / sum(pca_out$sdev ^ 2)
+}
+pve = get_PVE(penguin_pca)
+pve
+
+plot(
+  pve,
+  xlab = "Principal Component",
+  ylab = "Proportion of Variance Explained",
+  ylim = c(0, 1),
+  type = 'b'
+)
+cumsum(pve)
+plot(
+  cumsum(pve),
+  xlab = "Principal Component",
+  ylab = "Cumulative Proportion of Variance Explained",
+  ylim = c(0, 1),
+  type = 'b'
+)
+```
+
+## Let's now do it the **Tidy** way
+
+Data prepration
+
+```{r message = FALSE}
+library(readr) 
+library(tidyverse)
+library(ggfortify)
+penguins = read_csv("13-data/penguins.csv", col_names = T) 
+head(penguins)
+penguins <- 
+  penguins %>% 
+  drop_na()
+
+penguins[1] <- NULL # remove first column
+
+head(penguins)
+str(penguins)
+```
+
+Load some packages:
+
+```{r message = FALSE}
+library(tidyverse)
+library(ggfortify)
+```
+
+When you’re running a PCA, the variables that you are collapsing need to be continuous. If you don’t have all continuous variables, then you’ll need to consider a different ordination method (e.g., Jaccard similarity indices use a binary presence/absence matrix). Similarly to running linear models (and its variations), it’s a good idea to scale and center our variables. Luckily, we can do this inside the `prcomp()` function.
+
+```{r}
+pca_values <- 
+  prcomp(penguins[, c(3:6)], center = TRUE, scale = TRUE)
+summary(pca_values)
+```
+
+The number of principal components will always equal the number of variables you’re collapsing - in our case, we have four (i.e., PC1, PC2, PC3, PC4). The table that is presented is telling you how well the PCA fits your data. Typically, we assess PCA “fit” based on how much of the variance can be explained on a single axis. Here, the proportion of variance on the first axis (PC1) is nearly 70%, which is great! The last row is describing the cumulative proportion, which is just the sum of the proportion of variance explained by each additional axis (the sum of all axes will equal 1.00).
+
+The numbers are great (and you’ll have to report them in your results), but let’s visualize this. For a quick a dirty PCA plot, we can just use the `ggfortify::autoplot()` function. This produces a ggplot object, so you can still manipulate it quite a bit, but we’ll also provide code below so you can make your own.
+
+```{r}
+autoplot(pca_values, loadings = TRUE, loadings.label = TRUE)
+```
+
+The interpretation: arrows of similar length and direction are more correlated to one another than arrows that are perpendicular to one another. If two arrows are pointing in the exact opposite direction, they’re negatively correlated. You can double-check all this with a correlation matrix, and you’ll see that `flipper_length_mm` and `body_mass_g` are correlated (*r = 0.87*) and their arrows are nearly parallel!
+
+The direction and magnitude of each arrow is also telling you how much of that variable loads on that axis. Let’s take bill_depth_mm as an example. Here we can see that decreasing values of PC1 equate to larger values of bill_depth_mm because its eigenvector is pointing towards the left side of the plot. We also see a similar pattern with PC2, where decreasing values of PC2 = increasing values of bill_depth_mm. Conversely, increasing values of PC1 would equate to increasing values of flipper_length_mm, body_mass_g, and bill_length_mm.
+
+The clustering of points matters as well. Points that are clustering near each other are more similar than those that are further apart. This is easily visualized if we colour the points; as an example, we’ll colour the points by species:
+
+```{r}
+autoplot(pca_values, loadings = TRUE, loadings.label = TRUE,
+         data = penguins, colour = 'species')
+```
+
+So now we can see that the Adelie and Chinstrap points cluster, but they also overlap quite a bit. In this space, you would interpret them as more similar to one another. The Gentoo penguins are way to the right and don’t overlap with the other two species at all, so we would say that they are very different in terms of bill depth, bill length, flipper length, and body mass. Of course we can see this in the plot, but if you want to test clustering, then we’ll have to do that in a separate analysis.
+
+## Want to make even prettier plots?
+
+Start with basic plot:
+
+```{r}
+pca_points <- 
+  # first convert the pca results to a tibble
+  as_tibble(pca_values$x) %>% 
+  # now we'll add the penguins data
+  bind_cols(penguins)
+
+head(pca_points)
+```
+
+```{r}
+basic_plot <- 
+  ggplot(pca_points, aes(x = PC1, y = PC2)) +
+  geom_point(aes(colour = species)) +
+  theme_light()
+
+basic_plot
+```
+
+And then pimp it up using `chull()`:
+
+```{r}
+# first create a dataframe to extract the convex hull points
+pca_hull <- 
+  pca_points %>% 
+  group_by(species) %>% 
+  slice(chull(PC1, PC2))
+
+# now, we'll just continue to build on our ggplot object
+chull_plot <- 
+  basic_plot +
+  geom_polygon(data = pca_hull,
+               aes(fill = as.factor(species)),
+               alpha = 0.3,
+               show.legend = FALSE)
+
+
+chull_plot
+```
+
+We’re almost there! Lastly, let’s put the eigenvectors (i.e., the arrows) back on the plot. First, we’ll have to create another dataframe of eigenvectors and then we can throw them back onto the plot
+
+```{r}
+pca_load <- 
+  as_tibble(pca_values$rotation, rownames = 'variable') %>% 
+  # we can rename the variables so they look nicer on the figure
+  mutate(variable = dplyr::recode(variable,
+                                  'bill_length_mm' = 'Bill length',
+                                  'bill_depth_mm' = 'Bill depth',
+                                  'flipper_length_mm' = 'Flipper length',
+                                  'body_mass_g' = 'Body mass'))
+
+head(pca_load)
+chull_plot +
+  geom_segment(data = pca_load, 
+               aes(x = 0, y = 0, 
+                   xend = PC1*5,
+                   yend = PC2*5),
+               arrow = arrow(length = unit(1/2, 'picas'))) +
+  annotate('text', x = (pca_load$PC1*6), y = (pca_load$PC2*5.2),
+           label = pca_load$variable,
+           size = 3.5) 
+```

@@ -27,4 +27,4 @@ margin-footer: licence.html
 | **11**: Matrix Arithmetics & Matrix Properties | [{{< fa display >}}](material/11-matrix-arithm-ho.pdf)
 | **12**: System of Equations & All Things 'Eigen'| [{{< fa display >}}](material/12-soe-eigen-ho.pdf)
 | **13**: Multivariate Calculus & Optimization| [{{< fa display >}}](material/13-multivar-calc-opt-ho.pdf)
-| **14**: Multivariate Calculus & Constrained Optimization| 
+| **14**: Multivariate Calculus & Constrained Optimization|  [{{< fa display >}}](material/14-multivar-opt-constr-ho.pdf)
