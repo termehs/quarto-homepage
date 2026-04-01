@@ -102,7 +102,7 @@
     "href": "teaching/tidyverse-I/material/la-quinta.html#packages",
     "title": "La Quinta is Spanish for next to Denny’s",
     "section": "Packages",
-    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualisation and the data lives in the dsbox package. These packages are already installed for you. You can load them by running the following in your Console:\n\nlibrary(tidyverse)"
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualisation.\n\nlibrary(tidyverse)"
   },
   {
     "objectID": "teaching/tidyverse-I/material/la-quinta.html#data",
@@ -2622,7 +2622,7 @@
     "href": "teaching/tidyverse-I/material/la-quinta-ws.html#packages",
     "title": "La Quinta is Spanish for next to Denny’s",
     "section": "Packages",
-    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualisation and the data lives in the dsbox package. These packages are already installed for you. You can load them by running the following in your Console:\n\nlibrary(tidyverse)"
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualisation.\n\nlibrary(tidyverse)"
   },
   {
     "objectID": "teaching/tidyverse-I/material/la-quinta-ws.html#data",

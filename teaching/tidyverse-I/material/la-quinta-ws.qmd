@@ -33,7 +33,7 @@ The inspiration for this comes from a blog post by John Reiser on his *new jerse
 
 ## Packages
 
-We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **dsbox** package. These packages are already installed for you. You can load them by running the following in your Console:
+We'll use the **tidyverse** package for much of the data wrangling and visualisation.
 
 ```{r message = FALSE}
 library(tidyverse) 

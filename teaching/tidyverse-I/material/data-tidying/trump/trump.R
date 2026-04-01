@@ -1,12 +1,11 @@
 # load packages ----------------------------------------------------------------
 
 library(tidyverse)
-library(here)
 library(lubridate)
 
 # load data --------------------------------------------------------------------
 
-trump_raw <- read_csv(here::here("week-03/w3-d06-tidying/data","trump/approval_topline.csv"))
+trump_raw <- read_csv("approval_topline.csv")
 
 # prep -------------------------------------------------------------------------
 
