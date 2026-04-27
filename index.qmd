@@ -102,8 +102,8 @@ NEWS
 ::: {.column .col-v-center width="70%"}
 
 ## General
-### 09.09.2024: Netropy 0.2.0
-The new version of [netropy](/project/seand/#r-package-netropy) is published on CRAN.
+### 24.04.2026: Netropy 0.3.0
+The new version of [netropy](/project/seand/#r-package-netropy) is published on CRAN. New functions for divergence tests of goodness of fits + prediction plot heatmaps.
 
 ### 05.06.2024: Inaugural Professorial Lecture 🤓
 I'll be giving my [inaugural professorial lecture](https://www.polver.uni-konstanz.de/fachbereich/aktuelles/veranstaltungen/aktuelle-termine/detail-aktuelle-termine/termin/inaugural-lecture-of-prof-dr-termeh-shafie/).  which is open for anyone who wants join. Expect a lot of big words, personal anecdotes, some mildly amusing jokes, and maybe even a technical hiccup or two 🤓📚✨ <br> Join afterward for finger food and drinks 🥂<br>
@@ -181,7 +181,7 @@ Today I start my new position as a Professor at the Department of Politics and P
 <img src="./rpackage/netropy/featured.png" class="thumbnail-image card-img" style="height: 350px;">
 </p>
 <div class="card-text listing-description">
-Latest published version 0.2.0 on CRAN is up to date.
+Latest published version 0.3.0 on CRAN is up to date.
 </div>
 </div>
 </a>
