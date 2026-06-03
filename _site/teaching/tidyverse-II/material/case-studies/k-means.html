@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/unnamed-chunk-3-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="figs/unnamed-chunk-1-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -392,27 +392,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now we can plot the original points using the data from <code>augment()</code>, with each point colored according to the predicted cluster.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p11 <span class="ot">&lt;-</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(assignments, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2)) <span class="sc">+</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> .cluster), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> k)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p11</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/unnamed-chunk-11-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="figs/unnamed-chunk-8-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Already we get a good sense of the proper number of clusters (3), and how the k-means algorithm functions when <code>k</code> is too high or too low. We can then add the centers of the cluster using the data from <code>tidy()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> clusters, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">shape =</span> <span class="st">"x"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p22 <span class="ot">&lt;-</span> p11 <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> clusters, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">shape =</span> <span class="st">"x"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>p22</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/unnamed-chunk-12-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="figs/unnamed-chunk-9-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/unnamed-chunk-13-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<p><img src="figs/unnamed-chunk-10-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -436,29 +436,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="session-info">Session information</h2>
 <div class="cell" data-layout-align="center">
 <pre><code>#&gt; ─ Session info ─────────────────────────────────────────────────────
-#&gt;  version  R version 4.4.1 (2024-06-14)
+#&gt;  version  R version 4.5.3 (2026-03-11)
 #&gt;  language (EN)
-#&gt;  date     2025-05-05
-#&gt;  pandoc   3.2
+#&gt;  date     2026-05-28
+#&gt;  pandoc   3.8.3
 #&gt;  quarto   1.7.29
 #&gt; 
 #&gt; ─ Packages ─────────────────────────────────────────────────────────
 #&gt;  package      version date (UTC) source
-#&gt;  broom        1.0.7   2024-09-26 CRAN (R 4.4.1)
-#&gt;  dials        1.4.0   2025-02-13 CRAN (R 4.4.1)
-#&gt;  dplyr        1.1.4   2023-11-17 CRAN (R 4.4.0)
-#&gt;  ggplot2      3.5.1   2024-04-23 CRAN (R 4.4.0)
-#&gt;  infer        1.0.7   2024-03-25 CRAN (R 4.4.0)
-#&gt;  parsnip      1.3.1   2025-03-12 CRAN (R 4.4.1)
-#&gt;  purrr        1.0.4   2025-02-05 CRAN (R 4.4.1)
-#&gt;  recipes      1.2.0   2025-03-17 CRAN (R 4.4.1)
-#&gt;  rlang        1.1.5   2025-01-17 CRAN (R 4.4.1)
-#&gt;  rsample      1.2.1   2024-03-25 CRAN (R 4.4.0)
-#&gt;  tibble       3.2.1   2023-03-20 CRAN (R 4.4.0)
-#&gt;  tidymodels   1.3.0   2025-02-21 CRAN (R 4.4.1)
-#&gt;  tune         1.3.0   2025-02-21 CRAN (R 4.4.1)
-#&gt;  workflows    1.2.0   2025-02-19 CRAN (R 4.4.1)
-#&gt;  yardstick    1.3.2   2025-01-22 CRAN (R 4.4.1)
+#&gt;  broom        1.0.12  2026-01-27 CRAN (R 4.5.2)
+#&gt;  dials        1.4.2   2025-09-04 CRAN (R 4.5.0)
+#&gt;  dplyr        1.2.1   2026-04-03 CRAN (R 4.5.2)
+#&gt;  ggplot2      4.0.3   2026-04-22 CRAN (R 4.5.2)
+#&gt;  infer        1.1.0   2025-12-18 CRAN (R 4.5.2)
+#&gt;  parsnip      1.4.1   2026-01-11 CRAN (R 4.5.2)
+#&gt;  purrr        1.2.2   2026-04-10 CRAN (R 4.5.2)
+#&gt;  recipes      1.3.2   2026-04-02 CRAN (R 4.5.2)
+#&gt;  rlang        1.2.0   2026-04-06 CRAN (R 4.5.2)
+#&gt;  rsample      1.3.2   2026-01-30 CRAN (R 4.5.2)
+#&gt;  tibble       3.3.1   2026-01-11 CRAN (R 4.5.2)
+#&gt;  tidymodels   1.4.1   2025-09-08 CRAN (R 4.5.0)
+#&gt;  tune         2.0.1   2025-10-17 CRAN (R 4.5.0)
+#&gt;  workflows    1.3.0   2025-08-27 CRAN (R 4.5.0)
+#&gt;  yardstick    1.3.2   2025-01-22 CRAN (R 4.5.0)
 #&gt; 
 #&gt; ────────────────────────────────────────────────────────────────────</code></pre>
 </div>

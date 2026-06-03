@@ -29,9 +29,9 @@ We only require the tidymodels package here.
 
 K-means clustering serves as a useful example of applying tidy data principles to statistical analysis, and especially the distinction between the three tidying functions:
 
--   `tidy()`
--   `augment()`
--   `glance()`
+- `tidy()`
+- `augment()`
+- `glance()`
 
 Let's start by generating some random two-dimensional data with three clusters. Data in each cluster will come from a multivariate gaussian distribution, with different means for each cluster:
 
@@ -92,9 +92,9 @@ The output is a list of vectors, where each component has a different length. Th
 
 These differing lengths have important meaning when we want to tidy our data set; they signify that each type of component communicates a *different kind* of information.
 
--   `cluster` (`r nrow(points)` values) contains information about each *point*
--   `centers`, `withinss`, and `size` (3 values) contain information about each *cluster*
--   `totss`, `tot.withinss`, `betweenss`, and `iter` (1 value) contain information about the *full clustering*
+- `cluster` (`r nrow(points)` values) contains information about each *point*
+- `centers`, `withinss`, and `size` (3 values) contain information about each *cluster*
+- `totss`, `tot.withinss`, `betweenss`, and `iter` (1 value) contain information about the *full clustering*
 
 Which of these do we want to extract? There is no right answer; each of them may be interesting to an analyst. Because they communicate entirely different information (not to mention there's no straightforward way to combine them), they are extracted by separate functions. `augment` adds the point classifications to the original data set:
 
@@ -154,18 +154,18 @@ Now we can plot the original points using the data from `augment()`, with each p
 ```{r}
 #| fig-width:  7
 #| fig-height:  7
-p1 <- 
+p11 <- 
   ggplot(assignments, aes(x = x1, y = x2)) +
   geom_point(aes(color = .cluster), alpha = 0.8) + 
   facet_wrap(~ k)
-p1
+p11
 ```
 
 Already we get a good sense of the proper number of clusters (3), and how the k-means algorithm functions when `k` is too high or too low. We can then add the centers of the cluster using the data from `tidy()`:
 
 ```{r}
-p2 <- p1 + geom_point(data = clusters, size = 10, shape = "x")
-p2
+p22 <- p11 + geom_point(data = clusters, size = 10, shape = "x")
+p22
 ```
 
 The data from `glance()` fills a different but equally important purpose; it lets us view trends of some summary statistics across values of `k`. Of particular interest is the total within sum of squares, saved in the `tot.withinss` column.
