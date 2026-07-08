@@ -1,0 +1,475 @@
+---
+author:  Termeh Shafie
+title: "Social Network Analysis"
+subtitle: "Worksheet 11: SAOMs I"
+lightbox: auto
+toc: true
+format:
+  html:
+    embed-resources: true
+    fig-width: 10
+    fig-height: 10
+execute: 
+  cache: true
+  warning: false
+  message: false
+---
+
+# Introduction
+
+In this practical we will estimate a **Stochastic Actor-Oriented Model (SAOM)** using the **Teenage Friends and Lifestyle Study**.
+
+The data consist of:
+
+- Three waves of friendship nominations among 129 pupils.
+- Individual characteristics such as sex.
+- Smoking behavior measured at each wave.
+
+The goal is to learn how friendship networks evolve over time and how smoking behavior co-evolves with friendships.
+
+
+## Load packages
+
+```{r}
+library(igraph)
+library(networkdata)
+library(RSiena)
+```
+
+
+## Load the data
+
+The dataset contains three friendship networks measured over time.
+
+```{r}
+data("glasgow129")
+
+glasgow_g1 <- glasgow129[[1]]
+glasgow_g2 <- glasgow129[[2]]
+glasgow_g3 <- glasgow129[[3]]
+```
+
+
+## Prepare the friendship networks
+
+RSiena requires the network to be stored as a three-dimensional array:
+
+- rows = sender
+- columns = receiver
+- third dimension = observation wave
+
+```{r}
+net1 <- as_adjacency_matrix(glasgow_g1, sparse = FALSE)
+net2 <- as_adjacency_matrix(glasgow_g2, sparse = FALSE)
+net3 <- as_adjacency_matrix(glasgow_g3, sparse = FALSE)
+
+friendshipArray <- array(
+  c(net1, net2, net3),
+  dim = c(129,129,3)
+)
+```
+
+
+
+# Model 1: Network dynamics only
+
+We begin with a simple model that explains changes in friendship **using only structural network effects**.
+
+
+# Creating the dependent network
+
+The friendship network is the dependent variable.
+
+The function `sienaDependent()` tells RSiena that this network changes over time and should be modelled.
+
+```{r}
+friendship <- sienaDependent(friendshipArray)
+```
+
+First we create a Siena data object.
+
+```{r}
+mydata1 <- sienaDataCreate(friendship)
+```
+
+Next we create an object that will contain the effects to estimate.
+
+```{r}
+myeff1 <- getEffects(mydata1)
+```
+
+Let's inspect the default effects.
+
+```{r}
+myeff1
+```
+
+
+## Adding structural effects
+
+We now add three common network mechanisms.
+
+```{r}
+myeff1 <- includeEffects(
+  myeff1,
+  outdegree,
+  recip,
+  transTrip
+)
+```
+
+These effects represent:
+
+- **Outdegree (density):** baseline tendency to create friendships.
+- **Reciprocity:** tendency to reciprocate friendships.
+- **Transitive triplets:** tendency for friends of friends to become friends.
+
+
+## Estimate the model
+
+The estimation algorithm first needs to be specified.
+
+```{r}
+myalgorithm1 <- sienaAlgorithmCreate(
+  projname="SAOM1",
+  seed=12345
+)
+```
+
+Now estimate the model.
+
+```{r}
+result1 <- siena07(
+  myalgorithm1,
+  data=mydata1,
+  effects=myeff1,
+  batch=TRUE
+)
+```
+
+Display the results.
+
+```{r}
+summary(result1)
+```
+
+
+# Model 2: Adding actor covariates
+
+Next we investigate whether friendships depend on:
+
+- sex
+- smoking
+
+## Sex
+
+The sex variable does not change over time.
+
+Therefore it is entered as a **constant covariate**.
+
+```{r}
+sex <- ifelse(
+  V(glasgow_g2)$sex.F=="F",
+  1,
+  0
+)
+
+sexCov <- coCovar(sex)
+```
+
+## Smoking
+
+Smoking is observed at every wave.
+
+We therefore create a changing covariate.
+
+```{r}
+smoke <- cbind(
+  as.numeric(V(glasgow_g1)$tobacco),
+  as.numeric(V(glasgow_g2)$tobacco),
+  as.numeric(V(glasgow_g3)$tobacco)
+)
+
+smokeCov <- varCovar(smoke)
+```
+
+
+
+## Create the new Siena data object
+
+```{r}
+mydata2 <- sienaDataCreate(
+  friendship,
+  sexCov,
+  smokeCov
+)
+```
+
+```{r}
+myeff2 <- getEffects(mydata2)
+```
+
+
+## Add covariate effects
+
+For each covariate we estimate three effects.
+
+```{r}
+myeff2 <- includeEffects(
+  myeff2,
+  egoX,
+  altX,
+  simX,
+  interaction1="sexCov"
+)
+
+myeff2 <- includeEffects(
+  myeff2,
+  egoX,
+  altX,
+  simX,
+  interaction1="smokeCov"
+)
+```
+
+These correspond to:
+
+- **ego effect:** Does this type of actor nominate more friends?
+- **alter effect:** Are actors with this characteristic more popular?
+- **similarity effect:** Do similar actors become friends?
+
+
+
+## Estimate Model 2
+
+```{r}
+myalgorithm2 <- sienaAlgorithmCreate(
+  projname="SAOM2",
+  seed=12345
+)
+
+result2 <- siena07(
+  myalgorithm2,
+  data=mydata2,
+  effects=myeff2,
+  batch=TRUE
+)
+
+summary(result2)
+```
+
+
+# Model 3: Co-evolution of friendship and smoking
+
+So far smoking has only been treated as a covariate.
+
+Now we allow smoking itself to change over time.
+
+We therefore model **two dependent variables simultaneously**:
+
+- friendship
+- smoking behavior
+
+```{r}
+smoking <- sienaDependent(
+  smoke,
+  type="behavior"
+)
+```
+
+
+## Create the co-evolution dataset
+
+```{r}
+mydata3 <- sienaDataCreate(
+  friendship,
+  smoking,
+  sexCov
+)
+
+myeff3 <- getEffects(mydata3)
+```
+
+
+
+## Friendship dynamics
+
+We include the same structural effects as before.
+
+```{r}
+myeff3 <- includeEffects(
+  myeff3,
+  outdegree,
+  recip,
+  transTrip,
+  name="friendship"
+)
+```
+
+
+## Behavior dynamics
+
+We now model changes in smoking.
+
+```{r}
+myeff3 <- includeEffects(
+  myeff3,
+  linear,
+  quad,
+  name="smoking"
+)
+```
+
+The behavioral objective function now estimates:
+
+- **Linear shape:** Is higher smoking generally more or less attractive?
+- **Quadratic shape:** Are moderate or extreme smoking levels preferred?
+
+
+
+## Social influence
+
+Finally we estimate peer influence.
+
+```{r}
+myeff3 <- includeEffects(
+  myeff3,
+  avAlt,
+  name="smoking",
+  interaction1="friendship"
+)
+```
+
+This tests whether students tend to become more similar to the average smoking behavior of their friends.
+
+
+
+## Estimate the co-evolution model
+
+```{r}
+myalgorithm3 <- sienaAlgorithmCreate(
+  projname="SAOM3",
+  seed=12
+)
+
+result3 <- siena07(
+  myalgorithm3,
+  data = mydata3,
+  effects = myeff3,
+  batch = TRUE,
+  returnDeps = TRUE
+)
+
+summary(result3)
+```
+
+::: {.callout-important}
+To use `sienaGOF()`which we do in the next seection, the model must be estimated with `returnDeps = TRUE`, so that RSiena stores the simulated dependent variables needed for the goodness-of-fit checks.
+:::
+
+
+   
+# Optional: nicer tables
+
+```{r}
+#| eval: false 
+
+siena_table(result1, type = "html", sig = TRUE)
+siena_table(result2, type = "html", sig = TRUE)
+siena_table(result3, type = "html", sig = TRUE)
+```
+
+
+
+## Goodness of Fit
+
+Estimating a SAOM is only the first step. As with Exponential Random Graph Models (ERGMs), it is good practice to assess **how well the fitted model reproduces the observed data**.
+
+The basic idea is to:
+
+1. Simulate many networks from the fitted model.
+2. Compare characteristics of the simulated networks with those of the observed network.
+3. Evaluate whether the observed network looks typical under the fitted model.
+
+If the observed network falls well within the distribution of simulated networks, this provides evidence that the model adequately captures that aspect of the data.
+
+
+
+### Goodness of fit: Indegree distribution
+
+First, we assess whether the fitted model reproduces the **indegree distribution** (i.e., how many friendship nominations each student receives).
+
+The function `sienaGOF()` requires:
+
+- `sienaFitObject`: the fitted SAOM.
+- `auxiliaryFunction`: the network statistic to assess.
+- `varName`: the dependent network or behavior.
+
+```{r}
+#| message: false
+
+gof_indegree <- sienaGOF(
+  result3,
+  IndegreeDistribution,
+  varName = "friendship"
+)
+
+plot(gof_indegree)
+```
+
+Interpret the figure by comparing the observed indegree distribution (solid line) with the distribution obtained from the simulated networks (boxplots).
+
+
+### Goodness of fit: Smoking behavior
+
+Next, we assess whether the model reproduces the observed distribution of smoking behavior.
+
+```{r}
+#| message: false
+
+gof_behavior <- sienaGOF(
+  result3,
+  BehaviorDistribution,
+  varName = "smoking"
+)
+
+plot(gof_behavior)
+```
+
+Again, compare the observed behavior distribution with the simulated distributions.
+
+
+## Discussion Questions
+
+After estimating the third model, answer the following questions:
+
+1. Is there evidence for **reciprocity** in friendship nominations? Explain your answer using the estimated parameter.
+
+2. Is friendship formation influenced by **similarity in smoking behavior**? If so, how would you interpret this effect?
+
+3. Is **smoking behavior influenced by friends**? What does the estimated social influence effect suggest?
+
+4. How would you interpret the **linear** and **quadratic** behavior parameters? What do they imply about students' preferences for different levels of smoking?
+
+5. Which effects are **statistically significant**? Interpret their estimated coefficients in the context of friendship or smoking behavior.
+
+6. Assess the **convergence** of the model.
+   - What is the **overall maximum convergence ratio**?
+   - Is it below the recommended threshold (e.g., **0.25**, preferably **0.10**)?
+   - Based on the convergence ratios, would you consider the parameter estimates to be reliable? Explain your reasoning.
+   
+::: {.callout-tip}
+**Hint:** If the model has not converged, consider possible reasons why. For example:
+
+   - Would running more estimation iterations improve convergence?
+   - Is the model too complex (e.g., too many effects)?
+   - Could some effects be removed or added one at a time to identify problematic specifications?
+   - Are there any unusually large parameter estimates that might indicate estimation problems?
+:::
+   
+
+7. Does the fitted model adequately reproduce the **indegree distribution**? Explain your answer using the goodness-of-fit plot.
+
+8. Does the fitted model adequately reproduce the **distribution of smoking behavior**?
+
+9. Overall, what do the goodness-of-fit diagnostics suggest about the adequacy of the fitted SAOM? Are there any aspects of the data that the model appears to reproduce poorly?

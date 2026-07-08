@@ -286,7 +286,7 @@ However, the degree distribution  in the small-world model shown in remains rela
 Note that the choice of the rewiring probability $p$ in the small-world model is crucial, as it balances regularity and randomness. Small values of $p$ (e.g., between 0.01 and 0.2) are typically chosen to introduce enough randomness to significantly reduce path lengths, while still preserving high clustering. If $p$ is too low, the network remains overly regular; if $p$ is too high, the network behaves like a random graph and loses its local structure. In practice, $p$ is often selected empirically to achieve small-world characteristics (high clustering and short average path length) relative to the number of nodes and degree.
 
 
-To illustrate how the small-world model transitions between regular and random structure, we simulate multiple networks with the same number of nodes as *Les Misérables* network  with varying values of the rewiring probability $p$ and track how two key properties (clustering and average path length) change. This helps identify a "sweet spot" for $p$ where the network retains high clustering but achieves short global paths, capturing the essence of small-world structure. The results are shown in @fig-rewire.
+To illustrate how the small-world model transitions between regular and random structure, we simulate multiple networks with the same number of nodes as *Les Misérables* network  with varying values of the rewiring probability $p$ and track how two key properties (clustering and average path length) change. This helps identify a "sweet spot" for $p$ where the network retains high clustering but achieves short global paths, capturing the essence of small-world structure. The results are shown below.
 
 
 ```{r}
