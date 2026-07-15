@@ -393,6 +393,8 @@ The basic idea is to:
 
 If the observed network falls well within the distribution of simulated networks, this provides evidence that the model adequately captures that aspect of the data.
 
+Formally, the goodness-of-fit assessment tests the **null hypothesis that the fitted SAOM is capable of generating networks with the same structural properties as the observed network**. The plots compare the observed statistic (typically shown as a vertical line or point) with the distribution of the same statistic across networks simulated from the fitted model. The accompanying $p$-value quantifies how unusual the observed statistic is under the fitted model. A large $p$-value (commonly greater than 0.05) indicates that the observed network is consistent with the simulations, suggesting an adequate fit for that network feature. A small $p$-value indicates that the observed statistic lies in the tails of the simulated distribution, implying that the model does not reproduce that particular aspect of the network well and may require additional effects or refinements.
+
 
 
 ### Goodness of fit: Indegree distribution
