@@ -10,7 +10,7 @@ format:
     fig-width: 10
     fig-height: 10
 execute: 
-  cache: true
+  cache: false
 ---
 
 # Introduction
@@ -110,10 +110,10 @@ summary(flom_mod2)
 
 Conditional log-odds of two actors forming a tie is:
 
--   $-1.644\times$ change in the number of ties + $0.134 \times$ change in number of triangles
--   if the tie will not add any triangles to the network, its log-odds is: -1.644
--   if it will add one triangle to the network, its log-odds is: -1.644 + 0.134
--   if it will add two triangles to the network, its log-odds is: -1.644 + 0.134 $\times$ 2
+-   $-1.6913\times$ change in the number of ties + $0.1808 \times$ change in number of triangles
+-   if the tie will not add any triangles to the network, its log-odds is: -1.6913
+-   if it will add one triangle to the network, its log-odds is: -1.6913 + 0.1808
+-   if it will add two triangles to the network, its log-odds is: -1.6913 +  0.1808 $\times$ 2
 
 ### MCMC diagnostics
 
@@ -352,18 +352,61 @@ plot(knecht4_mod1.gof)
 
 **Q9** How do you interpret these results?
 
-## Model 2: Reciprocity and homophily effect
+## Model 2: Modeling Sender, Receiver, Homophily, and Reciprocity Effects
 
-Now we also include a homophily effect, i.e. do students tend to befriend others of the same gender?
+We now include a gender homophily effect to test whether students tend to befriend others of the same gender. We also include separate age-related sender and receiver effects to examine whether older students are more likely to send friendship nominations, receive friendship nominations, or both.
 
-**Q10** Run the usual steps of fitting and ERGM, checking the estimation algorithm and assessing the goodness of fit. The ERGM syntax is shown below. What can you conclude?
+
+Directed social networks provide information about both **who initiates relationships** and **who receives them**. Unlike undirected networks, where ties simply indicate a mutual relationship, directed networks distinguish between **outgoing** (sent) and **incoming** (received) ties. This distinction allows ERGMs to model several important social processes simultaneously.
+
+The model below includes terms for sender effects, receiver effects, homophily, and reciprocity:
+
 
 ```{r}
 #| message: false
-knecht4_mod2 <- ergm(knecht4_net ~ edges +  nodecov("gender") + 
-                       nodematch("gender") + mutual)
-summary(knecht4_mod2) 
+knecht4_mod2 <- ergm(
+  knecht4_net ~
+    edges +
+    nodeofactor("gender") +
+    nodeifactor("gender") +
+    nodematch("gender") +
+    nodeocov("age") +
+    nodeicov("age") +
+    mutual
+)
+
+summary(knecht4_mod2)
 ```
+
+Each model term captures a different mechanism of friendship formation:
+
+| Model Term | Interpretation |
+|------------|----------------|
+| `edges` | Estimates the baseline tendency for friendship ties to occur. This functions similarly to the intercept in a logistic regression model. |
+| `nodeofactor("gender")` | Estimates whether students of a particular gender are more or less likely to **initiate** friendship nominations (a sender or activity effect). |
+| `nodeifactor("gender")` | Estimates whether students of a particular gender are more or less likely to **receive** friendship nominations (a receiver or popularity effect). |
+| `nodematch("gender")` | Estimates **gender homophily**, testing whether students are more likely to nominate peers of the same gender than would be expected by chance. |
+| `nodeocov("age")` | Estimates whether older students tend to **send** more friendship nominations. |
+| `nodeicov("age")` | Estimates whether older students tend to **receive** more friendship nominations. |
+| `mutual` | Estimates **reciprocity**, measuring whether friendship nominations are more likely to be reciprocated. |
+
+This specification separates four distinct social processes that contribute to friendship formation:
+
+1. **Activity effects** describe whether some individuals are generally more likely to nominate others.
+2. **Popularity effects** describe whether some individuals are more likely to be nominated by others.
+3. **Homophily** measures the tendency for individuals with similar characteristics (such as gender) to form relationships.
+4. **Reciprocity** measures the tendency for friendship nominations to be mutual.
+
+By modeling these processes simultaneously, the ERGM can determine whether observed friendship patterns are explained by individual characteristics, preferences for similar peers, reciprocal relationships, or a combination of these mechanisms. This provides a richer understanding of the social processes underlying network formation than can be obtained from descriptive network measures alone.
+
+
+**Q10** Run the usual steps of fitting the ERGM (output given below), interpreting the results and checking the estimation algorithm and assessing the goodness of fit.  What can you conclude?
+
+```{r}
+#| message: false
+summary(knecht4_mod2)
+```
+
 
 # Exercises
 
