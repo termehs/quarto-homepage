@@ -440,38 +440,44 @@ plot(gof_behavior)
 
 Again, compare the observed behavior distribution with the simulated distributions.
 
+::: {.callout-note}
+## Why assess goodness of fit for smoking behaviour?
+
+Although smoking behaviour is modelled directly in Model 3, it is still useful to assess its goodness of fit. The estimated parameters are chosen to explain **how smoking changes over time**, not to perfectly reproduce every feature of the observed data.
+
+A behavioural goodness-of-fit check asks whether simulations from the fitted model generate a distribution of smoking behaviour similar to the one observed in the data. If the simulated and observed distributions are similar, this provides evidence that the model adequately captures the overall behavioural dynamics. If they differ substantially, the model may be missing important behavioural processes, even if individual parameter estimates appear reasonable.
+
+The parameters in a SAOM define an actor-oriented objective function governing the micro-steps of network and behavioural change. The estimation procedure is not matching the final distribution of smoking behaviour in the same way an ERGM matches sufficient statistics. In other words, the ERGM is matching network statistics directly, whereas the SAOM is estimating a dynamic process whose consequences can still be checked using GOF diagnostics.
+:::
+
+
 
 ## Discussion Questions
 
-After estimating the third model, answer the following questions:
+After estimating **Model 3 (Co-evolution of Friendship and Smoking)**, answer the following questions.
 
-1. Is there evidence for **reciprocity** in friendship nominations? Explain your answer using the estimated parameter.
+1. **Friendship dynamics:** Is there evidence that friendship ties are shaped by **reciprocity** and **transitive triplets**? Interpret the estimated coefficients for these structural effects.
 
-2. Is friendship formation influenced by **similarity in smoking behavior**? If so, how would you interpret this effect?
+2. **Network structure:** What does the **negative outdegree (density)** parameter imply about the overall tendency to form friendships in the network?
 
-3. Is **smoking behavior influenced by friends**? What does the estimated social influence effect suggest?
+3. **Behavior dynamics:** What do the **linear shape** and **quadratic shape** parameters indicate about changes in smoking behavior over time? Do they suggest that students tend to move toward lower, higher, or moderate levels of smoking?
 
-4. How would you interpret the **linear** and **quadratic** behavior parameters? What do they imply about students' preferences for different levels of smoking?
+4. **Social influence:** Does the **average alter (`avAlt`)** effect provide evidence that students' smoking behavior is influenced by the smoking behavior of their friends? Interpret both the sign and magnitude of this parameter.
 
-5. Which effects are **statistically significant**? Interpret their estimated coefficients in the context of friendship or smoking behavior.
+5. **Statistical significance:** Which estimated parameters appear to be statistically significant (using the estimates and standard errors)? What do these significant effects tell us about friendship evolution and smoking behavior?
 
-6. Assess the **convergence** of the model.
-   - What is the **overall maximum convergence ratio**?
-   - Is it below the recommended threshold (e.g., **0.25**, preferably **0.10**)?
-   - Based on the convergence ratios, would you consider the parameter estimates to be reliable? Explain your reasoning.
-   
-::: {.callout-tip}
-**Hint:** If the model has not converged, consider possible reasons why. For example:
+6. **Model convergence:** Assess the convergence of the model.
 
-   - Would running more estimation iterations improve convergence?
-   - Is the model too complex (e.g., too many effects)?
-   - Could some effects be removed or added one at a time to identify problematic specifications?
-   - Are there any unusually large parameter estimates that might indicate estimation problems?
-:::
-   
+   - What is the overall maximum convergence ratio?
 
-7. Does the fitted model adequately reproduce the **indegree distribution**? Explain your answer using the goodness-of-fit plot.
+   - Is it below the recommended threshold (preferably < 0.10, acceptable < 0.25)?
 
-8. Does the fitted model adequately reproduce the **distribution of smoking behavior**?
+   - Based on the convergence diagnostics, would you consider the parameter estimates reliable? Explain your reasoning.
 
-9. Overall, what do the goodness-of-fit diagnostics suggest about the adequacy of the fitted SAOM? Are there any aspects of the data that the model appears to reproduce poorly?
+   - If convergence is poor, what changes to the model or estimation procedure might improve it?
+
+7. **Goodness of fit (Network):** Does the fitted model adequately reproduce the **indegree distribution**? Use the goodness-of-fit plot to justify your answer.
+
+8. **Goodness of fit (Behavior):** Does the fitted model adequately reproduce the **distribution of smoking behavior**? What aspects of the observed distribution are well captured, and where does the model perform poorly?
+
+9. **Overall assessment:** Considering the parameter estimates, convergence diagnostics, and goodness-of-fit results, how well does the co-evolution SAOM explain the joint evolution of friendship ties and smoking behavior? What limitations of the model remain?
