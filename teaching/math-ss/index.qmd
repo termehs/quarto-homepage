@@ -11,3 +11,8 @@ margin-footer: licence.html
 
 
 ### Schedule
+
+|                    | slides | 
+|--------------------|------:|
+| **1**: Preliminaries |  [{{< fa display >}}](material/01-prel-ho.pdf)
+| **2**: Algebra Review, Modular Arithmetic, Boolean Algebra| [{{< fa display >}}](material/02-algebra-ho.pdf)

@@ -29,8 +29,8 @@ Can you think of a situation where it would be particularly problematic if our m
 Imagine we’re predicting house prices ($Y$) using square footage ($X$).\
 If we fit a *linear* model, it might do a decent job for mid-sized homes but fail at the extremes.
 
--   For **very small homes**, the model might **over-predict** price (since tiny houses often sell for disproportionately less).\
--   For **very large homes**, it might **under-predict** (since luxury properties tend to have higher prices per square foot).
+- For **very small homes**, the model might **over-predict** price (since tiny houses often sell for disproportionately less).\
+- For **very large homes**, it might **under-predict** (since luxury properties tend to have higher prices per square foot).
 
 This would be especially problematic if those extreme cases are *important* to decision-making, for example, a real estate investor estimating renovation costs or an appraiser evaluating high-end homes.\
 In such cases, a nonlinear model (like polynomial regression or a tree-based model) might capture those curved patterns better.
@@ -46,7 +46,7 @@ To build an effective model, we need to estimate these parameters in a way that 
 
 As the name implies, Least Squares aims to choose parameter values that *minimize* the sum of squared errors.
 
-$$ \text{SSE} = \sum_{i = 1}^n(y_i - \beta_0 - \beta_1*x_i)^2 $$
+$$ \text{RSS} = \sum_{i = 1}^n(y_i - \beta_0 - \beta_1*x_i)^2 $$
 
 the $\hat{y_i}$ represents our model's *predicted* value of $y_i$. For a simple linear regression with only 1 predictor, we get our prediction using the formula:
 
@@ -54,15 +54,15 @@ $$ \hat{y} = \beta_0 + \beta_1*x_i $$
 
 So let's plug that in for $\hat{y_i}$:
 
-$$ \text{SSE} = \sum_{i = 1}^n(y_i - \beta_0 - \beta_1*x_i)^2 $$
+$$ \text{RSS} = \sum_{i = 1}^n(y_i - \beta_0 - \beta_1*x_i)^2 $$
 
-Now all we need to do is set the *partial derivatives* of the $\text{SSE}$ to 0 and solve. The formula above has *two* parameters that we're interested in: $\beta_0$ and $\beta_1$, so we'll take the partial derivatives of $\text{SSE}$ with respect to each of them:
+Now all we need to do is set the *partial derivatives* of the $\text{RSS}$ to 0 and solve. The formula above has *two* parameters that we're interested in: $\beta_0$ and $\beta_1$, so we'll take the partial derivatives of $\text{RSS}$ with respect to each of them:
 
-$$\frac{\partial SSE}{\partial \beta_0} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-1)$$ $$\frac{\partial SSE}{\partial \beta_1} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-x_i)$$
+$$\frac{\partial RSS}{\partial \beta_0} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-1)$$ $$\frac{\partial RSS}{\partial \beta_1} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-x_i)$$
 
 and set them equal to 0.
 
-$$\frac{\partial SSE}{\partial \beta_0} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-1) = 0$$ $$\frac{\partial SSE}{\partial \beta_1} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-x_i) = 0$$
+$$\frac{\partial RSS}{\partial \beta_0} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-1) = 0$$ $$\frac{\partial }{\partial \beta_1} = \sum_{i = 1}^n 2(y_i - \beta_0 - \beta_1*x_i)(-x_i) = 0$$
 
 then we solve for $\beta_0$ and $\beta_1$ and we get:
 
@@ -72,7 +72,7 @@ and
 
 $$ \beta_1 = \frac{Cov(x,y)}{Var(x)} = Corr(x,y) * \frac{sd(x)}{sd(y)} $$
 
-These values for $\beta_0$ and $\beta_1$ are the ones that *minimize* our Sum of Squared Errors ($\text{SSE}$) and therefore give us a model that performs very well.
+These values for $\beta_0$ and $\beta_1$ are the ones that *minimize* our Sum of Squared Errors ($\text{}$) and therefore give us a model that performs very well.
 
 ### Maximum Likelihood Estimation
 
@@ -209,15 +209,15 @@ y_pred <- predict(model)
 head(cbind(y,y_pred))
 ```
 
-## Evaluate model perfromance
+## Evaluate model performance
 
 After fitting and predicting, we assess how well our model performs by comparing the predicted values (`y_pred`) to the actual outcomes (`y`).\
 We compute several common metrics:
 
--   **MSE (Mean Squared Error):** the average of squared prediction errors and penalizes large errors more heavily.\
--   **MAE (Mean Absolute Error):** the average of absolute prediction errors and gives an intuitive sense of the typical deviation.\
--   **MAPE (Mean Absolute Percentage Error):** expresses prediction errors as a percentage of actual values.\
--   **R² (R-squared):** the proportion of variance in the outcome explained by the model (higher is better).
+- **MSE (Mean Squared Error):** the average of squared prediction errors and penalizes large errors more heavily.\
+- **MAE (Mean Absolute Error):** the average of absolute prediction errors and gives an intuitive sense of the typical deviation.\
+- **MAPE (Mean Absolute Percentage Error):** expresses prediction errors as a percentage of actual values.\
+- **R² (R-squared):** the proportion of variance in the outcome explained by the model (higher is better).
 
 ```{r}
 #| label: eval-model
@@ -242,10 +242,10 @@ Discuss whether this model seems to fit the data well, and what potential issues
 
 These results suggest that the model performs quite well:
 
--   **MSE (10.61)** and **MAE (2.16)** indicate that, on average, predictions are only a few units away from the actual values.\
-    MSE penalizes larger errors more heavily, while MAE provides the average absolute deviation.
--   **MAPE (19.6%)** means predictions are, on average, about **20% off** from the true values, thus a reasonably good level of accuracy depending on context.
--   **R² = 0.92** indicates that **92% of the variation** in the outcome variable is explained by the predictors, thus a strong fit.
+- **MSE (10.61)** and **MAE (2.16)** indicate that, on average, predictions are only a few units away from the actual values.\
+  MSE penalizes larger errors more heavily, while MAE provides the average absolute deviation.
+- **MAPE (19.6%)** means predictions are, on average, about **20% off** from the true values, thus a reasonably good level of accuracy depending on context.
+- **R² = 0.92** indicates that **92% of the variation** in the outcome variable is explained by the predictors, thus a strong fit.
 
 Overall, this model explains most of the variability in the data and makes relatively accurate predictions.\
 However, we’d still want to check **residual plots** for patterns or bias (e.g., under- or over-prediction at certain ranges) to confirm the model’s assumptions hold true.
@@ -255,9 +255,9 @@ However, we’d still want to check **residual plots** for patterns or bias (e.g
 
 Remember there are 3 main assumptions$^*$ of Linear Regression:
 
--   Linearity
--   Homoskedasticity
--   Normality of Errors
+- Linearity
+- Homoskedasticity
+- Normality of Errors
 
 $^*$ There's also an assumption of *Independence*, aka that the value of one data point does not affect the value of another data point.
 
@@ -265,7 +265,7 @@ $^*$ There's also an assumption of *Independence*, aka that the value of one dat
 
 We assess linearity by either:
 
--   plotting one predictor at a time against the outcome, and see if there are any clear non-linear patterns.
+- plotting one predictor at a time against the outcome, and see if there are any clear non-linear patterns.
 
 We will use `ggplot` here and use a faceted plot:
 
@@ -380,23 +380,23 @@ ggplot(fitdata, aes(sample = errors)) +
 
 Overall, we can observe that:
 
--   **Linearity:**
+- **Linearity:**
 
-    -   From the individual predictor plots, *List Price* shows a clear linear relationship with *Amazon Price*, suggesting it fits well within a linear framework.
+  - From the individual predictor plots, *List Price* shows a clear linear relationship with *Amazon Price*, suggesting it fits well within a linear framework.
 
-    -   The other predictors (e.g., *Height*, *Width*, *Thick*, *Weight (oz)*, *NumPages*) show weak or nonlinear patterns, often clustering at common physical book sizes. This indicates that the linear model captures the trend in *List Price* effectively but may not fully represent the relationships of the other variables.
+  - The other predictors (e.g., *Height*, *Width*, *Thick*, *Weight (oz)*, *NumPages*) show weak or nonlinear patterns, often clustering at common physical book sizes. This indicates that the linear model captures the trend in *List Price* effectively but may not fully represent the relationships of the other variables.
 
-    -   `List Price` displays a strong and roughly linear relationship with Amazon Price. As the list price increases, the Amazon price tends to increase in a nearly proportional way.
+  - `List Price` displays a strong and roughly linear relationship with Amazon Price. As the list price increases, the Amazon price tends to increase in a nearly proportional way.
 
-    -   The remaining predictors: (`Height`, `Width`, `Thick`, `Weight (oz)`, and `NumPages`) show weak or nonlinear relationships. Many of these variables form visible clusters or plateaus, likely reflecting standard book formats or physical constraints (e.g., most books share similar dimensions).
+  - The remaining predictors: (`Height`, `Width`, `Thick`, `Weight (oz)`, and `NumPages`) show weak or nonlinear relationships. Many of these variables form visible clusters or plateaus, likely reflecting standard book formats or physical constraints (e.g., most books share similar dimensions).
 
-    -   These patterns suggest that while `List Price` is likely a strong predictor, the other features may require nonlinear transformations or may contribute less explanatory power in a linear model.
+  - These patterns suggest that while `List Price` is likely a strong predictor, the other features may require nonlinear transformations or may contribute less explanatory power in a linear model.
 
--   **Homoskedasticity (Constant Variance):**
+- **Homoskedasticity (Constant Variance):**
 
-    -   In several cases, there appears to be heteroskedasticity, where the variability in Amazon Price increases with the predictor (especially noticeable for `List Price` and `Weight (oz)`).
-    -   The residuals vs. predicted values plot shows that residuals are mostly centered around zero, but the spread is not perfectly uniform. There appears to be slightly greater variability at lower predicted values, which suggests **mild heteroskedasticity**.\
-        However, no severe funneling pattern is observed, so the assumption is only moderately violated.
+  - In several cases, there appears to be heteroskedasticity, where the variability in Amazon Price increases with the predictor (especially noticeable for `List Price` and `Weight (oz)`).
+  - The residuals vs. predicted values plot shows that residuals are mostly centered around zero, but the spread is not perfectly uniform. There appears to be slightly greater variability at lower predicted values, which suggests **mild heteroskedasticity**.\
+    However, no severe funneling pattern is observed, so the assumption is only moderately violated.
 
 In summary, the data indicate that a simple linear regression may fit well for `List Price`, but more complex relationships could exist for the other predictors.
 
@@ -425,10 +425,10 @@ coefficients_df
 
 The model’s coefficients show how each predictor relates to the `Amazon Price`, holding all other variables constant.
 
--   The `Intercept (12.59)` represents the predicted Amazon Price when all predictors are zero though not meaningful in practice, it serves as a baseline for the model.\
--   `List Price (11.42)` has by far the largest positive effect: for each additional unit increase in list price, the Amazon Price is predicted to increase by roughly `$11.42`, all else equal.\
--   `NumPages (0.23)` also shows a small positive relationship, suggesting that books with more pages tend to cost slightly more.\
--   The remaining variables, `Weight (oz)`, `Thick`, `Height`, and `Width`, have negative coefficients, indicating that when holding the other factors constant, increases in these dimensions are associated with slightly lower predicted prices. These effects are relatively small and may reflect overlapping information among the physical features of books.
+- The `Intercept (12.59)` represents the predicted Amazon Price when all predictors are zero though not meaningful in practice, it serves as a baseline for the model.\
+- `List Price (11.42)` has by far the largest positive effect: for each additional unit increase in list price, the Amazon Price is predicted to increase by roughly `$11.42`, all else equal.\
+- `NumPages (0.23)` also shows a small positive relationship, suggesting that books with more pages tend to cost slightly more.\
+- The remaining variables, `Weight (oz)`, `Thick`, `Height`, and `Width`, have negative coefficients, indicating that when holding the other factors constant, increases in these dimensions are associated with slightly lower predicted prices. These effects are relatively small and may reflect overlapping information among the physical features of books.
 
 Overall, the model suggests that `List Price` is the dominant predictor of `Amazon Price`, while the other physical attributes contribute modestly or redundantly to the price prediction.
 
@@ -455,8 +455,8 @@ This dataset contains song-level data scraped from Spotify’s API, and includes
 
 Think about what interests you most:
 
--   Do you want to predict how `danceable` a song is based on its acoustic and rhythmic qualities?
--   Or are you more curious about what makes a song sound `energetic`, `acoustic`, or `happy (valence)`?
+- Do you want to predict how `danceable` a song is based on its acoustic and rhythmic qualities?
+- Or are you more curious about what makes a song sound `energetic`, `acoustic`, or `happy (valence)`?
 
 Choose any continuous numeric variable as your response, then use the other features as predictors to build a linear regression model.\
 Your goal is to see whether the musical characteristics of Beyoncé’s songs can meaningfully explain or predict that chosen outcome.
@@ -527,10 +527,10 @@ $$
 
 We can run this simulation 100's of times.
 
--   `n` is the number of samples in each fake dataset
--   `trueCoef` is the true coefficient for cat length
--   `intercept` is the true intercept for the model
--   `error_sd` tells us how spread out the data is around the regression line
+- `n` is the number of samples in each fake dataset
+- `trueCoef` is the true coefficient for cat length
+- `intercept` is the true intercept for the model
+- `error_sd` tells us how spread out the data is around the regression line
 
 After generating the data, the function fits a linear regression model using `lm()` and returns both the estimated coefficients and the simulated data. This allows us to explore how well the model recovers the *true* coefficient values (`trueCoef` and `intercept`) as we vary the number of observations or the noise level.
 
@@ -539,8 +539,8 @@ Each run generates a new random dataset of cat lengths and weights, fits a linea
 
 We then combine the results into two data frames:
 
--   `coef_df` contains the estimated coefficients (`intercept` and `length`) from each simulation.
--   `data_df` contains all the simulated data points, labeled by which simulation they came from.
+- `coef_df` contains the estimated coefficients (`intercept` and `length`) from each simulation.
+- `data_df` contains all the simulated data points, labeled by which simulation they came from.
 
 By analyzing or visualizing `coef_df`, we can see how much the estimated slope and intercept vary across repeated samples, an empirical demonstration of sampling variability and the distribution of regression estimates.
 
@@ -644,17 +644,17 @@ In real-world analyses, a single regression result is just one possible estimate
 
 Here are some suggestions:
 
--   Change `n`, the number of data points in each sample, to be very small (say 10), how does this change the results you saw?
--   Change `n`, the number of data points in each sample, to be very large (say 1,000), how does this change the results you saw?
--   Change the `error_sd` term, this is a measure of how much error is in the model. Less error means that data is scattered tightly around the regression line, more error means that the data is scatters very loosely around the regression line. How does changing `error_sd` change the results you originally saw?
+- Change `n`, the number of data points in each sample, to be very small (say 10), how does this change the results you saw?
+- Change `n`, the number of data points in each sample, to be very large (say 1,000), how does this change the results you saw?
+- Change the `error_sd` term, this is a measure of how much error is in the model. Less error means that data is scattered tightly around the regression line, more error means that the data is scatters very loosely around the regression line. How does changing `error_sd` change the results you originally saw?
 
 ## Violations of Linearity
 
 Here, you’ll compare how linear regression performs on data that *does* and *does not* meet the assumption of linearity.
 
--   In the first code chunk (`#nonLinReg`), fit a linear regression model on data that is **nonlinear**, that is, data where the relationship between `x` and `y` bends or curves.
--   In the second code chunk (`#LinReg`), fit a model on **linear** data, that is data that satisfies the assumption of linearity.
--   For both models, create a residual plot showing the predicted values on the x-axis and the residuals (errors) on the y-axis.
+- In the first code chunk (`#nonLinReg`), fit a linear regression model on data that is **nonlinear**, that is, data where the relationship between `x` and `y` bends or curves.
+- In the second code chunk (`#LinReg`), fit a model on **linear** data, that is data that satisfies the assumption of linearity.
+- For both models, create a residual plot showing the predicted values on the x-axis and the residuals (errors) on the y-axis.
 
 ```{r}
 #| label: nonLinReg
@@ -700,8 +700,8 @@ x_z <- as.numeric(scale(X$x))
 
 ## Questions
 
--   How do the residual patterns differ between the linear and nonlinear datasets? What visual cues suggest that the linearity assumption is being violated?
+- How do the residual patterns differ between the linear and nonlinear datasets? What visual cues suggest that the linearity assumption is being violated?
 
--   What are some possible consequences of violating the assumption of linearity?
+- What are some possible consequences of violating the assumption of linearity?
 
--   If we used a linear regression model on the nonlinear data, are there specific ranges of `x` where the model would consistently over-predict or under-predict the outcome? How can you tell from the residual plot?
+- If we used a linear regression model on the nonlinear data, are there specific ranges of `x` where the model would consistently over-predict or under-predict the outcome? How can you tell from the residual plot?
